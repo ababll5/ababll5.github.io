@@ -72,7 +72,7 @@
 
 <h3 id="sb-cpp的写法"><a href="#sb-cpp的写法" class="headerlink" title="sb.cpp的写法"></a>sb.cpp的写法</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;sb.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sb</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> temp;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    a = temp;</span><br><span class="line">    a = b;</span><br><span class="line">    b = temp;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;交换后&quot;</span>&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;a = &quot;</span>&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;b = &quot;</span>&lt;&lt;b&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>如有错误请到我的邮箱<a href="mailto:&#x33;&#x36;&#x39;&#x34;&#x39;&#49;&#x38;&#53;&#x34;&#x40;&#113;&#113;&#46;&#x63;&#111;&#109;">&#x33;&#x36;&#x39;&#x34;&#x39;&#49;&#x38;&#53;&#x34;&#x40;&#113;&#113;&#46;&#x63;&#111;&#109;</a>上反馈</p>
+<p>如有错误请到我的邮箱<a href="mailto:&#51;&#54;&#x39;&#x34;&#x39;&#x31;&#56;&#53;&#52;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#51;&#54;&#x39;&#x34;&#x39;&#x31;&#56;&#53;&#52;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a>上反馈</p>
 ]]></content>
       <tags>
         <tag>cpp</tag>
@@ -294,7 +294,7 @@ int main(void)
 
 <h3 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">***************阶段性测试(必要)******************</span><br><span class="line">排序前</span><br><span class="line">姓名: 刘备</span><br><span class="line"> 年龄: <span class="number">23</span></span><br><span class="line"> 性别: 男</span><br><span class="line">姓名: 张飞</span><br><span class="line"> 年龄: <span class="number">20</span></span><br><span class="line"> 性别: 男</span><br><span class="line">姓名: 赵云</span><br><span class="line"> 年龄: <span class="number">21</span></span><br><span class="line"> 性别: 男</span><br><span class="line">姓名: 貂蝉</span><br><span class="line"> 年龄: <span class="number">19</span></span><br><span class="line"> 性别: 男</span><br><span class="line">姓名: 关羽</span><br><span class="line"> 年龄: <span class="number">22</span></span><br><span class="line"> 性别: 男</span><br><span class="line">**********************************************</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">排序后</span><br><span class="line">姓名: 貂蝉</span><br><span class="line"> 年龄: <span class="number">19</span></span><br><span class="line"> 性别: 男</span><br><span class="line">排序后</span><br><span class="line">姓名: 张飞</span><br><span class="line"> 年龄: <span class="number">20</span></span><br><span class="line"> 性别: 男</span><br><span class="line">排序后</span><br><span class="line">姓名: 赵云</span><br><span class="line"> 年龄: <span class="number">21</span></span><br><span class="line"> 性别: 男</span><br><span class="line">排序后</span><br><span class="line">姓名: 关羽</span><br><span class="line"> 年龄: <span class="number">22</span></span><br><span class="line"> 性别: 男</span><br><span class="line">排序后</span><br><span class="line">姓名: 刘备</span><br><span class="line"> 年龄: <span class="number">23</span></span><br><span class="line"> 性别: 男</span><br></pre></td></tr></table></figure>
 
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>我把我的所有cpp源码放进了<a href="https://github.com/ababll5/blog_cpp">我的github</a>里共大家学习参考<br>有问题请通过我的邮箱<a href="mailto:&#51;&#x36;&#57;&#52;&#57;&#x31;&#x38;&#x35;&#x34;&#64;&#x71;&#113;&#x2e;&#x63;&#111;&#109;">&#51;&#x36;&#57;&#52;&#57;&#x31;&#x38;&#x35;&#x34;&#64;&#x71;&#113;&#x2e;&#x63;&#111;&#109;</a>告诉我</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>我把我的所有cpp源码放进了<a href="https://github.com/ababll5/blog_cpp">我的github</a>里共大家学习参考<br>有问题请通过我的邮箱<a href="mailto:&#x33;&#54;&#x39;&#52;&#57;&#x31;&#56;&#x35;&#x34;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#109;">&#x33;&#54;&#x39;&#52;&#57;&#x31;&#56;&#x35;&#x34;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#109;</a>告诉我</p>
 ]]></content>
       <tags>
         <tag>cpp</tag>
@@ -353,7 +353,7 @@ int main(void)
     <title>入门:通讯录管理系统1</title>
     <url>/2024/06/25/%E5%85%A5%E9%97%A8-%E9%80%9A%E8%AE%AF%E5%BD%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F1/</url>
     <content><![CDATA[<h1 id="通讯录管理系统"><a href="#通讯录管理系统" class="headerlink" title="通讯录管理系统"></a>通讯录管理系统</h1><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我只要做完这个“通讯录管理系统”我的c++就入门了，我的源码也会放在<a href="https://github.com/ababll5/blog_cpp">我的github上</a></p>
-<p>点击即可跳转欢迎大家学习如果有错误欢迎到我的邮箱<a href="mailto:&#51;&#x36;&#x39;&#52;&#57;&#49;&#56;&#53;&#52;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#109;">&#51;&#x36;&#x39;&#52;&#57;&#49;&#56;&#53;&#52;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#109;</a>上反馈</p>
+<p>点击即可跳转欢迎大家学习如果有错误欢迎到我的邮箱<a href="mailto:&#51;&#x36;&#57;&#52;&#57;&#49;&#56;&#53;&#52;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#x6d;">&#51;&#x36;&#57;&#52;&#57;&#49;&#56;&#53;&#52;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#x6d;</a>上反馈</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><p>通讯录系统是一个可以记录亲人、好友性息的工具。</p>
 <p>本博客主要利用c++来实现一个通讯录管理系统</p>
 <p>系统中需要实现的功能如下: </p>
@@ -536,7 +536,7 @@ int main(void)
 
 
 <p>好了，到这里入门的通讯录管理系统已经完成了可以完结撒花了</p>
-<p>我的所有源码都放在了[我的GitHub](<a href="https://github.com/ababll5/blog_cpp">ababll5&#x2F;blog_cpp (github.com)</a>)上欢迎学习访问，如有误请到我的邮箱<a href="mailto:&#51;&#x36;&#x39;&#x34;&#x39;&#49;&#56;&#53;&#x34;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#51;&#x36;&#x39;&#x34;&#x39;&#49;&#56;&#53;&#x34;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;</a>上反馈也可以在下方评论区反馈记得留下你的邮箱与博客</p>
+<p>我的所有源码都放在了[我的GitHub](<a href="https://github.com/ababll5/blog_cpp">ababll5&#x2F;blog_cpp (github.com)</a>)上欢迎学习访问，如有误请到我的邮箱<a href="mailto:&#x33;&#x36;&#57;&#52;&#x39;&#x31;&#56;&#x35;&#x34;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#x33;&#x36;&#57;&#52;&#x39;&#x31;&#56;&#x35;&#x34;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a>上反馈也可以在下方评论区反馈记得留下你的邮箱与博客</p>
 ]]></content>
       <tags>
         <tag>cpp</tag>
