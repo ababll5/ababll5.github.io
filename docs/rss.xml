@@ -1,12 +1,2 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>新鲜哥的技术博客</title><link>http://www.ababll5.cn</link><description>一个初中生的技术博客</description><copyright>新鲜哥的技术博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/08/26/OHxIvr4wC89FgtB.jpg</url><title>avatar</title><link>http://www.ababll5.cn</link></image><lastBuildDate>Sat, 07 Sep 2024 14:00:00 +0000</lastBuildDate><managingEditor>新鲜哥的技术博客</managingEditor><ttl>60</ttl><webMaster>新鲜哥的技术博客</webMaster><item><title>about</title><link>http://www.ababll5.cn/post/about.html</link><description># 关于我&#13;
-一个未成年，一个初中生(出生)&#13;
-&#13;
-### 喜欢的游戏&#13;
-&#13;
-&gt; #### 原神 uid:256745503&#13;
-&#13;
-&#13;
-### 梦想&#13;
-&#13;
-长大后想成为一个程序员。</description><guid isPermaLink="true">http://www.ababll5.cn/post/about.html</guid><pubDate>Sat, 07 Sep 2024 13:56:29 +0000</pubDate></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>新鲜哥的技术博客</title><link>http://www.ababll5.cn</link><description>一个初中生的技术博客</description><copyright>新鲜哥的技术博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/08/26/OHxIvr4wC89FgtB.jpg</url><title>avatar</title><link>http://www.ababll5.cn</link></image><lastBuildDate>Sat, 07 Sep 2024 14:07:04 +0000</lastBuildDate><managingEditor>新鲜哥的技术博客</managingEditor><ttl>60</ttl><webMaster>新鲜哥的技术博客</webMaster></channel></rss>
