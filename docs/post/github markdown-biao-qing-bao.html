@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://s2.loli.net/2024/08/26/OHxIvr4wC89FgtB.jpg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="People
+
+| :bowtie: `:bowtie:` | :smile: `:smile:` | :laughing: `:laughing:` |
+|---|---|---|
+| :blush: `:blush:` | :smiley: `:smiley:` | :relaxed: `:relaxed:` |
+| :smirk: `:smirk:` | :heart_eyes: `:heart_eyes:` | :kissing_heart: `:kissing_heart:` |
+| :kissing_closed_eyes: `:kissing_closed_eyes:` | :flushed: `:flushed:` | :relieved: `:relieved:` |
+| :satisfied: `:satisfied:` | :grin: `:grin:` | :wink: `:wink:` |
+| :stuck_out_tongue_winking_eye: `:stuck_out_tongue_winking_eye:` | :stuck_out_tongue_closed_eyes: `:stuck_out_tongue_closed_eyes:` | :grinning: `:grinning:` |
+| :kissing: `:kissing:` | :kissing_smiling_eyes: `:kissing_smiling_eyes:` | :stuck_out_tongue: `:stuck_out_tongue:` |
+| :sleeping: `:sleeping:` | :worried: `:worried:` | :frowning: `:frowning:` |
+| :anguished: `:anguished:` | :open_mouth: `:open_mouth:` | :grimacing: `:grimacing:` |
+| :confused: `:confused:` | :hushed: `:hushed:` | :expressionless: `:expressionless:` |
+| :unamused: `:unamused:` | :sweat_smile: `:sweat_smile:` | :sweat: `:sweat:` |
+| :disappointed_relieved: `:disappointed_relieved:` | :weary: `:weary:` | :pensive: `:pensive:` |
+| :disappointed: `:disappointed:` | :confounded: `:confounded:` | :fearful: `:fearful:` |
+| :cold_sweat: `:cold_sweat:` | :persevere: `:persevere:` | :cry: `:cry:` |
+| :sob: `:sob:` | :joy: `:joy:` | :astonished: `:astonished:` |
+| :scream: `:scream:` | :neckbeard: `:neckbeard:` | :tired_face: `:tired_face:` |
+| :angry: `:angry:` | :rage: `:rage:` | :triumph: `:triumph:` |
+| :sleepy: `:sleepy:` | :yum: `:yum:` | :mask: `:mask:` |
+| :sunglasses: `:sunglasses:` | :dizzy_face: `:dizzy_face:` | :imp: `:imp:` |
+| :smiling_imp: `:smiling_imp:` | :neutral_face: `:neutral_face:` | :no_mouth: `:no_mouth:` |
+| :innocent: `:innocent:` | :alien: `:alien:` | :yellow_heart: `:yellow_heart:` |
+| :blue_heart: `:blue_heart:` | :purple_heart: `:purple_heart:` | :heart: `:heart:` |
+| :green_heart: `:green_heart:` | :broken_heart: `:broken_heart:` | :heartbeat: `:heartbeat:` |
+| :heartpulse: `:heartpulse:` | :two_hearts: `:two_hearts:` | :revolving_hearts: `:revolving_hearts:` |
+| :cupid: `:cupid:` | :sparkling_heart: `:sparkling_heart:` | :sparkles: `:sparkles:` |
+| :star: `:star:` | :star2: `:star2:` | :dizzy: `:dizzy:` |
+| :boom: `:boom:` | :collision: `:collision:` | :anger: `:anger:` |
+| :exclamation: `:exclamation:` | :question: `:question:` | :grey_exclamation: `:grey_exclamation:` |
+| :grey_question: `:grey_question:` | :zzz: `:zzz:` | :dash: `:dash:` |
+| :sweat_drops: `:sweat_drops:` | :notes: `:notes:` | :musical_note: `:musical_note:` |
+| :fire: `:fire:` | :hankey: `:hankey:` | :poop: `:poop:` |
+| :shit: `:shit:` | :+1: `:+1:` | :thumbsup: `:thumbsup:` |
+| :-1: `:-1:` | :thumbsdown: `:thumbsdown:` | :ok_hand: `:ok_hand:` |
+| :punch: `:punch:` | :facepunch: `:facepunch:` | :fist: `:fist:` |
+| :v: `:v:` | :wave: `:wave:` | :hand: `:hand:` |
+| :raised_hand: `:raised_hand:` | :open_hands: `:open_hands:` | :point_up: `:point_up:` |
+| :point_down: `:point_down:` | :point_left: `:point_left:` | :point_right: `:point_right:` |
+| :raised_hands: `:raised_hands:` | :pray: `:pray:` | :point_up_2: `:point_up_2:` |
+| :clap: `:clap:` | :muscle: `:muscle:` | :metal: `:metal:` |
+| :fu: `:fu:` | :walking: `:walking:` | :runner: `:runner:` |
+| :running: `:running:` | :couple: `:couple:` | :family: `:family:` |
+| :two_men_holding_hands: `:two_men_holding_hands:` | :two_women_holding_hands: `:two_women_holding_hands:` | :dancer: `:dancer:` |
+| :dancers: `:dancers:` | :ok_woman: `:ok_woman:` | :no_good: `:no_good:` |
+| :information_desk_person: `:information_desk_person:` | :raising_hand: `:raising_hand:` | :bride_with_veil: `:bride_with_veil:` |
+| :person_with_pouting_face: `:person_with_pouting_face:` | :person_frowning: `:person_frowning:` | :bow: `:bow:` |
+| :couplekiss: `:couplekiss:` | :couple_with_heart: `:couple_with_heart:` | :massage: `:massage:` |
+| :haircut: `:haircut:` | :nail_care: `:nail_care:` | :boy: `:boy:` |
+| :girl: `:girl:` | :woman: `:woman:` | :man: `:man:` |
+| :baby: `:baby:` | :older_woman: `:older_woman:` | :older_man: `:older_man:` |
+| :person_with_blond_hair: `:person_with_blond_hair:` | :man_with_gua_pi_mao: `:man_with_gua_pi_mao:` | :man_with_turban: `:man_with_turban:` |
+| :construction_worker: `:construction_worker:` | :cop: `:cop:` | :angel: `:angel:` |
+| :princess: `:princess:` | :smiley_cat: `:smiley_cat:` | :smile_cat: `:smile_cat:` |
+| :heart_eyes_cat: `:heart_eyes_cat:` | :kissing_cat: `:kissing_cat:` | :smirk_cat: `:smirk_cat:` |
+| :scream_cat: `:scream_cat:` | :crying_cat_face: `:crying_cat_face:` | :joy_cat: `:joy_cat:` |
+| :pouting_cat: `:pouting_cat:` | :japanese_ogre: `:japanese_ogre:` | :japanese_goblin: `:japanese_goblin:` |
+| :see_no_evil: `:see_no_evil:` | :hear_no_evil: `:hear_no_evil:` | :speak_no_evil: `:speak_no_evil:` |
+| :guardsman: `:guardsman:` | :skull: `:skull:` | :feet: `:feet:` |
+| :lips: `:lips:` | :kiss: `:kiss:` | :droplet: `:droplet:` |
+| :ear: `:ear:` | :eyes: `:eyes:` | :nose: `:nose:` |
+| :tongue: `:tongue:` | :love_letter: `:love_letter:` | :bust_in_silhouette: `:bust_in_silhouette:` |
+| :busts_in_silhouette: `:busts_in_silhouette:` | :speech_balloon: `:speech_balloon:` | :thought_balloon: `:thought_balloon:` |
+| :feelsgood: `:feelsgood:` | :finnadie: `:finnadie:` | :goberserk: `:goberserk:` |
+| :godmode: `:godmode:` | :hurtrealbad: `:hurtrealbad:` | :rage1: `:rage1:` |
+| :rage2: `:rage2:` | :rage3: `:rage3:` | :rage4: `:rage4:` |
+| :suspect: `:suspect:` | :trollface: `:trollface:` |
+
+Nature
+
+| :sunny: `:sunny:` | :umbrella: `:umbrella:` | :cloud: `:cloud:` |
+|---|---|---|
+| :snowflake: `:snowflake:` | :snowman: `:snowman:` | :zap: `:zap:` |
+| :cyclone: `:cyclone:` | :foggy: `:foggy:` | :ocean: `:ocean:` |
+| :cat: `:cat:` | :dog: `:dog:` | :mouse: `:mouse:` |
+| :hamster: `:hamster:` | :rabbit: `:rabbit:` | :wolf: `:wolf:` |
+| :frog: `:frog:` | :tiger: `:tiger:` | :koala: `:koala:` |
+| :bear: `:bear:` | :pig: `:pig:` | :pig_nose: `:pig_nose:` |
+| :cow: `:cow:` | :boar: `:boar:` | :monkey_face: `:monkey_face:` |
+| :monkey: `:monkey:` | :horse: `:horse:` | :racehorse: `:racehorse:` |
+| :camel: `:camel:` | :sheep: `:sheep:` | :elephant: `:elephant:` |
+| :panda_face: `:panda_face:` | :snake: `:snake:` | :bird: `:bird:` |
+| :baby_chick: `:baby_chick:` | :hatched_chick: `:hatched_chick:` | :hatching_chick: `:hatching_chick:` |
+| :chicken: `:chicken:` | :penguin: `:penguin:` | :turtle: `:turtle:` |
+| :bug: `:bug:` | :honeybee: `:honeybee:` | :ant: `:ant:` |
+| :beetle: `:beetle:` | :snail: `:snail:` | :octopus: `:octopus:` |
+| :tropical_fish: `:tropical_fish:` | :fish: `:fish:` | :whale: `:whale:` |
+| :whale2: `:whale2:` | :dolphin: `:dolphin:` | :cow2: `:cow2:` |
+| :ram: `:ram:` | :rat: `:rat:` | :water_buffalo: `:water_buffalo:` |
+| :tiger2: `:tiger2:` | :rabbit2: `:rabbit2:` | :dragon: `:dragon:` |
+| :goat: `:goat:` | :rooster: `:rooster:` | :dog2: `:dog2:` |
+| :pig2: `:pig2:` | :mouse2: `:mouse2:` | :ox: `:ox:` |
+| :dragon_face: `:dragon_face:` | :blowfish: `:blowfish:` | :crocodile: `:crocodile:` |
+| :dromedary_camel: `:dromedary_camel:` | :leopard: `:leopard:` | :cat2: `:cat2:` |
+| :poodle: `:poodle:` | :paw_prints: `:paw_prints:` | :bouquet: `:bouquet:` |
+| :cherry_blossom: `:cherry_blossom:` | :tulip: `:tulip:` | :four_leaf_clover: `:four_leaf_clover:` |
+| :rose: `:rose:` | :sunflower: `:sunflower:` | :hibiscus: `:hibiscus:` |
+| :maple_leaf: `:maple_leaf:` | :leaves: `:leaves:` | :fallen_leaf: `:fallen_leaf:` |
+| :herb: `:herb:` | :mushroom: `:mushroom:` | :cactus: `:cactus:` |
+| :palm_tree: `:palm_tree:` | :evergreen_tree: `:evergreen_tree:` | :deciduous_tree: `:deciduous_tree:` |
+| :chestnut: `:chestnut:` | :seedling: `:seedling:` | :blossom: `:blossom:` |
+| :ear_of_rice: `:ear_of_rice:` | :shell: `:shell:` | :globe_with_meridians: `:globe_with_meridians:` |
+| :sun_with_face: `:sun_with_face:` | :full_moon_with_face: `:full_moon_with_face:` | :new_moon_with_face: `:new_moon_with_face:` |
+| :new_moon: `:new_moon:` | :waxing_crescent_moon: `:waxing_crescent_moon:` | :first_quarter_moon: `:first_quarter_moon:` |
+| :waxing_gibbous_moon: `:waxing_gibbous_moon:` | :full_moon: `:full_moon:` | :waning_gibbous_moon: `:waning_gibbous_moon:` |
+| :last_quarter_moon: `:last_quarter_moon:` | :waning_crescent_moon: `:waning_crescent_moon:` | :last_quarter_moon_with_face: `:last_quarter_moon_with_face:` |
+| :first_quarter_moon_with_face: `:first_quarter_moon_with_face:` | :moon: `:moon:` | :earth_africa: `:earth_africa:` |
+| :earth_americas: `:earth_americas:` | :earth_asia: `:earth_asia:` | :volcano: `:volcano:` |
+| :milky_way: `:milky_way:` | :partly_sunny: `:partly_sunny:` | :octocat: `:octocat:` |
+| :squirrel: `:squirrel:` |
+
+Objects
+
+| :bamboo: `:bamboo:` | :gift_heart: `:gift_heart:` | :dolls: `:dolls:` |
+|---|---|---|
+| :school_satchel: `:school_satchel:` | :mortar_board: `:mortar_board:` | :flags: `:flags:` |
+| :fireworks: `:fireworks:` | :sparkler: `:sparkler:` | :wind_chime: `:wind_chime:` |
+| :rice_scene: `:rice_scene:` | :jack_o_lantern: `:jack_o_lantern:` | :ghost: `:ghost:` |
+| :santa: `:santa:` | :christmas_tree: `:christmas_tree:` | :gift: `:gift:` |
+| :bell: `:bell:` | :no_bell: `:no_bell:` | :tanabata_tree: `:tanabata_tree:` |
+| :tada: `:tada:` | :confetti_ball: `:confetti_ball:` | :balloon: `:balloon:` |
+| :crystal_ball: `:crystal_ball:` | :cd: `:cd:` | :dvd: `:dvd:` |
+| :floppy_disk: `:floppy_disk:` | :camera: `:camera:` | :video_camera: `:video_camera:` |
+| :movie_camera: `:movie_camera:` | :computer: `:computer:` | :tv: `:tv:` |
+| :iphone: `:iphone:` | :phone: `:phone:` | :telephone: `:telephone:` |
+| :telephone_receiver: `:telephone_receiver:` | :pager: `:pager:` | :fax: `:fax:` |
+| :minidisc: `:minidisc:` | :vhs: `:vhs:` | :sound: `:sound:` |
+| :speaker: `:speaker:` | :mute: `:mute:` | :loudspeaker: `:loudspeaker:` |
+| :mega: `:mega:` | :hourglass: `:hourglass:` | :hourglass_flowing_sand: `:hourglass_flowing_sand:` |
+| :alarm_clock: `:alarm_clock:` | :watch: `:watch:` | :radio: `:radio:` |
+| :satellite: `:satellite:` | :loop: `:loop:` | :mag: `:mag:` |
+| :mag_right: `:mag_right:` | :unlock: `:unlock:` | :lock: `:lock:` |
+| :lock_with_ink_pen: `:lock_with_ink_pen:` | :closed_lock_with_key: `:closed_lock_with_key:` | :key: `:key:` |
+| :bulb: `:bulb:` | :flashlight: `:flashlight:` | :high_brightness: `:high_brightness:` |
+| :low_brightness: `:low_brightness:` | :electric_plug: `:electric_plug:` | :battery: `:battery:` |
+| :calling: `:calling:` | :email: `:email:` | :mailbox: `:mailbox:` |
+| :postbox: `:postbox:` | :bath: `:bath:` | :bathtub: `:bathtub:` |
+| :shower: `:shower:` | :toilet: `:toilet:` | :wrench: `:wrench:` |
+| :nut_and_bolt: `:nut_and_bolt:` | :hammer: `:hammer:` | :seat: `:seat:` |
+| :moneybag: `:moneybag:` | :yen: `:yen:` | :dollar: `:dollar:` |
+| :pound: `:pound:` | :euro: `:euro:` | :credit_card: `:credit_card:` |
+| :money_with_wings: `:money_with_wings:` | :e-mail: `:e-mail:` | :inbox_tray: `:inbox_tray:` |
+| :outbox_tray: `:outbox_tray:` | :envelope: `:envelope:` | :incoming_envelope: `:incoming_envelope:` |
+| :postal_horn: `:postal_horn:` | :mailbox_closed: `:mailbox_closed:` | :mailbox_with_mail: `:mailbox_with_mail:` |
+| :mailbox_with_no_mail: `:mailbox_with_no_mail:` | :door: `:door:` | :smoking: `:smoking:` |
+| :bomb: `:bomb:` | :gun: `:gun:` | :hocho: `:hocho:` |
+| :pill: `:pill:` | :syringe: `:syringe:` | :page_facing_up: `:page_facing_up:` |
+| :page_with_curl: `:page_with_curl:` | :bookmark_tabs: `:bookmark_tabs:` | :bar_chart: `:bar_chart:` |
+| :chart_with_upwards_trend: `:chart_with_upwards_trend:` | :chart_with_downwards_trend: `:chart_with_downwards_trend:` | :scroll: `:scroll:` |
+| :clipboard: `:clipboard:` | :calendar: `:calendar:` | :date: `:date:` |
+| :card_index: `:card_index:` | :file_folder: `:file_folder:` | :open_file_folder: `:open_file_folder:` |
+| :scissors: `:scissors:` | :pushpin: `:pushpin:` | :paperclip: `:paperclip:` |
+| :black_nib: `:black_nib:` | :pencil2: `:pencil2:` | :straight_ruler: `:straight_ruler:` |
+| :triangular_ruler: `:triangular_ruler:` | :closed_book: `:closed_book:` | :green_book: `:green_book:` |
+| :blue_book: `:blue_book:` | :orange_book: `:orange_book:` | :notebook: `:notebook:` |
+| :notebook_with_decorative_cover: `:notebook_with_decorative_cover:` | :ledger: `:ledger:` | :books: `:books:` |
+| :bookmark: `:bookmark:` | :name_badge: `:name_badge:` | :microscope: `:microscope:` |
+| :telescope: `:telescope:` | :newspaper: `:newspaper:` | :football: `:football:` |
+| :basketball: `:basketball:` | :soccer: `:soccer:` | :baseball: `:baseball:` |
+| :tennis: `:tennis:` | :8ball: `:8ball:` | :rugby_football: `:rugby_football:` |
+| :bowling: `:bowling:` | :golf: `:golf:` | :mountain_bicyclist: `:mountain_bicyclist:` |
+| :bicyclist: `:bicyclist:` | :horse_racing: `:horse_racing:` | :snowboarder: `:snowboarder:` |
+| :swimmer: `:swimmer:` | :surfer: `:surfer:` | :ski: `:ski:` |
+| :spades: `:spades:` | :hearts: `:hearts:` | :clubs: `:clubs:` |
+| :diamonds: `:diamonds:` | :gem: `:gem:` | :ring: `:ring:` |
+| :trophy: `:trophy:` | :musical_score: `:musical_score:` | :musical_keyboard: `:musical_keyboard:` |
+| :violin: `:violin:` | :space_invader: `:space_invader:` | :video_game: `:video_game:` |
+| :black_joker: `:black_joker:` | :flower_playing_cards: `:flower_playing_cards:` | :game_die: `:game_die:` |
+| :dart: `:dart:` | :mahjong: `:mahjong:` | :clapper: `:clapper:` |
+| :memo: `:memo:` | :pencil: `:pencil:` | :book: `:book:` |
+| :art: `:art:` | :microphone: `:microphone:` | :headphones: `:headphones:` |
+| :trumpet: `:trumpet:` | :saxophone: `:saxophone:` | :guitar: `:guitar:` |
+| :shoe: `:shoe:` | :sandal: `:sandal:` | :high_heel: `:high_heel:` |
+| :lipstick: `:lipstick:` | :boot: `:boot:` | :shirt: `:shirt:` |
+| :tshirt: `:tshirt:` | :necktie: `:necktie:` | :womans_clothes: `:womans_clothes:` |
+| :dress: `:dress:` | :running_shirt_with_sash: `:running_shirt_with_sash:` | :jeans: `:jeans:` |
+| :kimono: `:kimono:` | :bikini: `:bikini:` | :ribbon: `:ribbon:` |
+| :tophat: `:tophat:` | :crown: `:crown:` | :womans_hat: `:womans_hat:` |
+| :mans_shoe: `:mans_shoe:` | :closed_umbrella: `:closed_umbrella:` | :briefcase: `:briefcase:` |
+| :handbag: `:handbag:` | :pouch: `:pouch:` | :purse: `:purse:` |
+| :eyeglasses: `:eyeglasses:` | :fishing_pole_and_fish: `:fishing_pole_and_fish:` | :coffee: `:coffee:` |
+| :tea: `:tea:` | :sake: `:sake:` | :baby_bottle: `:baby_bottle:` |
+| :beer: `:beer:` | :beers: `:beers:` | :cocktail: `:cocktail:` |
+| :tropical_drink: `:tropical_drink:` | :wine_glass: `:wine_glass:` | :fork_and_knife: `:fork_and_knife:` |
+| :pizza: `:pizza:` | :hamburger: `:hamburger:` | :fries: `:fries:` |
+| :poultry_leg: `:poultry_leg:` | :meat_on_bone: `:meat_on_bone:` | :spaghetti: `:spaghetti:` |
+| :curry: `:curry:` | :fried_shrimp: `:fried_shrimp:` | :bento: `:bento:` |
+| :sushi: `:sushi:` | :fish_cake: `:fish_cake:` | :rice_ball: `:rice_ball:` |
+| :rice_cracker: `:rice_cracker:` | :rice: `:rice:` | :ramen: `:ramen:` |
+| :stew: `:stew:` | :oden: `:oden:` | :dango: `:dango:` |
+| :egg: `:egg:` | :bread: `:bread:` | :doughnut: `:doughnut:` |
+| :custard: `:custard:` | :icecream: `:icecream:` | :ice_cream: `:ice_cream:` |
+| :shaved_ice: `:shaved_ice:` | :birthday: `:birthday:` | :cake: `:cake:` |
+| :cookie: `:cookie:` | :chocolate_bar: `:chocolate_bar:` | :candy: `:candy:` |
+| :lollipop: `:lollipop:` | :honey_pot: `:honey_pot:` | :apple: `:apple:` |
+| :green_apple: `:green_apple:` | :tangerine: `:tangerine:` | :lemon: `:lemon:` |
+| :cherries: `:cherries:` | :grapes: `:grapes:` | :watermelon: `:watermelon:` |
+| :strawberry: `:strawberry:` | :peach: `:peach:` | :melon: `:melon:` |
+| :banana: `:banana:` | :pear: `:pear:` | :pineapple: `:pineapple:` |
+| :sweet_potato: `:sweet_potato:` | :eggplant: `:eggplant:` | :tomato: `:tomato:` |
+| :corn: `:corn:` |
+
+Places
+
+| :house: `:house:` | :house_with_garden: `:house_with_garden:` | :school: `:school:` |
+|---|---|---|
+| :office: `:office:` | :post_office: `:post_office:` | :hospital: `:hospital:` |
+| :bank: `:bank:` | :convenience_store: `:convenience_store:` | :love_hotel: `:love_hotel:` |
+| :hotel: `:hotel:` | :wedding: `:wedding:` | :church: `:church:` |
+| :department_store: `:department_store:` | :european_post_office: `:european_post_office:` | :city_sunrise: `:city_sunrise:` |
+| :city_sunset: `:city_sunset:` | :japanese_castle: `:japanese_castle:` | :european_castle: `:european_castle:` |
+| :tent: `:tent:` | :factory: `:factory:` | :tokyo_tower: `:tokyo_tower:` |
+| :japan: `:japan:` | :mount_fuji: `:mount_fuji:` | :sunrise_over_mountains: `:sunrise_over_mountains:` |
+| :sunrise: `:sunrise:` | :stars: `:stars:` | :statue_of_liberty: `:statue_of_liberty:` |
+| :bridge_at_night: `:bridge_at_night:` | :carousel_horse: `:carousel_horse:` | :rainbow: `:rainbow:` |
+| :ferris_wheel: `:ferris_wheel:` | :fountain: `:fountain:` | :roller_coaster: `:roller_coaster:` |
+| :ship: `:ship:` | :speedboat: `:speedboat:` | :boat: `:boat:` |
+| :sailboat: `:sailboat:` | :rowboat: `:rowboat:` | :anchor: `:anchor:` |
+| :rocket: `:rocket:` | :airplane: `:airplane:` | :helicopter: `:helicopter:` |
+| :steam_locomotive: `:steam_locomotive:` | :tram: `:tram:` | :mountain_railway: `:mountain_railway:` |
+| :bike: `:bike:` | :aerial_tramway: `:aerial_tramway:` | :suspension_railway: `:suspension_railway:` |
+| :mountain_cableway: `:mountain_cableway:` | :tractor: `:tractor:` | :blue_car: `:blue_car:` |
+| :oncoming_automobile: `:oncoming_automobile:` | :car: `:car:` | :red_car: `:red_car:` |
+| :taxi: `:taxi:` | :oncoming_taxi: `:oncoming_taxi:` | :articulated_lorry: `:articulated_lorry:` |
+| :bus: `:bus:` | :oncoming_bus: `:oncoming_bus:` | :rotating_light: `:rotating_light:` |
+| :police_car: `:police_car:` | :oncoming_police_car: `:oncoming_police_car:` | :fire_engine: `:fire_engine:` |
+| :ambulance: `:ambulance:` | :minibus: `:minibus:` | :truck: `:truck:` |
+| :train: `:train:` | :station: `:station:` | :train2: `:train2:` |
+| :bullettrain_front: `:bullettrain_front:` | :bullettrain_side: `:bullettrain_side:` | :light_rail: `:light_rail:` |
+| :monorail: `:monorail:` | :railway_car: `:railway_car:` | :trolleybus: `:trolleybus:` |
+| :ticket: `:ticket:` | :fuelpump: `:fuelpump:` | :vertical_traffic_light: `:vertical_traffic_light:` |
+| :traffic_light: `:traffic_light:` | :warning: `:warning:` | :construction: `:construction:` |
+| :beginner: `:beginner:` | :atm: `:atm:` | :slot_machine: `:slot_machine:` |
+| :busstop: `:busstop:` | :barber: `:barber:` | :hotsprings: `:hotsprings:` |
+| :checkered_flag: `:checkered_flag:` | :crossed_flags: `:crossed_flags:` | :izakaya_lantern: `:izakaya_lantern:` |
+| :moyai: `:moyai:` | :circus_tent: `:circus_tent:` | :performing_arts: `:performing_arts:` |
+| :round_pushpin: `:round_pushpin:` | :triangular_flag_on_post: `:triangular_flag_on_post:` | :jp: `:jp:` |
+| :kr: `:kr:` | :cn: `:cn:` | :us: `:us:` |
+| :fr: `:fr:` | :es: `:es:` | :it: `:it:` |
+| :ru: `:ru:` | :gb: `:gb:` | :uk: `:uk:` |
+| :de: `:de:` |
+
+Symbols
+
+| :one: `:one:` | :two: `:two:` | :three: `:three:` |
+|---|---|---|
+| :four: `:four:` | :five: `:five:` | :six: `:six:` |
+| :seven: `:seven:` | :eight: `:eight:` | :nine: `:nine:` |
+| :keycap_ten: `:keycap_ten:` | :1234: `:1234:` | :zero: `:zero:` |
+| :hash: `:hash:` | :symbols: `:symbols:` | :arrow_backward: `:arrow_backward:` |
+| :arrow_down: `:arrow_down:` | :arrow_forward: `:arrow_forward:` | :arrow_left: `:arrow_left:` |
+| :capital_abcd: `:capital_abcd:` | :abcd: `:abcd:` | :abc: `:abc:` |
+| :arrow_lower_left: `:arrow_lower_left:` | :arrow_lower_right: `:arrow_lower_right:` | :arrow_right: `:arrow_right:` |
+| :arrow_up: `:arrow_up:` | :arrow_upper_left: `:arrow_upper_left:` | :arrow_upper_right: `:arrow_upper_right:` |
+| :arrow_double_down: `:arrow_double_down:` | :arrow_double_up: `:arrow_double_up:` | :arrow_down_small: `:arrow_down_small:` |
+| :arrow_heading_down: `:arrow_heading_down:` | :arrow_heading_up: `:arrow_heading_up:` | :leftwards_arrow_with_hook: `:leftwards_arrow_with_hook:` |
+| :arrow_right_hook: `:arrow_right_hook:` | :left_right_arrow: `:left_right_arrow:` | :arrow_up_down: `:arrow_up_down:` |
+| :arrow_up_small: `:arrow_up_small:` | :arrows_clockwise: `:arrows_clockwise:` | :arrows_counterclockwise: `:arrows_counterclockwise:` |
+| :rewind: `:rewind:` | :fast_forward: `:fast_forward:` | :information_source: `:information_source:` |
+| :ok: `:ok:` | :twisted_rightwards_arrows: `:twisted_rightwards_arrows:` | :repeat: `:repeat:` |
+| :repeat_one: `:repeat_one:` | :new: `:new:` | :top: `:top:` |
+| :up: `:up:` | :cool: `:cool:` | :free: `:free:` |
+| :ng: `:ng:` | :cinema: `:cinema:` | :koko: `:koko:` |
+| :signal_strength: `:signal_strength:` | :u5272: `:u5272:` | :u5408: `:u5408:` |
+| :u55b6: `:u55b6:` | :u6307: `:u6307:` | :u6708: `:u6708:` |
+| :u6709: `:u6709:` | :u6e80: `:u6e80:` | :u7121: `:u7121:` |
+| :u7533: `:u7533:` | :u7a7a: `:u7a7a:` | :u7981: `:u7981:` |
+| :sa: `:sa:` | :restroom: `:restroom:` | :mens: `:mens:` |
+| :womens: `:womens:` | :baby_symbol: `:baby_symbol:` | :no_smoking: `:no_smoking:` |
+| :parking: `:parking:` | :wheelchair: `:wheelchair:` | :metro: `:metro:` |
+| :baggage_claim: `:baggage_claim:` | :accept: `:accept:` | :wc: `:wc:` |
+| :potable_water: `:potable_water:` | :put_litter_in_its_place: `:put_litter_in_its_place:` | :secret: `:secret:` |
+| :congratulations: `:congratulations:` | :m: `:m:` | :passport_control: `:passport_control:` |
+| :left_luggage: `:left_luggage:` | :customs: `:customs:` | :ideograph_advantage: `:ideograph_advantage:` |
+| :cl: `:cl:` | :sos: `:sos:` | :id: `:id:` |
+| :no_entry_sign: `:no_entry_sign:` | :underage: `:underage:` | :no_mobile_phones: `:no_mobile_phones:` |
+| :do_not_litter: `:do_not_litter:` | :non-potable_water: `:non-potable_water:` | :no_bicycles: `:no_bicycles:` |
+| :no_pedestrians: `:no_pedestrians:` | :children_crossing: `:children_crossing:` | :no_entry: `:no_entry:` |
+| :eight_spoked_asterisk: `:eight_spoked_asterisk:` | :eight_pointed_black_star: `:eight_pointed_black_star:` | :heart_decoration: `:heart_decoration:` |
+| :vs: `:vs:` | :vibration_mode: `:vibration_mode:` | :mobile_phone_off: `:mobile_phone_off:` |
+| :chart: `:chart:` | :currency_exchange: `:currency_exchange:` | :aries: `:aries:` |
+| :taurus: `:taurus:` | :gemini: `:gemini:` | :cancer: `:cancer:` |
+| :leo: `:leo:` | :virgo: `:virgo:` | :libra: `:libra:` |
+| :scorpius: `:scorpius:` | :sagittarius: `:sagittarius:` | :capricorn: `:capricorn:` |
+| :aquarius: `:aquarius:` | :pisces: `:pisces:` | :ophiuchus: `:ophiuchus:` |
+| :six_pointed_star: `:six_pointed_star:` | :negative_squared_cross_mark: `:negative_squared_cross_mark:` | :a: `:a:` |
+| :b: `:b:` | :ab: `:ab:` | :o2: `:o2:` |
+| :diamond_shape_with_a_dot_inside: `:diamond_shape_with_a_dot_inside:` | :recycle: `:recycle:` | :end: `:end:` |
+| :on: `:on:` | :soon: `:soon:` | :clock1: `:clock1:` |
+| :clock130: `:clock130:` | :clock10: `:clock10:` | :clock1030: `:clock1030:` |
+| :clock11: `:clock11:` | :clock1130: `:clock1130:` | :clock12: `:clock12:` |
+| :clock1230: `:clock1230:` | :clock2: `:clock2:` | :clock230: `:clock230:` |
+| :clock3: `:clock3:` | :clock330: `:clock330:` | :clock4: `:clock4:` |
+| :clock430: `:clock430:` | :clock5: `:clock5:` | :clock530: `:clock530:` |
+| :clock6: `:clock6:` | :clock630: `:clock630:` | :clock7: `:clock7:` |
+| :clock730: `:clock730:` | :clock8: `:clock8:` | :clock830: `:clock830:` |
+| :clock9: `:clock9:` | :clock930: `:clock930:` | :heavy_dollar_sign: `:heavy_dollar_sign:` |
+| :copyright: `:copyright:` | :registered: `:registered:` | :tm: `:tm:` |
+| :x: `:x:` | :heavy_exclamation_mark: `:heavy_exclamation_mark:` | :bangbang: `:bangbang:` |
+| :interrobang: `:interrobang:` | :o: `:o:` | :heavy_multiplication_x: `:heavy_multiplication_x:` |
+| :heavy_plus_sign: `:heavy_plus_sign:` | :heavy_minus_sign: `:heavy_minus_sign:` | :heavy_division_sign: `:heavy_division_sign:` |
+| :white_flower: `:white_flower:` | :100: `:100:` | :heavy_check_mark: `:heavy_check_mark:` |
+| :ballot_box_with_check: `:ballot_box_with_check:` | :radio_button: `:radio_button:` | :link: `:link:` |
+| :curly_loop: `:curly_loop:` | :wavy_dash: `:wavy_dash:` | :part_alternation_mark: `:part_alternation_mark:` |
+| :trident: `:trident:` | :black_square: `:black_square:` | :white_square: `:white_square:` |
+| :white_check_mark: `:white_check_mark:` | :black_square_button: `:black_square_button:` | :white_square_button: `:white_square_button:` |
+| :black_circle: `:black_circle:` | :white_circle: `:white_circle:` | :red_circle: `:red_circle:` |
+| :large_blue_circle: `:large_blue_circle:` | :large_blue_diamond: `:large_blue_diamond:` | :large_orange_diamond: `:large_orange_diamond:` |
+| :small_blue_diamond: `:small_blue_diamond:` | :small_orange_diamond: `:small_orange_diamond:` | :small_red_triangle: `:small_red_triangle:` |
+| :small_red_triangle_down: `:small_red_triangle_down:` | :shipit: `:shipit:` |
+。">
+<meta property="og:title" content="github markdown表情包">
+<meta property="og:description" content="People
+
+| :bowtie: `:bowtie:` | :smile: `:smile:` | :laughing: `:laughing:` |
+|---|---|---|
+| :blush: `:blush:` | :smiley: `:smiley:` | :relaxed: `:relaxed:` |
+| :smirk: `:smirk:` | :heart_eyes: `:heart_eyes:` | :kissing_heart: `:kissing_heart:` |
+| :kissing_closed_eyes: `:kissing_closed_eyes:` | :flushed: `:flushed:` | :relieved: `:relieved:` |
+| :satisfied: `:satisfied:` | :grin: `:grin:` | :wink: `:wink:` |
+| :stuck_out_tongue_winking_eye: `:stuck_out_tongue_winking_eye:` | :stuck_out_tongue_closed_eyes: `:stuck_out_tongue_closed_eyes:` | :grinning: `:grinning:` |
+| :kissing: `:kissing:` | :kissing_smiling_eyes: `:kissing_smiling_eyes:` | :stuck_out_tongue: `:stuck_out_tongue:` |
+| :sleeping: `:sleeping:` | :worried: `:worried:` | :frowning: `:frowning:` |
+| :anguished: `:anguished:` | :open_mouth: `:open_mouth:` | :grimacing: `:grimacing:` |
+| :confused: `:confused:` | :hushed: `:hushed:` | :expressionless: `:expressionless:` |
+| :unamused: `:unamused:` | :sweat_smile: `:sweat_smile:` | :sweat: `:sweat:` |
+| :disappointed_relieved: `:disappointed_relieved:` | :weary: `:weary:` | :pensive: `:pensive:` |
+| :disappointed: `:disappointed:` | :confounded: `:confounded:` | :fearful: `:fearful:` |
+| :cold_sweat: `:cold_sweat:` | :persevere: `:persevere:` | :cry: `:cry:` |
+| :sob: `:sob:` | :joy: `:joy:` | :astonished: `:astonished:` |
+| :scream: `:scream:` | :neckbeard: `:neckbeard:` | :tired_face: `:tired_face:` |
+| :angry: `:angry:` | :rage: `:rage:` | :triumph: `:triumph:` |
+| :sleepy: `:sleepy:` | :yum: `:yum:` | :mask: `:mask:` |
+| :sunglasses: `:sunglasses:` | :dizzy_face: `:dizzy_face:` | :imp: `:imp:` |
+| :smiling_imp: `:smiling_imp:` | :neutral_face: `:neutral_face:` | :no_mouth: `:no_mouth:` |
+| :innocent: `:innocent:` | :alien: `:alien:` | :yellow_heart: `:yellow_heart:` |
+| :blue_heart: `:blue_heart:` | :purple_heart: `:purple_heart:` | :heart: `:heart:` |
+| :green_heart: `:green_heart:` | :broken_heart: `:broken_heart:` | :heartbeat: `:heartbeat:` |
+| :heartpulse: `:heartpulse:` | :two_hearts: `:two_hearts:` | :revolving_hearts: `:revolving_hearts:` |
+| :cupid: `:cupid:` | :sparkling_heart: `:sparkling_heart:` | :sparkles: `:sparkles:` |
+| :star: `:star:` | :star2: `:star2:` | :dizzy: `:dizzy:` |
+| :boom: `:boom:` | :collision: `:collision:` | :anger: `:anger:` |
+| :exclamation: `:exclamation:` | :question: `:question:` | :grey_exclamation: `:grey_exclamation:` |
+| :grey_question: `:grey_question:` | :zzz: `:zzz:` | :dash: `:dash:` |
+| :sweat_drops: `:sweat_drops:` | :notes: `:notes:` | :musical_note: `:musical_note:` |
+| :fire: `:fire:` | :hankey: `:hankey:` | :poop: `:poop:` |
+| :shit: `:shit:` | :+1: `:+1:` | :thumbsup: `:thumbsup:` |
+| :-1: `:-1:` | :thumbsdown: `:thumbsdown:` | :ok_hand: `:ok_hand:` |
+| :punch: `:punch:` | :facepunch: `:facepunch:` | :fist: `:fist:` |
+| :v: `:v:` | :wave: `:wave:` | :hand: `:hand:` |
+| :raised_hand: `:raised_hand:` | :open_hands: `:open_hands:` | :point_up: `:point_up:` |
+| :point_down: `:point_down:` | :point_left: `:point_left:` | :point_right: `:point_right:` |
+| :raised_hands: `:raised_hands:` | :pray: `:pray:` | :point_up_2: `:point_up_2:` |
+| :clap: `:clap:` | :muscle: `:muscle:` | :metal: `:metal:` |
+| :fu: `:fu:` | :walking: `:walking:` | :runner: `:runner:` |
+| :running: `:running:` | :couple: `:couple:` | :family: `:family:` |
+| :two_men_holding_hands: `:two_men_holding_hands:` | :two_women_holding_hands: `:two_women_holding_hands:` | :dancer: `:dancer:` |
+| :dancers: `:dancers:` | :ok_woman: `:ok_woman:` | :no_good: `:no_good:` |
+| :information_desk_person: `:information_desk_person:` | :raising_hand: `:raising_hand:` | :bride_with_veil: `:bride_with_veil:` |
+| :person_with_pouting_face: `:person_with_pouting_face:` | :person_frowning: `:person_frowning:` | :bow: `:bow:` |
+| :couplekiss: `:couplekiss:` | :couple_with_heart: `:couple_with_heart:` | :massage: `:massage:` |
+| :haircut: `:haircut:` | :nail_care: `:nail_care:` | :boy: `:boy:` |
+| :girl: `:girl:` | :woman: `:woman:` | :man: `:man:` |
+| :baby: `:baby:` | :older_woman: `:older_woman:` | :older_man: `:older_man:` |
+| :person_with_blond_hair: `:person_with_blond_hair:` | :man_with_gua_pi_mao: `:man_with_gua_pi_mao:` | :man_with_turban: `:man_with_turban:` |
+| :construction_worker: `:construction_worker:` | :cop: `:cop:` | :angel: `:angel:` |
+| :princess: `:princess:` | :smiley_cat: `:smiley_cat:` | :smile_cat: `:smile_cat:` |
+| :heart_eyes_cat: `:heart_eyes_cat:` | :kissing_cat: `:kissing_cat:` | :smirk_cat: `:smirk_cat:` |
+| :scream_cat: `:scream_cat:` | :crying_cat_face: `:crying_cat_face:` | :joy_cat: `:joy_cat:` |
+| :pouting_cat: `:pouting_cat:` | :japanese_ogre: `:japanese_ogre:` | :japanese_goblin: `:japanese_goblin:` |
+| :see_no_evil: `:see_no_evil:` | :hear_no_evil: `:hear_no_evil:` | :speak_no_evil: `:speak_no_evil:` |
+| :guardsman: `:guardsman:` | :skull: `:skull:` | :feet: `:feet:` |
+| :lips: `:lips:` | :kiss: `:kiss:` | :droplet: `:droplet:` |
+| :ear: `:ear:` | :eyes: `:eyes:` | :nose: `:nose:` |
+| :tongue: `:tongue:` | :love_letter: `:love_letter:` | :bust_in_silhouette: `:bust_in_silhouette:` |
+| :busts_in_silhouette: `:busts_in_silhouette:` | :speech_balloon: `:speech_balloon:` | :thought_balloon: `:thought_balloon:` |
+| :feelsgood: `:feelsgood:` | :finnadie: `:finnadie:` | :goberserk: `:goberserk:` |
+| :godmode: `:godmode:` | :hurtrealbad: `:hurtrealbad:` | :rage1: `:rage1:` |
+| :rage2: `:rage2:` | :rage3: `:rage3:` | :rage4: `:rage4:` |
+| :suspect: `:suspect:` | :trollface: `:trollface:` |
+
+Nature
+
+| :sunny: `:sunny:` | :umbrella: `:umbrella:` | :cloud: `:cloud:` |
+|---|---|---|
+| :snowflake: `:snowflake:` | :snowman: `:snowman:` | :zap: `:zap:` |
+| :cyclone: `:cyclone:` | :foggy: `:foggy:` | :ocean: `:ocean:` |
+| :cat: `:cat:` | :dog: `:dog:` | :mouse: `:mouse:` |
+| :hamster: `:hamster:` | :rabbit: `:rabbit:` | :wolf: `:wolf:` |
+| :frog: `:frog:` | :tiger: `:tiger:` | :koala: `:koala:` |
+| :bear: `:bear:` | :pig: `:pig:` | :pig_nose: `:pig_nose:` |
+| :cow: `:cow:` | :boar: `:boar:` | :monkey_face: `:monkey_face:` |
+| :monkey: `:monkey:` | :horse: `:horse:` | :racehorse: `:racehorse:` |
+| :camel: `:camel:` | :sheep: `:sheep:` | :elephant: `:elephant:` |
+| :panda_face: `:panda_face:` | :snake: `:snake:` | :bird: `:bird:` |
+| :baby_chick: `:baby_chick:` | :hatched_chick: `:hatched_chick:` | :hatching_chick: `:hatching_chick:` |
+| :chicken: `:chicken:` | :penguin: `:penguin:` | :turtle: `:turtle:` |
+| :bug: `:bug:` | :honeybee: `:honeybee:` | :ant: `:ant:` |
+| :beetle: `:beetle:` | :snail: `:snail:` | :octopus: `:octopus:` |
+| :tropical_fish: `:tropical_fish:` | :fish: `:fish:` | :whale: `:whale:` |
+| :whale2: `:whale2:` | :dolphin: `:dolphin:` | :cow2: `:cow2:` |
+| :ram: `:ram:` | :rat: `:rat:` | :water_buffalo: `:water_buffalo:` |
+| :tiger2: `:tiger2:` | :rabbit2: `:rabbit2:` | :dragon: `:dragon:` |
+| :goat: `:goat:` | :rooster: `:rooster:` | :dog2: `:dog2:` |
+| :pig2: `:pig2:` | :mouse2: `:mouse2:` | :ox: `:ox:` |
+| :dragon_face: `:dragon_face:` | :blowfish: `:blowfish:` | :crocodile: `:crocodile:` |
+| :dromedary_camel: `:dromedary_camel:` | :leopard: `:leopard:` | :cat2: `:cat2:` |
+| :poodle: `:poodle:` | :paw_prints: `:paw_prints:` | :bouquet: `:bouquet:` |
+| :cherry_blossom: `:cherry_blossom:` | :tulip: `:tulip:` | :four_leaf_clover: `:four_leaf_clover:` |
+| :rose: `:rose:` | :sunflower: `:sunflower:` | :hibiscus: `:hibiscus:` |
+| :maple_leaf: `:maple_leaf:` | :leaves: `:leaves:` | :fallen_leaf: `:fallen_leaf:` |
+| :herb: `:herb:` | :mushroom: `:mushroom:` | :cactus: `:cactus:` |
+| :palm_tree: `:palm_tree:` | :evergreen_tree: `:evergreen_tree:` | :deciduous_tree: `:deciduous_tree:` |
+| :chestnut: `:chestnut:` | :seedling: `:seedling:` | :blossom: `:blossom:` |
+| :ear_of_rice: `:ear_of_rice:` | :shell: `:shell:` | :globe_with_meridians: `:globe_with_meridians:` |
+| :sun_with_face: `:sun_with_face:` | :full_moon_with_face: `:full_moon_with_face:` | :new_moon_with_face: `:new_moon_with_face:` |
+| :new_moon: `:new_moon:` | :waxing_crescent_moon: `:waxing_crescent_moon:` | :first_quarter_moon: `:first_quarter_moon:` |
+| :waxing_gibbous_moon: `:waxing_gibbous_moon:` | :full_moon: `:full_moon:` | :waning_gibbous_moon: `:waning_gibbous_moon:` |
+| :last_quarter_moon: `:last_quarter_moon:` | :waning_crescent_moon: `:waning_crescent_moon:` | :last_quarter_moon_with_face: `:last_quarter_moon_with_face:` |
+| :first_quarter_moon_with_face: `:first_quarter_moon_with_face:` | :moon: `:moon:` | :earth_africa: `:earth_africa:` |
+| :earth_americas: `:earth_americas:` | :earth_asia: `:earth_asia:` | :volcano: `:volcano:` |
+| :milky_way: `:milky_way:` | :partly_sunny: `:partly_sunny:` | :octocat: `:octocat:` |
+| :squirrel: `:squirrel:` |
+
+Objects
+
+| :bamboo: `:bamboo:` | :gift_heart: `:gift_heart:` | :dolls: `:dolls:` |
+|---|---|---|
+| :school_satchel: `:school_satchel:` | :mortar_board: `:mortar_board:` | :flags: `:flags:` |
+| :fireworks: `:fireworks:` | :sparkler: `:sparkler:` | :wind_chime: `:wind_chime:` |
+| :rice_scene: `:rice_scene:` | :jack_o_lantern: `:jack_o_lantern:` | :ghost: `:ghost:` |
+| :santa: `:santa:` | :christmas_tree: `:christmas_tree:` | :gift: `:gift:` |
+| :bell: `:bell:` | :no_bell: `:no_bell:` | :tanabata_tree: `:tanabata_tree:` |
+| :tada: `:tada:` | :confetti_ball: `:confetti_ball:` | :balloon: `:balloon:` |
+| :crystal_ball: `:crystal_ball:` | :cd: `:cd:` | :dvd: `:dvd:` |
+| :floppy_disk: `:floppy_disk:` | :camera: `:camera:` | :video_camera: `:video_camera:` |
+| :movie_camera: `:movie_camera:` | :computer: `:computer:` | :tv: `:tv:` |
+| :iphone: `:iphone:` | :phone: `:phone:` | :telephone: `:telephone:` |
+| :telephone_receiver: `:telephone_receiver:` | :pager: `:pager:` | :fax: `:fax:` |
+| :minidisc: `:minidisc:` | :vhs: `:vhs:` | :sound: `:sound:` |
+| :speaker: `:speaker:` | :mute: `:mute:` | :loudspeaker: `:loudspeaker:` |
+| :mega: `:mega:` | :hourglass: `:hourglass:` | :hourglass_flowing_sand: `:hourglass_flowing_sand:` |
+| :alarm_clock: `:alarm_clock:` | :watch: `:watch:` | :radio: `:radio:` |
+| :satellite: `:satellite:` | :loop: `:loop:` | :mag: `:mag:` |
+| :mag_right: `:mag_right:` | :unlock: `:unlock:` | :lock: `:lock:` |
+| :lock_with_ink_pen: `:lock_with_ink_pen:` | :closed_lock_with_key: `:closed_lock_with_key:` | :key: `:key:` |
+| :bulb: `:bulb:` | :flashlight: `:flashlight:` | :high_brightness: `:high_brightness:` |
+| :low_brightness: `:low_brightness:` | :electric_plug: `:electric_plug:` | :battery: `:battery:` |
+| :calling: `:calling:` | :email: `:email:` | :mailbox: `:mailbox:` |
+| :postbox: `:postbox:` | :bath: `:bath:` | :bathtub: `:bathtub:` |
+| :shower: `:shower:` | :toilet: `:toilet:` | :wrench: `:wrench:` |
+| :nut_and_bolt: `:nut_and_bolt:` | :hammer: `:hammer:` | :seat: `:seat:` |
+| :moneybag: `:moneybag:` | :yen: `:yen:` | :dollar: `:dollar:` |
+| :pound: `:pound:` | :euro: `:euro:` | :credit_card: `:credit_card:` |
+| :money_with_wings: `:money_with_wings:` | :e-mail: `:e-mail:` | :inbox_tray: `:inbox_tray:` |
+| :outbox_tray: `:outbox_tray:` | :envelope: `:envelope:` | :incoming_envelope: `:incoming_envelope:` |
+| :postal_horn: `:postal_horn:` | :mailbox_closed: `:mailbox_closed:` | :mailbox_with_mail: `:mailbox_with_mail:` |
+| :mailbox_with_no_mail: `:mailbox_with_no_mail:` | :door: `:door:` | :smoking: `:smoking:` |
+| :bomb: `:bomb:` | :gun: `:gun:` | :hocho: `:hocho:` |
+| :pill: `:pill:` | :syringe: `:syringe:` | :page_facing_up: `:page_facing_up:` |
+| :page_with_curl: `:page_with_curl:` | :bookmark_tabs: `:bookmark_tabs:` | :bar_chart: `:bar_chart:` |
+| :chart_with_upwards_trend: `:chart_with_upwards_trend:` | :chart_with_downwards_trend: `:chart_with_downwards_trend:` | :scroll: `:scroll:` |
+| :clipboard: `:clipboard:` | :calendar: `:calendar:` | :date: `:date:` |
+| :card_index: `:card_index:` | :file_folder: `:file_folder:` | :open_file_folder: `:open_file_folder:` |
+| :scissors: `:scissors:` | :pushpin: `:pushpin:` | :paperclip: `:paperclip:` |
+| :black_nib: `:black_nib:` | :pencil2: `:pencil2:` | :straight_ruler: `:straight_ruler:` |
+| :triangular_ruler: `:triangular_ruler:` | :closed_book: `:closed_book:` | :green_book: `:green_book:` |
+| :blue_book: `:blue_book:` | :orange_book: `:orange_book:` | :notebook: `:notebook:` |
+| :notebook_with_decorative_cover: `:notebook_with_decorative_cover:` | :ledger: `:ledger:` | :books: `:books:` |
+| :bookmark: `:bookmark:` | :name_badge: `:name_badge:` | :microscope: `:microscope:` |
+| :telescope: `:telescope:` | :newspaper: `:newspaper:` | :football: `:football:` |
+| :basketball: `:basketball:` | :soccer: `:soccer:` | :baseball: `:baseball:` |
+| :tennis: `:tennis:` | :8ball: `:8ball:` | :rugby_football: `:rugby_football:` |
+| :bowling: `:bowling:` | :golf: `:golf:` | :mountain_bicyclist: `:mountain_bicyclist:` |
+| :bicyclist: `:bicyclist:` | :horse_racing: `:horse_racing:` | :snowboarder: `:snowboarder:` |
+| :swimmer: `:swimmer:` | :surfer: `:surfer:` | :ski: `:ski:` |
+| :spades: `:spades:` | :hearts: `:hearts:` | :clubs: `:clubs:` |
+| :diamonds: `:diamonds:` | :gem: `:gem:` | :ring: `:ring:` |
+| :trophy: `:trophy:` | :musical_score: `:musical_score:` | :musical_keyboard: `:musical_keyboard:` |
+| :violin: `:violin:` | :space_invader: `:space_invader:` | :video_game: `:video_game:` |
+| :black_joker: `:black_joker:` | :flower_playing_cards: `:flower_playing_cards:` | :game_die: `:game_die:` |
+| :dart: `:dart:` | :mahjong: `:mahjong:` | :clapper: `:clapper:` |
+| :memo: `:memo:` | :pencil: `:pencil:` | :book: `:book:` |
+| :art: `:art:` | :microphone: `:microphone:` | :headphones: `:headphones:` |
+| :trumpet: `:trumpet:` | :saxophone: `:saxophone:` | :guitar: `:guitar:` |
+| :shoe: `:shoe:` | :sandal: `:sandal:` | :high_heel: `:high_heel:` |
+| :lipstick: `:lipstick:` | :boot: `:boot:` | :shirt: `:shirt:` |
+| :tshirt: `:tshirt:` | :necktie: `:necktie:` | :womans_clothes: `:womans_clothes:` |
+| :dress: `:dress:` | :running_shirt_with_sash: `:running_shirt_with_sash:` | :jeans: `:jeans:` |
+| :kimono: `:kimono:` | :bikini: `:bikini:` | :ribbon: `:ribbon:` |
+| :tophat: `:tophat:` | :crown: `:crown:` | :womans_hat: `:womans_hat:` |
+| :mans_shoe: `:mans_shoe:` | :closed_umbrella: `:closed_umbrella:` | :briefcase: `:briefcase:` |
+| :handbag: `:handbag:` | :pouch: `:pouch:` | :purse: `:purse:` |
+| :eyeglasses: `:eyeglasses:` | :fishing_pole_and_fish: `:fishing_pole_and_fish:` | :coffee: `:coffee:` |
+| :tea: `:tea:` | :sake: `:sake:` | :baby_bottle: `:baby_bottle:` |
+| :beer: `:beer:` | :beers: `:beers:` | :cocktail: `:cocktail:` |
+| :tropical_drink: `:tropical_drink:` | :wine_glass: `:wine_glass:` | :fork_and_knife: `:fork_and_knife:` |
+| :pizza: `:pizza:` | :hamburger: `:hamburger:` | :fries: `:fries:` |
+| :poultry_leg: `:poultry_leg:` | :meat_on_bone: `:meat_on_bone:` | :spaghetti: `:spaghetti:` |
+| :curry: `:curry:` | :fried_shrimp: `:fried_shrimp:` | :bento: `:bento:` |
+| :sushi: `:sushi:` | :fish_cake: `:fish_cake:` | :rice_ball: `:rice_ball:` |
+| :rice_cracker: `:rice_cracker:` | :rice: `:rice:` | :ramen: `:ramen:` |
+| :stew: `:stew:` | :oden: `:oden:` | :dango: `:dango:` |
+| :egg: `:egg:` | :bread: `:bread:` | :doughnut: `:doughnut:` |
+| :custard: `:custard:` | :icecream: `:icecream:` | :ice_cream: `:ice_cream:` |
+| :shaved_ice: `:shaved_ice:` | :birthday: `:birthday:` | :cake: `:cake:` |
+| :cookie: `:cookie:` | :chocolate_bar: `:chocolate_bar:` | :candy: `:candy:` |
+| :lollipop: `:lollipop:` | :honey_pot: `:honey_pot:` | :apple: `:apple:` |
+| :green_apple: `:green_apple:` | :tangerine: `:tangerine:` | :lemon: `:lemon:` |
+| :cherries: `:cherries:` | :grapes: `:grapes:` | :watermelon: `:watermelon:` |
+| :strawberry: `:strawberry:` | :peach: `:peach:` | :melon: `:melon:` |
+| :banana: `:banana:` | :pear: `:pear:` | :pineapple: `:pineapple:` |
+| :sweet_potato: `:sweet_potato:` | :eggplant: `:eggplant:` | :tomato: `:tomato:` |
+| :corn: `:corn:` |
+
+Places
+
+| :house: `:house:` | :house_with_garden: `:house_with_garden:` | :school: `:school:` |
+|---|---|---|
+| :office: `:office:` | :post_office: `:post_office:` | :hospital: `:hospital:` |
+| :bank: `:bank:` | :convenience_store: `:convenience_store:` | :love_hotel: `:love_hotel:` |
+| :hotel: `:hotel:` | :wedding: `:wedding:` | :church: `:church:` |
+| :department_store: `:department_store:` | :european_post_office: `:european_post_office:` | :city_sunrise: `:city_sunrise:` |
+| :city_sunset: `:city_sunset:` | :japanese_castle: `:japanese_castle:` | :european_castle: `:european_castle:` |
+| :tent: `:tent:` | :factory: `:factory:` | :tokyo_tower: `:tokyo_tower:` |
+| :japan: `:japan:` | :mount_fuji: `:mount_fuji:` | :sunrise_over_mountains: `:sunrise_over_mountains:` |
+| :sunrise: `:sunrise:` | :stars: `:stars:` | :statue_of_liberty: `:statue_of_liberty:` |
+| :bridge_at_night: `:bridge_at_night:` | :carousel_horse: `:carousel_horse:` | :rainbow: `:rainbow:` |
+| :ferris_wheel: `:ferris_wheel:` | :fountain: `:fountain:` | :roller_coaster: `:roller_coaster:` |
+| :ship: `:ship:` | :speedboat: `:speedboat:` | :boat: `:boat:` |
+| :sailboat: `:sailboat:` | :rowboat: `:rowboat:` | :anchor: `:anchor:` |
+| :rocket: `:rocket:` | :airplane: `:airplane:` | :helicopter: `:helicopter:` |
+| :steam_locomotive: `:steam_locomotive:` | :tram: `:tram:` | :mountain_railway: `:mountain_railway:` |
+| :bike: `:bike:` | :aerial_tramway: `:aerial_tramway:` | :suspension_railway: `:suspension_railway:` |
+| :mountain_cableway: `:mountain_cableway:` | :tractor: `:tractor:` | :blue_car: `:blue_car:` |
+| :oncoming_automobile: `:oncoming_automobile:` | :car: `:car:` | :red_car: `:red_car:` |
+| :taxi: `:taxi:` | :oncoming_taxi: `:oncoming_taxi:` | :articulated_lorry: `:articulated_lorry:` |
+| :bus: `:bus:` | :oncoming_bus: `:oncoming_bus:` | :rotating_light: `:rotating_light:` |
+| :police_car: `:police_car:` | :oncoming_police_car: `:oncoming_police_car:` | :fire_engine: `:fire_engine:` |
+| :ambulance: `:ambulance:` | :minibus: `:minibus:` | :truck: `:truck:` |
+| :train: `:train:` | :station: `:station:` | :train2: `:train2:` |
+| :bullettrain_front: `:bullettrain_front:` | :bullettrain_side: `:bullettrain_side:` | :light_rail: `:light_rail:` |
+| :monorail: `:monorail:` | :railway_car: `:railway_car:` | :trolleybus: `:trolleybus:` |
+| :ticket: `:ticket:` | :fuelpump: `:fuelpump:` | :vertical_traffic_light: `:vertical_traffic_light:` |
+| :traffic_light: `:traffic_light:` | :warning: `:warning:` | :construction: `:construction:` |
+| :beginner: `:beginner:` | :atm: `:atm:` | :slot_machine: `:slot_machine:` |
+| :busstop: `:busstop:` | :barber: `:barber:` | :hotsprings: `:hotsprings:` |
+| :checkered_flag: `:checkered_flag:` | :crossed_flags: `:crossed_flags:` | :izakaya_lantern: `:izakaya_lantern:` |
+| :moyai: `:moyai:` | :circus_tent: `:circus_tent:` | :performing_arts: `:performing_arts:` |
+| :round_pushpin: `:round_pushpin:` | :triangular_flag_on_post: `:triangular_flag_on_post:` | :jp: `:jp:` |
+| :kr: `:kr:` | :cn: `:cn:` | :us: `:us:` |
+| :fr: `:fr:` | :es: `:es:` | :it: `:it:` |
+| :ru: `:ru:` | :gb: `:gb:` | :uk: `:uk:` |
+| :de: `:de:` |
+
+Symbols
+
+| :one: `:one:` | :two: `:two:` | :three: `:three:` |
+|---|---|---|
+| :four: `:four:` | :five: `:five:` | :six: `:six:` |
+| :seven: `:seven:` | :eight: `:eight:` | :nine: `:nine:` |
+| :keycap_ten: `:keycap_ten:` | :1234: `:1234:` | :zero: `:zero:` |
+| :hash: `:hash:` | :symbols: `:symbols:` | :arrow_backward: `:arrow_backward:` |
+| :arrow_down: `:arrow_down:` | :arrow_forward: `:arrow_forward:` | :arrow_left: `:arrow_left:` |
+| :capital_abcd: `:capital_abcd:` | :abcd: `:abcd:` | :abc: `:abc:` |
+| :arrow_lower_left: `:arrow_lower_left:` | :arrow_lower_right: `:arrow_lower_right:` | :arrow_right: `:arrow_right:` |
+| :arrow_up: `:arrow_up:` | :arrow_upper_left: `:arrow_upper_left:` | :arrow_upper_right: `:arrow_upper_right:` |
+| :arrow_double_down: `:arrow_double_down:` | :arrow_double_up: `:arrow_double_up:` | :arrow_down_small: `:arrow_down_small:` |
+| :arrow_heading_down: `:arrow_heading_down:` | :arrow_heading_up: `:arrow_heading_up:` | :leftwards_arrow_with_hook: `:leftwards_arrow_with_hook:` |
+| :arrow_right_hook: `:arrow_right_hook:` | :left_right_arrow: `:left_right_arrow:` | :arrow_up_down: `:arrow_up_down:` |
+| :arrow_up_small: `:arrow_up_small:` | :arrows_clockwise: `:arrows_clockwise:` | :arrows_counterclockwise: `:arrows_counterclockwise:` |
+| :rewind: `:rewind:` | :fast_forward: `:fast_forward:` | :information_source: `:information_source:` |
+| :ok: `:ok:` | :twisted_rightwards_arrows: `:twisted_rightwards_arrows:` | :repeat: `:repeat:` |
+| :repeat_one: `:repeat_one:` | :new: `:new:` | :top: `:top:` |
+| :up: `:up:` | :cool: `:cool:` | :free: `:free:` |
+| :ng: `:ng:` | :cinema: `:cinema:` | :koko: `:koko:` |
+| :signal_strength: `:signal_strength:` | :u5272: `:u5272:` | :u5408: `:u5408:` |
+| :u55b6: `:u55b6:` | :u6307: `:u6307:` | :u6708: `:u6708:` |
+| :u6709: `:u6709:` | :u6e80: `:u6e80:` | :u7121: `:u7121:` |
+| :u7533: `:u7533:` | :u7a7a: `:u7a7a:` | :u7981: `:u7981:` |
+| :sa: `:sa:` | :restroom: `:restroom:` | :mens: `:mens:` |
+| :womens: `:womens:` | :baby_symbol: `:baby_symbol:` | :no_smoking: `:no_smoking:` |
+| :parking: `:parking:` | :wheelchair: `:wheelchair:` | :metro: `:metro:` |
+| :baggage_claim: `:baggage_claim:` | :accept: `:accept:` | :wc: `:wc:` |
+| :potable_water: `:potable_water:` | :put_litter_in_its_place: `:put_litter_in_its_place:` | :secret: `:secret:` |
+| :congratulations: `:congratulations:` | :m: `:m:` | :passport_control: `:passport_control:` |
+| :left_luggage: `:left_luggage:` | :customs: `:customs:` | :ideograph_advantage: `:ideograph_advantage:` |
+| :cl: `:cl:` | :sos: `:sos:` | :id: `:id:` |
+| :no_entry_sign: `:no_entry_sign:` | :underage: `:underage:` | :no_mobile_phones: `:no_mobile_phones:` |
+| :do_not_litter: `:do_not_litter:` | :non-potable_water: `:non-potable_water:` | :no_bicycles: `:no_bicycles:` |
+| :no_pedestrians: `:no_pedestrians:` | :children_crossing: `:children_crossing:` | :no_entry: `:no_entry:` |
+| :eight_spoked_asterisk: `:eight_spoked_asterisk:` | :eight_pointed_black_star: `:eight_pointed_black_star:` | :heart_decoration: `:heart_decoration:` |
+| :vs: `:vs:` | :vibration_mode: `:vibration_mode:` | :mobile_phone_off: `:mobile_phone_off:` |
+| :chart: `:chart:` | :currency_exchange: `:currency_exchange:` | :aries: `:aries:` |
+| :taurus: `:taurus:` | :gemini: `:gemini:` | :cancer: `:cancer:` |
+| :leo: `:leo:` | :virgo: `:virgo:` | :libra: `:libra:` |
+| :scorpius: `:scorpius:` | :sagittarius: `:sagittarius:` | :capricorn: `:capricorn:` |
+| :aquarius: `:aquarius:` | :pisces: `:pisces:` | :ophiuchus: `:ophiuchus:` |
+| :six_pointed_star: `:six_pointed_star:` | :negative_squared_cross_mark: `:negative_squared_cross_mark:` | :a: `:a:` |
+| :b: `:b:` | :ab: `:ab:` | :o2: `:o2:` |
+| :diamond_shape_with_a_dot_inside: `:diamond_shape_with_a_dot_inside:` | :recycle: `:recycle:` | :end: `:end:` |
+| :on: `:on:` | :soon: `:soon:` | :clock1: `:clock1:` |
+| :clock130: `:clock130:` | :clock10: `:clock10:` | :clock1030: `:clock1030:` |
+| :clock11: `:clock11:` | :clock1130: `:clock1130:` | :clock12: `:clock12:` |
+| :clock1230: `:clock1230:` | :clock2: `:clock2:` | :clock230: `:clock230:` |
+| :clock3: `:clock3:` | :clock330: `:clock330:` | :clock4: `:clock4:` |
+| :clock430: `:clock430:` | :clock5: `:clock5:` | :clock530: `:clock530:` |
+| :clock6: `:clock6:` | :clock630: `:clock630:` | :clock7: `:clock7:` |
+| :clock730: `:clock730:` | :clock8: `:clock8:` | :clock830: `:clock830:` |
+| :clock9: `:clock9:` | :clock930: `:clock930:` | :heavy_dollar_sign: `:heavy_dollar_sign:` |
+| :copyright: `:copyright:` | :registered: `:registered:` | :tm: `:tm:` |
+| :x: `:x:` | :heavy_exclamation_mark: `:heavy_exclamation_mark:` | :bangbang: `:bangbang:` |
+| :interrobang: `:interrobang:` | :o: `:o:` | :heavy_multiplication_x: `:heavy_multiplication_x:` |
+| :heavy_plus_sign: `:heavy_plus_sign:` | :heavy_minus_sign: `:heavy_minus_sign:` | :heavy_division_sign: `:heavy_division_sign:` |
+| :white_flower: `:white_flower:` | :100: `:100:` | :heavy_check_mark: `:heavy_check_mark:` |
+| :ballot_box_with_check: `:ballot_box_with_check:` | :radio_button: `:radio_button:` | :link: `:link:` |
+| :curly_loop: `:curly_loop:` | :wavy_dash: `:wavy_dash:` | :part_alternation_mark: `:part_alternation_mark:` |
+| :trident: `:trident:` | :black_square: `:black_square:` | :white_square: `:white_square:` |
+| :white_check_mark: `:white_check_mark:` | :black_square_button: `:black_square_button:` | :white_square_button: `:white_square_button:` |
+| :black_circle: `:black_circle:` | :white_circle: `:white_circle:` | :red_circle: `:red_circle:` |
+| :large_blue_circle: `:large_blue_circle:` | :large_blue_diamond: `:large_blue_diamond:` | :large_orange_diamond: `:large_orange_diamond:` |
+| :small_blue_diamond: `:small_blue_diamond:` | :small_orange_diamond: `:small_orange_diamond:` | :small_red_triangle: `:small_red_triangle:` |
+| :small_red_triangle_down: `:small_red_triangle_down:` | :shipit: `:shipit:` |
+。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://www.ababll5.cn/post/github%20markdown-biao-qing-bao.html">
+<meta property="og:image" content="https://s2.loli.net/2024/08/26/OHxIvr4wC89FgtB.jpg">
+<title>github markdown表情包</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">github markdown表情包</h1>
+<div class="title-right">
+    <a href="http://www.ababll5.cn" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/ababll5/blog/issues/9" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p>People</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th><img class="emoji" title=":bowtie:" alt=":bowtie:" src="https://github.githubassets.com/images/icons/emoji/bowtie.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:bowtie:</code></th>
+<th>😄 <code class="notranslate">:smile:</code></th>
+<th>😆 <code class="notranslate">:laughing:</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>😊 <code class="notranslate">:blush:</code></td>
+<td>😃 <code class="notranslate">:smiley:</code></td>
+<td><g-emoji class="g-emoji" alias="relaxed">☺️</g-emoji> <code class="notranslate">:relaxed:</code></td>
+</tr>
+<tr>
+<td>😏 <code class="notranslate">:smirk:</code></td>
+<td>😍 <code class="notranslate">:heart_eyes:</code></td>
+<td>😘 <code class="notranslate">:kissing_heart:</code></td>
+</tr>
+<tr>
+<td>😚 <code class="notranslate">:kissing_closed_eyes:</code></td>
+<td>😳 <code class="notranslate">:flushed:</code></td>
+<td>😌 <code class="notranslate">:relieved:</code></td>
+</tr>
+<tr>
+<td>😆 <code class="notranslate">:satisfied:</code></td>
+<td>😁 <code class="notranslate">:grin:</code></td>
+<td>😉 <code class="notranslate">:wink:</code></td>
+</tr>
+<tr>
+<td>😜 <code class="notranslate">:stuck_out_tongue_winking_eye:</code></td>
+<td>😝 <code class="notranslate">:stuck_out_tongue_closed_eyes:</code></td>
+<td>😀 <code class="notranslate">:grinning:</code></td>
+</tr>
+<tr>
+<td>😗 <code class="notranslate">:kissing:</code></td>
+<td>😙 <code class="notranslate">:kissing_smiling_eyes:</code></td>
+<td>😛 <code class="notranslate">:stuck_out_tongue:</code></td>
+</tr>
+<tr>
+<td>😴 <code class="notranslate">:sleeping:</code></td>
+<td>😟 <code class="notranslate">:worried:</code></td>
+<td>😦 <code class="notranslate">:frowning:</code></td>
+</tr>
+<tr>
+<td>😧 <code class="notranslate">:anguished:</code></td>
+<td>😮 <code class="notranslate">:open_mouth:</code></td>
+<td>😬 <code class="notranslate">:grimacing:</code></td>
+</tr>
+<tr>
+<td>😕 <code class="notranslate">:confused:</code></td>
+<td>😯 <code class="notranslate">:hushed:</code></td>
+<td>😑 <code class="notranslate">:expressionless:</code></td>
+</tr>
+<tr>
+<td>😒 <code class="notranslate">:unamused:</code></td>
+<td>😅 <code class="notranslate">:sweat_smile:</code></td>
+<td>😓 <code class="notranslate">:sweat:</code></td>
+</tr>
+<tr>
+<td>😥 <code class="notranslate">:disappointed_relieved:</code></td>
+<td>😩 <code class="notranslate">:weary:</code></td>
+<td>😔 <code class="notranslate">:pensive:</code></td>
+</tr>
+<tr>
+<td>😞 <code class="notranslate">:disappointed:</code></td>
+<td>😖 <code class="notranslate">:confounded:</code></td>
+<td>😨 <code class="notranslate">:fearful:</code></td>
+</tr>
+<tr>
+<td>😰 <code class="notranslate">:cold_sweat:</code></td>
+<td>😣 <code class="notranslate">:persevere:</code></td>
+<td>😢 <code class="notranslate">:cry:</code></td>
+</tr>
+<tr>
+<td>😭 <code class="notranslate">:sob:</code></td>
+<td>😂 <code class="notranslate">:joy:</code></td>
+<td>😲 <code class="notranslate">:astonished:</code></td>
+</tr>
+<tr>
+<td>😱 <code class="notranslate">:scream:</code></td>
+<td><img class="emoji" title=":neckbeard:" alt=":neckbeard:" src="https://github.githubassets.com/images/icons/emoji/neckbeard.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:neckbeard:</code></td>
+<td>😫 <code class="notranslate">:tired_face:</code></td>
+</tr>
+<tr>
+<td>😠 <code class="notranslate">:angry:</code></td>
+<td>😡 <code class="notranslate">:rage:</code></td>
+<td>😤 <code class="notranslate">:triumph:</code></td>
+</tr>
+<tr>
+<td>😪 <code class="notranslate">:sleepy:</code></td>
+<td>😋 <code class="notranslate">:yum:</code></td>
+<td>😷 <code class="notranslate">:mask:</code></td>
+</tr>
+<tr>
+<td>😎 <code class="notranslate">:sunglasses:</code></td>
+<td>😵 <code class="notranslate">:dizzy_face:</code></td>
+<td>👿 <code class="notranslate">:imp:</code></td>
+</tr>
+<tr>
+<td>😈 <code class="notranslate">:smiling_imp:</code></td>
+<td>😐 <code class="notranslate">:neutral_face:</code></td>
+<td>😶 <code class="notranslate">:no_mouth:</code></td>
+</tr>
+<tr>
+<td>😇 <code class="notranslate">:innocent:</code></td>
+<td>👽 <code class="notranslate">:alien:</code></td>
+<td>💛 <code class="notranslate">:yellow_heart:</code></td>
+</tr>
+<tr>
+<td>💙 <code class="notranslate">:blue_heart:</code></td>
+<td>💜 <code class="notranslate">:purple_heart:</code></td>
+<td>❤️ <code class="notranslate">:heart:</code></td>
+</tr>
+<tr>
+<td>💚 <code class="notranslate">:green_heart:</code></td>
+<td>💔 <code class="notranslate">:broken_heart:</code></td>
+<td>💓 <code class="notranslate">:heartbeat:</code></td>
+</tr>
+<tr>
+<td>💗 <code class="notranslate">:heartpulse:</code></td>
+<td>💕 <code class="notranslate">:two_hearts:</code></td>
+<td>💞 <code class="notranslate">:revolving_hearts:</code></td>
+</tr>
+<tr>
+<td>💘 <code class="notranslate">:cupid:</code></td>
+<td>💖 <code class="notranslate">:sparkling_heart:</code></td>
+<td>✨ <code class="notranslate">:sparkles:</code></td>
+</tr>
+<tr>
+<td>⭐ <code class="notranslate">:star:</code></td>
+<td>🌟 <code class="notranslate">:star2:</code></td>
+<td>💫 <code class="notranslate">:dizzy:</code></td>
+</tr>
+<tr>
+<td>💥 <code class="notranslate">:boom:</code></td>
+<td>💥 <code class="notranslate">:collision:</code></td>
+<td>💢 <code class="notranslate">:anger:</code></td>
+</tr>
+<tr>
+<td>❗ <code class="notranslate">:exclamation:</code></td>
+<td>❓ <code class="notranslate">:question:</code></td>
+<td>❕ <code class="notranslate">:grey_exclamation:</code></td>
+</tr>
+<tr>
+<td>❔ <code class="notranslate">:grey_question:</code></td>
+<td>💤 <code class="notranslate">:zzz:</code></td>
+<td>💨 <code class="notranslate">:dash:</code></td>
+</tr>
+<tr>
+<td>💦 <code class="notranslate">:sweat_drops:</code></td>
+<td>🎶 <code class="notranslate">:notes:</code></td>
+<td>🎵 <code class="notranslate">:musical_note:</code></td>
+</tr>
+<tr>
+<td>🔥 <code class="notranslate">:fire:</code></td>
+<td>💩 <code class="notranslate">:hankey:</code></td>
+<td>💩 <code class="notranslate">:poop:</code></td>
+</tr>
+<tr>
+<td>💩 <code class="notranslate">:shit:</code></td>
+<td>👍 <code class="notranslate">:+1:</code></td>
+<td>👍 <code class="notranslate">:thumbsup:</code></td>
+</tr>
+<tr>
+<td>👎 <code class="notranslate">:-1:</code></td>
+<td>👎 <code class="notranslate">:thumbsdown:</code></td>
+<td>👌 <code class="notranslate">:ok_hand:</code></td>
+</tr>
+<tr>
+<td>👊 <code class="notranslate">:punch:</code></td>
+<td>👊 <code class="notranslate">:facepunch:</code></td>
+<td>✊ <code class="notranslate">:fist:</code></td>
+</tr>
+<tr>
+<td>✌️ <code class="notranslate">:v:</code></td>
+<td>👋 <code class="notranslate">:wave:</code></td>
+<td>✋ <code class="notranslate">:hand:</code></td>
+</tr>
+<tr>
+<td>✋ <code class="notranslate">:raised_hand:</code></td>
+<td>👐 <code class="notranslate">:open_hands:</code></td>
+<td>☝️ <code class="notranslate">:point_up:</code></td>
+</tr>
+<tr>
+<td>👇 <code class="notranslate">:point_down:</code></td>
+<td>👈 <code class="notranslate">:point_left:</code></td>
+<td>👉 <code class="notranslate">:point_right:</code></td>
+</tr>
+<tr>
+<td>🙌 <code class="notranslate">:raised_hands:</code></td>
+<td>🙏 <code class="notranslate">:pray:</code></td>
+<td>👆 <code class="notranslate">:point_up_2:</code></td>
+</tr>
+<tr>
+<td>👏 <code class="notranslate">:clap:</code></td>
+<td>💪 <code class="notranslate">:muscle:</code></td>
+<td>🤘 <code class="notranslate">:metal:</code></td>
+</tr>
+<tr>
+<td>🖕 <code class="notranslate">:fu:</code></td>
+<td>🚶 <code class="notranslate">:walking:</code></td>
+<td>🏃 <code class="notranslate">:runner:</code></td>
+</tr>
+<tr>
+<td>🏃 <code class="notranslate">:running:</code></td>
+<td>👫 <code class="notranslate">:couple:</code></td>
+<td>👪 <code class="notranslate">:family:</code></td>
+</tr>
+<tr>
+<td>👬 <code class="notranslate">:two_men_holding_hands:</code></td>
+<td>👭 <code class="notranslate">:two_women_holding_hands:</code></td>
+<td>💃 <code class="notranslate">:dancer:</code></td>
+</tr>
+<tr>
+<td>👯 <code class="notranslate">:dancers:</code></td>
+<td>🙆‍♀️ <code class="notranslate">:ok_woman:</code></td>
+<td>🙅 <code class="notranslate">:no_good:</code></td>
+</tr>
+<tr>
+<td>💁 <code class="notranslate">:information_desk_person:</code></td>
+<td>🙋 <code class="notranslate">:raising_hand:</code></td>
+<td>👰‍♀️ <code class="notranslate">:bride_with_veil:</code></td>
+</tr>
+<tr>
+<td>:person_with_pouting_face: <code class="notranslate">:person_with_pouting_face:</code></td>
+<td>:person_frowning: <code class="notranslate">:person_frowning:</code></td>
+<td>🙇 <code class="notranslate">:bow:</code></td>
+</tr>
+<tr>
+<td>💏 <code class="notranslate">:couplekiss:</code></td>
+<td>💑 <code class="notranslate">:couple_with_heart:</code></td>
+<td>💆 <code class="notranslate">:massage:</code></td>
+</tr>
+<tr>
+<td>💇 <code class="notranslate">:haircut:</code></td>
+<td>💅 <code class="notranslate">:nail_care:</code></td>
+<td>👦 <code class="notranslate">:boy:</code></td>
+</tr>
+<tr>
+<td>👧 <code class="notranslate">:girl:</code></td>
+<td>👩 <code class="notranslate">:woman:</code></td>
+<td>👨 <code class="notranslate">:man:</code></td>
+</tr>
+<tr>
+<td>👶 <code class="notranslate">:baby:</code></td>
+<td>👵 <code class="notranslate">:older_woman:</code></td>
+<td>👴 <code class="notranslate">:older_man:</code></td>
+</tr>
+<tr>
+<td>:person_with_blond_hair: <code class="notranslate">:person_with_blond_hair:</code></td>
+<td>👲 <code class="notranslate">:man_with_gua_pi_mao:</code></td>
+<td>👳‍♂️ <code class="notranslate">:man_with_turban:</code></td>
+</tr>
+<tr>
+<td>👷 <code class="notranslate">:construction_worker:</code></td>
+<td>👮 <code class="notranslate">:cop:</code></td>
+<td>👼 <code class="notranslate">:angel:</code></td>
+</tr>
+<tr>
+<td>👸 <code class="notranslate">:princess:</code></td>
+<td>😺 <code class="notranslate">:smiley_cat:</code></td>
+<td>😸 <code class="notranslate">:smile_cat:</code></td>
+</tr>
+<tr>
+<td>😻 <code class="notranslate">:heart_eyes_cat:</code></td>
+<td>😽 <code class="notranslate">:kissing_cat:</code></td>
+<td>😼 <code class="notranslate">:smirk_cat:</code></td>
+</tr>
+<tr>
+<td>🙀 <code class="notranslate">:scream_cat:</code></td>
+<td>😿 <code class="notranslate">:crying_cat_face:</code></td>
+<td>😹 <code class="notranslate">:joy_cat:</code></td>
+</tr>
+<tr>
+<td>😾 <code class="notranslate">:pouting_cat:</code></td>
+<td>👹 <code class="notranslate">:japanese_ogre:</code></td>
+<td>👺 <code class="notranslate">:japanese_goblin:</code></td>
+</tr>
+<tr>
+<td>🙈 <code class="notranslate">:see_no_evil:</code></td>
+<td>🙉 <code class="notranslate">:hear_no_evil:</code></td>
+<td>🙊 <code class="notranslate">:speak_no_evil:</code></td>
+</tr>
+<tr>
+<td>💂‍♂️ <code class="notranslate">:guardsman:</code></td>
+<td>💀 <code class="notranslate">:skull:</code></td>
+<td>🐾 <code class="notranslate">:feet:</code></td>
+</tr>
+<tr>
+<td>👄 <code class="notranslate">:lips:</code></td>
+<td>💋 <code class="notranslate">:kiss:</code></td>
+<td>💧 <code class="notranslate">:droplet:</code></td>
+</tr>
+<tr>
+<td>👂 <code class="notranslate">:ear:</code></td>
+<td>👀 <code class="notranslate">:eyes:</code></td>
+<td>👃 <code class="notranslate">:nose:</code></td>
+</tr>
+<tr>
+<td>👅 <code class="notranslate">:tongue:</code></td>
+<td>💌 <code class="notranslate">:love_letter:</code></td>
+<td>👤 <code class="notranslate">:bust_in_silhouette:</code></td>
+</tr>
+<tr>
+<td>👥 <code class="notranslate">:busts_in_silhouette:</code></td>
+<td>💬 <code class="notranslate">:speech_balloon:</code></td>
+<td>💭 <code class="notranslate">:thought_balloon:</code></td>
+</tr>
+<tr>
+<td><img class="emoji" title=":feelsgood:" alt=":feelsgood:" src="https://github.githubassets.com/images/icons/emoji/feelsgood.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:feelsgood:</code></td>
+<td><img class="emoji" title=":finnadie:" alt=":finnadie:" src="https://github.githubassets.com/images/icons/emoji/finnadie.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:finnadie:</code></td>
+<td><img class="emoji" title=":goberserk:" alt=":goberserk:" src="https://github.githubassets.com/images/icons/emoji/goberserk.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:goberserk:</code></td>
+</tr>
+<tr>
+<td><img class="emoji" title=":godmode:" alt=":godmode:" src="https://github.githubassets.com/images/icons/emoji/godmode.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:godmode:</code></td>
+<td><img class="emoji" title=":hurtrealbad:" alt=":hurtrealbad:" src="https://github.githubassets.com/images/icons/emoji/hurtrealbad.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:hurtrealbad:</code></td>
+<td><img class="emoji" title=":rage1:" alt=":rage1:" src="https://github.githubassets.com/images/icons/emoji/rage1.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:rage1:</code></td>
+</tr>
+<tr>
+<td><img class="emoji" title=":rage2:" alt=":rage2:" src="https://github.githubassets.com/images/icons/emoji/rage2.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:rage2:</code></td>
+<td><img class="emoji" title=":rage3:" alt=":rage3:" src="https://github.githubassets.com/images/icons/emoji/rage3.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:rage3:</code></td>
+<td><img class="emoji" title=":rage4:" alt=":rage4:" src="https://github.githubassets.com/images/icons/emoji/rage4.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:rage4:</code></td>
+</tr>
+<tr>
+<td><img class="emoji" title=":suspect:" alt=":suspect:" src="https://github.githubassets.com/images/icons/emoji/suspect.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:suspect:</code></td>
+<td><img class="emoji" title=":trollface:" alt=":trollface:" src="https://github.githubassets.com/images/icons/emoji/trollface.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:trollface:</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>Nature</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>☀️ <code class="notranslate">:sunny:</code></th>
+<th>☔ <code class="notranslate">:umbrella:</code></th>
+<th>☁️ <code class="notranslate">:cloud:</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❄️ <code class="notranslate">:snowflake:</code></td>
+<td>⛄ <code class="notranslate">:snowman:</code></td>
+<td>⚡ <code class="notranslate">:zap:</code></td>
+</tr>
+<tr>
+<td>🌀 <code class="notranslate">:cyclone:</code></td>
+<td>🌁 <code class="notranslate">:foggy:</code></td>
+<td>🌊 <code class="notranslate">:ocean:</code></td>
+</tr>
+<tr>
+<td>🐱 <code class="notranslate">:cat:</code></td>
+<td>🐶 <code class="notranslate">:dog:</code></td>
+<td>🐭 <code class="notranslate">:mouse:</code></td>
+</tr>
+<tr>
+<td>🐹 <code class="notranslate">:hamster:</code></td>
+<td>🐰 <code class="notranslate">:rabbit:</code></td>
+<td>🐺 <code class="notranslate">:wolf:</code></td>
+</tr>
+<tr>
+<td>🐸 <code class="notranslate">:frog:</code></td>
+<td>🐯 <code class="notranslate">:tiger:</code></td>
+<td>🐨 <code class="notranslate">:koala:</code></td>
+</tr>
+<tr>
+<td>🐻 <code class="notranslate">:bear:</code></td>
+<td>🐷 <code class="notranslate">:pig:</code></td>
+<td>🐽 <code class="notranslate">:pig_nose:</code></td>
+</tr>
+<tr>
+<td>🐮 <code class="notranslate">:cow:</code></td>
+<td>🐗 <code class="notranslate">:boar:</code></td>
+<td>🐵 <code class="notranslate">:monkey_face:</code></td>
+</tr>
+<tr>
+<td>🐒 <code class="notranslate">:monkey:</code></td>
+<td>🐴 <code class="notranslate">:horse:</code></td>
+<td>🐎 <code class="notranslate">:racehorse:</code></td>
+</tr>
+<tr>
+<td>🐫 <code class="notranslate">:camel:</code></td>
+<td>🐑 <code class="notranslate">:sheep:</code></td>
+<td>🐘 <code class="notranslate">:elephant:</code></td>
+</tr>
+<tr>
+<td>🐼 <code class="notranslate">:panda_face:</code></td>
+<td>🐍 <code class="notranslate">:snake:</code></td>
+<td>🐦 <code class="notranslate">:bird:</code></td>
+</tr>
+<tr>
+<td>🐤 <code class="notranslate">:baby_chick:</code></td>
+<td>🐥 <code class="notranslate">:hatched_chick:</code></td>
+<td>🐣 <code class="notranslate">:hatching_chick:</code></td>
+</tr>
+<tr>
+<td>🐔 <code class="notranslate">:chicken:</code></td>
+<td>🐧 <code class="notranslate">:penguin:</code></td>
+<td>🐢 <code class="notranslate">:turtle:</code></td>
+</tr>
+<tr>
+<td>🐛 <code class="notranslate">:bug:</code></td>
+<td>🐝 <code class="notranslate">:honeybee:</code></td>
+<td>🐜 <code class="notranslate">:ant:</code></td>
+</tr>
+<tr>
+<td>🪲 <code class="notranslate">:beetle:</code></td>
+<td>🐌 <code class="notranslate">:snail:</code></td>
+<td>🐙 <code class="notranslate">:octopus:</code></td>
+</tr>
+<tr>
+<td>🐠 <code class="notranslate">:tropical_fish:</code></td>
+<td>🐟 <code class="notranslate">:fish:</code></td>
+<td>🐳 <code class="notranslate">:whale:</code></td>
+</tr>
+<tr>
+<td>🐋 <code class="notranslate">:whale2:</code></td>
+<td>🐬 <code class="notranslate">:dolphin:</code></td>
+<td>🐄 <code class="notranslate">:cow2:</code></td>
+</tr>
+<tr>
+<td>🐏 <code class="notranslate">:ram:</code></td>
+<td>🐀 <code class="notranslate">:rat:</code></td>
+<td>🐃 <code class="notranslate">:water_buffalo:</code></td>
+</tr>
+<tr>
+<td>🐅 <code class="notranslate">:tiger2:</code></td>
+<td>🐇 <code class="notranslate">:rabbit2:</code></td>
+<td>🐉 <code class="notranslate">:dragon:</code></td>
+</tr>
+<tr>
+<td>🐐 <code class="notranslate">:goat:</code></td>
+<td>🐓 <code class="notranslate">:rooster:</code></td>
+<td>🐕 <code class="notranslate">:dog2:</code></td>
+</tr>
+<tr>
+<td>🐖 <code class="notranslate">:pig2:</code></td>
+<td>🐁 <code class="notranslate">:mouse2:</code></td>
+<td>🐂 <code class="notranslate">:ox:</code></td>
+</tr>
+<tr>
+<td>🐲 <code class="notranslate">:dragon_face:</code></td>
+<td>🐡 <code class="notranslate">:blowfish:</code></td>
+<td>🐊 <code class="notranslate">:crocodile:</code></td>
+</tr>
+<tr>
+<td>🐪 <code class="notranslate">:dromedary_camel:</code></td>
+<td>🐆 <code class="notranslate">:leopard:</code></td>
+<td>🐈 <code class="notranslate">:cat2:</code></td>
+</tr>
+<tr>
+<td>🐩 <code class="notranslate">:poodle:</code></td>
+<td>🐾 <code class="notranslate">:paw_prints:</code></td>
+<td>💐 <code class="notranslate">:bouquet:</code></td>
+</tr>
+<tr>
+<td>🌸 <code class="notranslate">:cherry_blossom:</code></td>
+<td>🌷 <code class="notranslate">:tulip:</code></td>
+<td>🍀 <code class="notranslate">:four_leaf_clover:</code></td>
+</tr>
+<tr>
+<td>🌹 <code class="notranslate">:rose:</code></td>
+<td>🌻 <code class="notranslate">:sunflower:</code></td>
+<td>🌺 <code class="notranslate">:hibiscus:</code></td>
+</tr>
+<tr>
+<td>🍁 <code class="notranslate">:maple_leaf:</code></td>
+<td>🍃 <code class="notranslate">:leaves:</code></td>
+<td>🍂 <code class="notranslate">:fallen_leaf:</code></td>
+</tr>
+<tr>
+<td>🌿 <code class="notranslate">:herb:</code></td>
+<td>🍄 <code class="notranslate">:mushroom:</code></td>
+<td>🌵 <code class="notranslate">:cactus:</code></td>
+</tr>
+<tr>
+<td>🌴 <code class="notranslate">:palm_tree:</code></td>
+<td>🌲 <code class="notranslate">:evergreen_tree:</code></td>
+<td>🌳 <code class="notranslate">:deciduous_tree:</code></td>
+</tr>
+<tr>
+<td>🌰 <code class="notranslate">:chestnut:</code></td>
+<td>🌱 <code class="notranslate">:seedling:</code></td>
+<td>🌼 <code class="notranslate">:blossom:</code></td>
+</tr>
+<tr>
+<td>🌾 <code class="notranslate">:ear_of_rice:</code></td>
+<td>🐚 <code class="notranslate">:shell:</code></td>
+<td>🌐 <code class="notranslate">:globe_with_meridians:</code></td>
+</tr>
+<tr>
+<td>🌞 <code class="notranslate">:sun_with_face:</code></td>
+<td>🌝 <code class="notranslate">:full_moon_with_face:</code></td>
+<td>🌚 <code class="notranslate">:new_moon_with_face:</code></td>
+</tr>
+<tr>
+<td>🌑 <code class="notranslate">:new_moon:</code></td>
+<td>🌒 <code class="notranslate">:waxing_crescent_moon:</code></td>
+<td>🌓 <code class="notranslate">:first_quarter_moon:</code></td>
+</tr>
+<tr>
+<td>🌔 <code class="notranslate">:waxing_gibbous_moon:</code></td>
+<td>🌕 <code class="notranslate">:full_moon:</code></td>
+<td>🌖 <code class="notranslate">:waning_gibbous_moon:</code></td>
+</tr>
+<tr>
+<td>🌗 <code class="notranslate">:last_quarter_moon:</code></td>
+<td>🌘 <code class="notranslate">:waning_crescent_moon:</code></td>
+<td>🌜 <code class="notranslate">:last_quarter_moon_with_face:</code></td>
+</tr>
+<tr>
+<td>🌛 <code class="notranslate">:first_quarter_moon_with_face:</code></td>
+<td>🌔 <code class="notranslate">:moon:</code></td>
+<td>🌍 <code class="notranslate">:earth_africa:</code></td>
+</tr>
+<tr>
+<td>🌎 <code class="notranslate">:earth_americas:</code></td>
+<td>🌏 <code class="notranslate">:earth_asia:</code></td>
+<td>🌋 <code class="notranslate">:volcano:</code></td>
+</tr>
+<tr>
+<td>🌌 <code class="notranslate">:milky_way:</code></td>
+<td>⛅ <code class="notranslate">:partly_sunny:</code></td>
+<td><img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:octocat:</code></td>
+</tr>
+<tr>
+<td>:squirrel: <code class="notranslate">:squirrel:</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>Objects</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>🎍 <code class="notranslate">:bamboo:</code></th>
+<th>💝 <code class="notranslate">:gift_heart:</code></th>
+<th>🎎 <code class="notranslate">:dolls:</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🎒 <code class="notranslate">:school_satchel:</code></td>
+<td>🎓 <code class="notranslate">:mortar_board:</code></td>
+<td>🎏 <code class="notranslate">:flags:</code></td>
+</tr>
+<tr>
+<td>🎆 <code class="notranslate">:fireworks:</code></td>
+<td>🎇 <code class="notranslate">:sparkler:</code></td>
+<td>🎐 <code class="notranslate">:wind_chime:</code></td>
+</tr>
+<tr>
+<td>🎑 <code class="notranslate">:rice_scene:</code></td>
+<td>🎃 <code class="notranslate">:jack_o_lantern:</code></td>
+<td>👻 <code class="notranslate">:ghost:</code></td>
+</tr>
+<tr>
+<td>🎅 <code class="notranslate">:santa:</code></td>
+<td>🎄 <code class="notranslate">:christmas_tree:</code></td>
+<td>🎁 <code class="notranslate">:gift:</code></td>
+</tr>
+<tr>
+<td>🔔 <code class="notranslate">:bell:</code></td>
+<td>🔕 <code class="notranslate">:no_bell:</code></td>
+<td>🎋 <code class="notranslate">:tanabata_tree:</code></td>
+</tr>
+<tr>
+<td>🎉 <code class="notranslate">:tada:</code></td>
+<td>🎊 <code class="notranslate">:confetti_ball:</code></td>
+<td>🎈 <code class="notranslate">:balloon:</code></td>
+</tr>
+<tr>
+<td>🔮 <code class="notranslate">:crystal_ball:</code></td>
+<td>💿 <code class="notranslate">:cd:</code></td>
+<td>📀 <code class="notranslate">:dvd:</code></td>
+</tr>
+<tr>
+<td>💾 <code class="notranslate">:floppy_disk:</code></td>
+<td>📷 <code class="notranslate">:camera:</code></td>
+<td>📹 <code class="notranslate">:video_camera:</code></td>
+</tr>
+<tr>
+<td>🎥 <code class="notranslate">:movie_camera:</code></td>
+<td>💻 <code class="notranslate">:computer:</code></td>
+<td>📺 <code class="notranslate">:tv:</code></td>
+</tr>
+<tr>
+<td>📱 <code class="notranslate">:iphone:</code></td>
+<td>☎️ <code class="notranslate">:phone:</code></td>
+<td>☎️ <code class="notranslate">:telephone:</code></td>
+</tr>
+<tr>
+<td>📞 <code class="notranslate">:telephone_receiver:</code></td>
+<td>📟 <code class="notranslate">:pager:</code></td>
+<td>📠 <code class="notranslate">:fax:</code></td>
+</tr>
+<tr>
+<td>💽 <code class="notranslate">:minidisc:</code></td>
+<td>📼 <code class="notranslate">:vhs:</code></td>
+<td>🔉 <code class="notranslate">:sound:</code></td>
+</tr>
+<tr>
+<td>🔈 <code class="notranslate">:speaker:</code></td>
+<td>🔇 <code class="notranslate">:mute:</code></td>
+<td>📢 <code class="notranslate">:loudspeaker:</code></td>
+</tr>
+<tr>
+<td>📣 <code class="notranslate">:mega:</code></td>
+<td>⌛ <code class="notranslate">:hourglass:</code></td>
+<td>⏳ <code class="notranslate">:hourglass_flowing_sand:</code></td>
+</tr>
+<tr>
+<td>⏰ <code class="notranslate">:alarm_clock:</code></td>
+<td>⌚ <code class="notranslate">:watch:</code></td>
+<td>📻 <code class="notranslate">:radio:</code></td>
+</tr>
+<tr>
+<td>📡 <code class="notranslate">:satellite:</code></td>
+<td>➿ <code class="notranslate">:loop:</code></td>
+<td>🔍 <code class="notranslate">:mag:</code></td>
+</tr>
+<tr>
+<td>🔎 <code class="notranslate">:mag_right:</code></td>
+<td>🔓 <code class="notranslate">:unlock:</code></td>
+<td>🔒 <code class="notranslate">:lock:</code></td>
+</tr>
+<tr>
+<td>🔏 <code class="notranslate">:lock_with_ink_pen:</code></td>
+<td>🔐 <code class="notranslate">:closed_lock_with_key:</code></td>
+<td>🔑 <code class="notranslate">:key:</code></td>
+</tr>
+<tr>
+<td>💡 <code class="notranslate">:bulb:</code></td>
+<td>🔦 <code class="notranslate">:flashlight:</code></td>
+<td>🔆 <code class="notranslate">:high_brightness:</code></td>
+</tr>
+<tr>
+<td>🔅 <code class="notranslate">:low_brightness:</code></td>
+<td>🔌 <code class="notranslate">:electric_plug:</code></td>
+<td>🔋 <code class="notranslate">:battery:</code></td>
+</tr>
+<tr>
+<td>📲 <code class="notranslate">:calling:</code></td>
+<td>📧 <code class="notranslate">:email:</code></td>
+<td>📫 <code class="notranslate">:mailbox:</code></td>
+</tr>
+<tr>
+<td>📮 <code class="notranslate">:postbox:</code></td>
+<td>🛀 <code class="notranslate">:bath:</code></td>
+<td>🛁 <code class="notranslate">:bathtub:</code></td>
+</tr>
+<tr>
+<td>🚿 <code class="notranslate">:shower:</code></td>
+<td>🚽 <code class="notranslate">:toilet:</code></td>
+<td>🔧 <code class="notranslate">:wrench:</code></td>
+</tr>
+<tr>
+<td>🔩 <code class="notranslate">:nut_and_bolt:</code></td>
+<td>🔨 <code class="notranslate">:hammer:</code></td>
+<td>💺 <code class="notranslate">:seat:</code></td>
+</tr>
+<tr>
+<td>💰 <code class="notranslate">:moneybag:</code></td>
+<td>💴 <code class="notranslate">:yen:</code></td>
+<td>💵 <code class="notranslate">:dollar:</code></td>
+</tr>
+<tr>
+<td>💷 <code class="notranslate">:pound:</code></td>
+<td>💶 <code class="notranslate">:euro:</code></td>
+<td>💳 <code class="notranslate">:credit_card:</code></td>
+</tr>
+<tr>
+<td>💸 <code class="notranslate">:money_with_wings:</code></td>
+<td>📧 <code class="notranslate">:e-mail:</code></td>
+<td>📥 <code class="notranslate">:inbox_tray:</code></td>
+</tr>
+<tr>
+<td>📤 <code class="notranslate">:outbox_tray:</code></td>
+<td>✉️ <code class="notranslate">:envelope:</code></td>
+<td>📨 <code class="notranslate">:incoming_envelope:</code></td>
+</tr>
+<tr>
+<td>📯 <code class="notranslate">:postal_horn:</code></td>
+<td>📪 <code class="notranslate">:mailbox_closed:</code></td>
+<td>📬 <code class="notranslate">:mailbox_with_mail:</code></td>
+</tr>
+<tr>
+<td>📭 <code class="notranslate">:mailbox_with_no_mail:</code></td>
+<td>🚪 <code class="notranslate">:door:</code></td>
+<td>🚬 <code class="notranslate">:smoking:</code></td>
+</tr>
+<tr>
+<td>💣 <code class="notranslate">:bomb:</code></td>
+<td>🔫 <code class="notranslate">:gun:</code></td>
+<td>🔪 <code class="notranslate">:hocho:</code></td>
+</tr>
+<tr>
+<td>💊 <code class="notranslate">:pill:</code></td>
+<td>💉 <code class="notranslate">:syringe:</code></td>
+<td>📄 <code class="notranslate">:page_facing_up:</code></td>
+</tr>
+<tr>
+<td>📃 <code class="notranslate">:page_with_curl:</code></td>
+<td>📑 <code class="notranslate">:bookmark_tabs:</code></td>
+<td>📊 <code class="notranslate">:bar_chart:</code></td>
+</tr>
+<tr>
+<td>📈 <code class="notranslate">:chart_with_upwards_trend:</code></td>
+<td>📉 <code class="notranslate">:chart_with_downwards_trend:</code></td>
+<td>📜 <code class="notranslate">:scroll:</code></td>
+</tr>
+<tr>
+<td>📋 <code class="notranslate">:clipboard:</code></td>
+<td>📆 <code class="notranslate">:calendar:</code></td>
+<td>📅 <code class="notranslate">:date:</code></td>
+</tr>
+<tr>
+<td>📇 <code class="notranslate">:card_index:</code></td>
+<td>📁 <code class="notranslate">:file_folder:</code></td>
+<td>📂 <code class="notranslate">:open_file_folder:</code></td>
+</tr>
+<tr>
+<td>✂️ <code class="notranslate">:scissors:</code></td>
+<td>📌 <code class="notranslate">:pushpin:</code></td>
+<td>📎 <code class="notranslate">:paperclip:</code></td>
+</tr>
+<tr>
+<td>✒️ <code class="notranslate">:black_nib:</code></td>
+<td>✏️ <code class="notranslate">:pencil2:</code></td>
+<td>📏 <code class="notranslate">:straight_ruler:</code></td>
+</tr>
+<tr>
+<td>📐 <code class="notranslate">:triangular_ruler:</code></td>
+<td>📕 <code class="notranslate">:closed_book:</code></td>
+<td>📗 <code class="notranslate">:green_book:</code></td>
+</tr>
+<tr>
+<td>📘 <code class="notranslate">:blue_book:</code></td>
+<td>📙 <code class="notranslate">:orange_book:</code></td>
+<td>📓 <code class="notranslate">:notebook:</code></td>
+</tr>
+<tr>
+<td>📔 <code class="notranslate">:notebook_with_decorative_cover:</code></td>
+<td>📒 <code class="notranslate">:ledger:</code></td>
+<td>📚 <code class="notranslate">:books:</code></td>
+</tr>
+<tr>
+<td>🔖 <code class="notranslate">:bookmark:</code></td>
+<td>📛 <code class="notranslate">:name_badge:</code></td>
+<td>🔬 <code class="notranslate">:microscope:</code></td>
+</tr>
+<tr>
+<td>🔭 <code class="notranslate">:telescope:</code></td>
+<td>📰 <code class="notranslate">:newspaper:</code></td>
+<td>🏈 <code class="notranslate">:football:</code></td>
+</tr>
+<tr>
+<td>🏀 <code class="notranslate">:basketball:</code></td>
+<td>⚽ <code class="notranslate">:soccer:</code></td>
+<td>⚾ <code class="notranslate">:baseball:</code></td>
+</tr>
+<tr>
+<td>🎾 <code class="notranslate">:tennis:</code></td>
+<td>🎱 <code class="notranslate">:8ball:</code></td>
+<td>🏉 <code class="notranslate">:rugby_football:</code></td>
+</tr>
+<tr>
+<td>🎳 <code class="notranslate">:bowling:</code></td>
+<td>⛳ <code class="notranslate">:golf:</code></td>
+<td>🚵 <code class="notranslate">:mountain_bicyclist:</code></td>
+</tr>
+<tr>
+<td>🚴 <code class="notranslate">:bicyclist:</code></td>
+<td>🏇 <code class="notranslate">:horse_racing:</code></td>
+<td>🏂 <code class="notranslate">:snowboarder:</code></td>
+</tr>
+<tr>
+<td>🏊 <code class="notranslate">:swimmer:</code></td>
+<td>🏄 <code class="notranslate">:surfer:</code></td>
+<td>🎿 <code class="notranslate">:ski:</code></td>
+</tr>
+<tr>
+<td><g-emoji class="g-emoji" alias="spades">♠️</g-emoji> <code class="notranslate">:spades:</code></td>
+<td><g-emoji class="g-emoji" alias="hearts">♥️</g-emoji> <code class="notranslate">:hearts:</code></td>
+<td><g-emoji class="g-emoji" alias="clubs">♣️</g-emoji> <code class="notranslate">:clubs:</code></td>
+</tr>
+<tr>
+<td><g-emoji class="g-emoji" alias="diamonds">♦️</g-emoji> <code class="notranslate">:diamonds:</code></td>
+<td>💎 <code class="notranslate">:gem:</code></td>
+<td>💍 <code class="notranslate">:ring:</code></td>
+</tr>
+<tr>
+<td>🏆 <code class="notranslate">:trophy:</code></td>
+<td>🎼 <code class="notranslate">:musical_score:</code></td>
+<td>🎹 <code class="notranslate">:musical_keyboard:</code></td>
+</tr>
+<tr>
+<td>🎻 <code class="notranslate">:violin:</code></td>
+<td>👾 <code class="notranslate">:space_invader:</code></td>
+<td>🎮 <code class="notranslate">:video_game:</code></td>
+</tr>
+<tr>
+<td>🃏 <code class="notranslate">:black_joker:</code></td>
+<td>🎴 <code class="notranslate">:flower_playing_cards:</code></td>
+<td>🎲 <code class="notranslate">:game_die:</code></td>
+</tr>
+<tr>
+<td>🎯 <code class="notranslate">:dart:</code></td>
+<td>🀄 <code class="notranslate">:mahjong:</code></td>
+<td>🎬 <code class="notranslate">:clapper:</code></td>
+</tr>
+<tr>
+<td>📝 <code class="notranslate">:memo:</code></td>
+<td>📝 <code class="notranslate">:pencil:</code></td>
+<td>📖 <code class="notranslate">:book:</code></td>
+</tr>
+<tr>
+<td>🎨 <code class="notranslate">:art:</code></td>
+<td>🎤 <code class="notranslate">:microphone:</code></td>
+<td>🎧 <code class="notranslate">:headphones:</code></td>
+</tr>
+<tr>
+<td>🎺 <code class="notranslate">:trumpet:</code></td>
+<td>🎷 <code class="notranslate">:saxophone:</code></td>
+<td>🎸 <code class="notranslate">:guitar:</code></td>
+</tr>
+<tr>
+<td>👞 <code class="notranslate">:shoe:</code></td>
+<td>👡 <code class="notranslate">:sandal:</code></td>
+<td>👠 <code class="notranslate">:high_heel:</code></td>
+</tr>
+<tr>
+<td>💄 <code class="notranslate">:lipstick:</code></td>
+<td>👢 <code class="notranslate">:boot:</code></td>
+<td>👕 <code class="notranslate">:shirt:</code></td>
+</tr>
+<tr>
+<td>👕 <code class="notranslate">:tshirt:</code></td>
+<td>👔 <code class="notranslate">:necktie:</code></td>
+<td>👚 <code class="notranslate">:womans_clothes:</code></td>
+</tr>
+<tr>
+<td>👗 <code class="notranslate">:dress:</code></td>
+<td>🎽 <code class="notranslate">:running_shirt_with_sash:</code></td>
+<td>👖 <code class="notranslate">:jeans:</code></td>
+</tr>
+<tr>
+<td>👘 <code class="notranslate">:kimono:</code></td>
+<td>👙 <code class="notranslate">:bikini:</code></td>
+<td>🎀 <code class="notranslate">:ribbon:</code></td>
+</tr>
+<tr>
+<td>🎩 <code class="notranslate">:tophat:</code></td>
+<td>👑 <code class="notranslate">:crown:</code></td>
+<td>👒 <code class="notranslate">:womans_hat:</code></td>
+</tr>
+<tr>
+<td>👞 <code class="notranslate">:mans_shoe:</code></td>
+<td>🌂 <code class="notranslate">:closed_umbrella:</code></td>
+<td>💼 <code class="notranslate">:briefcase:</code></td>
+</tr>
+<tr>
+<td>👜 <code class="notranslate">:handbag:</code></td>
+<td>👝 <code class="notranslate">:pouch:</code></td>
+<td>👛 <code class="notranslate">:purse:</code></td>
+</tr>
+<tr>
+<td>👓 <code class="notranslate">:eyeglasses:</code></td>
+<td>🎣 <code class="notranslate">:fishing_pole_and_fish:</code></td>
+<td>☕ <code class="notranslate">:coffee:</code></td>
+</tr>
+<tr>
+<td>🍵 <code class="notranslate">:tea:</code></td>
+<td>🍶 <code class="notranslate">:sake:</code></td>
+<td>🍼 <code class="notranslate">:baby_bottle:</code></td>
+</tr>
+<tr>
+<td>🍺 <code class="notranslate">:beer:</code></td>
+<td>🍻 <code class="notranslate">:beers:</code></td>
+<td>🍸 <code class="notranslate">:cocktail:</code></td>
+</tr>
+<tr>
+<td>🍹 <code class="notranslate">:tropical_drink:</code></td>
+<td>🍷 <code class="notranslate">:wine_glass:</code></td>
+<td>🍴 <code class="notranslate">:fork_and_knife:</code></td>
+</tr>
+<tr>
+<td>🍕 <code class="notranslate">:pizza:</code></td>
+<td>🍔 <code class="notranslate">:hamburger:</code></td>
+<td>🍟 <code class="notranslate">:fries:</code></td>
+</tr>
+<tr>
+<td>🍗 <code class="notranslate">:poultry_leg:</code></td>
+<td>🍖 <code class="notranslate">:meat_on_bone:</code></td>
+<td>🍝 <code class="notranslate">:spaghetti:</code></td>
+</tr>
+<tr>
+<td>🍛 <code class="notranslate">:curry:</code></td>
+<td>🍤 <code class="notranslate">:fried_shrimp:</code></td>
+<td>🍱 <code class="notranslate">:bento:</code></td>
+</tr>
+<tr>
+<td>🍣 <code class="notranslate">:sushi:</code></td>
+<td>🍥 <code class="notranslate">:fish_cake:</code></td>
+<td>🍙 <code class="notranslate">:rice_ball:</code></td>
+</tr>
+<tr>
+<td>🍘 <code class="notranslate">:rice_cracker:</code></td>
+<td>🍚 <code class="notranslate">:rice:</code></td>
+<td>🍜 <code class="notranslate">:ramen:</code></td>
+</tr>
+<tr>
+<td>🍲 <code class="notranslate">:stew:</code></td>
+<td>🍢 <code class="notranslate">:oden:</code></td>
+<td>🍡 <code class="notranslate">:dango:</code></td>
+</tr>
+<tr>
+<td>🥚 <code class="notranslate">:egg:</code></td>
+<td>🍞 <code class="notranslate">:bread:</code></td>
+<td>🍩 <code class="notranslate">:doughnut:</code></td>
+</tr>
+<tr>
+<td>🍮 <code class="notranslate">:custard:</code></td>
+<td>🍦 <code class="notranslate">:icecream:</code></td>
+<td>🍨 <code class="notranslate">:ice_cream:</code></td>
+</tr>
+<tr>
+<td>🍧 <code class="notranslate">:shaved_ice:</code></td>
+<td>🎂 <code class="notranslate">:birthday:</code></td>
+<td>🍰 <code class="notranslate">:cake:</code></td>
+</tr>
+<tr>
+<td>🍪 <code class="notranslate">:cookie:</code></td>
+<td>🍫 <code class="notranslate">:chocolate_bar:</code></td>
+<td>🍬 <code class="notranslate">:candy:</code></td>
+</tr>
+<tr>
+<td>🍭 <code class="notranslate">:lollipop:</code></td>
+<td>🍯 <code class="notranslate">:honey_pot:</code></td>
+<td>🍎 <code class="notranslate">:apple:</code></td>
+</tr>
+<tr>
+<td>🍏 <code class="notranslate">:green_apple:</code></td>
+<td>🍊 <code class="notranslate">:tangerine:</code></td>
+<td>🍋 <code class="notranslate">:lemon:</code></td>
+</tr>
+<tr>
+<td>🍒 <code class="notranslate">:cherries:</code></td>
+<td>🍇 <code class="notranslate">:grapes:</code></td>
+<td>🍉 <code class="notranslate">:watermelon:</code></td>
+</tr>
+<tr>
+<td>🍓 <code class="notranslate">:strawberry:</code></td>
+<td>🍑 <code class="notranslate">:peach:</code></td>
+<td>🍈 <code class="notranslate">:melon:</code></td>
+</tr>
+<tr>
+<td>🍌 <code class="notranslate">:banana:</code></td>
+<td>🍐 <code class="notranslate">:pear:</code></td>
+<td>🍍 <code class="notranslate">:pineapple:</code></td>
+</tr>
+<tr>
+<td>🍠 <code class="notranslate">:sweet_potato:</code></td>
+<td>🍆 <code class="notranslate">:eggplant:</code></td>
+<td>🍅 <code class="notranslate">:tomato:</code></td>
+</tr>
+<tr>
+<td>🌽 <code class="notranslate">:corn:</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>Places</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>🏠 <code class="notranslate">:house:</code></th>
+<th>🏡 <code class="notranslate">:house_with_garden:</code></th>
+<th>🏫 <code class="notranslate">:school:</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🏢 <code class="notranslate">:office:</code></td>
+<td>🏣 <code class="notranslate">:post_office:</code></td>
+<td>🏥 <code class="notranslate">:hospital:</code></td>
+</tr>
+<tr>
+<td>🏦 <code class="notranslate">:bank:</code></td>
+<td>🏪 <code class="notranslate">:convenience_store:</code></td>
+<td>🏩 <code class="notranslate">:love_hotel:</code></td>
+</tr>
+<tr>
+<td>🏨 <code class="notranslate">:hotel:</code></td>
+<td>💒 <code class="notranslate">:wedding:</code></td>
+<td>⛪ <code class="notranslate">:church:</code></td>
+</tr>
+<tr>
+<td>🏬 <code class="notranslate">:department_store:</code></td>
+<td>🏤 <code class="notranslate">:european_post_office:</code></td>
+<td>🌇 <code class="notranslate">:city_sunrise:</code></td>
+</tr>
+<tr>
+<td>🌆 <code class="notranslate">:city_sunset:</code></td>
+<td>🏯 <code class="notranslate">:japanese_castle:</code></td>
+<td>🏰 <code class="notranslate">:european_castle:</code></td>
+</tr>
+<tr>
+<td>⛺ <code class="notranslate">:tent:</code></td>
+<td>🏭 <code class="notranslate">:factory:</code></td>
+<td>🗼 <code class="notranslate">:tokyo_tower:</code></td>
+</tr>
+<tr>
+<td>🗾 <code class="notranslate">:japan:</code></td>
+<td>🗻 <code class="notranslate">:mount_fuji:</code></td>
+<td>🌄 <code class="notranslate">:sunrise_over_mountains:</code></td>
+</tr>
+<tr>
+<td>🌅 <code class="notranslate">:sunrise:</code></td>
+<td>🌠 <code class="notranslate">:stars:</code></td>
+<td>🗽 <code class="notranslate">:statue_of_liberty:</code></td>
+</tr>
+<tr>
+<td>🌉 <code class="notranslate">:bridge_at_night:</code></td>
+<td>🎠 <code class="notranslate">:carousel_horse:</code></td>
+<td>🌈 <code class="notranslate">:rainbow:</code></td>
+</tr>
+<tr>
+<td>🎡 <code class="notranslate">:ferris_wheel:</code></td>
+<td>⛲ <code class="notranslate">:fountain:</code></td>
+<td>🎢 <code class="notranslate">:roller_coaster:</code></td>
+</tr>
+<tr>
+<td>🚢 <code class="notranslate">:ship:</code></td>
+<td>🚤 <code class="notranslate">:speedboat:</code></td>
+<td>⛵ <code class="notranslate">:boat:</code></td>
+</tr>
+<tr>
+<td>⛵ <code class="notranslate">:sailboat:</code></td>
+<td>🚣 <code class="notranslate">:rowboat:</code></td>
+<td>⚓ <code class="notranslate">:anchor:</code></td>
+</tr>
+<tr>
+<td>🚀 <code class="notranslate">:rocket:</code></td>
+<td><g-emoji class="g-emoji" alias="airplane">✈️</g-emoji> <code class="notranslate">:airplane:</code></td>
+<td>🚁 <code class="notranslate">:helicopter:</code></td>
+</tr>
+<tr>
+<td>🚂 <code class="notranslate">:steam_locomotive:</code></td>
+<td>🚊 <code class="notranslate">:tram:</code></td>
+<td>🚞 <code class="notranslate">:mountain_railway:</code></td>
+</tr>
+<tr>
+<td>🚲 <code class="notranslate">:bike:</code></td>
+<td>🚡 <code class="notranslate">:aerial_tramway:</code></td>
+<td>🚟 <code class="notranslate">:suspension_railway:</code></td>
+</tr>
+<tr>
+<td>🚠 <code class="notranslate">:mountain_cableway:</code></td>
+<td>🚜 <code class="notranslate">:tractor:</code></td>
+<td>🚙 <code class="notranslate">:blue_car:</code></td>
+</tr>
+<tr>
+<td>🚘 <code class="notranslate">:oncoming_automobile:</code></td>
+<td>🚗 <code class="notranslate">:car:</code></td>
+<td>🚗 <code class="notranslate">:red_car:</code></td>
+</tr>
+<tr>
+<td>🚕 <code class="notranslate">:taxi:</code></td>
+<td>🚖 <code class="notranslate">:oncoming_taxi:</code></td>
+<td>🚛 <code class="notranslate">:articulated_lorry:</code></td>
+</tr>
+<tr>
+<td>🚌 <code class="notranslate">:bus:</code></td>
+<td>🚍 <code class="notranslate">:oncoming_bus:</code></td>
+<td>🚨 <code class="notranslate">:rotating_light:</code></td>
+</tr>
+<tr>
+<td>🚓 <code class="notranslate">:police_car:</code></td>
+<td>🚔 <code class="notranslate">:oncoming_police_car:</code></td>
+<td>🚒 <code class="notranslate">:fire_engine:</code></td>
+</tr>
+<tr>
+<td>🚑 <code class="notranslate">:ambulance:</code></td>
+<td>🚐 <code class="notranslate">:minibus:</code></td>
+<td>🚚 <code class="notranslate">:truck:</code></td>
+</tr>
+<tr>
+<td>🚋 <code class="notranslate">:train:</code></td>
+<td>🚉 <code class="notranslate">:station:</code></td>
+<td>🚆 <code class="notranslate">:train2:</code></td>
+</tr>
+<tr>
+<td>🚅 <code class="notranslate">:bullettrain_front:</code></td>
+<td>🚄 <code class="notranslate">:bullettrain_side:</code></td>
+<td>🚈 <code class="notranslate">:light_rail:</code></td>
+</tr>
+<tr>
+<td>🚝 <code class="notranslate">:monorail:</code></td>
+<td>🚃 <code class="notranslate">:railway_car:</code></td>
+<td>🚎 <code class="notranslate">:trolleybus:</code></td>
+</tr>
+<tr>
+<td>🎫 <code class="notranslate">:ticket:</code></td>
+<td>⛽ <code class="notranslate">:fuelpump:</code></td>
+<td>🚦 <code class="notranslate">:vertical_traffic_light:</code></td>
+</tr>
+<tr>
+<td>🚥 <code class="notranslate">:traffic_light:</code></td>
+<td><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> <code class="notranslate">:warning:</code></td>
+<td>🚧 <code class="notranslate">:construction:</code></td>
+</tr>
+<tr>
+<td>🔰 <code class="notranslate">:beginner:</code></td>
+<td>🏧 <code class="notranslate">:atm:</code></td>
+<td>🎰 <code class="notranslate">:slot_machine:</code></td>
+</tr>
+<tr>
+<td>🚏 <code class="notranslate">:busstop:</code></td>
+<td>💈 <code class="notranslate">:barber:</code></td>
+<td>♨️ <code class="notranslate">:hotsprings:</code></td>
+</tr>
+<tr>
+<td>🏁 <code class="notranslate">:checkered_flag:</code></td>
+<td>🎌 <code class="notranslate">:crossed_flags:</code></td>
+<td>🏮 <code class="notranslate">:izakaya_lantern:</code></td>
+</tr>
+<tr>
+<td>🗿 <code class="notranslate">:moyai:</code></td>
+<td>🎪 <code class="notranslate">:circus_tent:</code></td>
+<td>🎭 <code class="notranslate">:performing_arts:</code></td>
+</tr>
+<tr>
+<td>📍 <code class="notranslate">:round_pushpin:</code></td>
+<td>🚩 <code class="notranslate">:triangular_flag_on_post:</code></td>
+<td>🇯🇵 <code class="notranslate">:jp:</code></td>
+</tr>
+<tr>
+<td>🇰🇷 <code class="notranslate">:kr:</code></td>
+<td>🇨🇳 <code class="notranslate">:cn:</code></td>
+<td>🇺🇸 <code class="notranslate">:us:</code></td>
+</tr>
+<tr>
+<td>🇫🇷 <code class="notranslate">:fr:</code></td>
+<td>🇪🇸 <code class="notranslate">:es:</code></td>
+<td>🇮🇹 <code class="notranslate">:it:</code></td>
+</tr>
+<tr>
+<td>🇷🇺 <code class="notranslate">:ru:</code></td>
+<td>🇬🇧 <code class="notranslate">:gb:</code></td>
+<td>🇬🇧 <code class="notranslate">:uk:</code></td>
+</tr>
+<tr>
+<td>🇩🇪 <code class="notranslate">:de:</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>Symbols</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>1️⃣ <code class="notranslate">:one:</code></th>
+<th>2️⃣ <code class="notranslate">:two:</code></th>
+<th>3️⃣ <code class="notranslate">:three:</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4️⃣ <code class="notranslate">:four:</code></td>
+<td>5️⃣ <code class="notranslate">:five:</code></td>
+<td>6️⃣ <code class="notranslate">:six:</code></td>
+</tr>
+<tr>
+<td>7️⃣ <code class="notranslate">:seven:</code></td>
+<td>8️⃣ <code class="notranslate">:eight:</code></td>
+<td>9️⃣ <code class="notranslate">:nine:</code></td>
+</tr>
+<tr>
+<td>🔟 <code class="notranslate">:keycap_ten:</code></td>
+<td>🔢 <code class="notranslate">:1234:</code></td>
+<td>0️⃣ <code class="notranslate">:zero:</code></td>
+</tr>
+<tr>
+<td>#️⃣ <code class="notranslate">:hash:</code></td>
+<td>🔣 <code class="notranslate">:symbols:</code></td>
+<td><g-emoji class="g-emoji" alias="arrow_backward">◀️</g-emoji> <code class="notranslate">:arrow_backward:</code></td>
+</tr>
+<tr>
+<td>⬇️ <code class="notranslate">:arrow_down:</code></td>
+<td><g-emoji class="g-emoji" alias="arrow_forward">▶️</g-emoji> <code class="notranslate">:arrow_forward:</code></td>
+<td>⬅️ <code class="notranslate">:arrow_left:</code></td>
+</tr>
+<tr>
+<td>🔠 <code class="notranslate">:capital_abcd:</code></td>
+<td>🔡 <code class="notranslate">:abcd:</code></td>
+<td>🔤 <code class="notranslate">:abc:</code></td>
+</tr>
+<tr>
+<td><g-emoji class="g-emoji" alias="arrow_lower_left">↙️</g-emoji> <code class="notranslate">:arrow_lower_left:</code></td>
+<td><g-emoji class="g-emoji" alias="arrow_lower_right">↘️</g-emoji> <code class="notranslate">:arrow_lower_right:</code></td>
+<td>➡️ <code class="notranslate">:arrow_right:</code></td>
+</tr>
+<tr>
+<td>⬆️ <code class="notranslate">:arrow_up:</code></td>
+<td><g-emoji class="g-emoji" alias="arrow_upper_left">↖️</g-emoji> <code class="notranslate">:arrow_upper_left:</code></td>
+<td><g-emoji class="g-emoji" alias="arrow_upper_right">↗️</g-emoji> <code class="notranslate">:arrow_upper_right:</code></td>
+</tr>
+<tr>
+<td>⏬ <code class="notranslate">:arrow_double_down:</code></td>
+<td>⏫ <code class="notranslate">:arrow_double_up:</code></td>
+<td>🔽 <code class="notranslate">:arrow_down_small:</code></td>
+</tr>
+<tr>
+<td><g-emoji class="g-emoji" alias="arrow_heading_down">⤵️</g-emoji> <code class="notranslate">:arrow_heading_down:</code></td>
+<td><g-emoji class="g-emoji" alias="arrow_heading_up">⤴️</g-emoji> <code class="notranslate">:arrow_heading_up:</code></td>
+<td>↩️ <code class="notranslate">:leftwards_arrow_with_hook:</code></td>
+</tr>
+<tr>
+<td>↪️ <code class="notranslate">:arrow_right_hook:</code></td>
+<td><g-emoji class="g-emoji" alias="left_right_arrow">↔️</g-emoji> <code class="notranslate">:left_right_arrow:</code></td>
+<td><g-emoji class="g-emoji" alias="arrow_up_down">↕️</g-emoji> <code class="notranslate">:arrow_up_down:</code></td>
+</tr>
+<tr>
+<td>🔼 <code class="notranslate">:arrow_up_small:</code></td>
+<td>🔃 <code class="notranslate">:arrows_clockwise:</code></td>
+<td>🔄 <code class="notranslate">:arrows_counterclockwise:</code></td>
+</tr>
+<tr>
+<td>⏪ <code class="notranslate">:rewind:</code></td>
+<td>⏩ <code class="notranslate">:fast_forward:</code></td>
+<td>ℹ️ <code class="notranslate">:information_source:</code></td>
+</tr>
+<tr>
+<td>🆗 <code class="notranslate">:ok:</code></td>
+<td>🔀 <code class="notranslate">:twisted_rightwards_arrows:</code></td>
+<td>🔁 <code class="notranslate">:repeat:</code></td>
+</tr>
+<tr>
+<td>🔂 <code class="notranslate">:repeat_one:</code></td>
+<td>🆕 <code class="notranslate">:new:</code></td>
+<td>🔝 <code class="notranslate">:top:</code></td>
+</tr>
+<tr>
+<td>🆙 <code class="notranslate">:up:</code></td>
+<td>🆒 <code class="notranslate">:cool:</code></td>
+<td>🆓 <code class="notranslate">:free:</code></td>
+</tr>
+<tr>
+<td>🆖 <code class="notranslate">:ng:</code></td>
+<td>🎦 <code class="notranslate">:cinema:</code></td>
+<td>🈁 <code class="notranslate">:koko:</code></td>
+</tr>
+<tr>
+<td>📶 <code class="notranslate">:signal_strength:</code></td>
+<td>🈹 <code class="notranslate">:u5272:</code></td>
+<td>🈴 <code class="notranslate">:u5408:</code></td>
+</tr>
+<tr>
+<td>🈺 <code class="notranslate">:u55b6:</code></td>
+<td>🈯 <code class="notranslate">:u6307:</code></td>
+<td>🈷️ <code class="notranslate">:u6708:</code></td>
+</tr>
+<tr>
+<td>🈶 <code class="notranslate">:u6709:</code></td>
+<td>🈵 <code class="notranslate">:u6e80:</code></td>
+<td>🈚 <code class="notranslate">:u7121:</code></td>
+</tr>
+<tr>
+<td>🈸 <code class="notranslate">:u7533:</code></td>
+<td>🈳 <code class="notranslate">:u7a7a:</code></td>
+<td>🈲 <code class="notranslate">:u7981:</code></td>
+</tr>
+<tr>
+<td>🈂️ <code class="notranslate">:sa:</code></td>
+<td>🚻 <code class="notranslate">:restroom:</code></td>
+<td>🚹 <code class="notranslate">:mens:</code></td>
+</tr>
+<tr>
+<td>🚺 <code class="notranslate">:womens:</code></td>
+<td>🚼 <code class="notranslate">:baby_symbol:</code></td>
+<td>🚭 <code class="notranslate">:no_smoking:</code></td>
+</tr>
+<tr>
+<td><g-emoji class="g-emoji" alias="parking">🅿️</g-emoji> <code class="notranslate">:parking:</code></td>
+<td>♿ <code class="notranslate">:wheelchair:</code></td>
+<td>🚇 <code class="notranslate">:metro:</code></td>
+</tr>
+<tr>
+<td>🛄 <code class="notranslate">:baggage_claim:</code></td>
+<td>🉑 <code class="notranslate">:accept:</code></td>
+<td>🚾 <code class="notranslate">:wc:</code></td>
+</tr>
+<tr>
+<td>🚰 <code class="notranslate">:potable_water:</code></td>
+<td>🚮 <code class="notranslate">:put_litter_in_its_place:</code></td>
+<td>㊙️ <code class="notranslate">:secret:</code></td>
+</tr>
+<tr>
+<td>㊗️ <code class="notranslate">:congratulations:</code></td>
+<td><g-emoji class="g-emoji" alias="m">Ⓜ️</g-emoji> <code class="notranslate">:m:</code></td>
+<td>🛂 <code class="notranslate">:passport_control:</code></td>
+</tr>
+<tr>
+<td>🛅 <code class="notranslate">:left_luggage:</code></td>
+<td>🛃 <code class="notranslate">:customs:</code></td>
+<td>🉐 <code class="notranslate">:ideograph_advantage:</code></td>
+</tr>
+<tr>
+<td>🆑 <code class="notranslate">:cl:</code></td>
+<td>🆘 <code class="notranslate">:sos:</code></td>
+<td>🆔 <code class="notranslate">:id:</code></td>
+</tr>
+<tr>
+<td>🚫 <code class="notranslate">:no_entry_sign:</code></td>
+<td>🔞 <code class="notranslate">:underage:</code></td>
+<td>📵 <code class="notranslate">:no_mobile_phones:</code></td>
+</tr>
+<tr>
+<td>🚯 <code class="notranslate">:do_not_litter:</code></td>
+<td>🚱 <code class="notranslate">:non-potable_water:</code></td>
+<td>🚳 <code class="notranslate">:no_bicycles:</code></td>
+</tr>
+<tr>
+<td>🚷 <code class="notranslate">:no_pedestrians:</code></td>
+<td>🚸 <code class="notranslate">:children_crossing:</code></td>
+<td>⛔ <code class="notranslate">:no_entry:</code></td>
+</tr>
+<tr>
+<td>✳️ <code class="notranslate">:eight_spoked_asterisk:</code></td>
+<td>✴️ <code class="notranslate">:eight_pointed_black_star:</code></td>
+<td>💟 <code class="notranslate">:heart_decoration:</code></td>
+</tr>
+<tr>
+<td>🆚 <code class="notranslate">:vs:</code></td>
+<td>📳 <code class="notranslate">:vibration_mode:</code></td>
+<td>📴 <code class="notranslate">:mobile_phone_off:</code></td>
+</tr>
+<tr>
+<td>💹 <code class="notranslate">:chart:</code></td>
+<td>💱 <code class="notranslate">:currency_exchange:</code></td>
+<td>♈ <code class="notranslate">:aries:</code></td>
+</tr>
+<tr>
+<td>♉ <code class="notranslate">:taurus:</code></td>
+<td>♊ <code class="notranslate">:gemini:</code></td>
+<td>♋ <code class="notranslate">:cancer:</code></td>
+</tr>
+<tr>
+<td>♌ <code class="notranslate">:leo:</code></td>
+<td>♍ <code class="notranslate">:virgo:</code></td>
+<td>♎ <code class="notranslate">:libra:</code></td>
+</tr>
+<tr>
+<td>♏ <code class="notranslate">:scorpius:</code></td>
+<td>♐ <code class="notranslate">:sagittarius:</code></td>
+<td>♑ <code class="notranslate">:capricorn:</code></td>
+</tr>
+<tr>
+<td>♒ <code class="notranslate">:aquarius:</code></td>
+<td>♓ <code class="notranslate">:pisces:</code></td>
+<td>⛎ <code class="notranslate">:ophiuchus:</code></td>
+</tr>
+<tr>
+<td>🔯 <code class="notranslate">:six_pointed_star:</code></td>
+<td>❎ <code class="notranslate">:negative_squared_cross_mark:</code></td>
+<td><g-emoji class="g-emoji" alias="a">🅰️</g-emoji> <code class="notranslate">:a:</code></td>
+</tr>
+<tr>
+<td><g-emoji class="g-emoji" alias="b">🅱️</g-emoji> <code class="notranslate">:b:</code></td>
+<td>🆎 <code class="notranslate">:ab:</code></td>
+<td><g-emoji class="g-emoji" alias="o2">🅾️</g-emoji> <code class="notranslate">:o2:</code></td>
+</tr>
+<tr>
+<td>💠 <code class="notranslate">:diamond_shape_with_a_dot_inside:</code></td>
+<td>♻️ <code class="notranslate">:recycle:</code></td>
+<td>🔚 <code class="notranslate">:end:</code></td>
+</tr>
+<tr>
+<td>🔛 <code class="notranslate">:on:</code></td>
+<td>🔜 <code class="notranslate">:soon:</code></td>
+<td>🕐 <code class="notranslate">:clock1:</code></td>
+</tr>
+<tr>
+<td>🕜 <code class="notranslate">:clock130:</code></td>
+<td>🕙 <code class="notranslate">:clock10:</code></td>
+<td>🕥 <code class="notranslate">:clock1030:</code></td>
+</tr>
+<tr>
+<td>🕚 <code class="notranslate">:clock11:</code></td>
+<td>🕦 <code class="notranslate">:clock1130:</code></td>
+<td>🕛 <code class="notranslate">:clock12:</code></td>
+</tr>
+<tr>
+<td>🕧 <code class="notranslate">:clock1230:</code></td>
+<td>🕑 <code class="notranslate">:clock2:</code></td>
+<td>🕝 <code class="notranslate">:clock230:</code></td>
+</tr>
+<tr>
+<td>🕒 <code class="notranslate">:clock3:</code></td>
+<td>🕞 <code class="notranslate">:clock330:</code></td>
+<td>🕓 <code class="notranslate">:clock4:</code></td>
+</tr>
+<tr>
+<td>🕟 <code class="notranslate">:clock430:</code></td>
+<td>🕔 <code class="notranslate">:clock5:</code></td>
+<td>🕠 <code class="notranslate">:clock530:</code></td>
+</tr>
+<tr>
+<td>🕕 <code class="notranslate">:clock6:</code></td>
+<td>🕡 <code class="notranslate">:clock630:</code></td>
+<td>🕖 <code class="notranslate">:clock7:</code></td>
+</tr>
+<tr>
+<td>🕢 <code class="notranslate">:clock730:</code></td>
+<td>🕗 <code class="notranslate">:clock8:</code></td>
+<td>🕣 <code class="notranslate">:clock830:</code></td>
+</tr>
+<tr>
+<td>🕘 <code class="notranslate">:clock9:</code></td>
+<td>🕤 <code class="notranslate">:clock930:</code></td>
+<td>💲 <code class="notranslate">:heavy_dollar_sign:</code></td>
+</tr>
+<tr>
+<td>©️ <code class="notranslate">:copyright:</code></td>
+<td>®️ <code class="notranslate">:registered:</code></td>
+<td>™️ <code class="notranslate">:tm:</code></td>
+</tr>
+<tr>
+<td>❌ <code class="notranslate">:x:</code></td>
+<td>❗ <code class="notranslate">:heavy_exclamation_mark:</code></td>
+<td><g-emoji class="g-emoji" alias="bangbang">‼️</g-emoji> <code class="notranslate">:bangbang:</code></td>
+</tr>
+<tr>
+<td><g-emoji class="g-emoji" alias="interrobang">⁉️</g-emoji> <code class="notranslate">:interrobang:</code></td>
+<td>⭕ <code class="notranslate">:o:</code></td>
+<td>✖️ <code class="notranslate">:heavy_multiplication_x:</code></td>
+</tr>
+<tr>
+<td>➕ <code class="notranslate">:heavy_plus_sign:</code></td>
+<td>➖ <code class="notranslate">:heavy_minus_sign:</code></td>
+<td>➗ <code class="notranslate">:heavy_division_sign:</code></td>
+</tr>
+<tr>
+<td>💮 <code class="notranslate">:white_flower:</code></td>
+<td>💯 <code class="notranslate">:100:</code></td>
+<td>✔️ <code class="notranslate">:heavy_check_mark:</code></td>
+</tr>
+<tr>
+<td>☑️ <code class="notranslate">:ballot_box_with_check:</code></td>
+<td>🔘 <code class="notranslate">:radio_button:</code></td>
+<td>🔗 <code class="notranslate">:link:</code></td>
+</tr>
+<tr>
+<td>➰ <code class="notranslate">:curly_loop:</code></td>
+<td>〰️ <code class="notranslate">:wavy_dash:</code></td>
+<td>〽️ <code class="notranslate">:part_alternation_mark:</code></td>
+</tr>
+<tr>
+<td>🔱 <code class="notranslate">:trident:</code></td>
+<td>:black_square: <code class="notranslate">:black_square:</code></td>
+<td>:white_square: <code class="notranslate">:white_square:</code></td>
+</tr>
+<tr>
+<td>✅ <code class="notranslate">:white_check_mark:</code></td>
+<td>🔲 <code class="notranslate">:black_square_button:</code></td>
+<td>🔳 <code class="notranslate">:white_square_button:</code></td>
+</tr>
+<tr>
+<td>⚫ <code class="notranslate">:black_circle:</code></td>
+<td>⚪ <code class="notranslate">:white_circle:</code></td>
+<td>🔴 <code class="notranslate">:red_circle:</code></td>
+</tr>
+<tr>
+<td>🔵 <code class="notranslate">:large_blue_circle:</code></td>
+<td>🔷 <code class="notranslate">:large_blue_diamond:</code></td>
+<td>🔶 <code class="notranslate">:large_orange_diamond:</code></td>
+</tr>
+<tr>
+<td>🔹 <code class="notranslate">:small_blue_diamond:</code></td>
+<td>🔸 <code class="notranslate">:small_orange_diamond:</code></td>
+<td>🔺 <code class="notranslate">:small_red_triangle:</code></td>
+</tr>
+<tr>
+<td>🔻 <code class="notranslate">:small_red_triangle_down:</code></td>
+<td><img class="emoji" title=":shipit:" alt=":shipit:" src="https://github.githubassets.com/images/icons/emoji/shipit.png" height="20" width="20" align="absmiddle"> <code class="notranslate">:shipit:</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="http://www.ababll5.cn">新鲜哥的技术博客</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("07/01/2024"!=""){
+    var startSite=new Date("07/01/2024");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","ababll5/blog");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+<script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>
+
+</html>
