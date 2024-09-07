@@ -1,5 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>新鲜哥的技术博客</title><link>http://www.ababll5.cn</link><description>一个初中生的技术博客</description><copyright>新鲜哥的技术博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/08/26/OHxIvr4wC89FgtB.jpg</url><title>avatar</title><link>http://www.ababll5.cn</link></image><lastBuildDate>Sat, 07 Sep 2024 15:07:06 +0000</lastBuildDate><managingEditor>新鲜哥的技术博客</managingEditor><ttl>60</ttl><webMaster>新鲜哥的技术博客</webMaster><item><title>c++结构体案例</title><link>http://www.ababll5.cn/post/c%2B%2B-jie-gou-ti-an-li.html</link><description>&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>新鲜哥的技术博客</title><link>http://www.ababll5.cn</link><description>一个初中生的技术博客</description><copyright>新鲜哥的技术博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/08/26/OHxIvr4wC89FgtB.jpg</url><title>avatar</title><link>http://www.ababll5.cn</link></image><lastBuildDate>Sat, 07 Sep 2024 15:08:43 +0000</lastBuildDate><managingEditor>新鲜哥的技术博客</managingEditor><ttl>60</ttl><webMaster>新鲜哥的技术博客</webMaster><item><title>c++通讯录管理系统</title><link>http://www.ababll5.cn/post/c%2B%2B-tong-xun-lu-guan-li-xi-tong.html</link><description># 通讯录管理系统&#13;
+&#13;
+# 前言&#13;
+&#13;
+我只要做完这个“通讯录管理系统”我的c++就入门了，我的源码也会放在[[我的github上](https://github.com/ababll5/blog_cpp)](https://github.com/ababll5/blog_cpp)&#13;
+&#13;
+点击即可跳转欢迎大家学习如果有错误欢迎到我的邮箱[369491854@qq.com](mailto:369491854@qq.com)上反馈&#13;
+&#13;
+# 正文&#13;
+&#13;
+## 系统要求&#13;
+&#13;
+通讯录系统是一个可以记录亲人、好友性息的工具。</description><guid isPermaLink="true">http://www.ababll5.cn/post/c%2B%2B-tong-xun-lu-guan-li-xi-tong.html</guid><pubDate>Sat, 07 Sep 2024 15:08:17 +0000</pubDate></item><item><title>c++结构体案例</title><link>http://www.ababll5.cn/post/c%2B%2B-jie-gou-ti-an-li.html</link><description>&#13;
 # 结构体的两个案例&#13;
 &#13;
 ## 案例一&#13;
