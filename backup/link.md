@@ -1,6 +1,1 @@
-# 友情链接
-> 那些人，那些事
-
-# 工具
-> 使用的网页好工具
-- [github](github.com)
+- 我自己的[导航网站](https://navigation.ababll5.cn)
