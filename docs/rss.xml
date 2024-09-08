@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>新鲜哥的技术博客</title><link>http://www.ababll5.cn</link><description>一个初中生的技术博客</description><copyright>新鲜哥的技术博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/08/26/OHxIvr4wC89FgtB.jpg</url><title>avatar</title><link>http://www.ababll5.cn</link></image><lastBuildDate>Sun, 08 Sep 2024 12:09:21 +0000</lastBuildDate><managingEditor>新鲜哥的技术博客</managingEditor><ttl>60</ttl><webMaster>新鲜哥的技术博客</webMaster><item><title>c++函数重载</title><link>http://www.ababll5.cn/post/c%2B%2B-han-shu-zhong-zai.html</link><description>&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>新鲜哥的技术博客</title><link>http://www.ababll5.cn</link><description>一个初中生的技术博客</description><copyright>新鲜哥的技术博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/08/26/OHxIvr4wC89FgtB.jpg</url><title>avatar</title><link>http://www.ababll5.cn</link></image><lastBuildDate>Sun, 08 Sep 2024 12:18:46 +0000</lastBuildDate><managingEditor>新鲜哥的技术博客</managingEditor><ttl>60</ttl><webMaster>新鲜哥的技术博客</webMaster><item><title>c++函数重载</title><link>http://www.ababll5.cn/post/c%2B%2B-han-shu-zhong-zai.html</link><description>&#13;
 # 函数重载&#13;
 &#13;
 ## 函数重载概述&#13;
@@ -3940,6 +3940,6 @@ Symbols&#13;
 &#13;
 搭建网站我们采用的是wordpress来搭建一个属于自己的技术博客&#13;
 &#13;
-如果你是程序员或者这方面的大佬你就可以划走了，这篇文章主要是讲给什么都不懂的编程小白。</description><guid isPermaLink="true">http://www.ababll5.cn/post/da-jian-yi-ge-shu-yu-zi-ji-de-wang-zhan.html</guid><pubDate>Sat, 07 Sep 2024 14:31:35 +0000</pubDate></item><item><title>about</title><link>http://www.ababll5.cn/about.html</link><description># 关于我&#13;
+如果你是程序员或者这方面的大佬你就可以划走了，这篇文章主要是讲给什么都不懂的编程小白。</description><guid isPermaLink="true">http://www.ababll5.cn/post/da-jian-yi-ge-shu-yu-zi-ji-de-wang-zhan.html</guid><pubDate>Sat, 07 Sep 2024 14:31:35 +0000</pubDate></item><item><title>link</title><link>http://www.ababll5.cn/post/link.html</link><description>- 我自己的[导航网站](https://navigation.ababll5.cn)。</description><guid isPermaLink="true">http://www.ababll5.cn/post/link.html</guid><pubDate>Sat, 07 Sep 2024 14:12:40 +0000</pubDate></item><item><title>about</title><link>http://www.ababll5.cn/about.html</link><description># 关于我&#13;
 &#13;
-一名初中生。</description><guid isPermaLink="true">http://www.ababll5.cn/about.html</guid><pubDate>Sat, 07 Sep 2024 14:10:18 +0000</pubDate></item><item><title>link</title><link>http://www.ababll5.cn/link.html</link><description>- 我自己的[导航网站](https://navigation.ababll5.cn)。</description><guid isPermaLink="true">http://www.ababll5.cn/link.html</guid><pubDate>Sat, 07 Sep 2024 14:12:40 +0000</pubDate></item></channel></rss>
+一名初中生。</description><guid isPermaLink="true">http://www.ababll5.cn/about.html</guid><pubDate>Sat, 07 Sep 2024 14:10:18 +0000</pubDate></item></channel></rss>
