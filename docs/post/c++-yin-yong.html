@@ -494,26 +494,26 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>作用：给变量起别名</p>
 <p>语法： <code class="notranslate">数据类型 &amp;别名 = 原名</code></p>
 <p>示例：自己复制到编译器琢磨吧</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-	<span class="pl-c"><span class="pl-c">//</span>引用基本语法</span>
-	<span class="pl-c"><span class="pl-c">//</span>数据类型 &amp;别名 = 原名</span>
+	//引用基本语法
+	//数据类型 &amp;别名 = 原名
 
-	<span class="pl-k">int</span> a = <span class="pl-c1">10</span>;
-	<span class="pl-c"><span class="pl-c">//</span>创建引用</span>
-	<span class="pl-k">int</span>&amp; b = a;
+	int a = 10;
+	//创建引用
+	int&amp; b = a;
 
 	cout &lt;&lt; a &lt;&lt; endl
 		&lt;&lt; b &lt;&lt; endl;
 
-	b = <span class="pl-c1">20</span>;
+	b = 20;
 	cout &lt;&lt; a &lt;&lt; endl;
 
-	<span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
-	<span class="pl-k">return</span> <span class="pl-c1">0</span>;
+	system("pause");
+	return 0;
 }</pre></div>
 <p>结论：</p>
 <p>通过给一个变量起别名，可以起到修改别名的数据原名也会跟着变的作用</p>
@@ -526,25 +526,25 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>作用：函数传参是，可以利用引用的技术让形参修饰实参</p>
 <p>优点；可以简化指针修改实参</p>
 <p>示例：</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-c"><span class="pl-c">//</span>交换函数</span>
+//交换函数
 
-<span class="pl-c"><span class="pl-c">//</span>值传递</span>
-<span class="pl-k">void</span> <span class="pl-en">swap01</span>(<span class="pl-k">int</span> a,<span class="pl-k">int</span> b)
+//值传递
+void swap01(int a,int b)
 {
-	<span class="pl-k">int</span> temp = a;
+	int temp = a;
 		a = b;
 	b = temp;
-	<span class="pl-c"><span class="pl-c">/*</span>cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;</span>
-<span class="pl-c">	cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;<span class="pl-c">*/</span></span>
+	/*cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;
+	cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;*/
 }
 
-<span class="pl-c"><span class="pl-c">//</span>地址传递</span>
-<span class="pl-k">void</span> <span class="pl-en">swap02</span>(<span class="pl-k">int</span> * a,<span class="pl-k">int</span> *b)
+//地址传递
+void swap02(int * a,int *b)
 {
-	<span class="pl-k">int</span> temp = *a;
+	int temp = *a;
 	*a = *b;
 	*b = temp;
 
@@ -552,65 +552,65 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 }
 
 
-<span class="pl-c"><span class="pl-c">//</span>引用</span>
-<span class="pl-k">void</span> <span class="pl-en">swap03</span>(<span class="pl-k">int</span> &amp;a, <span class="pl-k">int</span> &amp;b)
+//引用
+void swap03(int &amp;a, int &amp;b)
 {
-	<span class="pl-k">int</span> temp = a;
+	int temp = a;
 	a = b;
 	b = temp;
 }
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-	<span class="pl-k">int</span> a = <span class="pl-c1">10</span>;
-	<span class="pl-k">int</span> b = <span class="pl-c1">20</span>;
-	cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>-----------原来的----------<span class="pl-pds">"</span></span> &lt;&lt; endl;
-	cout &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>         a = <span class="pl-pds">"</span></span> &lt;&lt; a &lt;&lt; endl;
-	cout &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>         b = <span class="pl-pds">"</span></span> &lt;&lt; b &lt;&lt; endl;
-	cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>---------------------------<span class="pl-pds">"</span></span> &lt;&lt; endl&lt;&lt;endl;
+	int a = 10;
+	int b = 20;
+	cout &lt;&lt; "-----------原来的----------" &lt;&lt; endl;
+	cout &lt;&lt;"         a = " &lt;&lt; a &lt;&lt; endl;
+	cout &lt;&lt;"         b = " &lt;&lt; b &lt;&lt; endl;
+	cout &lt;&lt; "---------------------------" &lt;&lt; endl&lt;&lt;endl;
 
-	<span class="pl-c1">swap01</span>(a,b); <span class="pl-c"><span class="pl-c">//</span>值传递，形参不会修饰实参</span>
+	swap01(a,b); //值传递，形参不会修饰实参
 
-	<span class="pl-c"><span class="pl-c">//</span>不注释掉后面没法测试 swap02(&amp;a, &amp;b);//指针传递可以改变实参</span>
-<span class="pl-c"><span class="pl-c">/*</span>	cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;</span>
-<span class="pl-c">   cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;<span class="pl-c">*/</span></span>
+	//不注释掉后面没法测试 swap02(&amp;a, &amp;b);//指针传递可以改变实参
+/*	cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;
+   cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;*/
 
-	<span class="pl-c1">swap03</span>(a, b);
-	cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>a = <span class="pl-pds">"</span></span> &lt;&lt; a &lt;&lt; endl;
-	cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>b = <span class="pl-pds">"</span></span> &lt;&lt; b &lt;&lt; endl;
+	swap03(a, b);
+	cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;
+	cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;
 
-	<span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
-	<span class="pl-k">return</span> <span class="pl-c1">0</span>;
+	system("pause");
+	return 0;
 }</pre></div>
 <p>总结：通过引用传递的效果是和地址传递的效果是一样的</p>
 <h2>引用作函数的返回值</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-c"><span class="pl-c">//</span>引用做函数的返回值</span>
-<span class="pl-c"><span class="pl-c">//</span>不要返回局部变量的引用</span>
-<span class="pl-k">int</span>&amp; <span class="pl-en">test01</span>() {
-	<span class="pl-k">int</span> a = <span class="pl-c1">10</span>;<span class="pl-c"><span class="pl-c">//</span>存放在内四区的 栈区</span>
-	<span class="pl-k">return</span> a;
+//引用做函数的返回值
+//不要返回局部变量的引用
+int&amp; test01() {
+	int a = 10;//存放在内四区的 栈区
+	return a;
 }
 
-<span class="pl-c"><span class="pl-c">//</span>函数的调用可以作为左值</span>
-<span class="pl-k">int</span>&amp; <span class="pl-en">test02</span>() {
-	<span class="pl-k">static</span> <span class="pl-k">int</span> a = <span class="pl-c1">10</span>;<span class="pl-c"><span class="pl-c">//</span>静态变量，在全局区，全局区在程序结束后系统释放</span>
-	<span class="pl-k">return</span> a;
+//函数的调用可以作为左值
+int&amp; test02() {
+	static int a = 10;//静态变量，在全局区，全局区在程序结束后系统释放
+	return a;
 }
 
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>) {
-	<span class="pl-k">int</span>&amp; ref01 = <span class="pl-c1">test01</span>();
-	cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>ref01 = <span class="pl-pds">"</span></span> &lt;&lt; ref01 &lt;&lt; endl;<span class="pl-c"><span class="pl-c">//</span>a的内存释放了 所以错误</span>
+int main(void) {
+	int&amp; ref01 = test01();
+	cout &lt;&lt; "ref01 = " &lt;&lt; ref01 &lt;&lt; endl;//a的内存释放了 所以错误
 
-	<span class="pl-k">int</span>&amp; ref02 = <span class="pl-c1">test02</span>();
-	cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>ref02 = <span class="pl-pds">"</span></span> &lt;&lt; ref02 &lt;&lt; endl;
-	cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>ref02 = <span class="pl-pds">"</span></span> &lt;&lt; ref02 &lt;&lt; endl;
+	int&amp; ref02 = test02();
+	cout &lt;&lt; "ref02 = " &lt;&lt; ref02 &lt;&lt; endl;
+	cout &lt;&lt; "ref02 = " &lt;&lt; ref02 &lt;&lt; endl;
 
-	<span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
-	<span class="pl-k">return</span> <span class="pl-c1">0</span>;
+	system("pause");
+	return 0;
 }</pre></div>
 <h2>引用的本质</h2>
 <p>本质：引用的本质在c++内部实现的是一个指针常量</p>
@@ -619,33 +619,33 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h2>常量引用</h2>
 <p>作用：常量引用主要用来修饰形参，防止误操作</p>
 <p>在函数形参列表中，可以家<strong>const修饰形参</strong>,防止形参改实参</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-c"><span class="pl-c">//</span> 打印数据函数</span>
-<span class="pl-k">void</span> <span class="pl-en">out</span>(<span class="pl-k">const</span> <span class="pl-k">int</span> &amp;val)
+// 打印数据函数
+void out(const int &amp;val)
 {
 
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>val = <span class="pl-pds">"</span></span> &lt;&lt; val &lt;&lt; endl;
+    cout &lt;&lt; "val = " &lt;&lt; val &lt;&lt; endl;
 }
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-    <span class="pl-c"><span class="pl-c">//</span> 常量引用</span>
-    <span class="pl-c"><span class="pl-c">//</span> 使用场景：用来修饰形参防止误操作</span>
+    // 常量引用
+    // 使用场景：用来修饰形参防止误操作
 
-    <span class="pl-c"><span class="pl-c">//</span> int a = 10;</span>
+    // int a = 10;
 
-    <span class="pl-c"><span class="pl-c">//</span> 加上const之后，编译器将代码修改 int temp = 10; int &amp; ref =temp</span>
-    <span class="pl-c"><span class="pl-c">//</span>   const int &amp; ref = 10; //引用必须引一块合法的内存空间</span>
-    <span class="pl-c"><span class="pl-c">//</span>   ref = 20; //加入const就不可以修改了</span>
+    // 加上const之后，编译器将代码修改 int temp = 10; int &amp; ref =temp
+    //   const int &amp; ref = 10; //引用必须引一块合法的内存空间
+    //   ref = 20; //加入const就不可以修改了
 
-    <span class="pl-k">int</span> a = <span class="pl-c1">100</span>;
-    <span class="pl-c1">out</span>(a);
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>a = <span class="pl-pds">"</span></span> &lt;&lt; a &lt;&lt; endl;
+    int a = 100;
+    out(a);
+    cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;
 
-    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    system("pause");
+    return 0;
 }</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 

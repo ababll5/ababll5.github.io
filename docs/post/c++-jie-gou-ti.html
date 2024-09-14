@@ -605,246 +605,246 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>小白学结构体</h1>
 <h1>1、定义与使用</h1>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>    
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
+#include&lt;string&gt;    
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-c"><span class="pl-c">//</span>1 创建学生数据内型：学生包括（姓名，年龄，分数）</span>
-<span class="pl-c"><span class="pl-c">//</span>自定义数据内型，一些内型集合组成的一个内型</span>
-<span class="pl-c"><span class="pl-c">//</span>语法 struct 内型名称 {成员列表}</span>
-<span class="pl-k">struct</span> <span class="pl-en">sb</span><span class="pl-c"><span class="pl-c">//</span>student</span>
+//1 创建学生数据内型：学生包括（姓名，年龄，分数）
+//自定义数据内型，一些内型集合组成的一个内型
+//语法 struct 内型名称 {成员列表}
+struct sb//student
 {
-  <span class="pl-c"><span class="pl-c">//</span>成员列表</span>
+  //成员列表
 
-  <span class="pl-c"><span class="pl-c">//</span>姓名</span>
+  //姓名
    string name;
-  <span class="pl-c"><span class="pl-c">//</span>年龄</span>
-   <span class="pl-k">int</span> year;
-  <span class="pl-c"><span class="pl-c">//</span>分数</span>
-  <span class="pl-k">int</span> test;
-}s3; <span class="pl-c"><span class="pl-c">//</span>顺便定义不建议使用</span>
+  //年龄
+   int year;
+  //分数
+  int test;
+}s3; //顺便定义不建议使用
 
 
-<span class="pl-c"><span class="pl-c">//</span>2 通过学生三个内型创建具体学生</span>
+//2 通过学生三个内型创建具体学生
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-    <span class="pl-c"><span class="pl-c">//</span>2.1 struct student s1;</span>
-    <span class="pl-c"><span class="pl-c">//</span>下面的struct关键字可以不写</span>
-    <span class="pl-k">struct</span> <span class="pl-en">sb</span> s1;
-    <span class="pl-c"><span class="pl-c">//</span>给s1赋值</span>
-    s1.<span class="pl-smi">name</span> = <span class="pl-s"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>;
-    s1.<span class="pl-smi">year</span> = <span class="pl-c1">18</span>;
-    s1.<span class="pl-smi">test</span> = <span class="pl-c1">100</span>;
-cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>姓名: <span class="pl-pds">"</span></span>&lt;&lt;s1.<span class="pl-smi">name</span>&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 年龄: <span class="pl-pds">"</span></span>&lt;&lt;s1.<span class="pl-smi">year</span>&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 成绩: <span class="pl-pds">"</span></span>&lt;&lt;s1.<span class="pl-smi">test</span>&lt;&lt;endl;
+    //2.1 struct student s1;
+    //下面的struct关键字可以不写
+    struct sb s1;
+    //给s1赋值
+    s1.name = "张三";
+    s1.year = 18;
+    s1.test = 100;
+cout&lt;&lt;"姓名: "&lt;&lt;s1.name&lt;&lt;" 年龄: "&lt;&lt;s1.year&lt;&lt;" 成绩: "&lt;&lt;s1.test&lt;&lt;endl;
 
 
-<span class="pl-c"><span class="pl-c">//</span>2.2 struct student s2 = {……}</span>
-<span class="pl-k">struct</span> <span class="pl-en">sb</span> s2 = {<span class="pl-s"><span class="pl-pds">"</span>小红<span class="pl-pds">"</span></span>,<span class="pl-c1">17</span>,<span class="pl-c1">89</span>};
-cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>姓名: <span class="pl-pds">"</span></span>&lt;&lt;s2.<span class="pl-smi">name</span>&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 年龄: <span class="pl-pds">"</span></span>&lt;&lt;s2.<span class="pl-smi">year</span>&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 成绩: <span class="pl-pds">"</span></span>&lt;&lt;s2.<span class="pl-smi">test</span>&lt;&lt;endl;
+//2.2 struct student s2 = {……}
+struct sb s2 = {"小红",17,89};
+cout&lt;&lt;"姓名: "&lt;&lt;s2.name&lt;&lt;" 年龄: "&lt;&lt;s2.year&lt;&lt;" 成绩: "&lt;&lt;s2.test&lt;&lt;endl;
 
 
-<span class="pl-c"><span class="pl-c">//</span>2.3 在定义结构体时顺便创建结构体变量 （不建议用）</span>
- <span class="pl-c"><span class="pl-c">//</span>看main函数上面的struct</span>
-    s3.<span class="pl-smi">name</span> = <span class="pl-s"><span class="pl-pds">"</span>张四<span class="pl-pds">"</span></span>;
-    s3.<span class="pl-smi">year</span> = <span class="pl-c1">18</span>;
-    s3.<span class="pl-smi">test</span> = <span class="pl-c1">100</span>;
+//2.3 在定义结构体时顺便创建结构体变量 （不建议用）
+ //看main函数上面的struct
+    s3.name = "张四";
+    s3.year = 18;
+    s3.test = 100;
 
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    return 0;
 }</pre></div>
 <h1>2、结构体数组</h1>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
-<span class="pl-c"><span class="pl-c">//</span>结构体数组</span>
-<span class="pl-c"><span class="pl-c">//</span>1、定义结构体</span>
-<span class="pl-k">struct</span> <span class="pl-en">sd</span>       <span class="pl-c"><span class="pl-c">//</span>学生缩写</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
+#include&lt;string&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+//结构体数组
+//1、定义结构体
+struct sd       //学生缩写
 {
-   string name;  <span class="pl-c"><span class="pl-c">//</span>姓名</span>
-   <span class="pl-k">int</span>  yesr;    <span class="pl-c"><span class="pl-c">//</span>年龄</span>
-   <span class="pl-k">int</span>  test;
-};     <span class="pl-c"><span class="pl-c">//</span>记得加;</span>
+   string name;  //姓名
+   int  yesr;    //年龄
+   int  test;
+};     //记得加;
 
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-<span class="pl-c"><span class="pl-c">//</span>2、创建结构体数组</span>
-  <span class="pl-k">struct</span> <span class="pl-en">sd</span> sdArr[<span class="pl-c1">2</span>] = 
+//2、创建结构体数组
+  struct sd sdArr[2] = 
   {
-    {<span class="pl-s"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>,<span class="pl-c1">18</span>,<span class="pl-c1">96</span>},
-    {<span class="pl-s"><span class="pl-pds">"</span>李四<span class="pl-pds">"</span></span>,<span class="pl-c1">19</span>,<span class="pl-c1">97</span>}
-    <span class="pl-c"><span class="pl-c">//</span>...</span>
+    {"张三",18,96},
+    {"李四",19,97}
+    //...
   }; 
 
      
  
-<span class="pl-c"><span class="pl-c">//</span>3、给结构体数组中的元素赋值</span>
-    sdArr[<span class="pl-c1">1</span>].<span class="pl-smi">yesr</span> = <span class="pl-c1">17</span> ;          <span class="pl-c"><span class="pl-c">//</span>把李四的年龄改为17</span>
+//3、给结构体数组中的元素赋值
+    sdArr[1].yesr = 17 ;          //把李四的年龄改为17
  
 
- <span class="pl-c"><span class="pl-c">//</span>输出</span>
-<span class="pl-k">for</span>(<span class="pl-k">int</span> i = <span class="pl-c1">0</span>;i&lt;<span class="pl-c1">2</span>;i++)
+ //输出
+for(int i = 0;i&lt;2;i++)
 {
-cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>姓名: <span class="pl-pds">"</span></span>&lt;&lt;sdArr[i].<span class="pl-smi">name</span>
-    &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 年龄: <span class="pl-pds">"</span></span>&lt;&lt;sdArr[i].<span class="pl-smi">yesr</span>
-    &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 分数: <span class="pl-pds">"</span></span>&lt;&lt;sdArr[i].<span class="pl-smi">test</span>
+cout&lt;&lt;"姓名: "&lt;&lt;sdArr[i].name
+    &lt;&lt;" 年龄: "&lt;&lt;sdArr[i].yesr
+    &lt;&lt;" 分数: "&lt;&lt;sdArr[i].test
     &lt;&lt;endl;
 }
 
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    return 0;
 }</pre></div>
 <h1>3、结构体指针</h1>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-k">struct</span> <span class="pl-en">Student</span>
+struct Student
 {
     string name;
-    <span class="pl-k">int</span> age;
-    <span class="pl-k">int</span> score;
+    int age;
+    int score;
 };
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>()
+int main()
 {
-    Student stu1 = {<span class="pl-s"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>, <span class="pl-c1">18</span>, <span class="pl-c1">90</span>};
+    Student stu1 = {"张三", 18, 90};
     Student *p = &amp;stu1;
 
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名：<span class="pl-pds">"</span></span> &lt;&lt; p-&gt;<span class="pl-smi">name</span> &lt;&lt; endl;
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>年龄：<span class="pl-pds">"</span></span> &lt;&lt; p-&gt;<span class="pl-smi">age</span> &lt;&lt; endl;
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>成绩：<span class="pl-pds">"</span></span> &lt;&lt; p-&gt;<span class="pl-smi">score</span> &lt;&lt; endl;
+    cout &lt;&lt; "姓名：" &lt;&lt; p-&gt;name &lt;&lt; endl;
+    cout &lt;&lt; "年龄：" &lt;&lt; p-&gt;age &lt;&lt; endl;
+    cout &lt;&lt; "成绩：" &lt;&lt; p-&gt;score &lt;&lt; endl;
 
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    return 0;
 }
-# <span class="pl-c1">4</span>、结构体嵌套
+# 4、结构体嵌套
 ​```cpp
-<span class="pl-c"><span class="pl-c">//</span> 包含iostream头文件，使用std命名空间</span>
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+// 包含iostream头文件，使用std命名空间
+#include &lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-c"><span class="pl-c">//</span> 定义Student结构体，包含name、age、score三个成员变量</span>
-<span class="pl-k">struct</span> <span class="pl-en">Student</span>
+// 定义Student结构体，包含name、age、score三个成员变量
+struct Student
 {
     string name;
-    <span class="pl-k">int</span> age;
-    <span class="pl-k">int</span> score;
+    int age;
+    int score;
 };
 
-<span class="pl-c"><span class="pl-c">//</span> 定义Teacher结构体，包含name、age、salary、stu四个成员变量</span>
-<span class="pl-k">struct</span> <span class="pl-en">Teacher</span>
+// 定义Teacher结构体，包含name、age、salary、stu四个成员变量
+struct Teacher
 {
     string name;
-    <span class="pl-k">int</span> age;
-    <span class="pl-k">int</span> salary;
+    int age;
+    int salary;
     Student stu;
 };
 
-<span class="pl-c"><span class="pl-c">//</span> 主函数，程序从这里开始执行</span>
-<span class="pl-k">int</span> <span class="pl-en">main</span>()
+// 主函数，程序从这里开始执行
+int main()
 {
-    <span class="pl-c"><span class="pl-c">//</span> 定义Teacher类型的变量t1，并初始化其成员变量</span>
-    Teacher t1 = {<span class="pl-s"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>, <span class="pl-c1">38</span>, <span class="pl-c1">5000</span>, {<span class="pl-s"><span class="pl-pds">"</span>李四<span class="pl-pds">"</span></span>, <span class="pl-c1">18</span>, <span class="pl-c1">90</span>}};
+    // 定义Teacher类型的变量t1，并初始化其成员变量
+    Teacher t1 = {"张三", 38, 5000, {"李四", 18, 90}};
 
-    <span class="pl-c"><span class="pl-c">//</span> 输出t1的成员变量</span>
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名：<span class="pl-pds">"</span></span> &lt;&lt; t1.<span class="pl-smi">name</span> &lt;&lt; endl;
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>年龄：<span class="pl-pds">"</span></span> &lt;&lt; t1.<span class="pl-smi">age</span> &lt;&lt; endl;
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>工资：<span class="pl-pds">"</span></span> &lt;&lt; t1.<span class="pl-smi">salary</span> &lt;&lt; endl;
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名：<span class="pl-pds">"</span></span> &lt;&lt; t1.<span class="pl-smi">stu</span>.<span class="pl-smi">name</span> &lt;&lt; endl;
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>年龄：<span class="pl-pds">"</span></span> &lt;&lt; t1.<span class="pl-smi">stu</span>.<span class="pl-smi">age</span> &lt;&lt; endl;
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>成绩：<span class="pl-pds">"</span></span> &lt;&lt; t1.<span class="pl-smi">stu</span>.<span class="pl-smi">score</span> &lt;&lt; endl;
+    // 输出t1的成员变量
+    cout &lt;&lt; "姓名：" &lt;&lt; t1.name &lt;&lt; endl;
+    cout &lt;&lt; "年龄：" &lt;&lt; t1.age &lt;&lt; endl;
+    cout &lt;&lt; "工资：" &lt;&lt; t1.salary &lt;&lt; endl;
+    cout &lt;&lt; "姓名：" &lt;&lt; t1.stu.name &lt;&lt; endl;
+    cout &lt;&lt; "年龄：" &lt;&lt; t1.stu.age &lt;&lt; endl;
+    cout &lt;&lt; "成绩：" &lt;&lt; t1.stu.score &lt;&lt; endl;
 
-    <span class="pl-c"><span class="pl-c">//</span> 函数返回值为0，表示程序正常结束</span>
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    // 函数返回值为0，表示程序正常结束
+    return 0;
 }</pre></div>
 <h1>5、结构体作为函数参数</h1>
-<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span> 结构体做函数参数</span>
-<span class="pl-c"><span class="pl-c">//</span> 传递方式</span>
-<span class="pl-c"><span class="pl-c">//</span> 值传递</span>
-<span class="pl-c"><span class="pl-c">//</span> 指针传递</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">// 结构体做函数参数
+// 传递方式
+// 值传递
+// 指针传递
 
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-c"><span class="pl-c">//</span> 定义学生结构体</span>
-<span class="pl-k">struct</span> <span class="pl-en">sd</span>
+// 定义学生结构体
+struct sd
 {
-    string name; <span class="pl-c"><span class="pl-c">//</span> 名字</span>
-    <span class="pl-k">int</span> age;     <span class="pl-c"><span class="pl-c">//</span> 年龄</span>
-    <span class="pl-k">int</span> test;    <span class="pl-c"><span class="pl-c">//</span> 分数</span>
+    string name; // 名字
+    int age;     // 年龄
+    int test;    // 分数
 };
 
-<span class="pl-c"><span class="pl-c">//</span> 输出学生基本信息函数</span>
+// 输出学生基本信息函数
 
-<span class="pl-c"><span class="pl-c">//</span> 1‘值传递</span>
-<span class="pl-k">void</span> <span class="pl-en">ncout</span>(<span class="pl-k">struct</span> <span class="pl-en">sd</span> s)
+// 1‘值传递
+void ncout(struct sd s)
 {
-    s.<span class="pl-smi">name</span> = <span class="pl-s"><span class="pl-pds">"</span>我<span class="pl-pds">"</span></span>; <span class="pl-c"><span class="pl-c">//</span> 只改变这次自定义函数中的输出结果</span>
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>子函数中的值传递输出 <span class="pl-pds">"</span></span> &lt;&lt; endl
-         &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 姓名: <span class="pl-pds">"</span></span> &lt;&lt; s.<span class="pl-smi">name</span>
+    s.name = "我"; // 只改变这次自定义函数中的输出结果
+    cout &lt;&lt; "子函数中的值传递输出 " &lt;&lt; endl
+         &lt;&lt; " 姓名: " &lt;&lt; s.name
          &lt;&lt; endl
-         &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 年龄: <span class="pl-pds">"</span></span> &lt;&lt; s.<span class="pl-smi">age</span> &lt;&lt; endl
-         &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 分数: <span class="pl-pds">"</span></span> &lt;&lt; s.<span class="pl-smi">test</span>
+         &lt;&lt; " 年龄: " &lt;&lt; s.age &lt;&lt; endl
+         &lt;&lt; " 分数: " &lt;&lt; s.test
          &lt;&lt; endl;
 }
 
-<span class="pl-c"><span class="pl-c">//</span> 地址传递(要用到指针)</span>
-<span class="pl-k">void</span> <span class="pl-en">pncout</span>(<span class="pl-k">struct</span> <span class="pl-en">sd</span> *s)
+// 地址传递(要用到指针)
+void pncout(struct sd *s)
 {
-    s-&gt;<span class="pl-smi">name</span> = <span class="pl-s"><span class="pl-pds">"</span>你<span class="pl-pds">"</span></span>; <span class="pl-c"><span class="pl-c">//</span> 全局修改</span>
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>子函数中的地址传递输出 <span class="pl-pds">"</span></span> &lt;&lt; endl
-         &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 姓名: <span class="pl-pds">"</span></span> &lt;&lt; s-&gt;<span class="pl-smi">name</span>
+    s-&gt;name = "你"; // 全局修改
+    cout &lt;&lt; "子函数中的地址传递输出 " &lt;&lt; endl
+         &lt;&lt; " 姓名: " &lt;&lt; s-&gt;name
          &lt;&lt; endl
-         &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 年龄: <span class="pl-pds">"</span></span> &lt;&lt; s-&gt;<span class="pl-smi">age</span> &lt;&lt; endl
-         &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 分数: <span class="pl-pds">"</span></span> &lt;&lt; s-&gt;<span class="pl-smi">test</span>
+         &lt;&lt; " 年龄: " &lt;&lt; s-&gt;age &lt;&lt; endl
+         &lt;&lt; " 分数: " &lt;&lt; s-&gt;test
          &lt;&lt; endl;
 }
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-    <span class="pl-c"><span class="pl-c">//</span> 将学生传入一个参数中 并打印</span>
+    // 将学生传入一个参数中 并打印
 
-    <span class="pl-c"><span class="pl-c">//</span> 创建结构体变量</span>
-    <span class="pl-k">struct</span> <span class="pl-en">sd</span> s;
-    s.<span class="pl-smi">name</span> = <span class="pl-s"><span class="pl-pds">"</span>膝关节<span class="pl-pds">"</span></span>;
-    s.<span class="pl-smi">age</span> = <span class="pl-c1">19</span>;
-    s.<span class="pl-smi">test</span> = <span class="pl-c1">98</span>;
+    // 创建结构体变量
+    struct sd s;
+    s.name = "膝关节";
+    s.age = 19;
+    s.test = 98;
 
-    <span class="pl-c"><span class="pl-c">//</span> 自定义函数输出</span>
-    <span class="pl-c1">ncout</span>(s); <span class="pl-c"><span class="pl-c">//</span> 自定义函数，做到输出学生的基本信息</span>
+    // 自定义函数输出
+    ncout(s); // 自定义函数，做到输出学生的基本信息
     cout &lt;&lt; endl
          &lt;&lt; endl;
 
-    <span class="pl-c1">pncout</span>(&amp;s); <span class="pl-c"><span class="pl-c">//</span> 自定义函数，做到输出学生的基本信息</span>
+    pncout(&amp;s); // 自定义函数，做到输出学生的基本信息
     cout &lt;&lt; endl
          &lt;&lt; endl;
 
-    <span class="pl-c"><span class="pl-c">//</span> 正常的输出方式，不过我们今天要用的是自定义函数来输出这一穿</span>
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>main函数中打印<span class="pl-pds">"</span></span> &lt;&lt; endl
-         &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 姓名： <span class="pl-pds">"</span></span> &lt;&lt; s.<span class="pl-smi">name</span>
+    // 正常的输出方式，不过我们今天要用的是自定义函数来输出这一穿
+    cout &lt;&lt; "main函数中打印" &lt;&lt; endl
+         &lt;&lt; " 姓名： " &lt;&lt; s.name
          &lt;&lt; endl
-         &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>年龄<span class="pl-pds">"</span></span> &lt;&lt; s.<span class="pl-smi">age</span>
+         &lt;&lt; "年龄" &lt;&lt; s.age
          &lt;&lt; endl
-         &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>分数<span class="pl-pds">"</span></span> &lt;&lt; s.<span class="pl-smi">test</span> &lt;&lt; endl;
+         &lt;&lt; "分数" &lt;&lt; s.test &lt;&lt; endl;
 
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    return 0;
 
 
-    <span class="pl-c"><span class="pl-c">//</span>运行结果 </span>
+    //运行结果 
 
-    <span class="pl-c"><span class="pl-c">//</span> 子函数中的值传递输出</span>
-    <span class="pl-c"><span class="pl-c">//</span> 姓名: 膝关节</span>
-    <span class="pl-c"><span class="pl-c">//</span> 年龄: 19</span>
-    <span class="pl-c"><span class="pl-c">//</span> 分数: 98</span>
-    <span class="pl-c"><span class="pl-c">//</span></span>
-    <span class="pl-c"><span class="pl-c">//</span> 子函数中的地址传递输出</span>
-    <span class="pl-c"><span class="pl-c">//</span> 姓名: 你</span>
-    <span class="pl-c"><span class="pl-c">//</span> 年龄: 19</span>
-    <span class="pl-c"><span class="pl-c">//</span> 分数: 98</span>
-    <span class="pl-c"><span class="pl-c">//</span></span>
-    <span class="pl-c"><span class="pl-c">//</span> main函数中打印</span>
-    <span class="pl-c"><span class="pl-c">//</span> 姓名: 膝关节</span>
-    <span class="pl-c"><span class="pl-c">//</span> 年龄: 19</span>
-    <span class="pl-c"><span class="pl-c">//</span> 分数: 98</span>
+    // 子函数中的值传递输出
+    // 姓名: 膝关节
+    // 年龄: 19
+    // 分数: 98
+    //
+    // 子函数中的地址传递输出
+    // 姓名: 你
+    // 年龄: 19
+    // 分数: 98
+    //
+    // main函数中打印
+    // 姓名: 膝关节
+    // 年龄: 19
+    // 分数: 98
 }</pre></div>
 <p>本文的所有源码都在[<a href="https://github.com/ababll5/blog_cpp">我的github</a>](<a href="https://github.com/ababll5/blog_cpp)%E9%87%8C">https://github.com/ababll5/blog_cpp)里</a></p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>

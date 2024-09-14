@@ -333,98 +333,98 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>拓展</h1>
 <h2>结构体中const使用场景</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
+#include &lt;string&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-c"><span class="pl-c">//</span> 定义学生结构体</span>
-<span class="pl-k">struct</span> <span class="pl-en">sd</span>
+// 定义学生结构体
+struct sd
 {
-    string name; <span class="pl-c"><span class="pl-c">//</span> 名字</span>
-    <span class="pl-k">int</span> age;     <span class="pl-c"><span class="pl-c">//</span> 年龄</span>
-    <span class="pl-k">int</span> test;    <span class="pl-c"><span class="pl-c">//</span> 分数</span>
+    string name; // 名字
+    int age;     // 年龄
+    int test;    // 分数
 };
 
-<span class="pl-k">void</span> <span class="pl-en">nout</span>(<span class="pl-k">struct</span> <span class="pl-en">sd</span> s)           <span class="pl-c"><span class="pl-c">//</span>输出结构体变量信息的函数</span>
+void nout(struct sd s)           //输出结构体变量信息的函数
 {
- cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>姓名 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">name</span>&lt;&lt;endl
-     &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 年龄 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">age</span>&lt;&lt;endl
-     &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 分数 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">test</span>&lt;&lt;endl;
+ cout&lt;&lt;"姓名 "&lt;&lt;s.name&lt;&lt;endl
+     &lt;&lt;" 年龄 "&lt;&lt;s.age&lt;&lt;endl
+     &lt;&lt;" 分数 "&lt;&lt;s.test&lt;&lt;endl;
 
 }
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-    <span class="pl-c"><span class="pl-c">//</span>创建结构体变量</span>
-    <span class="pl-k">struct</span> <span class="pl-en">sd</span> s= {<span class="pl-s"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>,<span class="pl-c1">18</span>,<span class="pl-c1">90</span>};
+    //创建结构体变量
+    struct sd s= {"张三",18,90};
 
-    <span class="pl-c"><span class="pl-c">//</span>通过函数打印结构体变量的信息</span>
-    <span class="pl-c1">nout</span>(s);
+    //通过函数打印结构体变量的信息
+    nout(s);
 
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    return 0;
 }</pre></div>
 <p>如果我们将函数中的性参改为指针，在人数多的情况下可以减少内存空间</p>
 <ul>
 <li></li>
 </ul>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
+#include &lt;string&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-c"><span class="pl-c">//</span> 定义学生结构体</span>
-<span class="pl-k">struct</span> <span class="pl-en">sd</span>
+// 定义学生结构体
+struct sd
 {
-    string name; <span class="pl-c"><span class="pl-c">//</span> 名字</span>
-    <span class="pl-k">int</span> age;     <span class="pl-c"><span class="pl-c">//</span> 年龄</span>
-    <span class="pl-k">int</span> test;    <span class="pl-c"><span class="pl-c">//</span> 分数</span>
+    string name; // 名字
+    int age;     // 年龄
+    int test;    // 分数
 };
 
-<span class="pl-k">void</span> <span class="pl-en">nout</span>(<span class="pl-k">struct</span> <span class="pl-en">sd</span> *s)           <span class="pl-c"><span class="pl-c">//</span>输出结构体变量信息的函数</span>
+void nout(struct sd *s)           //输出结构体变量信息的函数
 {
- cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>姓名 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">name</span>&lt;&lt;endl
-     &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 年龄 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">age</span>&lt;&lt;endl
-     &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 分数 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">test</span>&lt;&lt;endl;
+ cout&lt;&lt;"姓名 "&lt;&lt;s.name&lt;&lt;endl
+     &lt;&lt;" 年龄 "&lt;&lt;s.age&lt;&lt;endl
+     &lt;&lt;" 分数 "&lt;&lt;s.test&lt;&lt;endl;
 
 }
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-    <span class="pl-c"><span class="pl-c">//</span>创建结构体变量</span>
-    <span class="pl-k">struct</span> <span class="pl-en">sd</span> s= {<span class="pl-s"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>,<span class="pl-c1">18</span>,<span class="pl-c1">90</span>};
+    //创建结构体变量
+    struct sd s= {"张三",18,90};
 
-    <span class="pl-c"><span class="pl-c">//</span>通过函数打印结构体变量的信息</span>
-    <span class="pl-c1">nout</span>(&amp;s);
+    //通过函数打印结构体变量的信息
+    nout(&amp;s);
 
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    return 0;
 }</pre></div>
 <h2>但这样有个安全隐患如果我在</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">void</span> <span class="pl-en">nout</span>(<span class="pl-k">struct</span> <span class="pl-en">sd</span> *s)           <span class="pl-c"><span class="pl-c">//</span>输出结构体变量信息的函数</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">void nout(struct sd *s)           //输出结构体变量信息的函数
 {
- cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>姓名 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">name</span>&lt;&lt;endl
-     &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 年龄 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">age</span>&lt;&lt;endl
-     &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 分数 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">test</span>&lt;&lt;endl;
+ cout&lt;&lt;"姓名 "&lt;&lt;s.name&lt;&lt;endl
+     &lt;&lt;" 年龄 "&lt;&lt;s.age&lt;&lt;endl
+     &lt;&lt;" 分数 "&lt;&lt;s.test&lt;&lt;endl;
 
 }</pre></div>
 <h2>加上个</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">void</span> <span class="pl-en">nout</span>(<span class="pl-k">struct</span> <span class="pl-en">sd</span> *s)           <span class="pl-c"><span class="pl-c">//</span>输出结构体变量信息的函数</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">void nout(struct sd *s)           //输出结构体变量信息的函数
 {
-    s-&gt;<span class="pl-smi">age</span> = <span class="pl-c1">500</span>;
- cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>姓名 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">name</span>&lt;&lt;endl
-     &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 年龄 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">age</span>&lt;&lt;endl
-     &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 分数 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">test</span>&lt;&lt;endl;
+    s-&gt;age = 500;
+ cout&lt;&lt;"姓名 "&lt;&lt;s.name&lt;&lt;endl
+     &lt;&lt;" 年龄 "&lt;&lt;s.age&lt;&lt;endl
+     &lt;&lt;" 分数 "&lt;&lt;s.test&lt;&lt;endl;
 
 }</pre></div>
 <h2>那么全部的"年龄"都会被修改</h2>
 <h1>所以</h1>
 <p>我们就得在</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">void</span> <span class="pl-en">nout</span>(<span class="pl-k">struct</span> <span class="pl-en">sd</span> *s)           <span class="pl-c"><span class="pl-c">//</span>输出结构体变量信息的函数</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">void nout(struct sd *s)           //输出结构体变量信息的函数
 {
- cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>姓名 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">name</span>&lt;&lt;endl
-     &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 年龄 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">age</span>&lt;&lt;endl
-     &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span> 分数 <span class="pl-pds">"</span></span>&lt;&lt;s.<span class="pl-smi">test</span>&lt;&lt;endl;
+ cout&lt;&lt;"姓名 "&lt;&lt;s.name&lt;&lt;endl
+     &lt;&lt;" 年龄 "&lt;&lt;s.age&lt;&lt;endl
+     &lt;&lt;" 分数 "&lt;&lt;s.test&lt;&lt;endl;
 }</pre></div>
 <h2>加一个</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">void</span> <span class="pl-en">nout</span>(<span class="pl-k">const</span> <span class="pl-k">struct</span> <span class="pl-en">sd</span> *s)</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">void nout(const struct sd *s)</pre></div>
 <p>这样就不可修改了只能读取,只要修改就报错对于长代码来说是一个莫大的帮助</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 

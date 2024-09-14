@@ -609,146 +609,146 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>入门</h1>
 <h2>认识指针</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-<span class="pl-c"><span class="pl-c">//</span> 1定义指针</span>
-<span class="pl-k">int</span> a=<span class="pl-c1">10</span>;
+// 1定义指针
+int a=10;
 
-<span class="pl-c"><span class="pl-c">//</span>指针定义语法:数据内型*指针变量名；</span>
-<span class="pl-k">int</span>*p;
+//指针定义语法:数据内型*指针变量名；
+int*p;
 
-<span class="pl-c"><span class="pl-c">//</span>让指针记录变量a的地址</span>
+//让指针记录变量a的地址
 p = &amp;a;
-cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>a的地址<span class="pl-pds">"</span></span>&lt;&lt;&amp;a&lt;&lt;endl&lt;&lt;endl;
-cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>指针p：<span class="pl-pds">"</span></span>&lt;&lt;p&lt;&lt;endl&lt;&lt;endl;
+cout&lt;&lt;"a的地址"&lt;&lt;&amp;a&lt;&lt;endl&lt;&lt;endl;
+cout&lt;&lt;"指针p："&lt;&lt;p&lt;&lt;endl&lt;&lt;endl;
 
-<span class="pl-c"><span class="pl-c">//</span>2使用指针</span>
-<span class="pl-c"><span class="pl-c">//</span>可以通过解引用找到指针指向的内存</span>
-<span class="pl-c"><span class="pl-c">//</span>指针前加*代表解引用，找到指针指向的内存数据</span>
-*p = <span class="pl-c1">1000</span>;   <span class="pl-c"><span class="pl-c">//</span>找到a并修改他    </span>
-cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>a =<span class="pl-pds">"</span></span>&lt;&lt;a&lt;&lt;endl;
-cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>*p =<span class="pl-pds">"</span></span>&lt;&lt;*p&lt;&lt;endl;
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+//2使用指针
+//可以通过解引用找到指针指向的内存
+//指针前加*代表解引用，找到指针指向的内存数据
+*p = 1000;   //找到a并修改他    
+cout&lt;&lt;"a ="&lt;&lt;a&lt;&lt;endl;
+cout&lt;&lt;"*p ="&lt;&lt;*p&lt;&lt;endl;
+    return 0;
 }</pre></div>
 <h2>指针的大小</h2>
 <h2>用sizeof计算出指针的大小</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-<span class="pl-c"><span class="pl-c">//</span>指针所占内存空间</span>
-<span class="pl-k">int</span> a=<span class="pl-c1">10</span>;
-<span class="pl-c"><span class="pl-c">//</span>int * p;</span>
-<span class="pl-c"><span class="pl-c">//</span>p = &amp;a;</span>
- <span class="pl-k">int</span>*p =&amp;a;
- <span class="pl-c"><span class="pl-c">//</span>32位(x86)4字节</span>
- <span class="pl-c"><span class="pl-c">//</span>64位(x64)8字节</span>
- <span class="pl-c"><span class="pl-c">//</span>所有</span>
- cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>int * = <span class="pl-pds">"</span></span>&lt;&lt;<span class="pl-k">sizeof</span>(<span class="pl-k">int</span>*)&lt;&lt;endl;
- cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>float * = <span class="pl-pds">"</span></span>&lt;&lt;<span class="pl-k">sizeof</span>(<span class="pl-k">float</span>*)&lt;&lt;endl;
- cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>double * = <span class="pl-pds">"</span></span>&lt;&lt;<span class="pl-k">sizeof</span>(<span class="pl-k">double</span>*)&lt;&lt;endl;
- cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>char * = <span class="pl-pds">"</span></span>&lt;&lt;<span class="pl-k">sizeof</span>(<span class="pl-k">char</span>*)&lt;&lt;endl;
+//指针所占内存空间
+int a=10;
+//int * p;
+//p = &amp;a;
+ int*p =&amp;a;
+ //32位(x86)4字节
+ //64位(x64)8字节
+ //所有
+ cout&lt;&lt;"int * = "&lt;&lt;sizeof(int*)&lt;&lt;endl;
+ cout&lt;&lt;"float * = "&lt;&lt;sizeof(float*)&lt;&lt;endl;
+ cout&lt;&lt;"double * = "&lt;&lt;sizeof(double*)&lt;&lt;endl;
+ cout&lt;&lt;"char * = "&lt;&lt;sizeof(char*)&lt;&lt;endl;
 
-<span class="pl-k">return</span> <span class="pl-c1">0</span>;
+return 0;
 }   </pre></div>
 <p>不同的编译方式就会出现不同的大小</p>
 <h1>注意事项</h1>
 <h2>空指针(错误的)</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-   <span class="pl-c"><span class="pl-c">//</span>空指针</span>
-   <span class="pl-c"><span class="pl-c">//</span>空指针用于给指针变量初始化</span>
-   <span class="pl-k">int</span>*p =<span class="pl-c1">NULL</span>;
+   //空指针
+   //空指针用于给指针变量初始化
+   int*p =NULL;
 
-   <span class="pl-c"><span class="pl-c">//</span>空指针不可访问</span>
-   <span class="pl-c"><span class="pl-c">//</span>因为0～255是系统占用的不可访问</span>
+   //空指针不可访问
+   //因为0～255是系统占用的不可访问
    
 
 
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    return 0;
 }</pre></div>
 <h2>野指针(错误的)</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-   <span class="pl-c"><span class="pl-c">//</span>野指针</span>
-   <span class="pl-c"><span class="pl-c">//</span>程序中，避免野指针</span>
-   <span class="pl-k">int</span>*p =(<span class="pl-k">int</span> *)<span class="pl-c1">0x1100</span>;
+   //野指针
+   //程序中，避免野指针
+   int*p =(int *)0x1100;
    cout&lt;&lt;*p&lt;&lt;endl;
 
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    return 0;
 }</pre></div>
 <h1>进阶</h1>
 <h2>const修饰指针</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
-<span class="pl-k">int</span> a = <span class="pl-c1">10</span>;
-<span class="pl-k">int</span> b = <span class="pl-c1">10</span>;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+int a = 10;
+int b = 10;
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-    <span class="pl-c"><span class="pl-c">//</span> 1 const 修饰指针</span>
-    <span class="pl-c"><span class="pl-c">//</span> 常量指针</span>
-    <span class="pl-k">const</span> <span class="pl-k">int</span> *p = &amp;a; <span class="pl-c"><span class="pl-c">//</span> 不可改值</span>
-    <span class="pl-c"><span class="pl-c">//</span>******错误********</span>
-    <span class="pl-c"><span class="pl-c">//</span>    *p = 20</span>
-    <span class="pl-c"><span class="pl-c">//</span>******错误********</span>
-    p = &amp;b; <span class="pl-c"><span class="pl-c">//</span> 可该指向</span>
+    // 1 const 修饰指针
+    // 常量指针
+    const int *p = &amp;a; // 不可改值
+    //******错误********
+    //    *p = 20
+    //******错误********
+    p = &amp;b; // 可该指向
 
-    <span class="pl-c"><span class="pl-c">//</span>************************************************* */</span>
+    //************************************************* */
 
-    <span class="pl-c"><span class="pl-c">//</span> 2 const修饰常量</span>
-    <span class="pl-c"><span class="pl-c">//</span> 指针常量</span>
-    <span class="pl-k">int</span> *<span class="pl-k">const</span> p2 = &amp;a; <span class="pl-c"><span class="pl-c">//</span> 不可该指向</span>
-    <span class="pl-c"><span class="pl-c">//</span>******错误********</span>
-    <span class="pl-c"><span class="pl-c">//</span>    p2 = &amp;b</span>
-    <span class="pl-c"><span class="pl-c">//</span>******错误********</span>
-    *p2 = <span class="pl-c1">100</span>; <span class="pl-c"><span class="pl-c">//</span> 可改值</span>
+    // 2 const修饰常量
+    // 指针常量
+    int *const p2 = &amp;a; // 不可该指向
+    //******错误********
+    //    p2 = &amp;b
+    //******错误********
+    *p2 = 100; // 可改值
 
-<span class="pl-c"><span class="pl-c">/*</span>****************************************************** <span class="pl-c">*/</span></span>
+/******************************************************* */
 
-    <span class="pl-c"><span class="pl-c">//</span> 3 const修饰指针和常量</span>
-    <span class="pl-k">const</span> <span class="pl-k">int</span>* <span class="pl-k">const</span> p3 =&amp;a; <span class="pl-c"><span class="pl-c">//</span>都不可改</span>
+    // 3 const修饰指针和常量
+    const int* const p3 =&amp;a; //都不可改
 
 
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    return 0;
 }</pre></div>
 <h2>指针和数组结合</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-    <span class="pl-c"><span class="pl-c">//</span>****** 指针和数组 ***** */</span>
-    <span class="pl-c"><span class="pl-c">//</span> 利用指针访问数组的元素</span>
-    <span class="pl-k">int</span> arr[<span class="pl-c1">10</span>] = {<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>, <span class="pl-c1">7</span>, <span class="pl-c1">8</span>, <span class="pl-c1">9</span>, <span class="pl-c1">10</span>};
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>第一个元素 <span class="pl-pds">"</span></span> &lt;&lt; arr[<span class="pl-c1">0</span>] &lt;&lt; endl;
-    <span class="pl-k">int</span> *p = arr; <span class="pl-c"><span class="pl-c">//</span> arr就是数组的首地址</span>
-    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>指针访问第一个元素 <span class="pl-pds">"</span></span> &lt;&lt; *p &lt;&lt; endl;
+    //****** 指针和数组 ***** */
+    // 利用指针访问数组的元素
+    int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    cout &lt;&lt; "第一个元素 " &lt;&lt; arr[0] &lt;&lt; endl;
+    int *p = arr; // arr就是数组的首地址
+    cout &lt;&lt; "指针访问第一个元素 " &lt;&lt; *p &lt;&lt; endl;
      
-    cout&lt;&lt;endl&lt;&lt;endl&lt;&lt;endl;          <span class="pl-c"><span class="pl-c">//</span>全是空行不用理</span>
+    cout&lt;&lt;endl&lt;&lt;endl&lt;&lt;endl;          //全是空行不用理
 
 
-     cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>利用指针访问所有<span class="pl-pds">"</span></span>&lt;&lt;endl;
-     <span class="pl-k">int</span> *p2 = arr;
-     <span class="pl-k">for</span>(<span class="pl-k">int</span> i;i&lt;<span class="pl-c1">10</span>;i++)
+     cout&lt;&lt;"利用指针访问所有"&lt;&lt;endl;
+     int *p2 = arr;
+     for(int i;i&lt;10;i++)
      {
-      cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>指针访问第<span class="pl-pds">"</span></span>&lt;&lt;i&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>个元素:<span class="pl-pds">"</span></span>&lt;&lt;*p2&lt;&lt;endl;
+      cout&lt;&lt;"指针访问第"&lt;&lt;i&lt;&lt;"个元素:"&lt;&lt;*p2&lt;&lt;endl;
       p2++;
 
      }
 
 
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    return 0;
 }</pre></div>
 <h2>运行结果</h2>
 <div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-s1">第一个元素</span><span class="pl-kos"></span> <span class="pl-c1">1</span>
@@ -767,50 +767,50 @@ cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>*p =<span class="pl-
 指针访问第8个元素:<span class="pl-c1">9</span>
 指针访问第9个元素:<span class="pl-c1">10</span></pre></div>
 <h2>指针、函数、数组(冒泡排序)</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
 
-<span class="pl-c"><span class="pl-c">//</span> 冒泡排序函数  参数1：首地址  参数2：函数长度</span>
-<span class="pl-k">void</span> <span class="pl-en">maopao</span>(<span class="pl-k">int</span> *arr, <span class="pl-k">int</span> len)  <span class="pl-c"><span class="pl-c">//</span>不用指针数组传不到自定义函数这</span>
+// 冒泡排序函数  参数1：首地址  参数2：函数长度
+void maopao(int *arr, int len)  //不用指针数组传不到自定义函数这
 {
-    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len - <span class="pl-c1">1</span>; i++)
+    for (int i = 0; i &lt; len - 1; i++)
     {
-        <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; len - i - <span class="pl-c1">1</span>; j++)
+        for (int j = 0; j &lt; len - i - 1; j++)
         {
-            <span class="pl-c"><span class="pl-c">//</span> j大于j+1就交换</span>
-            <span class="pl-k">if</span> (arr[j] &gt; arr[j + <span class="pl-c1">1</span>])
+            // j大于j+1就交换
+            if (arr[j] &gt; arr[j + 1])
             {
-                <span class="pl-k">int</span> temp = arr[j];
-                arr[j] = arr[j + <span class="pl-c1">1</span>];
-                arr[j + <span class="pl-c1">1</span>] = temp;
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
         }
     }
 }
 
-<span class="pl-c"><span class="pl-c">//</span> 打印数组</span>
-<span class="pl-k">void</span> <span class="pl-en">sb</span>(<span class="pl-k">int</span> *arr,<span class="pl-k">int</span> len)
+// 打印数组
+void sb(int *arr,int len)
 {
-    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len; i++)
+    for (int i = 0; i &lt; len; i++)
     {
         cout &lt;&lt; arr[i] &lt;&lt; endl;
     }
 }
 
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+int main(void)
 {
-    <span class="pl-c"><span class="pl-c">//</span> 1、先创建数组</span>
-    <span class="pl-k">int</span> arr[<span class="pl-c1">10</span>] = {<span class="pl-c1">4</span>, <span class="pl-c1">3</span>, <span class="pl-c1">6</span>, <span class="pl-c1">9</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">10</span>, <span class="pl-c1">8</span>, <span class="pl-c1">7</span>, <span class="pl-c1">5</span>};
+    // 1、先创建数组
+    int arr[10] = {4, 3, 6, 9, 1, 2, 10, 8, 7, 5};
 
-    <span class="pl-c"><span class="pl-c">//</span> 数组长度</span>
-    <span class="pl-k">int</span> len = <span class="pl-k">sizeof</span>(arr) / <span class="pl-k">sizeof</span>(arr[<span class="pl-c1">0</span>]);
-    <span class="pl-c"><span class="pl-c">//</span> 2 创建函数 实现冒泡排序</span>
-    <span class="pl-c1">maopao</span>(arr, len);
+    // 数组长度
+    int len = sizeof(arr) / sizeof(arr[0]);
+    // 2 创建函数 实现冒泡排序
+    maopao(arr, len);
 
-    <span class="pl-c"><span class="pl-c">//</span> 3 打印排序后的数组</span>
-    <span class="pl-c1">sb</span>(arr, len);
+    // 3 打印排序后的数组
+    sb(arr, len);
 
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+    return 0;
 }</pre></div>
 <h2>运行结果</h2>
 <div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-c1">1</span>
