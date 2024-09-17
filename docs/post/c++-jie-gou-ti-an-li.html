@@ -1109,168 +1109,169 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li></li>
 </ul>
 <h4>头文件</h4>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-#include &lt;string.h&gt;
-#include&lt;ctime&gt;           //获取系统时间
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>ctime<span class="pl-pds">&gt;</span></span>           <span class="pl-c"><span class="pl-c">//</span>获取系统时间</span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span></pre></div>
 <h4>定义学生和老师的结构体</h4>
-<div class="highlight highlight-source-c++"><pre class="notranslate">// 学生结构体定义
-struct student
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span> 学生结构体定义</span>
+<span class="pl-k">struct</span> <span class="pl-en">student</span>
 {
-    // 姓名
+    <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
     string s_name;
 
-    // 成绩
-    int test;
+    <span class="pl-c"><span class="pl-c">//</span> 成绩</span>
+    <span class="pl-k">int</span> test;
 };
 
 
-// 老师的结构体定义
-struct teacher
+<span class="pl-c"><span class="pl-c">//</span> 老师的结构体定义</span>
+<span class="pl-k">struct</span> <span class="pl-en">teacher</span>
 {
-    // 姓名
+    <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
     string t_name;
 
-    // 学生数组
-    struct student sdrr[5];        //学生结构体嵌套进老师结构体里
+    <span class="pl-c"><span class="pl-c">//</span> 学生数组</span>
+    <span class="pl-k">struct</span> <span class="pl-en">student</span> sdrr[<span class="pl-c1">5</span>];        <span class="pl-c"><span class="pl-c">//</span>学生结构体嵌套进老师结构体里</span>
 };</pre></div>
 <p>定义一个给老师和学生赋值的函数</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">// 定义一个给老师和学生赋值的函数
-void td(struct teacher tArr[], int len)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span> 定义一个给老师和学生赋值的函数</span>
+<span class="pl-k">void</span> <span class="pl-en">td</span>(<span class="pl-k">struct</span> <span class="pl-en">teacher</span> tArr[], <span class="pl-k">int</span> len)
 {
-    string nameT = "ABCDE";
-    // 给老师开始赋值
-    for (int i = 0; i &lt; len; i++)
+    string nameT = <span class="pl-s"><span class="pl-pds">"</span>ABCDE<span class="pl-pds">"</span></span>;
+    <span class="pl-c"><span class="pl-c">//</span> 给老师开始赋值</span>
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len; i++)
     {
-        tArr[i].t_name = "Teacher_";
-        tArr[i].t_name += nameT[i];
+        tArr[i].<span class="pl-smi">t_name</span> = <span class="pl-s"><span class="pl-pds">"</span>Teacher_<span class="pl-pds">"</span></span>;
+        tArr[i].<span class="pl-smi">t_name</span> += nameT[i];
 
-        // 老师的学生
-        for (int j = 0; j &lt; 5; j++)
+        <span class="pl-c"><span class="pl-c">//</span> 老师的学生</span>
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; <span class="pl-c1">5</span>; j++)
         {
-            tArr[i].sdrr[j].s_name = "student_";
-            tArr[i].sdrr[j].s_name += nameT[j];
+            tArr[i].<span class="pl-smi">sdrr</span>[j].<span class="pl-smi">s_name</span> = <span class="pl-s"><span class="pl-pds">"</span>student_<span class="pl-pds">"</span></span>;
+            tArr[i].<span class="pl-smi">sdrr</span>[j].<span class="pl-smi">s_name</span> += nameT[j];
             
-            int ran = rand()%61+40;          //随即100～40 = 随即同学的分数
-            tArr[i].sdrr[j].test = ran;
+            <span class="pl-k">int</span> ran = <span class="pl-c1">rand</span>()%<span class="pl-c1">61</span>+<span class="pl-c1">40</span>;          <span class="pl-c"><span class="pl-c">//</span>随即100～40 = 随即同学的分数</span>
+            tArr[i].<span class="pl-smi">sdrr</span>[j].<span class="pl-smi">test</span> = ran;
         }
     }
 }</pre></div>
 <p>自定义和打印函数</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">// 自定义打印函数
-void print(struct teacher tArr[], int len)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span> 自定义打印函数</span>
+<span class="pl-k">void</span> <span class="pl-en">print</span>(<span class="pl-k">struct</span> <span class="pl-en">teacher</span> tArr[], <span class="pl-k">int</span> len)
 {
-    for (int i = 0; i &lt; len; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len; i++)
     {
-        cout &lt;&lt; "老师的姓名: " &lt;&lt; tArr[i].t_name &lt;&lt; endl;
-        for (int j = 0; j &lt; 5; j++)
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>老师的姓名: <span class="pl-pds">"</span></span> &lt;&lt; tArr[i].<span class="pl-smi">t_name</span> &lt;&lt; endl;
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; <span class="pl-c1">5</span>; j++)
         {
-            cout &lt;&lt; "学生姓名:  " &lt;&lt; tArr[i].sdrr[j].s_name
-                 &lt;&lt; "分数: " &lt;&lt; tArr[i].sdrr[j].test &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>学生姓名:  <span class="pl-pds">"</span></span> &lt;&lt; tArr[i].<span class="pl-smi">sdrr</span>[j].<span class="pl-smi">s_name</span>
+                 &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>分数: <span class="pl-pds">"</span></span> &lt;&lt; tArr[i].<span class="pl-smi">sdrr</span>[j].<span class="pl-smi">test</span> &lt;&lt; endl;
         }
     }
 }</pre></div>
 <h4>回到main函数中</h4>
-<div class="highlight highlight-source-c++"><pre class="notranslate">int main(void)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    //随机数种子
-    srand((unsigned int)time(NULL));
+    <span class="pl-c"><span class="pl-c">//</span>随机数种子</span>
+    <span class="pl-c1">srand</span>((<span class="pl-k">unsigned</span> <span class="pl-k">int</span>)<span class="pl-c1">time</span>(<span class="pl-c1">NULL</span>));
 
-​    // 创建三名老师的数组
-​    struct teacher tArr[3];
+​    <span class="pl-c"><span class="pl-c">//</span> 创建三名老师的数组</span>
+​    <span class="pl-k">struct</span> <span class="pl-en">teacher</span> tArr[<span class="pl-c1">3</span>];
 
-​    // 通过函数给3名老师的信息赋值，并给老师带的学生信息赋值
-​    int len = sizeof(tArr) / sizeof(tArr[0]); // 计算长度
-​    td(tArr, len);
+​    <span class="pl-c"><span class="pl-c">//</span> 通过函数给3名老师的信息赋值，并给老师带的学生信息赋值</span>
+​    <span class="pl-k">int</span> len = <span class="pl-k">sizeof</span>(tArr) / <span class="pl-k">sizeof</span>(tArr[<span class="pl-c1">0</span>]); <span class="pl-c"><span class="pl-c">//</span> 计算长度</span>
+​    <span class="pl-c1">td</span>(tArr, len);
 
-​    // 打印所
+​    <span class="pl-c"><span class="pl-c">//</span> 打印所</span>
 
 有老师及代的学生的信息
-    print( tArr, len);
+    <span class="pl-c1">print</span>( tArr, len);
 
-​    cin.get();     //按任意建继续
-​    return 0;
+​    cin.<span class="pl-c1">get</span>();     <span class="pl-c"><span class="pl-c">//</span>按任意建继续</span>
+​    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <h4>全部加起来</h4>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-#include &lt;string.h&gt;
-#include&lt;ctime&gt;           //获取系统时间
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>ctime<span class="pl-pds">&gt;</span></span>           <span class="pl-c"><span class="pl-c">//</span>获取系统时间</span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 学生结构体定义
-struct student
+<span class="pl-c"><span class="pl-c">//</span> 学生结构体定义</span>
+<span class="pl-k">struct</span> <span class="pl-en">student</span>
 {
-    // 姓名
+    <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
     string s_name;
 
-    // 成绩
-    int test;
+    <span class="pl-c"><span class="pl-c">//</span> 成绩</span>
+    <span class="pl-k">int</span> test;
 };
 
-// 老师的结构体定义
-struct teacher
+<span class="pl-c"><span class="pl-c">//</span> 老师的结构体定义</span>
+<span class="pl-k">struct</span> <span class="pl-en">teacher</span>
 {
-    // 姓名
+    <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
     string t_name;
 
-    // 学生数组
-    struct student sdrr[5];
+    <span class="pl-c"><span class="pl-c">//</span> 学生数组</span>
+    <span class="pl-k">struct</span> <span class="pl-en">student</span> sdrr[<span class="pl-c1">5</span>];
 };
 
-// 定义一个给老师和学生赋值的函数
-void td(struct teacher tArr[], int len)
+<span class="pl-c"><span class="pl-c">//</span> 定义一个给老师和学生赋值的函数</span>
+<span class="pl-k">void</span> <span class="pl-en">td</span>(<span class="pl-k">struct</span> <span class="pl-en">teacher</span> tArr[], <span class="pl-k">int</span> len)
 {
-    string nameT = "ABCDE";
-    // 给老师开始赋值
-    for (int i = 0; i &lt; len; i++)
+    string nameT = <span class="pl-s"><span class="pl-pds">"</span>ABCDE<span class="pl-pds">"</span></span>;
+    <span class="pl-c"><span class="pl-c">//</span> 给老师开始赋值</span>
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len; i++)
     {
-        tArr[i].t_name = "Teacher_";
-        tArr[i].t_name += nameT[i];
+        tArr[i].<span class="pl-smi">t_name</span> = <span class="pl-s"><span class="pl-pds">"</span>Teacher_<span class="pl-pds">"</span></span>;
+        tArr[i].<span class="pl-smi">t_name</span> += nameT[i];
 
-        // 老师的学生
-        for (int j = 0; j &lt; 5; j++)
+        <span class="pl-c"><span class="pl-c">//</span> 老师的学生</span>
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; <span class="pl-c1">5</span>; j++)
         {
-            tArr[i].sdrr[j].s_name = "student_";
-            tArr[i].sdrr[j].s_name += nameT[j];
+            tArr[i].<span class="pl-smi">sdrr</span>[j].<span class="pl-smi">s_name</span> = <span class="pl-s"><span class="pl-pds">"</span>student_<span class="pl-pds">"</span></span>;
+            tArr[i].<span class="pl-smi">sdrr</span>[j].<span class="pl-smi">s_name</span> += nameT[j];
             
-            int ran = rand()%61+40;
-            tArr[i].sdrr[j].test = ran;
+            <span class="pl-k">int</span> ran = <span class="pl-c1">rand</span>()%<span class="pl-c1">61</span>+<span class="pl-c1">40</span>;
+            tArr[i].<span class="pl-smi">sdrr</span>[j].<span class="pl-smi">test</span> = ran;
         }
     }
 }
 
-// 自定义打印函数
-void print(struct teacher tArr[], int len)
+<span class="pl-c"><span class="pl-c">//</span> 自定义打印函数</span>
+<span class="pl-k">void</span> <span class="pl-en">print</span>(<span class="pl-k">struct</span> <span class="pl-en">teacher</span> tArr[], <span class="pl-k">int</span> len)
 {
-    for (int i = 0; i &lt; len; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len; i++)
     {
-        cout &lt;&lt; "老师的姓名: " &lt;&lt; tArr[i].t_name &lt;&lt; endl;
-        for (int j = 0; j &lt; 5; j++)
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>老师的姓名: <span class="pl-pds">"</span></span> &lt;&lt; tArr[i].<span class="pl-smi">t_name</span> &lt;&lt; endl;
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; <span class="pl-c1">5</span>; j++)
         {
-            cout &lt;&lt; "学生姓名:  " &lt;&lt; tArr[i].sdrr[j].s_name
-                 &lt;&lt; "分数: " &lt;&lt; tArr[i].sdrr[j].test &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>学生姓名:  <span class="pl-pds">"</span></span> &lt;&lt; tArr[i].<span class="pl-smi">sdrr</span>[j].<span class="pl-smi">s_name</span>
+                 &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>分数: <span class="pl-pds">"</span></span> &lt;&lt; tArr[i].<span class="pl-smi">sdrr</span>[j].<span class="pl-smi">test</span> &lt;&lt; endl;
         }
     }
 }
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    //随机数种子
-    srand((unsigned int)time(NULL));
+    <span class="pl-c"><span class="pl-c">//</span>随机数种子</span>
+    <span class="pl-c1">srand</span>((<span class="pl-k">unsigned</span> <span class="pl-k">int</span>)<span class="pl-c1">time</span>(<span class="pl-c1">NULL</span>));
 
-    // 创建三名老师的数组
-    struct teacher tArr[3];
+    <span class="pl-c"><span class="pl-c">//</span> 创建三名老师的数组</span>
+    <span class="pl-k">struct</span> <span class="pl-en">teacher</span> tArr[<span class="pl-c1">3</span>];
 
-    // 通过函数给3名老师的信息赋值，并给老师带的学生信息赋值
-    int len = sizeof(tArr) / sizeof(tArr[0]); // 计算长度
-    td(tArr, len);
+    <span class="pl-c"><span class="pl-c">//</span> 通过函数给3名老师的信息赋值，并给老师带的学生信息赋值</span>
+    <span class="pl-k">int</span> len = <span class="pl-k">sizeof</span>(tArr) / <span class="pl-k">sizeof</span>(tArr[<span class="pl-c1">0</span>]); <span class="pl-c"><span class="pl-c">//</span> 计算长度</span>
+    <span class="pl-c1">td</span>(tArr, len);
 
-    // 打印所有老师及代的学生的信息
-    print( tArr, len);
+    <span class="pl-c"><span class="pl-c">//</span> 打印所有老师及代的学生的信息</span>
+    <span class="pl-c1">print</span>( tArr, len);
 
-    cin.get();
-    return 0;
-}</pre></div>
+    cin.<span class="pl-c1">get</span>();
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}
+</pre></div>
 <h4>运行结果</h4>
 <div class="highlight highlight-source-batchfile"><pre class="notranslate">老师的姓名: Teacher_A
 学生姓名:  student_A分数: <span class="pl-c1">98</span>
@@ -1294,160 +1295,162 @@ int main(void)
 <h2>案例二</h2>
 <h3>要求</h3>
 <p>给下面不同年龄不同排序的英雄用冒泡排序排序</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">            {"刘备", 23, "男"},
-            {"张飞", 20, "男"},
-            {"赵云", 21, "男"},
-            {"貂蝉", 19, "男"},
-            {"关羽", 22, "男"},</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">            {<span class="pl-s"><span class="pl-pds">"</span>刘备<span class="pl-pds">"</span></span>, <span class="pl-c1">23</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>张飞<span class="pl-pds">"</span></span>, <span class="pl-c1">20</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>赵云<span class="pl-pds">"</span></span>, <span class="pl-c1">21</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>貂蝉<span class="pl-pds">"</span></span>, <span class="pl-c1">19</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>关羽<span class="pl-pds">"</span></span>, <span class="pl-c1">22</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},</pre></div>
 <h3>开始写代码</h3>
 <p>头文件</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-#include &lt;string&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span></pre></div>
 <p>定义英雄结构体</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">struct ying
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">struct</span> <span class="pl-en">ying</span>
 {
-    string name; // 姓名
-    int age;     // 年龄
-    string man;  // 性别
+    string name; <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
+    <span class="pl-k">int</span> age;     <span class="pl-c"><span class="pl-c">//</span> 年龄</span>
+    string man;  <span class="pl-c"><span class="pl-c">//</span> 性别</span>
 };</pre></div>
 <p>在main函数中录入5位英雄的数据</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate"> // 录入5位英雄的数据并计算长度
-    struct ying xiong[5] =
+<div class="highlight highlight-source-c++"><pre class="notranslate"> <span class="pl-c"><span class="pl-c">//</span> 录入5位英雄的数据并计算长度</span>
+    <span class="pl-k">struct</span> <span class="pl-en">ying</span> xiong[<span class="pl-c1">5</span>] =
         {
-            {"刘备", 23, "男"},
-            {"张飞", 20, "男"},
-            {"赵云", 21, "男"},
-            {"貂蝉", 19, "男"},
-            {"关羽", 22, "男"},
+            {<span class="pl-s"><span class="pl-pds">"</span>刘备<span class="pl-pds">"</span></span>, <span class="pl-c1">23</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>张飞<span class="pl-pds">"</span></span>, <span class="pl-c1">20</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>赵云<span class="pl-pds">"</span></span>, <span class="pl-c1">21</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>貂蝉<span class="pl-pds">"</span></span>, <span class="pl-c1">19</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>关羽<span class="pl-pds">"</span></span>, <span class="pl-c1">22</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
         };
-        int len = sizeof(xiong) / sizeof(xiong[0]);  //方便后期更改</pre></div>
+        <span class="pl-k">int</span> len = <span class="pl-k">sizeof</span>(xiong) / <span class="pl-k">sizeof</span>(xiong[<span class="pl-c1">0</span>]);  <span class="pl-c"><span class="pl-c">//</span>方便后期更改</span></pre></div>
 <p>进行阶段性测试(必要)</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">    cout &lt;&lt; "***************阶段性测试(必要)******************" &lt;&lt; endl;
-    cout&lt;&lt;"排序前"&lt;&lt;endl;
-    for (int i = 0; i &lt; len; i++)
+<div class="highlight highlight-source-c++"><pre class="notranslate">    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>***************阶段性测试(必要)******************<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>排序前<span class="pl-pds">"</span></span>&lt;&lt;endl;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len; i++)
     {
-        cout &lt;&lt; "姓名: " &lt;&lt; xiong[i].name &lt;&lt; endl
-             &lt;&lt; " 年龄: " &lt;&lt; xiong[i].age &lt;&lt; endl
-             &lt;&lt; " 性别: " &lt;&lt; xiong[i].man &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">name</span> &lt;&lt; endl
+             &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 年龄: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">age</span> &lt;&lt; endl
+             &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 性别: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">man</span> &lt;&lt; endl;
     }
-    cout &lt;&lt; "**********************************************" &lt;&lt; endl&lt;&lt;endl &lt;&lt; endl;</pre></div>
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>**********************************************<span class="pl-pds">"</span></span> &lt;&lt; endl&lt;&lt;endl &lt;&lt; endl;</pre></div>
 <h2>测试后我们开始根据年龄排序</h2>
 <p>自定义一个排序的函数</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">void paopao(struct ying xiong[], int len) // 冒泡排序
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">void</span> <span class="pl-en">paopao</span>(<span class="pl-k">struct</span> <span class="pl-en">ying</span> xiong[], <span class="pl-k">int</span> len) <span class="pl-c"><span class="pl-c">//</span> 冒泡排序</span>
 {
-    for (int i = 0; i &lt; len - 1; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len - <span class="pl-c1">1</span>; i++)
     {
-        for (int j = 0; j &lt; len - 1 - i; j++)
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; len - <span class="pl-c1">1</span> - i; j++)
         {
-            // 如果j元素的年龄大于j+1就交换
-            if (xiong[j].age &gt; xiong[j + 1].age)
+            <span class="pl-c"><span class="pl-c">//</span> 如果j元素的年龄大于j+1就交换</span>
+            <span class="pl-k">if</span> (xiong[j].<span class="pl-smi">age</span> &gt; xiong[j + <span class="pl-c1">1</span>].<span class="pl-smi">age</span>)
             {
-                struct ying temp = xiong[j];
-                xiong[j] = xiong[j + 1];
-                xiong[j + 1] = temp;
+                <span class="pl-k">struct</span> <span class="pl-en">ying</span> temp = xiong[j];
+                xiong[j] = xiong[j + <span class="pl-c1">1</span>];
+                xiong[j + <span class="pl-c1">1</span>] = temp;
             }
         }
     }
-}</pre></div>
+}
+</pre></div>
 <p>并在main函数中加入</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">  paopao(xiong, len);</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">  <span class="pl-en">paopao</span>(xiong, len);</pre></div>
 <p>随后就是输出了可以直接cout输出也可以像我一样自定义一个输出函数(单纯好玩)</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">    ....               // 省略掉了
+<div class="highlight highlight-source-c++"><pre class="notranslate">    ....               <span class="pl-c"><span class="pl-c">//</span> 省略掉了</span>
 v
-     // 打印排序后的
-void printxiong(struct ying xiong[], int len)
+     <span class="pl-c"><span class="pl-c">//</span> 打印排序后的</span>
+<span class="pl-k">void</span> <span class="pl-en">printxiong</span>(<span class="pl-k">struct</span> <span class="pl-en">ying</span> xiong[], <span class="pl-k">int</span> len)
 {
-    for (int i = 0; i &lt; len; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len; i++)
     {
-        cout&lt;&lt;"排序后"&lt;&lt;endl;
-        cout &lt;&lt; "姓名: " &lt;&lt; xiong[i].name &lt;&lt; endl
-             &lt;&lt; " 年龄: " &lt;&lt; xiong[i].age &lt;&lt; endl
-             &lt;&lt; " 性别: " &lt;&lt; xiong[i].man &lt;&lt; endl;
+        cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>排序后<span class="pl-pds">"</span></span>&lt;&lt;endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">name</span> &lt;&lt; endl
+             &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 年龄: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">age</span> &lt;&lt; endl
+             &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 性别: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">man</span> &lt;&lt; endl;
     }
 }
 
 
-   .....           //省略掉了
-    int main(void){
-        ……             //省略掉了
-    printxiong(xiong, len);
-    ……                    //省略掉了</pre></div>
+   .....           <span class="pl-c"><span class="pl-c">//</span>省略掉了</span>
+    <span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>){
+        ……             <span class="pl-c"><span class="pl-c">//</span>省略掉了</span>
+    <span class="pl-c1">printxiong</span>(xiong, len);
+    ……                    <span class="pl-c"><span class="pl-c">//</span>省略掉了</span></pre></div>
 <h3>最后我们得到了</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate">// 5个英雄不同年龄大小，用冒泡排序把他们通过年龄大小排序
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span> 5个英雄不同年龄大小，用冒泡排序把他们通过年龄大小排序</span>
 
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 定义英雄结构体
-struct ying
+<span class="pl-c"><span class="pl-c">//</span> 定义英雄结构体</span>
+<span class="pl-k">struct</span> <span class="pl-en">ying</span>
 {
-    string name; // 姓名
-    int age;     // 年龄
-    string man;  // 性别
+    string name; <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
+    <span class="pl-k">int</span> age;     <span class="pl-c"><span class="pl-c">//</span> 年龄</span>
+    string man;  <span class="pl-c"><span class="pl-c">//</span> 性别</span>
 };
 
-void paopao(struct ying xiong[], int len) // 冒泡排序
+<span class="pl-k">void</span> <span class="pl-en">paopao</span>(<span class="pl-k">struct</span> <span class="pl-en">ying</span> xiong[], <span class="pl-k">int</span> len) <span class="pl-c"><span class="pl-c">//</span> 冒泡排序</span>
 {
-    for (int i = 0; i &lt; len - 1; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len - <span class="pl-c1">1</span>; i++)
     {
-        for (int j = 0; j &lt; len - 1 - i; j++)
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; len - <span class="pl-c1">1</span> - i; j++)
         {
-            // 如果j元素的年龄大于j+1就交换
-            if (xiong[j].age &gt; xiong[j + 1].age)
+            <span class="pl-c"><span class="pl-c">//</span> 如果j元素的年龄大于j+1就交换</span>
+            <span class="pl-k">if</span> (xiong[j].<span class="pl-smi">age</span> &gt; xiong[j + <span class="pl-c1">1</span>].<span class="pl-smi">age</span>)
             {
-                struct ying temp = xiong[j];
-                xiong[j] = xiong[j + 1];
-                xiong[j + 1] = temp;
+                <span class="pl-k">struct</span> <span class="pl-en">ying</span> temp = xiong[j];
+                xiong[j] = xiong[j + <span class="pl-c1">1</span>];
+                xiong[j + <span class="pl-c1">1</span>] = temp;
             }
         }
     }
 }
 
-// 打印排序后的
-void printxiong(struct ying xiong[], int len)
+<span class="pl-c"><span class="pl-c">//</span> 打印排序后的</span>
+<span class="pl-k">void</span> <span class="pl-en">printxiong</span>(<span class="pl-k">struct</span> <span class="pl-en">ying</span> xiong[], <span class="pl-k">int</span> len)
 {
-    for (int i = 0; i &lt; len; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len; i++)
     {
-        cout&lt;&lt;"排序后"&lt;&lt;endl;
-        cout &lt;&lt; "姓名: " &lt;&lt; xiong[i].name &lt;&lt; endl
-             &lt;&lt; " 年龄: " &lt;&lt; xiong[i].age &lt;&lt; endl
-             &lt;&lt; " 性别: " &lt;&lt; xiong[i].man &lt;&lt; endl;
+        cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>排序后<span class="pl-pds">"</span></span>&lt;&lt;endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">name</span> &lt;&lt; endl
+             &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 年龄: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">age</span> &lt;&lt; endl
+             &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 性别: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">man</span> &lt;&lt; endl;
     }
 }
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    // 录入5位英雄的数据
-    struct ying xiong[5] =
+    <span class="pl-c"><span class="pl-c">//</span> 录入5位英雄的数据</span>
+    <span class="pl-k">struct</span> <span class="pl-en">ying</span> xiong[<span class="pl-c1">5</span>] =
         {
-            {"刘备", 23, "男"},
-            {"张飞", 20, "男"},
-            {"赵云", 21, "男"},
-            {"貂蝉", 19, "男"},
-            {"关羽", 22, "男"},
+            {<span class="pl-s"><span class="pl-pds">"</span>刘备<span class="pl-pds">"</span></span>, <span class="pl-c1">23</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>张飞<span class="pl-pds">"</span></span>, <span class="pl-c1">20</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>赵云<span class="pl-pds">"</span></span>, <span class="pl-c1">21</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>貂蝉<span class="pl-pds">"</span></span>, <span class="pl-c1">19</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
+            {<span class="pl-s"><span class="pl-pds">"</span>关羽<span class="pl-pds">"</span></span>, <span class="pl-c1">22</span>, <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span>},
         };
 
-    int len = sizeof(xiong) / sizeof(xiong[0]);
-    cout &lt;&lt; "***************阶段性测试(必要)******************" &lt;&lt; endl;
-    cout&lt;&lt;"排序前"&lt;&lt;endl;
-    for (int i = 0; i &lt; len; i++)
+    <span class="pl-k">int</span> len = <span class="pl-k">sizeof</span>(xiong) / <span class="pl-k">sizeof</span>(xiong[<span class="pl-c1">0</span>]);
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>***************阶段性测试(必要)******************<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>排序前<span class="pl-pds">"</span></span>&lt;&lt;endl;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; len; i++)
     {
-        cout &lt;&lt; "姓名: " &lt;&lt; xiong[i].name &lt;&lt; endl
-             &lt;&lt; " 年龄: " &lt;&lt; xiong[i].age &lt;&lt; endl
-             &lt;&lt; " 性别: " &lt;&lt; xiong[i].man &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">name</span> &lt;&lt; endl
+             &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 年龄: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">age</span> &lt;&lt; endl
+             &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 性别: <span class="pl-pds">"</span></span> &lt;&lt; xiong[i].<span class="pl-smi">man</span> &lt;&lt; endl;
     }
-    cout &lt;&lt; "**********************************************" &lt;&lt; endl&lt;&lt; endl &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>**********************************************<span class="pl-pds">"</span></span> &lt;&lt; endl&lt;&lt; endl &lt;&lt; endl;
 
-    // 进行排序
-    paopao(xiong, len);
+    <span class="pl-c"><span class="pl-c">//</span> 进行排序</span>
+    <span class="pl-c1">paopao</span>(xiong, len);
 
-    // 打印排序后的结果
-    printxiong(xiong, len);
+    <span class="pl-c"><span class="pl-c">//</span> 打印排序后的结果</span>
+    <span class="pl-c1">printxiong</span>(xiong, len);
 
-    return 0;
-}</pre></div>
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}
+</pre></div>
 <h3>输出结果</h3>
 <div class="highlight highlight-source-batchfile"><pre class="notranslate">***************阶段性测试(必要)******************
 排序前

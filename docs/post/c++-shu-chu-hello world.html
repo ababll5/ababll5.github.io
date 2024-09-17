@@ -159,21 +159,21 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>c++输出hello world教程</h1>
 <h3>首先得有头文件</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span></pre></div>
 <h3>然后主函数</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate">int main(void)</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)</pre></div>
 <h3>全代码</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
-int main(void)
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    std::cout&lt;&lt;"hello world"&lt;&lt;std::endl;     //endl是换行的意思(注意：写完记得加分号;)
-    return 0;                           //程序结束
+    std::cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>hello world<span class="pl-pds">"</span></span>&lt;&lt;std::endl;     <span class="pl-c"><span class="pl-c">//</span>endl是换行的意思(注意：写完记得加分号;)</span>
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;                           <span class="pl-c"><span class="pl-c">//</span>程序结束</span>
 }</pre></div>
 <p>如果编译成exe发现打开后窗口一闪而过怎么办呢？</p>
 <h2>如果是Windows用户那就在<code class="notranslate">return 0;</code>的上面加一个</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate">sysytem("pause")              //这个代码的意思就是用Windows的终端命令pause(按任意建继续)</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-en">sysytem</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>)              <span class="pl-c"><span class="pl-c">//</span>这个代码的意思就是用Windows的终端命令pause(按任意建继续)</span></pre></div>
 <h2>如果是Linux用户那就在<code class="notranslate">return 0;</code>的上面加个</h2>
-<div class="highlight highlight-source-c++"><pre class="notranslate">cin.get();                   //不管什么用户都最好用这个，这行代码所有系统都能运行</pre></div></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">cin.get();                   <span class="pl-c"><span class="pl-c">//</span>不管什么用户都最好用这个，这行代码所有系统都能运行</span></pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

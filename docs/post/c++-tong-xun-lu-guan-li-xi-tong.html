@@ -139,90 +139,90 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>代码:</p>
 </li>
 </ul>
-<div class="highlight highlight-source-c++"><pre class="notranslate">/* 1系统要求
-通讯录系统是一个可以记录亲人、好友性息的工具。
-利用c++来实现一个通讯录管理系统
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">/*</span> 1系统要求</span>
+<span class="pl-c">通讯录系统是一个可以记录亲人、好友性息的工具。</span>
+<span class="pl-c">利用c++来实现一个通讯录管理系统</span>
+<span class="pl-c"></span>
+<span class="pl-c">系统中需要实现的功能如下: </span>
+<span class="pl-c">添加联系人:   向通讯录中添加新人，性息包括(姓名、性别、年龄、联系电话、家庭住址)最多记录1000人</span>
+<span class="pl-c">显示联系人：显示通讯录中所有联系人信息</span>
+<span class="pl-c">删除联系人：按照姓名进行删除指定联系人</span>
+<span class="pl-c">查找联系人：按照姓名查找指定联系人信息</span>
+<span class="pl-c">修改联系人：按照姓名重新修改指定联系人</span>
+<span class="pl-c">清空联系人：清空通讯录中所有性息</span>
+<span class="pl-c">退出通讯录：推出当前使用的通讯录<span class="pl-c">*/</span></span>
 
-系统中需要实现的功能如下: 
-添加联系人:   向通讯录中添加新人，性息包括(姓名、性别、年龄、联系电话、家庭住址)最多记录1000人
-显示联系人：显示通讯录中所有联系人信息
-删除联系人：按照姓名进行删除指定联系人
-查找联系人：按照姓名查找指定联系人信息
-修改联系人：按照姓名重新修改指定联系人
-清空联系人：清空通讯录中所有性息
-退出通讯录：推出当前使用的通讯录*/
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-#include&lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
-
-//1、菜单
-void showMenu()
+<span class="pl-c"><span class="pl-c">//</span>1、菜单</span>
+<span class="pl-k">void</span> <span class="pl-en">showMenu</span>()
 {
-   cout&lt;&lt;"******** 通讯录管理系统 *********"&lt;&lt;endl;
-   cout&lt;&lt;"       1、添加联系人"&lt;&lt;endl;
-   cout&lt;&lt;"       2、显示联系人"&lt;&lt;endl;
-   cout&lt;&lt;"       3、删除联系人"&lt;&lt;endl;
-   cout&lt;&lt;"       4、查找联系人"&lt;&lt;endl;
-   cout&lt;&lt;"       5、修改联系人"&lt;&lt;endl;
-   cout&lt;&lt;"       6、清空联系人"&lt;&lt;endl;
-   cout&lt;&lt;"       0、退出通讯录"&lt;&lt;endl;
-   cout&lt;&lt;"*******************************"&lt;&lt;endl;
+   cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>******** 通讯录管理系统 *********<span class="pl-pds">"</span></span>&lt;&lt;endl;
+   cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>       1、添加联系人<span class="pl-pds">"</span></span>&lt;&lt;endl;
+   cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>       2、显示联系人<span class="pl-pds">"</span></span>&lt;&lt;endl;
+   cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>       3、删除联系人<span class="pl-pds">"</span></span>&lt;&lt;endl;
+   cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>       4、查找联系人<span class="pl-pds">"</span></span>&lt;&lt;endl;
+   cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>       5、修改联系人<span class="pl-pds">"</span></span>&lt;&lt;endl;
+   cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>       6、清空联系人<span class="pl-pds">"</span></span>&lt;&lt;endl;
+   cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>       0、退出通讯录<span class="pl-pds">"</span></span>&lt;&lt;endl;
+   cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>*******************************<span class="pl-pds">"</span></span>&lt;&lt;endl;
 }
 
 
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    //菜单的调用
-    showMenu();
+    <span class="pl-c"><span class="pl-c">//</span>菜单的调用</span>
+    <span class="pl-c1">showMenu</span>();
     
-    return 0;//程序正常退出
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;<span class="pl-c"><span class="pl-c">//</span>程序正常退出</span>
 }</pre></div>
 <h2>退出功能</h2>
 <p>功能描述：退出通讯录系统</p>
 <p>思路：根据用户不同的选择，进入不同的功能，可以选择switch分支结构、将整个架构进行搭建、</p>
 <p>当用户选择0时候，执行推出，选择其他先不做操作，也不会退出程序</p>
 <p>代码：</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">int main(void)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    int in = 0; // 创建用户输入的变量
+    <span class="pl-k">int</span> in = <span class="pl-c1">0</span>; <span class="pl-c"><span class="pl-c">//</span> 创建用户输入的变量</span>
 
-    while (true)
+    <span class="pl-k">while</span> (<span class="pl-c1">true</span>)
     {
-        // 菜单的调用
-        showMenu();
-        cin &gt;&gt; in; // 用户输入
+        <span class="pl-c"><span class="pl-c">//</span> 菜单的调用</span>
+        <span class="pl-c1">showMenu</span>();
+        cin &gt;&gt; in; <span class="pl-c"><span class="pl-c">//</span> 用户输入</span>
 
-        switch (in)
+        <span class="pl-k">switch</span> (in)
         {
-        case 1: // 添加联系人
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">1</span>: <span class="pl-c"><span class="pl-c">//</span> 添加联系人</span>
+            <span class="pl-k">break</span>;
 
-        case 2: // 显示联系人
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">2</span>: <span class="pl-c"><span class="pl-c">//</span> 显示联系人</span>
+            <span class="pl-k">break</span>;
 
-        case 3: // 删除联系人
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">3</span>: <span class="pl-c"><span class="pl-c">//</span> 删除联系人</span>
+            <span class="pl-k">break</span>;
 
-        case 4: // 查找联系人
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">4</span>: <span class="pl-c"><span class="pl-c">//</span> 查找联系人</span>
+            <span class="pl-k">break</span>;
 
-        case 5: // 修改联系人
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">5</span>: <span class="pl-c"><span class="pl-c">//</span> 修改联系人</span>
+            <span class="pl-k">break</span>;
 
-        case 6: // 清空联系人
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">6</span>: <span class="pl-c"><span class="pl-c">//</span> 清空联系人</span>
+            <span class="pl-k">break</span>;
 
-        case 0: // 退出通讯录
-            cout &lt;&lt; "good bye!" &lt;&lt; endl;
+        <span class="pl-k">case</span> <span class="pl-c1">0</span>: <span class="pl-c"><span class="pl-c">//</span> 退出通讯录</span>
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>good bye!<span class="pl-pds">"</span></span> &lt;&lt; endl;
 
-            cin.get(); // 按任意建退出
-            cin.get(); // 因为输入了0也算是输入所以前面的作废得再写一次
-            return 0; // 程序正常退出
-            break;
+            cin.<span class="pl-c1">get</span>(); <span class="pl-c"><span class="pl-c">//</span> 按任意建退出</span>
+            cin.<span class="pl-c1">get</span>(); <span class="pl-c"><span class="pl-c">//</span> 因为输入了0也算是输入所以前面的作废得再写一次</span>
+            <span class="pl-k">return</span> <span class="pl-c1">0</span>; <span class="pl-c"><span class="pl-c">//</span> 程序正常退出</span>
+            <span class="pl-k">break</span>;
                 
-        default:
-            break;
+        <span class="pl-k">default</span>:
+            <span class="pl-k">break</span>;
         }
     }
 }</pre></div>
@@ -242,131 +242,131 @@ int main(void)
 <h3>设计联系人结构体</h3>
 <p>联系人信息包括：姓名、性别、年龄、联系电话、家庭住址</p>
 <p>代码如下：</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;string&gt;  //string 头文件
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>  <span class="pl-c"><span class="pl-c">//</span>string 头文件</span>
 
-// 联系人结构体
-struct people
+<span class="pl-c"><span class="pl-c">//</span> 联系人结构体</span>
+<span class="pl-k">struct</span> <span class="pl-en">people</span>
 {
-    // 姓名
+    <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
     string name;
 
-    // 性别  1男 2女
-    int year;
+    <span class="pl-c"><span class="pl-c">//</span> 性别  1男 2女</span>
+    <span class="pl-k">int</span> year;
 
-    // 年龄
-    int age;
+    <span class="pl-c"><span class="pl-c">//</span> 年龄</span>
+    <span class="pl-k">int</span> age;
 
-    // 电话
+    <span class="pl-c"><span class="pl-c">//</span> 电话</span>
     string phone;
 
-    // 住址
+    <span class="pl-c"><span class="pl-c">//</span> 住址</span>
     string addr;
 };</pre></div>
 <h3>设计通讯录结构体</h3>
 <p>代码如下:</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">// 通讯录结构体
-struct addbooks
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span> 通讯录结构体</span>
+<span class="pl-k">struct</span> <span class="pl-en">addbooks</span>
 {
-    // 保存联系人的数组
-    struct people peopleArr[MAX];
+    <span class="pl-c"><span class="pl-c">//</span> 保存联系人的数组</span>
+    <span class="pl-k">struct</span> <span class="pl-en">people</span> peopleArr[MAX];
 
-    // 通讯录中当前记录联系人的人的个数
-    int peosize;
+    <span class="pl-c"><span class="pl-c">//</span> 通讯录中当前记录联系人的人的个数</span>
+    <span class="pl-k">int</span> peosize;
 };</pre></div>
 <h3>main函数中创建通讯录</h3>
 <p>添加好联系人函数封装好后，在main函数中创建一个通讯录变量，这个就是我们需要一直维护的通讯录</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate"> // 创建通讯录结构体变量
+<div class="highlight highlight-source-c++"><pre class="notranslate"> <span class="pl-c"><span class="pl-c">//</span> 创建通讯录结构体变量</span>
     addbooks dsb;
 
-    // 初始化通讯录中当前的人员个数
-    dsb.peosize = 0;</pre></div>
+    <span class="pl-c"><span class="pl-c">//</span> 初始化通讯录中当前的人员个数</span>
+    dsb.peosize = <span class="pl-c1">0</span>;</pre></div>
 <h3>封装添加联系人函数</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate">void arrpeople(struct addbooks *dsb)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">void</span> <span class="pl-en">arrpeople</span>(<span class="pl-k">struct</span> <span class="pl-en">addbooks</span> *dsb)
 {
-    // 判断通讯录是否满，满了就不加
-    if (dsb-&gt;peosize == max)
+    <span class="pl-c"><span class="pl-c">//</span> 判断通讯录是否满，满了就不加</span>
+    <span class="pl-k">if</span> (dsb-&gt;<span class="pl-smi">peosize</span> == max)
     {
-        cout &lt;&lt; "通讯录已满,无法添加!" &lt;&lt; endl;
-        return;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>通讯录已满,无法添加!<span class="pl-pds">"</span></span> &lt;&lt; endl;
+        <span class="pl-k">return</span>;
     }
-    else
+    <span class="pl-k">else</span>
     {
-        // 添加具体联系人
+        <span class="pl-c"><span class="pl-c">//</span> 添加具体联系人</span>
 
-        // 姓名
+        <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
         string name;
-        cout &lt;&lt; "请输入姓名" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入姓名<span class="pl-pds">"</span></span> &lt;&lt; endl;
         cin &gt;&gt; name;
-        dsb-&gt;peopleArr[dsb-&gt;peosize].Mname = name;
+        dsb-&gt;<span class="pl-smi">peopleArr</span>[dsb-&gt;<span class="pl-smi">peosize</span>].<span class="pl-smi">Mname</span> = name;
     }
 
-    // 性别
-    while (true)
+    <span class="pl-c"><span class="pl-c">//</span> 性别</span>
+    <span class="pl-k">while</span> (<span class="pl-c1">true</span>)
     {
-        int a = 0; // 性别选择
-        cout &lt;&lt; "请输入性别 1、男 2、女" &lt;&lt; endl;
+        <span class="pl-k">int</span> a = <span class="pl-c1">0</span>; <span class="pl-c"><span class="pl-c">//</span> 性别选择</span>
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入性别 1、男 2、女<span class="pl-pds">"</span></span> &lt;&lt; endl;
         cin &gt;&gt; a;
 
-        // 输入1h或2,否则不会退出循环
-        if (a == 1 || a == 2)
+        <span class="pl-c"><span class="pl-c">//</span> 输入1h或2,否则不会退出循环</span>
+        <span class="pl-k">if</span> (a == <span class="pl-c1">1</span> || a == <span class="pl-c1">2</span>)
         {
-            dsb-&gt;peopleArr[dsb-&gt;peosize].Man = a;
-            break;
+            dsb-&gt;<span class="pl-smi">peopleArr</span>[dsb-&gt;<span class="pl-smi">peosize</span>].<span class="pl-smi">Man</span> = a;
+            <span class="pl-k">break</span>;
         }
-        cout &lt;&lt; "***** 错误 *******" &lt;&lt; endl;
-        cout &lt;&lt; "   请输入1或2" &lt;&lt; endl;
-        cout &lt;&lt; "*****************" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>***** 错误 *******<span class="pl-pds">"</span></span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>   请输入1或2<span class="pl-pds">"</span></span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>*****************<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
 
-    // 年龄
-    while (true)
+    <span class="pl-c"><span class="pl-c">//</span> 年龄</span>
+    <span class="pl-k">while</span> (<span class="pl-c1">true</span>)
     {
-        int age = 0;
-        cout &lt;&lt; "请输入年龄"&lt;&lt;endl;
+        <span class="pl-k">int</span> age = <span class="pl-c1">0</span>;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入年龄<span class="pl-pds">"</span></span>&lt;&lt;endl;
          cin&gt;&gt;age;
-        if (age &gt; 200)
+        <span class="pl-k">if</span> (age &gt; <span class="pl-c1">200</span>)
         {
-            cout &lt;&lt; "你家老人" &lt;&lt; age &lt;&lt; "岁啊！？" &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>你家老人<span class="pl-pds">"</span></span> &lt;&lt; age &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>岁啊！？<span class="pl-pds">"</span></span> &lt;&lt; endl;
         }
 
-        else if (age &lt; 1)
+        <span class="pl-k">else</span> <span class="pl-k">if</span> (age &lt; <span class="pl-c1">1</span>)
         {
-            cout &lt;&lt; "还没出生呢等大点再记录，不急哈" &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>还没出生呢等大点再记录，不急哈<span class="pl-pds">"</span></span> &lt;&lt; endl;
         }
-        else
+        <span class="pl-k">else</span>
         {
-            dsb-&gt;peopleArr[dsb-&gt;peosize].Mage = age; // 正确的
-            break;
+            dsb-&gt;<span class="pl-smi">peopleArr</span>[dsb-&gt;<span class="pl-smi">peosize</span>].<span class="pl-smi">Mage</span> = age; <span class="pl-c"><span class="pl-c">//</span> 正确的</span>
+            <span class="pl-k">break</span>;
         }
     }
 
-    // 电话
-    cout&lt;&lt;"请输入联系电话："&lt;&lt;endl;
+    <span class="pl-c"><span class="pl-c">//</span> 电话</span>
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>请输入联系电话：<span class="pl-pds">"</span></span>&lt;&lt;endl;
     string phone;
     cin&gt;&gt;phone;
-    dsb-&gt;peopleArr[dsb-&gt;peosize].Mphone = phone;
+    dsb-&gt;<span class="pl-smi">peopleArr</span>[dsb-&gt;<span class="pl-smi">peosize</span>].<span class="pl-smi">Mphone</span> = phone;
 
-    // 地址
-    cout&lt;&lt;"请输入住址"&lt;&lt;endl;
+    <span class="pl-c"><span class="pl-c">//</span> 地址</span>
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>请输入住址<span class="pl-pds">"</span></span>&lt;&lt;endl;
     string Msdarr;
     cin&gt;&gt;Msdarr;
-    dsb-&gt;peopleArr[dsb-&gt;peosize].Maddr = Msdarr;
+    dsb-&gt;<span class="pl-smi">peopleArr</span>[dsb-&gt;<span class="pl-smi">peosize</span>].<span class="pl-smi">Maddr</span> = Msdarr;
 
-    //更新通讯录人数
-    dsb-&gt;peosize++;
-    cout&lt;&lt;"添加成功"&lt;&lt;endl;
-    cin.get();        //输入地址也是输入所以作废
-    cin.get();  cout&lt;&lt;"按任意建继续";
-    system("clear"); //清屏 
-     //因为我现在是ubuntu系统，win系统的是system("cls")
+    <span class="pl-c"><span class="pl-c">//</span>更新通讯录人数</span>
+    dsb-&gt;<span class="pl-smi">peosize</span>++;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>添加成功<span class="pl-pds">"</span></span>&lt;&lt;endl;
+    cin.<span class="pl-c1">get</span>();        <span class="pl-c"><span class="pl-c">//</span>输入地址也是输入所以作废</span>
+    cin.<span class="pl-c1">get</span>();  cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>按任意建继续<span class="pl-pds">"</span></span>;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>clear<span class="pl-pds">"</span></span>); <span class="pl-c"><span class="pl-c">//</span>清屏 </span>
+     <span class="pl-c"><span class="pl-c">//</span>因为我现在是ubuntu系统，win系统的是system("cls")</span>
 
 }</pre></div>
 <h3>测试</h3>
 <p>选择界面中如果玩家选择了1,代表添加联系人，我们可以测试以下</p>
 <p>在<code class="notranslate">switch</code>语句中的<code class="notranslate">case 1:</code>中添加</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">  case 1:              // 添加联系人功能
-            arrpeople(&amp;dsb); // 利用地址传递，可以修饰实参
-            break;</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">  <span class="pl-k">case</span> <span class="pl-c1">1</span>:              <span class="pl-c"><span class="pl-c">//</span> 添加联系人功能</span>
+            <span class="pl-en">arrpeople</span>(&amp;dsb); <span class="pl-c"><span class="pl-c">//</span> 利用地址传递，可以修饰实参</span>
+            <span class="pl-k">break</span>;</pre></div>
 <p>效果如下:</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b776734d004230b0c8217f1d657fc482ed9586109cf11f2bf01d5ae18f572d52/68747470733a2f2f696d672e70696375692e636e2f667265652f323032342f30362f32362f363637633266623131386532302e706e67"><img src="https://camo.githubusercontent.com/b776734d004230b0c8217f1d657fc482ed9586109cf11f2bf01d5ae18f572d52/68747470733a2f2f696d672e70696375692e636e2f667265652f323032342f30362f32362f363637633266623131386532302e706e67" alt="" data-canonical-src="https://img.picui.cn/free/2024/06/26/667c2fb118e20.png" style="max-width: 100%;"></a></p>
 <h2>显示联系人</h2>
@@ -379,35 +379,35 @@ struct addbooks
 <h3>封装显示联系人函数</h3>
 <p>思路：判断如果当前通讯录中没有人员，就提示“还没有联系人哦～”，人数大于0,显示通讯录信息</p>
 <p>显示联系人代码如下：</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">// 显示联系人
-void printPeople(addbooks *dsb)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span> 显示联系人</span>
+<span class="pl-k">void</span> <span class="pl-en">printPeople</span>(addbooks *dsb)
 {
-    // 判断人数是否为0，如为0则输出“还没有联系人哦～“
-    if (dsb-&gt;peosize == 0)
+    <span class="pl-c"><span class="pl-c">//</span> 判断人数是否为0，如为0则输出“还没有联系人哦～“</span>
+    <span class="pl-k">if</span> (dsb-&gt;<span class="pl-smi">peosize</span> == <span class="pl-c1">0</span>)
     {
-        cout &lt;&lt; "还没有联系人哦～" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>还没有联系人哦～<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
-    else
+    <span class="pl-k">else</span>
     {
-        for (int i = 0; i &lt; dsb-&gt;peosize; i++)
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; dsb-&gt;<span class="pl-smi">peosize</span>; i++)
         {
-            cout &lt;&lt; "姓名 " &lt;&lt; dsb-&gt;peopleArr[i].Mname &lt;&lt; "\t"
-                 &lt;&lt; "性别 " &lt;&lt; (dsb-&gt;peopleArr[i].Man == 1 ? "男" : "女") &lt;&lt; "\t"       
-                 &lt;&lt; "年龄 " &lt;&lt; dsb-&gt;peopleArr[i].Mage &lt;&lt; "\t"
-                 &lt;&lt; "电话 " &lt;&lt; dsb-&gt;peopleArr[i].Mphone &lt;&lt; "\t"
-                 &lt;&lt; "住址 " &lt;&lt; dsb-&gt;peopleArr[i].Maddr &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Mname</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                 &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>性别 <span class="pl-pds">"</span></span> &lt;&lt; (dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Man</span> == <span class="pl-c1">1</span> ? <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>女<span class="pl-pds">"</span></span>) &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>       
+                 &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>年龄 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Mage</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                 &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>电话 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Mphone</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                 &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>住址 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Maddr</span> &lt;&lt; endl;
         }
     }
-    cout &lt;&lt; "按任意建继续";
-    cin.get();
-    cin.get();
-    system("clear"); // 清屏
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>按任意建继续<span class="pl-pds">"</span></span>;
+    cin.<span class="pl-c1">get</span>();
+    cin.<span class="pl-c1">get</span>();
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>clear<span class="pl-pds">"</span></span>); <span class="pl-c"><span class="pl-c">//</span> 清屏</span>
 }</pre></div>
 <h3>测试</h3>
 <p>在switch case语句中,case2里添加</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">        case 2: // 显示联系人
-            printPeople(&amp;dsb);
-            break;</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">        <span class="pl-k">case</span> <span class="pl-c1">2</span>: <span class="pl-c"><span class="pl-c">//</span> 显示联系人</span>
+            <span class="pl-en">printPeople</span>(&amp;dsb);
+            <span class="pl-k">break</span>;</pre></div>
 <p>效果如下:</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/54e1c8b6ea822bf070332670bb7c183c441bc17c1821b702e39887d097100fb6/68747470733a2f2f696d672e70696375692e636e2f667265652f323032342f30362f32362f363637633266616262356462632e706e67"><img src="https://camo.githubusercontent.com/54e1c8b6ea822bf070332670bb7c183c441bc17c1821b702e39887d097100fb6/68747470733a2f2f696d672e70696375692e636e2f667265652f323032342f30362f32362f363637633266616262356462632e706e67" alt="" data-canonical-src="https://img.picui.cn/free/2024/06/26/667c2fabb5dbc.png" style="max-width: 100%;"></a></p>
 <h2>删除联系人</h2>
@@ -423,20 +423,20 @@ void printPeople(addbooks *dsb)
 <p>删除联系人前县判断是否存在，存在才删除，不存在就提醒用户不存在</p>
 <p>因此我们可以把这个功能封装在一个函数中，如果存在，返回联系人在通讯录中的位置，不存在返沪-1</p>
 <p>代码如下:</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">// 检测联系人是否存在，如果存在，返回联系人在通讯录中的位置，不存在return-1
-// 参数1：通讯录是否有人  参数2：对比姓名
-int isExist(addbooks* dsb, string name)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span> 检测联系人是否存在，如果存在，返回联系人在通讯录中的位置，不存在return-1</span>
+<span class="pl-c"><span class="pl-c">//</span> 参数1：通讯录是否有人  参数2：对比姓名</span>
+<span class="pl-k">int</span> <span class="pl-en">isExist</span>(addbooks* dsb, string name)
 {
-    for (int i = 0; i &lt; dsb-&gt;peosize; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; dsb-&gt;<span class="pl-smi">peosize</span>; i++)
     {
-        //找到用户输入得姓名
-        if (dsb-&gt;peopleArr[i].Mname == name)
+        <span class="pl-c"><span class="pl-c">//</span>找到用户输入得姓名</span>
+        <span class="pl-k">if</span> (dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Mname</span> == name)
         {
-            return i;
+            <span class="pl-k">return</span> i;
         }
     }
 
-    return -1;  //没找到
+    <span class="pl-k">return</span> -<span class="pl-c1">1</span>;  <span class="pl-c"><span class="pl-c">//</span>没找到</span>
 }</pre></div>
 <h3>封装删除联系人函数</h3>
 <p>根据用户输入的联系人判断通讯录中有没有这个人</p>
@@ -444,40 +444,41 @@ int isExist(addbooks* dsb, string name)
 <p>查不到就查无此人</p>
 <p>要想做到删除功能我给个思路：</p>
 <p>例如要删除李四这个人我们就把李四前或后的人往李四这个位置覆盖，这样就做到了删除的功能</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">//删除指定联系人
-void delpeople(addbooks* dsb)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>删除指定联系人</span>
+<span class="pl-k">void</span> <span class="pl-en">delpeople</span>(addbooks* dsb)
 {
-    cout &lt;&lt; "输入要删得联系人" &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>输入要删得联系人<span class="pl-pds">"</span></span> &lt;&lt; endl;
     string name;
     cin &gt;&gt; name;
 
-    //接收结果  res == -1 没有    res == 找到了
-    int res = isExist(dsb, name);
-    if(res != -1) // 如果res不等于-1
+    <span class="pl-c"><span class="pl-c">//</span>接收结果  res == -1 没有    res == 找到了</span>
+    <span class="pl-k">int</span> res = <span class="pl-c1">isExist</span>(dsb, name);
+    <span class="pl-k">if</span>(res != -<span class="pl-c1">1</span>) <span class="pl-c"><span class="pl-c">//</span> 如果res不等于-1</span>
     {
-       //找到了要进行删除了
-        for (int i = res; i &lt; dsb-&gt;peosize; i++)
+       <span class="pl-c"><span class="pl-c">//</span>找到了要进行删除了</span>
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i = res; i &lt; dsb-&gt;<span class="pl-smi">peosize</span>; i++)
         {
-            //数据前移
-            dsb-&gt;peopleArr[i] = dsb-&gt;peopleArr[i + 1];
+            <span class="pl-c"><span class="pl-c">//</span>数据前移</span>
+            dsb-&gt;<span class="pl-smi">peopleArr</span>[i] = dsb-&gt;<span class="pl-smi">peopleArr</span>[i + <span class="pl-c1">1</span>];
             
         }
-        dsb-&gt;peosize--; //更新人数
-        cout &lt;&lt; "删除成功" &lt;&lt; endl;
+        dsb-&gt;<span class="pl-smi">peosize</span>--; <span class="pl-c"><span class="pl-c">//</span>更新人数</span>
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>删除成功<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
-    else
+    <span class="pl-k">else</span>
     {
-        cout &lt;&lt; "查无此人" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>查无此人<span class="pl-pds">"</span></span> &lt;&lt; endl;
        
     }
 
-    system("pause");
-    system("cls");
-}</pre></div>
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>cls<span class="pl-pds">"</span></span>);
+}
+</pre></div>
 <h3>测试一下</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate"> case 3: // 删除联系人
-     delpeople(&amp;dsb);
-     break;</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate"> <span class="pl-k">case</span> <span class="pl-c1">3</span>: <span class="pl-c"><span class="pl-c">//</span> 删除联系人</span>
+     <span class="pl-en">delpeople</span>(&amp;dsb);
+     <span class="pl-k">break</span>;</pre></div>
 <h2>查找联系人</h2>
 <p>功能描述：按照姓名查看指定联系人信息</p>
 <p>查找联系人步骤</p>
@@ -488,73 +489,73 @@ void delpeople(addbooks* dsb)
 <h3>封装查找联系人函数</h3>
 <p>实现思路：判断用户要查找的联系人是否存在，存在就显示，不存在一律查无此人</p>
 <p>代码如下：</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">//查找联系人
-void chazhao(addbooks* dsb)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>查找联系人</span>
+<span class="pl-k">void</span> <span class="pl-en">chazhao</span>(addbooks* dsb)
 {
-    cout &lt;&lt; "请输入要查找得联系人" &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入要查找得联系人<span class="pl-pds">"</span></span> &lt;&lt; endl;
     string name;
     cin &gt;&gt; name;
 
-    int rest = isExist(dsb, name);
-    if (rest != -1)  // 如果rest不等于-1
+    <span class="pl-k">int</span> rest = <span class="pl-c1">isExist</span>(dsb, name);
+    <span class="pl-k">if</span> (rest != -<span class="pl-c1">1</span>)  <span class="pl-c"><span class="pl-c">//</span> 如果rest不等于-1</span>
     {
-        /*还有更简单的
-   cout &lt;&lt; "姓名 " &lt;&lt; dsb-&gt;peopleArr[rest].Mname &lt;&lt; "\t"
-        &lt;&lt; "性别 " &lt;&lt; (dsb-&gt;peopleArr[rest].Man == 1 ? "男" : "女") &lt;&lt; "\t"
-        &lt;&lt; "年龄 " &lt;&lt; dsb-&gt;peopleArr[rest].Mage &lt;&lt; "\t"
-         &lt;&lt; "电话 " &lt;&lt; dsb-&gt;peopleArr[rest].Mphone &lt;&lt; "\t"
-        &lt;&lt; "住址 " &lt;&lt; dsb-&gt;peopleArr[rest].Maddr &lt;&lt; endl; */
+        <span class="pl-c"><span class="pl-c">/*</span>还有更简单的</span>
+<span class="pl-c">   cout &lt;&lt; "姓名 " &lt;&lt; dsb-&gt;peopleArr[rest].Mname &lt;&lt; "\t"</span>
+<span class="pl-c">        &lt;&lt; "性别 " &lt;&lt; (dsb-&gt;peopleArr[rest].Man == 1 ? "男" : "女") &lt;&lt; "\t"</span>
+<span class="pl-c">        &lt;&lt; "年龄 " &lt;&lt; dsb-&gt;peopleArr[rest].Mage &lt;&lt; "\t"</span>
+<span class="pl-c">         &lt;&lt; "电话 " &lt;&lt; dsb-&gt;peopleArr[rest].Mphone &lt;&lt; "\t"</span>
+<span class="pl-c">        &lt;&lt; "住址 " &lt;&lt; dsb-&gt;peopleArr[rest].Maddr &lt;&lt; endl; <span class="pl-c">*/</span></span>
        
-        cout &lt;&lt; "找到了" &lt;&lt; endl;
-            for (int j = 0; j &lt; dsb-&gt;peosize; j++)
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>找到了<span class="pl-pds">"</span></span> &lt;&lt; endl;
+            <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; dsb-&gt;<span class="pl-smi">peosize</span>; j++)
             {
-                //找到用户输入得姓名
-                if (dsb-&gt;peopleArr[j].Mname == name)
+                <span class="pl-c"><span class="pl-c">//</span>找到用户输入得姓名</span>
+                <span class="pl-k">if</span> (dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Mname</span> == name)
                 {
-                    cout &lt;&lt; "姓名 " &lt;&lt; dsb-&gt;peopleArr[j].Mname &lt;&lt; "\t"
-                        &lt;&lt; "性别 " &lt;&lt; (dsb-&gt;peopleArr[j].Man == 1 ? "男" : "女") &lt;&lt; "\t"
-                        &lt;&lt; "年龄 " &lt;&lt; dsb-&gt;peopleArr[j].Mage &lt;&lt; "\t"
-                        &lt;&lt; "电话 " &lt;&lt; dsb-&gt;peopleArr[j].Mphone &lt;&lt; "\t"
-                        &lt;&lt; "住址 " &lt;&lt; dsb-&gt;peopleArr[j].Maddr &lt;&lt; endl;
-                    system("pause");
+                    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Mname</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>性别 <span class="pl-pds">"</span></span> &lt;&lt; (dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Man</span> == <span class="pl-c1">1</span> ? <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>女<span class="pl-pds">"</span></span>) &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>年龄 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Mage</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>电话 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Mphone</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>住址 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Maddr</span> &lt;&lt; endl;
+                    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
                     
                 }
             }
-            system("cls");
+            <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>cls<span class="pl-pds">"</span></span>);
     }
-    else
+    <span class="pl-k">else</span>
     {
-        cout &lt;&lt; "查无此人" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>查无此人<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
 }</pre></div>
 <h4>还有简化一点的（后面想到的）</h4>
-<div class="highlight highlight-source-c++"><pre class="notranslate">//查找联系人
-void chazhao(addbooks* dsb)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>查找联系人</span>
+<span class="pl-k">void</span> <span class="pl-en">chazhao</span>(addbooks* dsb)
 {
-    cout &lt;&lt; "请输入要查找得联系人" &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入要查找得联系人<span class="pl-pds">"</span></span> &lt;&lt; endl;
     string name;
     cin &gt;&gt; name;
 
-    int rest = isExist(dsb, name);
-    if (rest != -1)  // 如果rest不等于-1
+    <span class="pl-k">int</span> rest = <span class="pl-c1">isExist</span>(dsb, name);
+    <span class="pl-k">if</span> (rest != -<span class="pl-c1">1</span>)  <span class="pl-c"><span class="pl-c">//</span> 如果rest不等于-1</span>
     {
         
-   cout &lt;&lt; "姓名 " &lt;&lt; dsb-&gt;peopleArr[rest].Mname &lt;&lt; "\t"
-        &lt;&lt; "性别 " &lt;&lt; (dsb-&gt;peopleArr[rest].Man == 1 ? "男" : "女") &lt;&lt; "\t"
-        &lt;&lt; "年龄 " &lt;&lt; dsb-&gt;peopleArr[rest].Mage &lt;&lt; "\t"
-         &lt;&lt; "电话 " &lt;&lt; dsb-&gt;peopleArr[rest].Mphone &lt;&lt; "\t"
-        &lt;&lt; "住址 " &lt;&lt; dsb-&gt;peopleArr[rest].Maddr &lt;&lt; endl; 
+   cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[rest].<span class="pl-smi">Mname</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>性别 <span class="pl-pds">"</span></span> &lt;&lt; (dsb-&gt;<span class="pl-smi">peopleArr</span>[rest].<span class="pl-smi">Man</span> == <span class="pl-c1">1</span> ? <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>女<span class="pl-pds">"</span></span>) &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>年龄 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[rest].<span class="pl-smi">Mage</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+         &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>电话 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[rest].<span class="pl-smi">Mphone</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>住址 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[rest].<span class="pl-smi">Maddr</span> &lt;&lt; endl; 
        
 
-    else
+    <span class="pl-k">else</span>
     {
-        cout &lt;&lt; "查无此人" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>查无此人<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
 }</pre></div>
 <h3>测试</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate">case 4: // 查找联系人
-    chazhao(&amp;dsb);
-    break;</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">case</span> <span class="pl-c1">4</span>: <span class="pl-c"><span class="pl-c">//</span> 查找联系人</span>
+    <span class="pl-en">chazhao</span>(&amp;dsb);
+    <span class="pl-k">break</span>;</pre></div>
 <h2>修改联系人</h2>
 <p>功能描述：用户通过输入联系人姓名的方式找到并修改该联系人信息</p>
 <p>找到就修改，找不到就查无此人</p>
@@ -565,523 +566,524 @@ void chazhao(addbooks* dsb)
 </ul>
 <h3>封装联系人函数</h3>
 <p>代码如下：</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">//修改联系人
-void xiugai(addbooks* dsb)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>修改联系人</span>
+<span class="pl-k">void</span> <span class="pl-en">xiugai</span>(addbooks* dsb)
 {
-    cout &lt;&lt; "请输入要修改联系人的姓名" &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入要修改联系人的姓名<span class="pl-pds">"</span></span> &lt;&lt; endl;
         string name;
     cin &gt;&gt; name;
 
-    int rs = isExist(dsb,name);
+    <span class="pl-k">int</span> rs = <span class="pl-c1">isExist</span>(dsb,name);
 
-    if (rs != -1)  // 如果rs不等于-1
+    <span class="pl-k">if</span> (rs != -<span class="pl-c1">1</span>)  <span class="pl-c"><span class="pl-c">//</span> 如果rs不等于-1</span>
     {
-        // 性别
-        while (true)
+        <span class="pl-c"><span class="pl-c">//</span> 性别</span>
+        <span class="pl-k">while</span> (<span class="pl-c1">true</span>)
         {
-            int a = 0; // 性别选择
-            cout &lt;&lt; "请输入性别 1、男 2、女" &lt;&lt; endl;
+            <span class="pl-k">int</span> a = <span class="pl-c1">0</span>; <span class="pl-c"><span class="pl-c">//</span> 性别选择</span>
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入性别 1、男 2、女<span class="pl-pds">"</span></span> &lt;&lt; endl;
             cin &gt;&gt; a;
 
-            // 输入1h或2,否则不会退出循环
-            if (a == 1 || a == 2)
+            <span class="pl-c"><span class="pl-c">//</span> 输入1h或2,否则不会退出循环</span>
+            <span class="pl-k">if</span> (a == <span class="pl-c1">1</span> || a == <span class="pl-c1">2</span>)
             {
-                dsb-&gt;peopleArr[rs].Man = a;
-                break;
+                dsb-&gt;<span class="pl-smi">peopleArr</span>[rs].<span class="pl-smi">Man</span> = a;
+                <span class="pl-k">break</span>;
             }
-            cout &lt;&lt; "***** 错误 *******" &lt;&lt; endl;
-            cout &lt;&lt; "   请输入1或2" &lt;&lt; endl;
-            cout &lt;&lt; "*****************" &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>***** 错误 *******<span class="pl-pds">"</span></span> &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>   请输入1或2<span class="pl-pds">"</span></span> &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>*****************<span class="pl-pds">"</span></span> &lt;&lt; endl;
         }
 
-        // 年龄
-        while (true)
+        <span class="pl-c"><span class="pl-c">//</span> 年龄</span>
+        <span class="pl-k">while</span> (<span class="pl-c1">true</span>)
         {
-            int age = 0;
-            cout &lt;&lt; "请输入年龄" &lt;&lt; endl;
+            <span class="pl-k">int</span> age = <span class="pl-c1">0</span>;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入年龄<span class="pl-pds">"</span></span> &lt;&lt; endl;
             cin &gt;&gt; age;
-            if (age &gt; 200)
+            <span class="pl-k">if</span> (age &gt; <span class="pl-c1">200</span>)
             {
-                cout &lt;&lt; "你家老人" &lt;&lt; age &lt;&lt; "岁啊！？" &lt;&lt; endl;
+                cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>你家老人<span class="pl-pds">"</span></span> &lt;&lt; age &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>岁啊！？<span class="pl-pds">"</span></span> &lt;&lt; endl;
             }
 
-            else if (age &lt; 1)
+            <span class="pl-k">else</span> <span class="pl-k">if</span> (age &lt; <span class="pl-c1">1</span>)
             {
-                cout &lt;&lt; "还没出生呢等大点再记录，不急哈" &lt;&lt; endl;
+                cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>还没出生呢等大点再记录，不急哈<span class="pl-pds">"</span></span> &lt;&lt; endl;
             }
-            else
+            <span class="pl-k">else</span>
             {
-                dsb-&gt;peopleArr[rs].Mage = age; // 正确的
+                dsb-&gt;<span class="pl-smi">peopleArr</span>[rs].<span class="pl-smi">Mage</span> = age; <span class="pl-c"><span class="pl-c">//</span> 正确的</span>
 
-                break;
+                <span class="pl-k">break</span>;
             }
         }
 
-        // 电话
-        cout &lt;&lt; "请输入联系电话：" &lt;&lt; endl;
+        <span class="pl-c"><span class="pl-c">//</span> 电话</span>
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入联系电话：<span class="pl-pds">"</span></span> &lt;&lt; endl;
         string phone;
         cin &gt;&gt; phone;
-        dsb-&gt;peopleArr[rs].Mphone = phone;
+        dsb-&gt;<span class="pl-smi">peopleArr</span>[rs].<span class="pl-smi">Mphone</span> = phone;
 
-        // 地址
-        cout &lt;&lt; "请输入住址" &lt;&lt; endl;
+        <span class="pl-c"><span class="pl-c">//</span> 地址</span>
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入住址<span class="pl-pds">"</span></span> &lt;&lt; endl;
         string Msdarr;
         cin &gt;&gt; Msdarr;
-        dsb-&gt;peopleArr[rs].Maddr = Msdarr;
+        dsb-&gt;<span class="pl-smi">peopleArr</span>[rs].<span class="pl-smi">Maddr</span> = Msdarr;
 
     }
-    else
+    <span class="pl-k">else</span>
     {
-        cout &lt;&lt; "查无此人" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>查无此人<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
-    system("pause");
-    system("cls");
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>cls<span class="pl-pds">"</span></span>);
 }</pre></div>
 <h3>测试</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate">  case 5: // 修改联系人
-      xiugai(&amp;dsb);
-      break;</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">  <span class="pl-k">case</span> <span class="pl-c1">5</span>: <span class="pl-c"><span class="pl-c">//</span> 修改联系人</span>
+      <span class="pl-en">xiugai</span>(&amp;dsb);
+      <span class="pl-k">break</span>;</pre></div>
 <h2>清空联系人</h2>
 <p>这个很简单，我们并不需要真正抹去数据，只需要让用户看不到就好了。所以我们直接把size值改成0</p>
 <p>代码如下：</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">void cleanpeople(addbooks* dsb)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">void</span> <span class="pl-en">cleanpeople</span>(addbooks* dsb)
 {
-    dsb-&gt;peosize = 0;  //假清空
-    cout &lt;&lt; "通讯录清空完毕" &lt;&lt; endl;
-    system("pause");
-    system("cls");
+    dsb-&gt;<span class="pl-smi">peosize</span> = <span class="pl-c1">0</span>;  <span class="pl-c"><span class="pl-c">//</span>假清空</span>
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>通讯录清空完毕<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>cls<span class="pl-pds">"</span></span>);
 }</pre></div>
 <h3>测试</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate">   case 6: // 清空联系人
-       cleanpeople(&amp;dsb);
-       break;</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">   <span class="pl-k">case</span> <span class="pl-c1">6</span>: <span class="pl-c"><span class="pl-c">//</span> 清空联系人</span>
+       <span class="pl-en">cleanpeople</span>(&amp;dsb);
+       <span class="pl-k">break</span>;</pre></div>
 <h1>全源码</h1>
 <p>因为我学过分文件编写所以这次也是用的分文件编写</p>
 <p>main.cpp</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">/* 1系统要求
-通讯录系统是一个可以记录亲人、好友性息的工具。
-利用c++来实现一个通讯录管理系统
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">/*</span> 1系统要求</span>
+<span class="pl-c">通讯录系统是一个可以记录亲人、好友性息的工具。</span>
+<span class="pl-c">利用c++来实现一个通讯录管理系统</span>
+<span class="pl-c"></span>
+<span class="pl-c">系统中需要实现的功能如下:</span>
+<span class="pl-c">添加联系人:   向通讯录中添加新人，性息包括(姓名、性别、年龄、联系电话、家庭住址)最多记录1000人</span>
+<span class="pl-c">显示联系人：显示通讯录中所有联系人信息</span>
+<span class="pl-c">删除联系人：按照姓名进行删除指定联系人</span>
+<span class="pl-c">查找联系人：按照姓名查找指定联系人信息</span>
+<span class="pl-c">修改联系人：按照姓名重新修改指定联系人</span>
+<span class="pl-c">清空联系人：清空通讯录中所有性息</span>
+<span class="pl-c">退出通讯录：推出当前使用的通讯录<span class="pl-c">*/</span></span>
 
-系统中需要实现的功能如下:
-添加联系人:   向通讯录中添加新人，性息包括(姓名、性别、年龄、联系电话、家庭住址)最多记录1000人
-显示联系人：显示通讯录中所有联系人信息
-删除联系人：按照姓名进行删除指定联系人
-查找联系人：按照姓名查找指定联系人信息
-修改联系人：按照姓名重新修改指定联系人
-清空联系人：清空通讯录中所有性息
-退出通讯录：推出当前使用的通讯录*/
-
-#include"菜单.h"
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
-#define max 1000 // 常量人数方便维护
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">"</span>菜单.h<span class="pl-pds">"</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+#<span class="pl-k">define</span> <span class="pl-en">max</span> <span class="pl-c1">1000</span> <span class="pl-c"><span class="pl-c">//</span> 常量人数方便维护</span>
 
 
-// 联系人结构体
-struct people
+<span class="pl-c"><span class="pl-c">//</span> 联系人结构体</span>
+<span class="pl-k">struct</span> <span class="pl-en">people</span>
 {
-    // 姓名
+    <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
     string Mname;
 
-    // 性别  1男 2女
-    int Man;
+    <span class="pl-c"><span class="pl-c">//</span> 性别  1男 2女</span>
+    <span class="pl-k">int</span> Man;
 
-    // 年龄
-    int Mage;
+    <span class="pl-c"><span class="pl-c">//</span> 年龄</span>
+    <span class="pl-k">int</span> Mage;
 
-    // 电话
+    <span class="pl-c"><span class="pl-c">//</span> 电话</span>
     string Mphone;
 
-    // 住址
+    <span class="pl-c"><span class="pl-c">//</span> 住址</span>
     string Maddr;
 };
 
-// 通讯录结构体
-struct addbooks
+<span class="pl-c"><span class="pl-c">//</span> 通讯录结构体</span>
+<span class="pl-k">struct</span> <span class="pl-en">addbooks</span>
 {
-    // 保存联系人的数组
-    struct people peopleArr[max];
+    <span class="pl-c"><span class="pl-c">//</span> 保存联系人的数组</span>
+    <span class="pl-k">struct</span> <span class="pl-en">people</span> peopleArr[max];
 
-    // 通讯录中当前记录联系人的人的个数
-    int peosize;
+    <span class="pl-c"><span class="pl-c">//</span> 通讯录中当前记录联系人的人的个数</span>
+    <span class="pl-k">int</span> peosize;
 };
 
-void arrpeople(struct addbooks* dsb)
+<span class="pl-k">void</span> <span class="pl-en">arrpeople</span>(<span class="pl-k">struct</span> <span class="pl-en">addbooks</span>* dsb)
 {
-    // 判断通讯录是否满，满了就不加
-    if (dsb-&gt;peosize == max)
+    <span class="pl-c"><span class="pl-c">//</span> 判断通讯录是否满，满了就不加</span>
+    <span class="pl-k">if</span> (dsb-&gt;<span class="pl-smi">peosize</span> == max)
     {
-        cout &lt;&lt; "通讯录已满,无法添加!" &lt;&lt; endl;
-        return;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>通讯录已满,无法添加!<span class="pl-pds">"</span></span> &lt;&lt; endl;
+        <span class="pl-k">return</span>;
     }
-    else
+    <span class="pl-k">else</span>
     {
-        // 添加具体联系人
+        <span class="pl-c"><span class="pl-c">//</span> 添加具体联系人</span>
 
-        // 姓名
+        <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
         string name;
-        cout &lt;&lt; "请输入姓名" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入姓名<span class="pl-pds">"</span></span> &lt;&lt; endl;
         cin &gt;&gt; name;
-        dsb-&gt;peopleArr[dsb-&gt;peosize].Mname = name;
+        dsb-&gt;<span class="pl-smi">peopleArr</span>[dsb-&gt;<span class="pl-smi">peosize</span>].<span class="pl-smi">Mname</span> = name;
     }
 
-    // 性别
-    while (true)
+    <span class="pl-c"><span class="pl-c">//</span> 性别</span>
+    <span class="pl-k">while</span> (<span class="pl-c1">true</span>)
     {
-        int a = 0; // 性别选择
-        cout &lt;&lt; "请输入性别 1、男 2、女" &lt;&lt; endl;
+        <span class="pl-k">int</span> a = <span class="pl-c1">0</span>; <span class="pl-c"><span class="pl-c">//</span> 性别选择</span>
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入性别 1、男 2、女<span class="pl-pds">"</span></span> &lt;&lt; endl;
         cin &gt;&gt; a;
 
-        // 输入1h或2,否则不会退出循环
-        if (a == 1 || a == 2)
+        <span class="pl-c"><span class="pl-c">//</span> 输入1h或2,否则不会退出循环</span>
+        <span class="pl-k">if</span> (a == <span class="pl-c1">1</span> || a == <span class="pl-c1">2</span>)
         {
-            dsb-&gt;peopleArr[dsb-&gt;peosize].Man = a;
-            break;
+            dsb-&gt;<span class="pl-smi">peopleArr</span>[dsb-&gt;<span class="pl-smi">peosize</span>].<span class="pl-smi">Man</span> = a;
+            <span class="pl-k">break</span>;
         }
-        cout &lt;&lt; "***** 错误 *******" &lt;&lt; endl;
-        cout &lt;&lt; "   请输入1或2" &lt;&lt; endl;
-        cout &lt;&lt; "*****************" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>***** 错误 *******<span class="pl-pds">"</span></span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>   请输入1或2<span class="pl-pds">"</span></span> &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>*****************<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
 
-    // 年龄
-    while (true)
+    <span class="pl-c"><span class="pl-c">//</span> 年龄</span>
+    <span class="pl-k">while</span> (<span class="pl-c1">true</span>)
     {
-        int age = 0;
-        cout &lt;&lt; "请输入年龄" &lt;&lt; endl;
+        <span class="pl-k">int</span> age = <span class="pl-c1">0</span>;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入年龄<span class="pl-pds">"</span></span> &lt;&lt; endl;
         cin &gt;&gt; age;
-        if (age &gt; 200)
+        <span class="pl-k">if</span> (age &gt; <span class="pl-c1">200</span>)
         {
-            cout &lt;&lt; "你家老人" &lt;&lt; age &lt;&lt; "岁啊！？" &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>你家老人<span class="pl-pds">"</span></span> &lt;&lt; age &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>岁啊！？<span class="pl-pds">"</span></span> &lt;&lt; endl;
         }
 
-        else if (age &lt; 1)
+        <span class="pl-k">else</span> <span class="pl-k">if</span> (age &lt; <span class="pl-c1">1</span>)
         {
-            cout &lt;&lt; "还没出生呢等大点再记录，不急哈" &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>还没出生呢等大点再记录，不急哈<span class="pl-pds">"</span></span> &lt;&lt; endl;
         }
-        else
+        <span class="pl-k">else</span>
         {
-            dsb-&gt;peopleArr[dsb-&gt;peosize].Mage = age; // 正确的
+            dsb-&gt;<span class="pl-smi">peopleArr</span>[dsb-&gt;<span class="pl-smi">peosize</span>].<span class="pl-smi">Mage</span> = age; <span class="pl-c"><span class="pl-c">//</span> 正确的</span>
 
-            break;
+            <span class="pl-k">break</span>;
         }
     }
 
-    // 电话
-    cout &lt;&lt; "请输入联系电话：" &lt;&lt; endl;
+    <span class="pl-c"><span class="pl-c">//</span> 电话</span>
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入联系电话：<span class="pl-pds">"</span></span> &lt;&lt; endl;
     string phone;
     cin &gt;&gt; phone;
-    dsb-&gt;peopleArr[dsb-&gt;peosize].Mphone = phone;
+    dsb-&gt;<span class="pl-smi">peopleArr</span>[dsb-&gt;<span class="pl-smi">peosize</span>].<span class="pl-smi">Mphone</span> = phone;
 
-    // 地址
-    cout &lt;&lt; "请输入住址" &lt;&lt; endl;
+    <span class="pl-c"><span class="pl-c">//</span> 地址</span>
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入住址<span class="pl-pds">"</span></span> &lt;&lt; endl;
     string Msdarr;
     cin &gt;&gt; Msdarr;
-    dsb-&gt;peopleArr[dsb-&gt;peosize].Maddr = Msdarr;
+    dsb-&gt;<span class="pl-smi">peopleArr</span>[dsb-&gt;<span class="pl-smi">peosize</span>].<span class="pl-smi">Maddr</span> = Msdarr;
 
-    // 更新通讯录人数
-    dsb-&gt;peosize++;
-    cout &lt;&lt; "添加成功" &lt;&lt; endl;
-    cin.get(); // 输入地址也是输入所以作废
-    cout &lt;&lt; "按任意建继续";
-    cin.get();
-    system("cls"); // 清屏
+    <span class="pl-c"><span class="pl-c">//</span> 更新通讯录人数</span>
+    dsb-&gt;<span class="pl-smi">peosize</span>++;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>添加成功<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    cin.<span class="pl-c1">get</span>(); <span class="pl-c"><span class="pl-c">//</span> 输入地址也是输入所以作废</span>
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>按任意建继续<span class="pl-pds">"</span></span>;
+    cin.<span class="pl-c1">get</span>();
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>cls<span class="pl-pds">"</span></span>); <span class="pl-c"><span class="pl-c">//</span> 清屏</span>
 }
 
 
 
-// 显示联系人
-void printPeople(addbooks* dsb)
+<span class="pl-c"><span class="pl-c">//</span> 显示联系人</span>
+<span class="pl-k">void</span> <span class="pl-en">printPeople</span>(addbooks* dsb)
 {
-    // 判断人数是否为0，如为0则输出“还没有联系人哦～“
-    if (dsb-&gt;peosize == 0)
+    <span class="pl-c"><span class="pl-c">//</span> 判断人数是否为0，如为0则输出“还没有联系人哦～“</span>
+    <span class="pl-k">if</span> (dsb-&gt;<span class="pl-smi">peosize</span> == <span class="pl-c1">0</span>)
     {
-        cout &lt;&lt; "还没有联系人哦～" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>还没有联系人哦～<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
-    else
+    <span class="pl-k">else</span>
     {
-        for (int i = 0; i &lt; dsb-&gt;peosize; i++)
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; dsb-&gt;<span class="pl-smi">peosize</span>; i++)
         {
-            cout &lt;&lt; "姓名 " &lt;&lt; dsb-&gt;peopleArr[i].Mname &lt;&lt; "\t"
-                &lt;&lt; "性别 " &lt;&lt; (dsb-&gt;peopleArr[i].Man == 1 ? "男" : "女") &lt;&lt; "\t"
-                &lt;&lt; "年龄 " &lt;&lt; dsb-&gt;peopleArr[i].Mage &lt;&lt; "\t"
-                &lt;&lt; "电话 " &lt;&lt; dsb-&gt;peopleArr[i].Mphone &lt;&lt; "\t"
-                &lt;&lt; "住址 " &lt;&lt; dsb-&gt;peopleArr[i].Maddr &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Mname</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>性别 <span class="pl-pds">"</span></span> &lt;&lt; (dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Man</span> == <span class="pl-c1">1</span> ? <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>女<span class="pl-pds">"</span></span>) &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>年龄 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Mage</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>电话 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Mphone</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>住址 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Maddr</span> &lt;&lt; endl;
         }
     }
-    cout &lt;&lt; "按任意建继续";
-    cin.get();
-    cin.get();
-    system("cls"); // 清屏
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>按任意建继续<span class="pl-pds">"</span></span>;
+    cin.<span class="pl-c1">get</span>();
+    cin.<span class="pl-c1">get</span>();
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>cls<span class="pl-pds">"</span></span>); <span class="pl-c"><span class="pl-c">//</span> 清屏</span>
 }
 
 
 
-// 检测联系人是否存在，如果存在，返回联系人在通讯录中的位置，不存在return-1
-// 参数1：通讯录是否有人  参数2：对比姓名
-int isExist(addbooks* dsb, string name)
+<span class="pl-c"><span class="pl-c">//</span> 检测联系人是否存在，如果存在，返回联系人在通讯录中的位置，不存在return-1</span>
+<span class="pl-c"><span class="pl-c">//</span> 参数1：通讯录是否有人  参数2：对比姓名</span>
+<span class="pl-k">int</span> <span class="pl-en">isExist</span>(addbooks* dsb, string name)
 {
-    for (int i = 0; i &lt; dsb-&gt;peosize; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; dsb-&gt;<span class="pl-smi">peosize</span>; i++)
     {
-        //找到用户输入得姓名
-        if (dsb-&gt;peopleArr[i].Mname == name)
+        <span class="pl-c"><span class="pl-c">//</span>找到用户输入得姓名</span>
+        <span class="pl-k">if</span> (dsb-&gt;<span class="pl-smi">peopleArr</span>[i].<span class="pl-smi">Mname</span> == name)
         {
-            return i;
+            <span class="pl-k">return</span> i;
         }
     }
 
-    return -1;  //没找到
+    <span class="pl-k">return</span> -<span class="pl-c1">1</span>;  <span class="pl-c"><span class="pl-c">//</span>没找到</span>
 }
 
 
-//删除指定联系人
-void delpeople(addbooks* dsb)
+<span class="pl-c"><span class="pl-c">//</span>删除指定联系人</span>
+<span class="pl-k">void</span> <span class="pl-en">delpeople</span>(addbooks* dsb)
 {
-    cout &lt;&lt; "输入要删得联系人" &lt;&lt; endl; 
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>输入要删得联系人<span class="pl-pds">"</span></span> &lt;&lt; endl; 
     string name;
     cin &gt;&gt; name;
 
-    //接收结果  res == -1 没有    res == 找到了
-    int res = isExist(dsb, name);
-    if(res != -1)   // 如果res不等于-1
+    <span class="pl-c"><span class="pl-c">//</span>接收结果  res == -1 没有    res == 找到了</span>
+    <span class="pl-k">int</span> res = <span class="pl-c1">isExist</span>(dsb, name);
+    <span class="pl-k">if</span>(res != -<span class="pl-c1">1</span>)   <span class="pl-c"><span class="pl-c">//</span> 如果res不等于-1</span>
     {
-       //找到了要进行删除了
-        for (int i = res; i &lt; dsb-&gt;peosize; i++)
+       <span class="pl-c"><span class="pl-c">//</span>找到了要进行删除了</span>
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i = res; i &lt; dsb-&gt;<span class="pl-smi">peosize</span>; i++)
         {
-            //数据前移
-            dsb-&gt;peopleArr[i] = dsb-&gt;peopleArr[i + 1];
+            <span class="pl-c"><span class="pl-c">//</span>数据前移</span>
+            dsb-&gt;<span class="pl-smi">peopleArr</span>[i] = dsb-&gt;<span class="pl-smi">peopleArr</span>[i + <span class="pl-c1">1</span>];
             
         }
-        dsb-&gt;peosize--; //更新人数
-        cout &lt;&lt; "删除成功" &lt;&lt; endl;
+        dsb-&gt;<span class="pl-smi">peosize</span>--; <span class="pl-c"><span class="pl-c">//</span>更新人数</span>
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>删除成功<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
-    else
+    <span class="pl-k">else</span>
     {
-        cout &lt;&lt; "查无此人" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>查无此人<span class="pl-pds">"</span></span> &lt;&lt; endl;
        
     }
 
-    system("pause");
-    system("cls");
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>cls<span class="pl-pds">"</span></span>);
 }
 
-//查找联系人
-void chazhao(addbooks* dsb)
+<span class="pl-c"><span class="pl-c">//</span>查找联系人</span>
+<span class="pl-k">void</span> <span class="pl-en">chazhao</span>(addbooks* dsb)
 {
-    cout &lt;&lt; "请输入要查找得联系人" &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入要查找得联系人<span class="pl-pds">"</span></span> &lt;&lt; endl;
     string name;
     cin &gt;&gt; name;
 
-    int rest = isExist(dsb, name);
-    if (rest != -1)  // 如果rest不等于-1
+    <span class="pl-k">int</span> rest = <span class="pl-c1">isExist</span>(dsb, name);
+    <span class="pl-k">if</span> (rest != -<span class="pl-c1">1</span>)  <span class="pl-c"><span class="pl-c">//</span> 如果rest不等于-1</span>
     {
-        /*还有更简单的
-   cout &lt;&lt; "姓名 " &lt;&lt; dsb-&gt;peopleArr[rest].Mname &lt;&lt; "\t"
-        &lt;&lt; "性别 " &lt;&lt; (dsb-&gt;peopleArr[rest].Man == 1 ? "男" : "女") &lt;&lt; "\t"
-        &lt;&lt; "年龄 " &lt;&lt; dsb-&gt;peopleArr[rest].Mage &lt;&lt; "\t"
-         &lt;&lt; "电话 " &lt;&lt; dsb-&gt;peopleArr[rest].Mphone &lt;&lt; "\t"
-        &lt;&lt; "住址 " &lt;&lt; dsb-&gt;peopleArr[rest].Maddr &lt;&lt; endl; */
+        <span class="pl-c"><span class="pl-c">/*</span>还有更简单的</span>
+<span class="pl-c">   cout &lt;&lt; "姓名 " &lt;&lt; dsb-&gt;peopleArr[rest].Mname &lt;&lt; "\t"</span>
+<span class="pl-c">        &lt;&lt; "性别 " &lt;&lt; (dsb-&gt;peopleArr[rest].Man == 1 ? "男" : "女") &lt;&lt; "\t"</span>
+<span class="pl-c">        &lt;&lt; "年龄 " &lt;&lt; dsb-&gt;peopleArr[rest].Mage &lt;&lt; "\t"</span>
+<span class="pl-c">         &lt;&lt; "电话 " &lt;&lt; dsb-&gt;peopleArr[rest].Mphone &lt;&lt; "\t"</span>
+<span class="pl-c">        &lt;&lt; "住址 " &lt;&lt; dsb-&gt;peopleArr[rest].Maddr &lt;&lt; endl; <span class="pl-c">*/</span></span>
        
-        cout &lt;&lt; "找到了" &lt;&lt; endl;
-            for (int j = 0; j &lt; dsb-&gt;peosize; j++)
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>找到了<span class="pl-pds">"</span></span> &lt;&lt; endl;
+            <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; dsb-&gt;<span class="pl-smi">peosize</span>; j++)
             {
-                //找到用户输入得姓名
-                if (dsb-&gt;peopleArr[j].Mname == name)
+                <span class="pl-c"><span class="pl-c">//</span>找到用户输入得姓名</span>
+                <span class="pl-k">if</span> (dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Mname</span> == name)
                 {
-                    cout &lt;&lt; "姓名 " &lt;&lt; dsb-&gt;peopleArr[j].Mname &lt;&lt; "\t"
-                        &lt;&lt; "性别 " &lt;&lt; (dsb-&gt;peopleArr[j].Man == 1 ? "男" : "女") &lt;&lt; "\t"
-                        &lt;&lt; "年龄 " &lt;&lt; dsb-&gt;peopleArr[j].Mage &lt;&lt; "\t"
-                        &lt;&lt; "电话 " &lt;&lt; dsb-&gt;peopleArr[j].Mphone &lt;&lt; "\t"
-                        &lt;&lt; "住址 " &lt;&lt; dsb-&gt;peopleArr[j].Maddr &lt;&lt; endl;
-                    system("pause");
+                    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Mname</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>性别 <span class="pl-pds">"</span></span> &lt;&lt; (dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Man</span> == <span class="pl-c1">1</span> ? <span class="pl-s"><span class="pl-pds">"</span>男<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>女<span class="pl-pds">"</span></span>) &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>年龄 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Mage</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>电话 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Mphone</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>
+                        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>住址 <span class="pl-pds">"</span></span> &lt;&lt; dsb-&gt;<span class="pl-smi">peopleArr</span>[j].<span class="pl-smi">Maddr</span> &lt;&lt; endl;
+                    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
                     
                 }
             }
-            system("cls");
+            <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>cls<span class="pl-pds">"</span></span>);
     }
-    else
+    <span class="pl-k">else</span>
     {
-        cout &lt;&lt; "查无此人" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>查无此人<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
 }
 
-//修改联系人
-void xiugai(addbooks* dsb)
+<span class="pl-c"><span class="pl-c">//</span>修改联系人</span>
+<span class="pl-k">void</span> <span class="pl-en">xiugai</span>(addbooks* dsb)
 {
-    cout &lt;&lt; "请输入要修改联系人的姓名" &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入要修改联系人的姓名<span class="pl-pds">"</span></span> &lt;&lt; endl;
         string name;
     cin &gt;&gt; name;
 
-    int rs = isExist(dsb,name);
+    <span class="pl-k">int</span> rs = <span class="pl-c1">isExist</span>(dsb,name);
 
-    if (rs != -1)  // 如果rs不等于-1
+    <span class="pl-k">if</span> (rs != -<span class="pl-c1">1</span>)  <span class="pl-c"><span class="pl-c">//</span> 如果rs不等于-1</span>
     {
-        // 性别
-        while (true)
+        <span class="pl-c"><span class="pl-c">//</span> 性别</span>
+        <span class="pl-k">while</span> (<span class="pl-c1">true</span>)
         {
-            int a = 0; // 性别选择
-            cout &lt;&lt; "请输入性别 1、男 2、女" &lt;&lt; endl;
+            <span class="pl-k">int</span> a = <span class="pl-c1">0</span>; <span class="pl-c"><span class="pl-c">//</span> 性别选择</span>
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入性别 1、男 2、女<span class="pl-pds">"</span></span> &lt;&lt; endl;
             cin &gt;&gt; a;
 
-            // 输入1h或2,否则不会退出循环
-            if (a == 1 || a == 2)
+            <span class="pl-c"><span class="pl-c">//</span> 输入1h或2,否则不会退出循环</span>
+            <span class="pl-k">if</span> (a == <span class="pl-c1">1</span> || a == <span class="pl-c1">2</span>)
             {
-                dsb-&gt;peopleArr[rs].Man = a;
-                break;
+                dsb-&gt;<span class="pl-smi">peopleArr</span>[rs].<span class="pl-smi">Man</span> = a;
+                <span class="pl-k">break</span>;
             }
-            cout &lt;&lt; "***** 错误 *******" &lt;&lt; endl;
-            cout &lt;&lt; "   请输入1或2" &lt;&lt; endl;
-            cout &lt;&lt; "*****************" &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>***** 错误 *******<span class="pl-pds">"</span></span> &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>   请输入1或2<span class="pl-pds">"</span></span> &lt;&lt; endl;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>*****************<span class="pl-pds">"</span></span> &lt;&lt; endl;
         }
 
-        // 年龄
-        while (true)
+        <span class="pl-c"><span class="pl-c">//</span> 年龄</span>
+        <span class="pl-k">while</span> (<span class="pl-c1">true</span>)
         {
-            int age = 0;
-            cout &lt;&lt; "请输入年龄" &lt;&lt; endl;
+            <span class="pl-k">int</span> age = <span class="pl-c1">0</span>;
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入年龄<span class="pl-pds">"</span></span> &lt;&lt; endl;
             cin &gt;&gt; age;
-            if (age &gt; 200)
+            <span class="pl-k">if</span> (age &gt; <span class="pl-c1">200</span>)
             {
-                cout &lt;&lt; "你家老人" &lt;&lt; age &lt;&lt; "岁啊！？" &lt;&lt; endl;
+                cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>你家老人<span class="pl-pds">"</span></span> &lt;&lt; age &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>岁啊！？<span class="pl-pds">"</span></span> &lt;&lt; endl;
             }
 
-            else if (age &lt; 1)
+            <span class="pl-k">else</span> <span class="pl-k">if</span> (age &lt; <span class="pl-c1">1</span>)
             {
-                cout &lt;&lt; "还没出生呢等大点再记录，不急哈" &lt;&lt; endl;
+                cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>还没出生呢等大点再记录，不急哈<span class="pl-pds">"</span></span> &lt;&lt; endl;
             }
-            else
+            <span class="pl-k">else</span>
             {
-                dsb-&gt;peopleArr[rs].Mage = age; // 正确的
+                dsb-&gt;<span class="pl-smi">peopleArr</span>[rs].<span class="pl-smi">Mage</span> = age; <span class="pl-c"><span class="pl-c">//</span> 正确的</span>
 
-                break;
+                <span class="pl-k">break</span>;
             }
         }
 
-        // 电话
-        cout &lt;&lt; "请输入联系电话：" &lt;&lt; endl;
+        <span class="pl-c"><span class="pl-c">//</span> 电话</span>
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入联系电话：<span class="pl-pds">"</span></span> &lt;&lt; endl;
         string phone;
         cin &gt;&gt; phone;
-        dsb-&gt;peopleArr[rs].Mphone = phone;
+        dsb-&gt;<span class="pl-smi">peopleArr</span>[rs].<span class="pl-smi">Mphone</span> = phone;
 
-        // 地址
-        cout &lt;&lt; "请输入住址" &lt;&lt; endl;
+        <span class="pl-c"><span class="pl-c">//</span> 地址</span>
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>请输入住址<span class="pl-pds">"</span></span> &lt;&lt; endl;
         string Msdarr;
         cin &gt;&gt; Msdarr;
-        dsb-&gt;peopleArr[rs].Maddr = Msdarr;
+        dsb-&gt;<span class="pl-smi">peopleArr</span>[rs].<span class="pl-smi">Maddr</span> = Msdarr;
 
     }
-    else
+    <span class="pl-k">else</span>
     {
-        cout &lt;&lt; "查无此人" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>查无此人<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
-    system("pause");
-    system("cls");
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>cls<span class="pl-pds">"</span></span>);
 }
 
-void cleanpeople(addbooks* dsb)
+<span class="pl-k">void</span> <span class="pl-en">cleanpeople</span>(addbooks* dsb)
 {
-    dsb-&gt;peosize = 0;  //假清空
-    cout &lt;&lt; "通讯录清空完毕" &lt;&lt; endl;
-    system("pause");
-    system("cls");
+    dsb-&gt;<span class="pl-smi">peosize</span> = <span class="pl-c1">0</span>;  <span class="pl-c"><span class="pl-c">//</span>假清空</span>
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>通讯录清空完毕<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>cls<span class="pl-pds">"</span></span>);
 }
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
 
-    // 创建通讯录结构体变量
+    <span class="pl-c"><span class="pl-c">//</span> 创建通讯录结构体变量</span>
     addbooks dsb;
 
-    // 初始化通讯录中当前的人员个数
-    dsb.peosize = 0;
+    <span class="pl-c"><span class="pl-c">//</span> 初始化通讯录中当前的人员个数</span>
+    dsb.<span class="pl-smi">peosize</span> = <span class="pl-c1">0</span>;
 
-    int in = 0; // 创建用户输入的变量
+    <span class="pl-k">int</span> in = <span class="pl-c1">0</span>; <span class="pl-c"><span class="pl-c">//</span> 创建用户输入的变量</span>
 
-    while (true)
+    <span class="pl-k">while</span> (<span class="pl-c1">true</span>)
     {
-        // 菜单的调用
-        showMenu();
-        cin &gt;&gt; in; // 用户输入
+        <span class="pl-c"><span class="pl-c">//</span> 菜单的调用</span>
+        <span class="pl-c1">showMenu</span>();
+        cin &gt;&gt; in; <span class="pl-c"><span class="pl-c">//</span> 用户输入</span>
 
-        switch (in)
+        <span class="pl-k">switch</span> (in)
         {
-        case 1:              // 添加联系人
-            arrpeople(&amp;dsb); // 利用地址传递，可以修饰实参
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">1</span>:              <span class="pl-c"><span class="pl-c">//</span> 添加联系人</span>
+            <span class="pl-c1">arrpeople</span>(&amp;dsb); <span class="pl-c"><span class="pl-c">//</span> 利用地址传递，可以修饰实参</span>
+            <span class="pl-k">break</span>;
 
-        case 2: // 显示联系人
-            printPeople(&amp;dsb);
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">2</span>: <span class="pl-c"><span class="pl-c">//</span> 显示联系人</span>
+            <span class="pl-c1">printPeople</span>(&amp;dsb);
+            <span class="pl-k">break</span>;
 
-        case 3: // 删除联系人
-            delpeople(&amp;dsb);
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">3</span>: <span class="pl-c"><span class="pl-c">//</span> 删除联系人</span>
+            <span class="pl-c1">delpeople</span>(&amp;dsb);
+            <span class="pl-k">break</span>;
 
-        /*{      测试阶段
-            cout &lt;&lt; "输入要删得联系人" &lt;&lt; endl;
-            string name;
-            cin &gt;&gt; name;
-
-            if (isExist(&amp;dsb, name) == -1)
-            {
-                cout &lt;&lt; "没找到" &lt;&lt; endl;
-            }
-            else
-            {
-                cout &lt;&lt; "找到了" &lt;&lt; endl;
-            }
-        }*/
+        <span class="pl-c"><span class="pl-c">/*</span>{      测试阶段</span>
+<span class="pl-c">            cout &lt;&lt; "输入要删得联系人" &lt;&lt; endl;</span>
+<span class="pl-c">            string name;</span>
+<span class="pl-c">            cin &gt;&gt; name;</span>
+<span class="pl-c"></span>
+<span class="pl-c">            if (isExist(&amp;dsb, name) == -1)</span>
+<span class="pl-c">            {</span>
+<span class="pl-c">                cout &lt;&lt; "没找到" &lt;&lt; endl;</span>
+<span class="pl-c">            }</span>
+<span class="pl-c">            else</span>
+<span class="pl-c">            {</span>
+<span class="pl-c">                cout &lt;&lt; "找到了" &lt;&lt; endl;</span>
+<span class="pl-c">            }</span>
+<span class="pl-c">        }<span class="pl-c">*/</span></span>
             
 
-        case 4: // 查找联系人
-            chazhao(&amp;dsb);
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">4</span>: <span class="pl-c"><span class="pl-c">//</span> 查找联系人</span>
+            <span class="pl-c1">chazhao</span>(&amp;dsb);
+            <span class="pl-k">break</span>;
 
-        case 5: // 修改联系人
-            xiugai(&amp;dsb);
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">5</span>: <span class="pl-c"><span class="pl-c">//</span> 修改联系人</span>
+            <span class="pl-c1">xiugai</span>(&amp;dsb);
+            <span class="pl-k">break</span>;
 
-        case 6: // 清空联系人
-            cleanpeople(&amp;dsb);
-            break;
+        <span class="pl-k">case</span> <span class="pl-c1">6</span>: <span class="pl-c"><span class="pl-c">//</span> 清空联系人</span>
+            <span class="pl-c1">cleanpeople</span>(&amp;dsb);
+            <span class="pl-k">break</span>;
 
-        case 0: // 退出通讯录
-            cout &lt;&lt; "good bye!" &lt;&lt; endl;
+        <span class="pl-k">case</span> <span class="pl-c1">0</span>: <span class="pl-c"><span class="pl-c">//</span> 退出通讯录</span>
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>good bye!<span class="pl-pds">"</span></span> &lt;&lt; endl;
 
-            cin.get(); // 按任意建退出
-            cout &lt;&lt; "按人任意建继续";
-            cin.get(); // 因为输入了0也算是输入所以前面的作废得再写一次
+            cin.<span class="pl-c1">get</span>(); <span class="pl-c"><span class="pl-c">//</span> 按任意建退出</span>
+            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>按人任意建继续<span class="pl-pds">"</span></span>;
+            cin.<span class="pl-c1">get</span>(); <span class="pl-c"><span class="pl-c">//</span> 因为输入了0也算是输入所以前面的作废得再写一次</span>
 
-            return 0; // 程序正常退出
-            break;
+            <span class="pl-k">return</span> <span class="pl-c1">0</span>; <span class="pl-c"><span class="pl-c">//</span> 程序正常退出</span>
+            <span class="pl-k">break</span>;
 
-        default:
-            cout&lt;&lt;"请输入0~6的数"&lt;&lt;endl;
-            system("cls");
-            break;
+        <span class="pl-k">default</span>:
+            cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>请输入0~6的数<span class="pl-pds">"</span></span>&lt;&lt;endl;
+            <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>cls<span class="pl-pds">"</span></span>);
+            <span class="pl-k">break</span>;
         }
     }
-}</pre></div>
+}
+</pre></div>
 <p><code class="notranslate">swap.h</code>和<code class="notranslate">swap.cpp</code></p>
 <p>swap.h</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#pragma once
-#include&lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
-void showMenu();</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">pragma</span> once
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<span class="pl-k">void</span> <span class="pl-en">showMenu</span>();</pre></div>
 <p>swap.cpp</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include"菜单.h"
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">"</span>菜单.h<span class="pl-pds">"</span></span>
 
-void showMenu()
+<span class="pl-k">void</span> <span class="pl-en">showMenu</span>()
 {
-    cout &lt;&lt; "******** 通讯录管理系统 *********" &lt;&lt; endl;
-    cout &lt;&lt; "       1、添加联系人" &lt;&lt; endl;
-    cout &lt;&lt; "       2、显示联系人" &lt;&lt; endl;
-    cout &lt;&lt; "       3、删除联系人" &lt;&lt; endl;
-    cout &lt;&lt; "       4、查找联系人" &lt;&lt; endl;
-    cout &lt;&lt; "       5、修改联系人" &lt;&lt; endl;
-    cout &lt;&lt; "       6、清空联系人" &lt;&lt; endl;
-    cout &lt;&lt; "       0、退出通讯录" &lt;&lt; endl;
-    cout &lt;&lt; "*******************************" &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>******** 通讯录管理系统 *********<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>       1、添加联系人<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>       2、显示联系人<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>       3、删除联系人<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>       4、查找联系人<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>       5、修改联系人<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>       6、清空联系人<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>       0、退出通讯录<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>*******************************<span class="pl-pds">"</span></span> &lt;&lt; endl;
 }</pre></div>
 <p>好了，到这里入门的通讯录管理系统已经完成了可以完结撒花了</p>
 <p>我的所有源码都放在了[<a href="https://github.com/ababll5/blog/issues/%5Bababll5/blog_cpp%20(github.com)%5D(https://github.com/ababll5/blog_cpp)">我的GitHub</a>](<a href="https://github.com/ababll5/blog_cpp">ababll5/blog_cpp (github.com)</a>)上欢迎学习访问，如有误请到我的邮箱<a href="mailto:369491854@qq.com">369491854@qq.com</a>上反馈也可以在下方评论区反馈记得留下你的邮箱与博客</p></div>

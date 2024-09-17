@@ -820,62 +820,62 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>​    全局区还包含了常量区，字符串常量</p>
 <p>该区域的数据在程序结束后由操作系统释放</p>
 <p>演示区：</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 全局变量
-int g_a = 10;
-int g_b = 10;
+<span class="pl-c"><span class="pl-c">//</span> 全局变量</span>
+<span class="pl-k">int</span> g_a = <span class="pl-c1">10</span>;
+<span class="pl-k">int</span> g_b = <span class="pl-c1">10</span>;
 
-// const 修饰全局变量
-const int c_g_a = 10;
-const int c_g_b = 10;
+<span class="pl-c"><span class="pl-c">//</span> const 修饰全局变量</span>
+<span class="pl-k">const</span> <span class="pl-k">int</span> c_g_a = <span class="pl-c1">10</span>;
+<span class="pl-k">const</span> <span class="pl-k">int</span> c_g_b = <span class="pl-c1">10</span>;
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    // 全局区
+    <span class="pl-c"><span class="pl-c">//</span> 全局区</span>
 
-    // 全局变量、静态变量、常量
+    <span class="pl-c"><span class="pl-c">//</span> 全局变量、静态变量、常量</span>
 
-    // 创建普通的局部变量
-    int a = 10; // 普通的局部变量
-    int b = 10;
+    <span class="pl-c"><span class="pl-c">//</span> 创建普通的局部变量</span>
+    <span class="pl-k">int</span> a = <span class="pl-c1">10</span>; <span class="pl-c"><span class="pl-c">//</span> 普通的局部变量</span>
+    <span class="pl-k">int</span> b = <span class="pl-c1">10</span>;
 
-    cout &lt;&lt; "局部变量a的地址为: " &lt;&lt; (long long)&amp;a &lt;&lt; endl;
-    cout &lt;&lt; "局部变量b的地址为: " &lt;&lt; (long long)&amp;b &lt;&lt; endl
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>局部变量a的地址为: <span class="pl-pds">"</span></span> &lt;&lt; (<span class="pl-k">long</span> <span class="pl-k">long</span>)&amp;a &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>局部变量b的地址为: <span class="pl-pds">"</span></span> &lt;&lt; (<span class="pl-k">long</span> <span class="pl-k">long</span>)&amp;b &lt;&lt; endl
          &lt;&lt; endl;
 
-    cout &lt;&lt; "全局变量g_a的地址为: " &lt;&lt; (long long)&amp;g_a &lt;&lt; endl;
-    cout &lt;&lt; "全局变量g_b的地址为: " &lt;&lt; (long long)&amp;g_b &lt;&lt; endl
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>全局变量g_a的地址为: <span class="pl-pds">"</span></span> &lt;&lt; (<span class="pl-k">long</span> <span class="pl-k">long</span>)&amp;g_a &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>全局变量g_b的地址为: <span class="pl-pds">"</span></span> &lt;&lt; (<span class="pl-k">long</span> <span class="pl-k">long</span>)&amp;g_b &lt;&lt; endl
          &lt;&lt; endl;
 
-    // 静态变量
-    static int s_a = 10;
-    static int s_b = 10;
+    <span class="pl-c"><span class="pl-c">//</span> 静态变量</span>
+    <span class="pl-k">static</span> <span class="pl-k">int</span> s_a = <span class="pl-c1">10</span>;
+    <span class="pl-k">static</span> <span class="pl-k">int</span> s_b = <span class="pl-c1">10</span>;
 
-    cout &lt;&lt; "镜头变量s_a的地址为: " &lt;&lt; (long long)&amp;s_a &lt;&lt; endl;
-    cout &lt;&lt; "静态变量s_b的地址为: " &lt;&lt; (long long)&amp;s_b &lt;&lt; endl
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>镜头变量s_a的地址为: <span class="pl-pds">"</span></span> &lt;&lt; (<span class="pl-k">long</span> <span class="pl-k">long</span>)&amp;s_a &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>静态变量s_b的地址为: <span class="pl-pds">"</span></span> &lt;&lt; (<span class="pl-k">long</span> <span class="pl-k">long</span>)&amp;s_b &lt;&lt; endl
          &lt;&lt; endl;
 
-    // 常量
-    // 字符串常量
-    cout &lt;&lt; "字符串常量的地址为： " &lt;&lt; (long long)&amp;"hello world" &lt;&lt; endl
+    <span class="pl-c"><span class="pl-c">//</span> 常量</span>
+    <span class="pl-c"><span class="pl-c">//</span> 字符串常量</span>
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>字符串常量的地址为： <span class="pl-pds">"</span></span> &lt;&lt; (<span class="pl-k">long</span> <span class="pl-k">long</span>)&amp;<span class="pl-s"><span class="pl-pds">"</span>hello world<span class="pl-pds">"</span></span> &lt;&lt; endl
          &lt;&lt; endl;
 
-    // const修饰的变量
+    <span class="pl-c"><span class="pl-c">//</span> const修饰的变量</span>
 
-    // const修饰全局变量  const 修饰局部变量
-    cout &lt;&lt; "全局常量c_g_a的地址为: " &lt;&lt; (long long)&amp;c_g_a &lt;&lt; endl;
-    cout &lt;&lt; "全局常量c_g_b的地址为: " &lt;&lt; (long long)&amp;c_g_b &lt;&lt; endl&lt;&lt;endl;
+    <span class="pl-c"><span class="pl-c">//</span> const修饰全局变量  const 修饰局部变量</span>
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>全局常量c_g_a的地址为: <span class="pl-pds">"</span></span> &lt;&lt; (<span class="pl-k">long</span> <span class="pl-k">long</span>)&amp;c_g_a &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>全局常量c_g_b的地址为: <span class="pl-pds">"</span></span> &lt;&lt; (<span class="pl-k">long</span> <span class="pl-k">long</span>)&amp;c_g_b &lt;&lt; endl&lt;&lt;endl;
 
-    // const 修饰局部变量
-    const int c_l_a = 10;
-    const int c_l_b = 10;
+    <span class="pl-c"><span class="pl-c">//</span> const 修饰局部变量</span>
+    <span class="pl-k">const</span> <span class="pl-k">int</span> c_l_a = <span class="pl-c1">10</span>;
+    <span class="pl-k">const</span> <span class="pl-k">int</span> c_l_b = <span class="pl-c1">10</span>;
 
-    cout &lt;&lt; "局部常量c_l_a的地址为: " &lt;&lt; (long long)&amp;c_l_a &lt;&lt; endl;
-    cout &lt;&lt; "局部常量c_l_b的地址为: " &lt;&lt; (long long)&amp;c_l_b &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>局部常量c_l_a的地址为: <span class="pl-pds">"</span></span> &lt;&lt; (<span class="pl-k">long</span> <span class="pl-k">long</span>)&amp;c_l_a &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>局部常量c_l_b的地址为: <span class="pl-pds">"</span></span> &lt;&lt; (<span class="pl-k">long</span> <span class="pl-k">long</span>)&amp;c_l_b &lt;&lt; endl;
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <p>输出结果:</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/18b3cc0d4418d56bd32d808b2541d684032d88960e83965afc9bbbac59b4eeb3/68747470733a2f2f696d672e70696375692e636e2f667265652f323032342f30372f30322f363638343164363732396261622e706e67"><img src="https://camo.githubusercontent.com/18b3cc0d4418d56bd32d808b2541d684032d88960e83965afc9bbbac59b4eeb3/68747470733a2f2f696d672e70696375692e636e2f667265652f323032342f30372f30322f363638343164363732396261622e706e67" alt="" data-canonical-src="https://img.picui.cn/free/2024/07/02/66841d6729bab.png" style="max-width: 100%;"></a></p>
@@ -894,56 +894,56 @@ int main(void)
 <p>​     由编译器自动分配内存，存放函数的参数值，局部变量等</p>
 <p>​     注意事项：不要返沪局部变量的地址，栈区开辟的数据由编译器自动释放</p>
 <p>示例：</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 栈去注意事项  --- 不要返回局部变量的地址
-// 战区数据由编译器管理开辟和释放
+<span class="pl-c"><span class="pl-c">//</span> 栈去注意事项  --- 不要返回局部变量的地址</span>
+<span class="pl-c"><span class="pl-c">//</span> 战区数据由编译器管理开辟和释放</span>
 
-int* func(int b) //形参数据也会放在栈区
+<span class="pl-k">int</span>* <span class="pl-en">func</span>(<span class="pl-k">int</span> b) <span class="pl-c"><span class="pl-c">//</span>形参数据也会放在栈区</span>
 {
-    b = 100;
-    int a = 10; // 局部变量 存放在栈区，栈区的数据在函数执行完后自动释放
-    return &amp;a;  // 返回局部变量地址
+    b = <span class="pl-c1">100</span>;
+    <span class="pl-k">int</span> a = <span class="pl-c1">10</span>; <span class="pl-c"><span class="pl-c">//</span> 局部变量 存放在栈区，栈区的数据在函数执行完后自动释放</span>
+    <span class="pl-k">return</span> &amp;a;  <span class="pl-c"><span class="pl-c">//</span> 返回局部变量地址</span>
 }
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    int b;
-    int* p = func(1);
+    <span class="pl-k">int</span> b;
+    <span class="pl-k">int</span>* p = <span class="pl-c1">func</span>(<span class="pl-c1">1</span>);
 
-    cout &lt;&lt; *p &lt;&lt; endl; //在x86下第一次可以正常打印
-    cout &lt;&lt; *p &lt;&lt; endl; //在x86下第二次就不可以
+    cout &lt;&lt; *p &lt;&lt; endl; <span class="pl-c"><span class="pl-c">//</span>在x86下第一次可以正常打印</span>
+    cout &lt;&lt; *p &lt;&lt; endl; <span class="pl-c"><span class="pl-c">//</span>在x86下第二次就不可以</span>
     
-    system("pause");
-    return 0;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <p>自行体会吧</p>
 <p>堆区：</p>
 <p>​     由程序员分配释放若程序员不释放，程序结束时由操作系统回收</p>
 <p>​     在c++主要利用new在堆区开辟内存</p>
 <p>示例：</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-int * func()
+<span class="pl-k">int</span> * <span class="pl-en">func</span>()
 {
-	//利用new关键字，可以将数据开辟到堆区
-	//指针本质也是局部变量，放在栈上，指针的保存在堆区
-	int * p = <span class="pl-k">new</span> int(10);
+	<span class="pl-c"><span class="pl-c">//</span>利用new关键字，可以将数据开辟到堆区</span>
+	<span class="pl-c"><span class="pl-c">//</span>指针本质也是局部变量，放在栈上，指针的保存在堆区</span>
+	<span class="pl-k">int</span> * p = <span class="pl-k">new</span> <span class="pl-c1">int</span>(<span class="pl-c1">10</span>);
 
-	return p;
+	<span class="pl-k">return</span> p;
 }
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-	//在堆区开辟数据
-	int * p = func();
+	<span class="pl-c"><span class="pl-c">//</span>在堆区开辟数据</span>
+	<span class="pl-k">int</span> * p = <span class="pl-c1">func</span>();
 
 	cout &lt;&lt; *p &lt;&lt; endl;
 
-	system("pause");
-	return 0;
+	<span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+	<span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <p>总结：</p>
 <p>堆区数据又程序员管理开辟和释放</p>
@@ -954,103 +954,103 @@ int main(void)
 <p>语法: <code class="notranslate"> new 数据类型</code></p>
 <p>利用new创建的数据，会返回该数据对应的类型指针</p>
 <p>不过在写代码前我们得先创建一个堆区</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">int *func()
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">int</span> *<span class="pl-en">func</span>()
 {
-    // 在读取创建整型的数据
-    // new 返回时该数据的内型指针
-    int * p = <span class="pl-k">new</span> int(10);
-    return p;
+    <span class="pl-c"><span class="pl-c">//</span> 在读取创建整型的数据</span>
+    <span class="pl-c"><span class="pl-c">//</span> new 返回时该数据的内型指针</span>
+    <span class="pl-k">int</span> * p = <span class="pl-k">new</span> <span class="pl-c1">int</span>(<span class="pl-c1">10</span>);
+    <span class="pl-k">return</span> p;
 }</pre></div>
 <p>示例1：基本语法</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">void test01()
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">void</span> <span class="pl-en">test01</span>()
 {
-  int * p = func();
+  <span class="pl-k">int</span> * p = <span class="pl-c1">func</span>();
   cout &lt;&lt; *p &lt;&lt; endl;
   cout &lt;&lt; *p &lt;&lt; endl;
   cout &lt;&lt; *p &lt;&lt; endl;
   cout &lt;&lt; *p &lt;&lt; endl;
-  //堆区的数据 由程序员管理开辟，程序员管理释放
-  //如果想释放堆区的数据，利用关键字delete
+  <span class="pl-c"><span class="pl-c">//</span>堆区的数据 由程序员管理开辟，程序员管理释放</span>
+  <span class="pl-c"><span class="pl-c">//</span>如果想释放堆区的数据，利用关键字delete</span>
   <span class="pl-k">delete</span> p;
-  //cout&lt;&lt;*p&lt;&lt;endl;  由于已经delete释放了再次访问会报错
+  <span class="pl-c"><span class="pl-c">//</span>cout&lt;&lt;*p&lt;&lt;endl;  由于已经delete释放了再次访问会报错</span>
 }</pre></div>
 <p>示例2：开辟数组</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">// 2 在堆区利用new开辟数组
-void test02()
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span> 2 在堆区利用new开辟数组</span>
+<span class="pl-k">void</span> <span class="pl-en">test02</span>()
 {
-    //创建10个整形数据的数组，在堆区
-    int * arr = <span class="pl-k">new</span> int[10];
+    <span class="pl-c"><span class="pl-c">//</span>创建10个整形数据的数组，在堆区</span>
+    <span class="pl-k">int</span> * arr = <span class="pl-k">new</span> <span class="pl-k">int</span>[<span class="pl-c1">10</span>];
     
-    for (int i = 0; i &lt; 10; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; i++)
     {
-        arr[i] = i + 100;//给10个元素复制 100 ~ 109
+        arr[i] = i + <span class="pl-c1">100</span>;<span class="pl-c"><span class="pl-c">//</span>给10个元素复制 100 ~ 109</span>
     }
 
-    for (int i = 0; i &lt; 10; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; i++)
     {
         cout &lt;&lt; arr[i] &lt;&lt; endl;
     }
     
-    //释放
-    //释放数组要加[]
-    <span class="pl-k">delete</span>[] arr;
+    <span class="pl-c"><span class="pl-c">//</span>释放</span>
+    <span class="pl-c"><span class="pl-c">//</span>释放数组要加[]</span>
+    <span class="pl-k">delete[]</span> arr;
 }</pre></div>
 <p>全部：</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 1 new的基本语法
-int *func()
+<span class="pl-c"><span class="pl-c">//</span> 1 new的基本语法</span>
+<span class="pl-k">int</span> *<span class="pl-en">func</span>()
 {
-    // 在读取创建整型的数据
-    // new 返回时该数据的内型指针
-    int * p = <span class="pl-k">new</span> int(10);
-    return p;
+    <span class="pl-c"><span class="pl-c">//</span> 在读取创建整型的数据</span>
+    <span class="pl-c"><span class="pl-c">//</span> new 返回时该数据的内型指针</span>
+    <span class="pl-k">int</span> * p = <span class="pl-k">new</span> <span class="pl-c1">int</span>(<span class="pl-c1">10</span>);
+    <span class="pl-k">return</span> p;
 }
 
-void test01()
+<span class="pl-k">void</span> <span class="pl-en">test01</span>()
 {
-  int * p = func();
+  <span class="pl-k">int</span> * p = <span class="pl-c1">func</span>();
   cout &lt;&lt; *p &lt;&lt; endl;
   cout &lt;&lt; *p &lt;&lt; endl;
   cout &lt;&lt; *p &lt;&lt; endl;
   cout &lt;&lt; *p &lt;&lt; endl;
-  //堆区的数据 由程序员管理开辟，程序员管理释放
-  //如果想释放堆区的数据，利用关键字delete
+  <span class="pl-c"><span class="pl-c">//</span>堆区的数据 由程序员管理开辟，程序员管理释放</span>
+  <span class="pl-c"><span class="pl-c">//</span>如果想释放堆区的数据，利用关键字delete</span>
   <span class="pl-k">delete</span> p;
-  //cout&lt;&lt;*p&lt;&lt;endl;  由于已经delete释放了再次访问会报错
+  <span class="pl-c"><span class="pl-c">//</span>cout&lt;&lt;*p&lt;&lt;endl;  由于已经delete释放了再次访问会报错</span>
 }
 
-// 2 在堆区利用new开辟数组
-void test02()
+<span class="pl-c"><span class="pl-c">//</span> 2 在堆区利用new开辟数组</span>
+<span class="pl-k">void</span> <span class="pl-en">test02</span>()
 {
-    //创建10个整形数据的数组，在堆区
-    int * arr = <span class="pl-k">new</span> int[10];
+    <span class="pl-c"><span class="pl-c">//</span>创建10个整形数据的数组，在堆区</span>
+    <span class="pl-k">int</span> * arr = <span class="pl-k">new</span> <span class="pl-k">int</span>[<span class="pl-c1">10</span>];
     
-    for (int i = 0; i &lt; 10; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; i++)
     {
-        arr[i] = i + 100;//给10个元素复制 100 ~ 109
+        arr[i] = i + <span class="pl-c1">100</span>;<span class="pl-c"><span class="pl-c">//</span>给10个元素复制 100 ~ 109</span>
     }
 
-    for (int i = 0; i &lt; 10; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; i++)
     {
         cout &lt;&lt; arr[i] &lt;&lt; endl;
     }
     
-    //释放
-    //释放数组要加[]
-    <span class="pl-k">delete</span>[] arr;
+    <span class="pl-c"><span class="pl-c">//</span>释放</span>
+    <span class="pl-c"><span class="pl-c">//</span>释放数组要加[]</span>
+    <span class="pl-k">delete[]</span> arr;
 }
 
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 { 
-    test01();
+    <span class="pl-c1">test01</span>();
 
-    test02();
+    <span class="pl-c1">test02</span>();
 
-    system("pause");
-    return 0;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 

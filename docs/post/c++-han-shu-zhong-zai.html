@@ -390,61 +390,61 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <blockquote>
 <p>示例：</p>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-//函数重载
-//可以让函数名相同，提高函数的复用性
+<span class="pl-c"><span class="pl-c">//</span>函数重载</span>
+<span class="pl-c"><span class="pl-c">//</span>可以让函数名相同，提高函数的复用性</span>
 
-//条件
-//1 同一个作用域下
-//2 函数名称相同
-//3 函数的参数类型不同 || 个数不同 || 顺序不同
-void func()
+<span class="pl-c"><span class="pl-c">//</span>条件</span>
+<span class="pl-c"><span class="pl-c">//</span>1 同一个作用域下</span>
+<span class="pl-c"><span class="pl-c">//</span>2 函数名称相同</span>
+<span class="pl-c"><span class="pl-c">//</span>3 函数的参数类型不同 || 个数不同 || 顺序不同</span>
+<span class="pl-k">void</span> <span class="pl-en">func</span>()
 {
-    cout&lt;&lt;"func的调用"&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>func的调用<span class="pl-pds">"</span></span>&lt;&lt;endl;
 }
 
-//类型不同
-void func(int a)
+<span class="pl-c"><span class="pl-c">//</span>类型不同</span>
+<span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">int</span> a)
 {
-    cout&lt;&lt;"func(int a)的调用!"&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>func(int a)的调用!<span class="pl-pds">"</span></span>&lt;&lt;endl;
 }
 
-void func(double a)
+<span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">double</span> a)
 {
-    cout&lt;&lt;"func(double a)的调用!"&lt;&lt;endl;
-}
-
-
-//顺序不同
-void func(int a,double b)
-{
-    cout&lt;&lt;"func(int a,double b)的调用"&lt;&lt;endl;
-}
-
-void func(double a,int b)
-{
-    cout&lt;&lt;"func(double a,int b)的调用"&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>func(double a)的调用!<span class="pl-pds">"</span></span>&lt;&lt;endl;
 }
 
 
-
-
-int main()
+<span class="pl-c"><span class="pl-c">//</span>顺序不同</span>
+<span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">int</span> a,<span class="pl-k">double</span> b)
 {
-    func();
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>func(int a,double b)的调用<span class="pl-pds">"</span></span>&lt;&lt;endl;
+}
 
-    func(10);
+<span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">double</span> a,<span class="pl-k">int</span> b)
+{
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>func(double a,int b)的调用<span class="pl-pds">"</span></span>&lt;&lt;endl;
+}
 
-    func(11.45);
 
-    func(11,0.45);
 
-    func(0.45,11);
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
+{
+    <span class="pl-c1">func</span>();
+
+    <span class="pl-c1">func</span>(<span class="pl-c1">10</span>);
+
+    <span class="pl-c1">func</span>(<span class="pl-c1">11.45</span>);
+
+    <span class="pl-c1">func</span>(<span class="pl-c1">11</span>,<span class="pl-c1">0.45</span>);
+
+    <span class="pl-c1">func</span>(<span class="pl-c1">0.45</span>,<span class="pl-c1">11</span>);
     
-    system("pause");
-    return 0;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <blockquote>
 <p>注意事项：</p>
@@ -457,49 +457,49 @@ int main()
 <li>引用作为重载条件</li>
 <li>函数重载碰到函数默认参数</li>
 </ul>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
 
-//注意事项
-//1 应用作为重载的条件
-void func(int &amp;a)
+<span class="pl-c"><span class="pl-c">//</span>注意事项</span>
+<span class="pl-c"><span class="pl-c">//</span>1 应用作为重载的条件</span>
+<span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">int</span> &amp;a)
 {
-    cout&lt;&lt;"func(int &amp;a)调用"&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>func(int &amp;a)调用<span class="pl-pds">"</span></span>&lt;&lt;endl;
 }
 
-void func(const int &amp;a)
+<span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">const</span> <span class="pl-k">int</span> &amp;a)
 {
-    cout&lt;&lt;"func(const int &amp;a)调用"&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>func(const int &amp;a)调用<span class="pl-pds">"</span></span>&lt;&lt;endl;
 }
 
-//2 函数重载碰到默认参数
-void func2(int c,int d = 10)
+<span class="pl-c"><span class="pl-c">//</span>2 函数重载碰到默认参数</span>
+<span class="pl-k">void</span> <span class="pl-en">func2</span>(<span class="pl-k">int</span> c,<span class="pl-k">int</span> d = <span class="pl-c1">10</span>)
 {
-    cout&lt;&lt;"func2(int a,int d)的调用"&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>func2(int a,int d)的调用<span class="pl-pds">"</span></span>&lt;&lt;endl;
 } 
 
-void func2(int c)
+<span class="pl-k">void</span> <span class="pl-en">func2</span>(<span class="pl-k">int</span> c)
 {
-    cout&lt;&lt;"func2(int a)的调用"&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>func2(int a)的调用<span class="pl-pds">"</span></span>&lt;&lt;endl;
 } 
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    int b = 10;
-    func(b);
+    <span class="pl-k">int</span> b = <span class="pl-c1">10</span>;
+    <span class="pl-c1">func</span>(b);
 
-    const int a = 10;
-    func(a);
+    <span class="pl-k">const</span> <span class="pl-k">int</span> a = <span class="pl-c1">10</span>;
+    <span class="pl-c1">func</span>(a);
 
-    func(10);
+    <span class="pl-c1">func</span>(<span class="pl-c1">10</span>);
 
-    cout&lt;&lt;endl&lt;&lt;"--------------------------------"&lt;&lt;endl&lt;&lt;endl;
+    cout&lt;&lt;endl&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>--------------------------------<span class="pl-pds">"</span></span>&lt;&lt;endl&lt;&lt;endl;
 
-    // func2(10); //报错
+    <span class="pl-c"><span class="pl-c">//</span> func2(10); //报错</span>
 
-    system("pause");
-    return 0;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <blockquote>
 <p>函数重载尽量不要设默认值</p>

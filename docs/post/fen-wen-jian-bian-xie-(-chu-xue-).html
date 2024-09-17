@@ -105,43 +105,43 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ul>
 <p>定义一个主文件<code class="notranslate">main.cpp</code>和分文件编写的文件<code class="notranslate">sb.h</code>还有一个<code class="notranslate">sb.cpp</code>(名字无所谓只是我喜欢)</p>
 <h3>main函数写法</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
-#include"sb.h"        //让c++知道你和sb.h文件是一伙的
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">"</span>sb.h<span class="pl-pds">"</span></span>        <span class="pl-c"><span class="pl-c">//</span>让c++知道你和sb.h文件是一伙的</span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 { 
-    int a = 10;
-    int b = 20;
-    cout&lt;&lt;"交换前"&lt;&lt;endl;
-    cout&lt;&lt;"a = "&lt;&lt;a&lt;&lt;endl;
-    cout&lt;&lt;"b = "&lt;&lt;b&lt;&lt;endl;
+    <span class="pl-k">int</span> a = <span class="pl-c1">10</span>;
+    <span class="pl-k">int</span> b = <span class="pl-c1">20</span>;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>交换前<span class="pl-pds">"</span></span>&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>a = <span class="pl-pds">"</span></span>&lt;&lt;a&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>b = <span class="pl-pds">"</span></span>&lt;&lt;b&lt;&lt;endl;
      
     cout&lt;&lt;endl&lt;&lt;endl&lt;&lt;endl;
 
-    cout&lt;&lt;"交换后"&lt;&lt;endl;
-    sb(a,b);
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>交换后<span class="pl-pds">"</span></span>&lt;&lt;endl;
+    <span class="pl-c1">sb</span>(a,b);
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <h3>sb.h的写法</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
-void sb(int b , int a);  //声明</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+<span class="pl-k">void</span> <span class="pl-en">sb</span>(<span class="pl-k">int</span> b , <span class="pl-k">int</span> a);  <span class="pl-c"><span class="pl-c">//</span>声明</span></pre></div>
 <h3>sb.cpp的写法</h3>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include"sb.h"
-void sb(int a,int b)
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">"</span>sb.h<span class="pl-pds">"</span></span>
+<span class="pl-k">void</span> <span class="pl-en">sb</span>(<span class="pl-k">int</span> a,<span class="pl-k">int</span> b)
 {
-    int temp;
-    int a;
-    int b;
+    <span class="pl-k">int</span> temp;
+    <span class="pl-k">int</span> a;
+    <span class="pl-k">int</span> b;
     a = temp;
     a = b;
     b = temp;
     
-    cout&lt;&lt;"交换后"&lt;&lt;endl;
-    cout&lt;&lt;"a = "&lt;&lt;a&lt;&lt;endl;
-    cout&lt;&lt;"b = "&lt;&lt;b&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>交换后<span class="pl-pds">"</span></span>&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>a = <span class="pl-pds">"</span></span>&lt;&lt;a&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>b = <span class="pl-pds">"</span></span>&lt;&lt;b&lt;&lt;endl;
 }</pre></div>
 <p>如有错误请到我的邮箱<a href="mailto:369491854@qq.com">369491854@qq.com</a>上反馈</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>

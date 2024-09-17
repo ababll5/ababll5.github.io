@@ -816,142 +816,142 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>在设计类的时候，属性和行为写在一起，表现十五</p>
 <p>语法：<code class="notranslate">class 类名 {访问权限：属性/行为}; </code></p>
 <p>示例一：设计一个圆类，求圆的周长</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-const double PI = 3.14;
-//设计一个圆类，求圆的周长
-//圆求周长的公式：2*PI*半径
+<span class="pl-k">const</span> <span class="pl-k">double</span> PI = <span class="pl-c1">3.14</span>;
+<span class="pl-c"><span class="pl-c">//</span>设计一个圆类，求圆的周长</span>
+<span class="pl-c"><span class="pl-c">//</span>圆求周长的公式：2*PI*半径</span>
 
-//class代表设计一个类 ，后面是名称
-<span class="pl-k">class</span> yuan
+<span class="pl-c"><span class="pl-c">//</span>class代表设计一个类 ，后面是名称</span>
+<span class="pl-k">class</span> <span class="pl-en">yuan</span>
 {
-    //访问权限
-    //公共权限
-    <span class="pl-k">public</span>:
+    <span class="pl-c"><span class="pl-c">//</span>访问权限</span>
+    <span class="pl-c"><span class="pl-c">//</span>公共权限</span>
+    <span class="pl-k">public:</span>
 
-    //属性
-    int m_r;
+    <span class="pl-c"><span class="pl-c">//</span>属性</span>
+    <span class="pl-k">int</span> m_r;
     
-    //行为
-    //获取圆的周长
-    double <span class="pl-en">calculate</span>()
+    <span class="pl-c"><span class="pl-c">//</span>行为</span>
+    <span class="pl-c"><span class="pl-c">//</span>获取圆的周长</span>
+    <span class="pl-k">double</span> <span class="pl-en">calculate</span>()
     {
-        return 2*PI*m_r;
+        <span class="pl-k">return</span> <span class="pl-c1">2</span>*PI*m_r;
     }
 
 };
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    //通过圆类创建具体的圆（对象）
-    yuan y1; //实例化
+    <span class="pl-c"><span class="pl-c">//</span>通过圆类创建具体的圆（对象）</span>
+    yuan <span class="pl-c1">y1</span>; <span class="pl-c"><span class="pl-c">//</span>实例化</span>
     
-    //给对象赋值
-    y1.m_r = 10;
+    <span class="pl-c"><span class="pl-c">//</span>给对象赋值</span>
+    <span class="pl-c1">y1</span>.<span class="pl-smi">m_r</span> = <span class="pl-c1">10</span>;
 
-    cout&lt;&lt;"圆的周长为： "&lt;&lt;y1.calculate()&lt;&lt;endl;
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>圆的周长为： <span class="pl-pds">"</span></span>&lt;&lt;<span class="pl-c1">y1</span>.<span class="pl-c1">calculate</span>()&lt;&lt;endl;
 
-    system("pause");
-    return 0;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <blockquote>
 <p>示例二</p>
 </blockquote>
 <p>设计一个学生类，属性有姓名和学号，可以给姓名和学号复制，可以显示学生的姓名和学号</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-#include &lt;string&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 设计一个学生类，属性有姓名和学号，可以给姓名和学号复制，可以显示学生的姓名和学号
+<span class="pl-c"><span class="pl-c">//</span> 设计一个学生类，属性有姓名和学号，可以给姓名和学号复制，可以显示学生的姓名和学号</span>
 
-// 设计学生类
-<span class="pl-k">class</span> student
+<span class="pl-c"><span class="pl-c">//</span> 设计学生类</span>
+<span class="pl-k">class</span> <span class="pl-en">student</span>
 {
-<span class="pl-k">public</span>: // 公共权限
-    // 属性
-    string m_name; // 姓名
-    int m_id;      // 学号
+<span class="pl-k">public:</span> <span class="pl-c"><span class="pl-c">//</span> 公共权限</span>
+    <span class="pl-c"><span class="pl-c">//</span> 属性</span>
+    string m_name; <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
+    <span class="pl-k">int</span> m_id;      <span class="pl-c"><span class="pl-c">//</span> 学号</span>
 
-    // 行为
+    <span class="pl-c"><span class="pl-c">//</span> 行为</span>
 
-    // 显示姓名和学号的函数
-    void <span class="pl-en">show_student</span>()
+    <span class="pl-c"><span class="pl-c">//</span> 显示姓名和学号的函数</span>
+    <span class="pl-k">void</span> <span class="pl-en">show_student</span>()
     {
-        cout &lt;&lt; "姓名： " &lt;&lt; m_name &lt;&lt; endl
-        &lt;&lt; "学号： " &lt;&lt; m_id &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名： <span class="pl-pds">"</span></span> &lt;&lt; m_name &lt;&lt; endl
+        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>学号： <span class="pl-pds">"</span></span> &lt;&lt; m_id &lt;&lt; endl;
     }
 };
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    //创建一个具体的学生
-    //实例化
+    <span class="pl-c"><span class="pl-c">//</span>创建一个具体的学生</span>
+    <span class="pl-c"><span class="pl-c">//</span>实例化</span>
     student s1;
-    //给s1赋值
-    s1.m_name = "张三";
-    s1.m_id = 1;
+    <span class="pl-c"><span class="pl-c">//</span>给s1赋值</span>
+    s1.<span class="pl-smi">m_name</span> = <span class="pl-s"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>;
+    s1.<span class="pl-smi">m_id</span> = <span class="pl-c1">1</span>;
 
-    //显示
-    s1.show_student();
+    <span class="pl-c"><span class="pl-c">//</span>显示</span>
+    s1.<span class="pl-c1">show_student</span>();
 
-    system("pause");
-    return 0;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <blockquote>
 <p>还有一种赋值的方法</p>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-#include &lt;string&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 设计一个学生类，属性有姓名和学号，可以给姓名和学号复制，可以显示学生的姓名和学号
+<span class="pl-c"><span class="pl-c">//</span> 设计一个学生类，属性有姓名和学号，可以给姓名和学号复制，可以显示学生的姓名和学号</span>
 
-// 设计学生类
-<span class="pl-k">class</span> student
+<span class="pl-c"><span class="pl-c">//</span> 设计学生类</span>
+<span class="pl-k">class</span> <span class="pl-en">student</span>
 {
-<span class="pl-k">public</span>: // 公共权限
+<span class="pl-k">public:</span> <span class="pl-c"><span class="pl-c">//</span> 公共权限</span>
 
 
-    // 属性
-    string m_name; // 姓名
-    int m_id;      // 学号
+    <span class="pl-c"><span class="pl-c">//</span> 属性</span>
+    string m_name; <span class="pl-c"><span class="pl-c">//</span> 姓名</span>
+    <span class="pl-k">int</span> m_id;      <span class="pl-c"><span class="pl-c">//</span> 学号</span>
 
-    // 行为
-    // 显示姓名和学号的函数
-    void <span class="pl-en">show_student</span>()
+    <span class="pl-c"><span class="pl-c">//</span> 行为</span>
+    <span class="pl-c"><span class="pl-c">//</span> 显示姓名和学号的函数</span>
+    <span class="pl-k">void</span> <span class="pl-en">show_student</span>()
     {
-        cout &lt;&lt; "姓名： " &lt;&lt; m_name &lt;&lt; endl
-        &lt;&lt; "学号： " &lt;&lt; m_id &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>姓名： <span class="pl-pds">"</span></span> &lt;&lt; m_name &lt;&lt; endl
+        &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>学号： <span class="pl-pds">"</span></span> &lt;&lt; m_id &lt;&lt; endl;
     }
     
-    //给姓名和学号赋值的函数
-    void <span class="pl-en">set_name</span>(string name)
+    <span class="pl-c"><span class="pl-c">//</span>给姓名和学号赋值的函数</span>
+    <span class="pl-k">void</span> <span class="pl-en">set_name</span>(string name)
     {
         m_name = name;
     }
     
-    void <span class="pl-en">set_id</span>(int id)
+    <span class="pl-k">void</span> <span class="pl-en">set_id</span>(<span class="pl-k">int</span> id)
     {
         m_id = id;
     }
 
 };
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    //创建一个具体的学生
-    //实例化
+    <span class="pl-c"><span class="pl-c">//</span>创建一个具体的学生</span>
+    <span class="pl-c"><span class="pl-c">//</span>实例化</span>
     student s1;
-    //给s1赋值
-    s1.set_name("张三");
-    s1.set_id(1);
+    <span class="pl-c"><span class="pl-c">//</span>给s1赋值</span>
+    s1.<span class="pl-c1">set_name</span>(<span class="pl-s"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>);
+    s1.<span class="pl-c1">set_id</span>(<span class="pl-c1">1</span>);
 
-    //显示
-    s1.show_student();
+    <span class="pl-c"><span class="pl-c">//</span>显示</span>
+    s1.<span class="pl-c1">show_student</span>();
 
-    system("pause");
-    return 0;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <blockquote>
 <p>类中的属性和行为，我们统一称为成员</p>
@@ -967,43 +967,43 @@ int main(void)
 <li>protected <strong>保护权限</strong>   只有类内可以访问  不过儿子可以访问父亲保护的内容</li>
 <li>private <strong>私有权限</strong>  只有类内可以访问  儿子也不可以访问</li>
 </ul>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-<span class="pl-k">class</span> person
+<span class="pl-k">class</span> <span class="pl-en">person</span>
 {
-    //公共权限
-    <span class="pl-k">public</span>:
+    <span class="pl-c"><span class="pl-c">//</span>公共权限</span>
+    <span class="pl-k">public:</span>
     string m_name;
 
-    //保护权限
-<span class="pl-k">protected</span>:
+    <span class="pl-c"><span class="pl-c">//</span>保护权限</span>
+<span class="pl-k">protected:</span>
     string m_car;
 
-    //私有权限
-    <span class="pl-k">private</span>:
-    int m_password;
+    <span class="pl-c"><span class="pl-c">//</span>私有权限</span>
+    <span class="pl-k">private:</span>
+    <span class="pl-k">int</span> m_password;
 
-    <span class="pl-k">public</span>:
-    void <span class="pl-en">func01</span>()
+    <span class="pl-k">public:</span>
+    <span class="pl-k">void</span> <span class="pl-en">func01</span>()
     {
-        m_name = "张三";
-        m_car = "梅奔";
-        m_password = 114514;
+        m_name = <span class="pl-s"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>;
+        m_car = <span class="pl-s"><span class="pl-pds">"</span>梅奔<span class="pl-pds">"</span></span>;
+        m_password = <span class="pl-c1">114514</span>;
     }
 
 };
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    person p1; //实例化一个具体对象
+    person p1; <span class="pl-c"><span class="pl-c">//</span>实例化一个具体对象</span>
 
-    p1.m_name = "李四";
-    // p1.m_car = "拖拉机"; //保护权限的内容在类外访问不到
-    // p1.m_password = 123;// 私有权限类外也访问不到
+    p1.<span class="pl-smi">m_name</span> = <span class="pl-s"><span class="pl-pds">"</span>李四<span class="pl-pds">"</span></span>;
+    <span class="pl-c"><span class="pl-c">//</span> p1.m_car = "拖拉机"; //保护权限的内容在类外访问不到</span>
+    <span class="pl-c"><span class="pl-c">//</span> p1.m_password = 123;// 私有权限类外也访问不到</span>
     
-    system("pause");
-    return 0;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <h3>struct和class区别</h3>
 <p>在c++中struct和class唯一的区别就在于<strong>默认的访问权限不同</strong></p>
@@ -1015,81 +1015,81 @@ int main(void)
 <h3>成员属性设置为私有</h3>
 <p>优点1 将所有成员的属性设置为私有，可以自己控制读写权限</p>
 <p>有点2 对于写权限，我们可以检测数据的有效性</p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include&lt;iostream&gt;
-#include&lt;string&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-//成员属性设置为私有
+<span class="pl-c"><span class="pl-c">//</span>成员属性设置为私有</span>
 
-//人类
-<span class="pl-k">class</span> people
+<span class="pl-c"><span class="pl-c">//</span>人类</span>
+<span class="pl-k">class</span> <span class="pl-en">people</span>
 {
-    <span class="pl-k">public</span>:
-    //设置姓名
-    void <span class="pl-en">setNmea</span>(string name)
+    <span class="pl-k">public:</span>
+    <span class="pl-c"><span class="pl-c">//</span>设置姓名</span>
+    <span class="pl-k">void</span> <span class="pl-en">setNmea</span>(string name)
     {
         m_name = name;
     }
     
-    //获取姓名
+    <span class="pl-c"><span class="pl-c">//</span>获取姓名</span>
     string <span class="pl-en">getName</span>()
     {
-        return m_name;
+        <span class="pl-k">return</span> m_name;
     }
 
-    //获取年龄
-    int <span class="pl-en">setAge</span>()
+    <span class="pl-c"><span class="pl-c">//</span>获取年龄</span>
+    <span class="pl-k">int</span> <span class="pl-en">setAge</span>()
     {
-        return mage;
+        <span class="pl-k">return</span> mage;
     }
 
-    //设置年龄0~150
-    void <span class="pl-en">setAg</span>(int age)
+    <span class="pl-c"><span class="pl-c">//</span>设置年龄0~150</span>
+    <span class="pl-k">void</span> <span class="pl-en">setAg</span>(<span class="pl-k">int</span> age)
     {
-        if(age &lt; 0 || age &gt; 150)
+        <span class="pl-k">if</span>(age &lt; <span class="pl-c1">0</span> || age &gt; <span class="pl-c1">150</span>)
         {
-            cout&lt;&lt;"奇迹,赋值失败"&lt;&lt;endl;
-            return;
+            cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>奇迹,赋值失败<span class="pl-pds">"</span></span>&lt;&lt;endl;
+            <span class="pl-k">return</span>;
         }
         mage = age;
     }
 
-    //设置偶像
-    void <span class="pl-en">setIdol</span>(string idol)
+    <span class="pl-c"><span class="pl-c">//</span>设置偶像</span>
+    <span class="pl-k">void</span> <span class="pl-en">setIdol</span>(string idol)
     {
         m_idol = idol;
     }
 
-    <span class="pl-k">private</span>:
+    <span class="pl-k">private:</span>
 
-    string m_name;//姓名 可读可写
+    string m_name;<span class="pl-c"><span class="pl-c">//</span>姓名 可读可写</span>
 
-    int mage = 18; //年龄 只读  也可以写(0~150之间)
+    <span class="pl-k">int</span> mage = <span class="pl-c1">18</span>; <span class="pl-c"><span class="pl-c">//</span>年龄 只读  也可以写(0~150之间)</span>
 
-    string m_idol;//偶像 只写
+    string m_idol;<span class="pl-c"><span class="pl-c">//</span>偶像 只写</span>
 
 };
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
     people p1;
-    //姓名设置
-    p1.setNmea("张三");
-    cout&lt;&lt;"姓名: "&lt;&lt;p1.getName()&lt;&lt;endl;
+    <span class="pl-c"><span class="pl-c">//</span>姓名设置</span>
+    p1.<span class="pl-c1">setNmea</span>(<span class="pl-s"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>);
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>姓名: <span class="pl-pds">"</span></span>&lt;&lt;p1.<span class="pl-c1">getName</span>()&lt;&lt;endl;
 
-    //年龄设置 不可以
-    //p1.setAge(20);
+    <span class="pl-c"><span class="pl-c">//</span>年龄设置 不可以</span>
+    <span class="pl-c"><span class="pl-c">//</span>p1.setAge(20);</span>
 
-    //年龄获取
-    p1.setAg(15);
-    cout&lt;&lt;"年龄： "&lt;&lt;p1.setAge()&lt;&lt;endl;
+    <span class="pl-c"><span class="pl-c">//</span>年龄获取</span>
+    p1.<span class="pl-c1">setAg</span>(<span class="pl-c1">15</span>);
+    cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>年龄： <span class="pl-pds">"</span></span>&lt;&lt;p1.<span class="pl-c1">setAge</span>()&lt;&lt;endl;
 
-    //偶像设置
-    p1.setIdol("小明");  //访问不到
+    <span class="pl-c"><span class="pl-c">//</span>偶像设置</span>
+    p1.<span class="pl-c1">setIdol</span>(<span class="pl-s"><span class="pl-pds">"</span>小明<span class="pl-pds">"</span></span>);  <span class="pl-c"><span class="pl-c">//</span>访问不到</span>
     
 
-    system("pause");
-    return 0;
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <p>封装先讲到这吧，再会</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>

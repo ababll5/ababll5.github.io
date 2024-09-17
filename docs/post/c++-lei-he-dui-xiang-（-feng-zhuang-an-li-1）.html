@@ -381,131 +381,131 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>求出立方体的表面面积和体积</p>
 <p>分别用全局函数和成员函数判断两个立方体是否相等</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/caa7800ae7bf91dd5fb09fc12b73b4c3d0ceff167015773d68126cf38b65943d/68747470733a2f2f696d672e70696375692e636e2f667265652f323032342f30372f31312f363638666534653065363365312e706e67"><img src="https://camo.githubusercontent.com/caa7800ae7bf91dd5fb09fc12b73b4c3d0ceff167015773d68126cf38b65943d/68747470733a2f2f696d672e70696375692e636e2f667265652f323032342f30372f31312f363638666534653065363365312e706e67" alt="" data-canonical-src="https://img.picui.cn/free/2024/07/11/668fe4e0e63e1.png" style="max-width: 100%;"></a></p>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 创建一个立方体的类
-// 设计属性和行为
-// 获取立方体的面积和体积
-// 分别利用全局函数和成员函数 判断两个立方体是否相等
-<span class="pl-k">class</span> fang
+<span class="pl-c"><span class="pl-c">//</span> 创建一个立方体的类</span>
+<span class="pl-c"><span class="pl-c">//</span> 设计属性和行为</span>
+<span class="pl-c"><span class="pl-c">//</span> 获取立方体的面积和体积</span>
+<span class="pl-c"><span class="pl-c">//</span> 分别利用全局函数和成员函数 判断两个立方体是否相等</span>
+<span class="pl-k">class</span> <span class="pl-en">fang</span>
 {
-<span class="pl-k">public</span>:
-    // 行为
+<span class="pl-k">public:</span>
+    <span class="pl-c"><span class="pl-c">//</span> 行为</span>
 
-    // 设置 长 宽 高
-    void <span class="pl-en">setL</span>(int l)
+    <span class="pl-c"><span class="pl-c">//</span> 设置 长 宽 高</span>
+    <span class="pl-k">void</span> <span class="pl-en">setL</span>(<span class="pl-k">int</span> l)
     {
         m_l = l;
     }
 
-    void <span class="pl-en">setW</span>(int w)
+    <span class="pl-k">void</span> <span class="pl-en">setW</span>(<span class="pl-k">int</span> w)
     {
         m_w = w;
     }
 
-    void <span class="pl-en">setH</span>(int h)
+    <span class="pl-k">void</span> <span class="pl-en">setH</span>(<span class="pl-k">int</span> h)
     {
         m_h = h;
     }
 
-    // 获取 长 宽 高
-    int <span class="pl-en">getL</span>()
+    <span class="pl-c"><span class="pl-c">//</span> 获取 长 宽 高</span>
+    <span class="pl-k">int</span> <span class="pl-en">getL</span>()
     {
-        return m_l;
+        <span class="pl-k">return</span> m_l;
     }
 
-    int <span class="pl-en">getW</span>()
+    <span class="pl-k">int</span> <span class="pl-en">getW</span>()
     {
-        return m_w;
+        <span class="pl-k">return</span> m_w;
     }
 
-    int <span class="pl-en">getH</span>()
+    <span class="pl-k">int</span> <span class="pl-en">getH</span>()
     {
-        return m_h;
+        <span class="pl-k">return</span> m_h;
     }
 
-    // 获取立方体面积
-    int <span class="pl-en">fangS</span>()
+    <span class="pl-c"><span class="pl-c">//</span> 获取立方体面积</span>
+    <span class="pl-k">int</span> <span class="pl-en">fangS</span>()
     {
-        return 2 * m_w * m_l + 2 * m_w * m_h + 2 * m_h * m_l;
+        <span class="pl-k">return</span> <span class="pl-c1">2</span> * m_w * m_l + <span class="pl-c1">2</span> * m_w * m_h + <span class="pl-c1">2</span> * m_h * m_l;
     }
 
-    // 获取立方体体积
-    int <span class="pl-en">fangV</span>()
+    <span class="pl-c"><span class="pl-c">//</span> 获取立方体体积</span>
+    <span class="pl-k">int</span> <span class="pl-en">fangV</span>()
     {
-        return m_h * m_l * m_w;
+        <span class="pl-k">return</span> m_h * m_l * m_w;
     }
 
-    // 利用成员函数判断两个立方体相不相等
-    bool <span class="pl-en">ifclass_name</span>(fang &amp;c)
+    <span class="pl-c"><span class="pl-c">//</span> 利用成员函数判断两个立方体相不相等</span>
+    <span class="pl-k">bool</span> <span class="pl-en">ifclass_name</span>(fang &amp;c)
     {
-        if (m_l == c.getL() &amp;&amp; m_w == c.getW() &amp;&amp; m_l == c.getL())
+        <span class="pl-k">if</span> (m_l == c.<span class="pl-c1">getL</span>() &amp;&amp; m_w == c.<span class="pl-c1">getW</span>() &amp;&amp; m_l == c.<span class="pl-c1">getL</span>())
         {
-            return true;
+            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
         }
-        return false;
+        <span class="pl-k">return</span> <span class="pl-c1">false</span>;
     }
 
-<span class="pl-k">private</span>:
-    int m_l; // 长
-    int m_w; // 宽
-    int m_h; // 高
+<span class="pl-k">private:</span>
+    <span class="pl-k">int</span> m_l; <span class="pl-c"><span class="pl-c">//</span> 长</span>
+    <span class="pl-k">int</span> m_w; <span class="pl-c"><span class="pl-c">//</span> 宽</span>
+    <span class="pl-k">int</span> m_h; <span class="pl-c"><span class="pl-c">//</span> 高</span>
 };
-// 利用全局函数判断 两个立方体是否相等
-bool ifname(fang &amp;fang1, fang &amp;fang2)
+<span class="pl-c"><span class="pl-c">//</span> 利用全局函数判断 两个立方体是否相等</span>
+<span class="pl-k">bool</span> <span class="pl-en">ifname</span>(fang &amp;fang1, fang &amp;fang2)
 {
-    if (fang1.getL() == fang2.getL() &amp;&amp; fang1.getW() == fang2.getW() &amp;&amp; fang1.getL() == fang2.getL())
+    <span class="pl-k">if</span> (fang1.<span class="pl-c1">getL</span>() == fang2.<span class="pl-c1">getL</span>() &amp;&amp; fang1.<span class="pl-c1">getW</span>() == fang2.<span class="pl-c1">getW</span>() &amp;&amp; fang1.<span class="pl-c1">getL</span>() == fang2.<span class="pl-c1">getL</span>())
     {
-        return true;
+        <span class="pl-k">return</span> <span class="pl-c1">true</span>;
     }
-    return false;
+    <span class="pl-k">return</span> <span class="pl-c1">false</span>;
 }
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    fang fang1; // 创建对象
-    fang1.setL(10);
-    fang1.setH(10);
-    fang1.setW(10);
+    fang fang1; <span class="pl-c"><span class="pl-c">//</span> 创建对象</span>
+    fang1.<span class="pl-c1">setL</span>(<span class="pl-c1">10</span>);
+    fang1.<span class="pl-c1">setH</span>(<span class="pl-c1">10</span>);
+    fang1.<span class="pl-c1">setW</span>(<span class="pl-c1">10</span>);
 
-    // 600
-    // 1000
-    cout &lt;&lt; "fang 1的面积为 " &lt;&lt; fang1.fangS() &lt;&lt; endl;
-    cout &lt;&lt; "fang 1的体积为 " &lt;&lt; fang1.fangV() &lt;&lt; endl;
+    <span class="pl-c"><span class="pl-c">//</span> 600</span>
+    <span class="pl-c"><span class="pl-c">//</span> 1000</span>
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>fang 1的面积为 <span class="pl-pds">"</span></span> &lt;&lt; fang1.<span class="pl-c1">fangS</span>() &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>fang 1的体积为 <span class="pl-pds">"</span></span> &lt;&lt; fang1.<span class="pl-c1">fangV</span>() &lt;&lt; endl;
 
-    // 创建第二个立方体
+    <span class="pl-c"><span class="pl-c">//</span> 创建第二个立方体</span>
     fang fang2;
-    fang2.setL(10);
-    fang2.setH(10);
-    fang2.setW(11);
-    cout &lt;&lt; "fang 2的面积为 " &lt;&lt; fang2.fangS() &lt;&lt; endl;
-    cout &lt;&lt; "fang 2的体积为 " &lt;&lt; fang2.fangV() &lt;&lt; endl;
+    fang2.<span class="pl-c1">setL</span>(<span class="pl-c1">10</span>);
+    fang2.<span class="pl-c1">setH</span>(<span class="pl-c1">10</span>);
+    fang2.<span class="pl-c1">setW</span>(<span class="pl-c1">11</span>);
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>fang 2的面积为 <span class="pl-pds">"</span></span> &lt;&lt; fang2.<span class="pl-c1">fangS</span>() &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>fang 2的体积为 <span class="pl-pds">"</span></span> &lt;&lt; fang2.<span class="pl-c1">fangV</span>() &lt;&lt; endl;
 
-    bool ret = ifname(fang1, fang2);
-    if (ret)
+    <span class="pl-k">bool</span> ret = <span class="pl-c1">ifname</span>(fang1, fang2);
+    <span class="pl-k">if</span> (ret)
     {
-        cout &lt;&lt; "相等" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>相等<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
-    else
+    <span class="pl-k">else</span>
     {
-        cout &lt;&lt; "不相等" &lt;&lt; endl;
-    }
-
-    // 利用成员判断是否相等
-    ret = fang1.ifclass_name(fang2);
-
-    if (ret)
-    {
-        cout &lt;&lt; "相等" &lt;&lt; endl;
-    }
-    else
-    {
-        cout &lt;&lt; "不相等" &lt;&lt; endl;
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>不相等<span class="pl-pds">"</span></span> &lt;&lt; endl;
     }
 
-    system("pause");
-    return 0;
+    <span class="pl-c"><span class="pl-c">//</span> 利用成员判断是否相等</span>
+    ret = fang1.<span class="pl-c1">ifclass_name</span>(fang2);
+
+    <span class="pl-k">if</span> (ret)
+    {
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>相等<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    }
+    <span class="pl-k">else</span>
+    {
+        cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>不相等<span class="pl-pds">"</span></span> &lt;&lt; endl;
+    }
+
+    <span class="pl-c1">system</span>(<span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 

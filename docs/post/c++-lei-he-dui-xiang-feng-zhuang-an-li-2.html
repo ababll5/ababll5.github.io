@@ -1293,99 +1293,99 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <blockquote>
 <p>先把类设计好</p>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 点类
-<span class="pl-k">class</span> dian
+<span class="pl-c"><span class="pl-c">//</span> 点类</span>
+<span class="pl-k">class</span> <span class="pl-en">dian</span>
 {
-<span class="pl-k">private</span>:
-    int m_y;
-    int m_x;
+<span class="pl-k">private:</span>
+    <span class="pl-k">int</span> m_y;
+    <span class="pl-k">int</span> m_x;
 
-<span class="pl-k">public</span>:
-    // 设置x
-    void <span class="pl-en">shezhi_x</span>(int x)
+<span class="pl-k">public:</span>
+    <span class="pl-c"><span class="pl-c">//</span> 设置x</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_x</span>(<span class="pl-k">int</span> x)
     {
         m_x = x;
     }
 
-    // 获取x
-    int <span class="pl-en">huoqu_x</span>()
+    <span class="pl-c"><span class="pl-c">//</span> 获取x</span>
+    <span class="pl-k">int</span> <span class="pl-en">huoqu_x</span>()
     {
-        return m_x;
+        <span class="pl-k">return</span> m_x;
     }
 
-    // 设置y
-    void <span class="pl-en">shezhi_y</span>(int y)
+    <span class="pl-c"><span class="pl-c">//</span> 设置y</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_y</span>(<span class="pl-k">int</span> y)
     {
         m_y = y;
     }
 
-    // 获取y
-    int <span class="pl-en">huoqu_y</span>()
+    <span class="pl-c"><span class="pl-c">//</span> 获取y</span>
+    <span class="pl-k">int</span> <span class="pl-en">huoqu_y</span>()
     {
-        return m_y;
+        <span class="pl-k">return</span> m_y;
     }
 };
 
-// 点和圆关系案例
-// 圆类
-<span class="pl-k">class</span> yuan
+<span class="pl-c"><span class="pl-c">//</span> 点和圆关系案例</span>
+<span class="pl-c"><span class="pl-c">//</span> 圆类</span>
+<span class="pl-k">class</span> <span class="pl-en">yuan</span>
 {
-<span class="pl-k">private</span>:
-    int m_r;
+<span class="pl-k">private:</span>
+    <span class="pl-k">int</span> m_r;
 
-    dian m_dian; // 圆心
+    dian m_dian; <span class="pl-c"><span class="pl-c">//</span> 圆心</span>
 
-<span class="pl-k">public</span>:
-    // 设置半径
-    void <span class="pl-en">shezhi_r</span>(int r)
+<span class="pl-k">public:</span>
+    <span class="pl-c"><span class="pl-c">//</span> 设置半径</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_r</span>(<span class="pl-k">int</span> r)
     {
         m_r = r;
     }
 
-    // 获取半径
-    int <span class="pl-en">huoqu_r</span>()
+    <span class="pl-c"><span class="pl-c">//</span> 获取半径</span>
+    <span class="pl-k">int</span> <span class="pl-en">huoqu_r</span>()
     {
-        return m_r;
+        <span class="pl-k">return</span> m_r;
     }
 
-    // 设置圆心(o)
-    void <span class="pl-en">shezhi_o</span>(dian o)
+    <span class="pl-c"><span class="pl-c">//</span> 设置圆心(o)</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_o</span>(dian o)
     {
         m_dian = o;
     }
 
-    // 获取圆心
+    <span class="pl-c"><span class="pl-c">//</span> 获取圆心</span>
     dian <span class="pl-en">huoqu_o</span>()
     {
-        return m_dian;
+        <span class="pl-k">return</span> m_dian;
     }
 };</pre></div>
 <blockquote>
 <h2>封装一个判断圆和点的关系的函数</h2>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">void if_yuan(yuan &amp;c, dian &amp;p)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">void</span> <span class="pl-en">if_yuan</span>(yuan &amp;c, dian &amp;p)
 {
-    // 计算两点之间距离的平分
-    int jieshou =
-    (c.huoqu_o().huoqu_x() - p.huoqu_x()) * (c.huoqu_o().huoqu_x() - p.huoqu_x()) +
-    (c.huoqu_o().huoqu_y() - p.huoqu_y()) * (c.huoqu_o().huoqu_y() - p.huoqu_y());
+    <span class="pl-c"><span class="pl-c">//</span> 计算两点之间距离的平分</span>
+    <span class="pl-k">int</span> jieshou =
+    (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_x</span>() - p.<span class="pl-c1">huoqu_x</span>()) * (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_x</span>() - p.<span class="pl-c1">huoqu_x</span>()) +
+    (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_y</span>() - p.<span class="pl-c1">huoqu_y</span>()) * (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_y</span>() - p.<span class="pl-c1">huoqu_y</span>());
 
-    // 计算半径的平方
-    int r_pingfang = c.huoqu_r() * c.huoqu_r();
+    <span class="pl-c"><span class="pl-c">//</span> 计算半径的平方</span>
+    <span class="pl-k">int</span> r_pingfang = c.<span class="pl-c1">huoqu_r</span>() * c.<span class="pl-c1">huoqu_r</span>();
 
-    // 判断关系
-    if (jieshou == r_pingfang){
-        cout&lt;&lt;"点在圆上"&lt;&lt;endl;
+    <span class="pl-c"><span class="pl-c">//</span> 判断关系</span>
+    <span class="pl-k">if</span> (jieshou == r_pingfang){
+        cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>点在圆上<span class="pl-pds">"</span></span>&lt;&lt;endl;
 
-    }else if(jieshou &gt; r_pingfang)
+    }<span class="pl-k">else</span> <span class="pl-k">if</span>(jieshou &gt; r_pingfang)
     {
-        cout&lt;&lt;"点在圆外"&lt;&lt;endl;
+        cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>点在圆外<span class="pl-pds">"</span></span>&lt;&lt;endl;
 
-    }else{
-        cout&lt;&lt;"点在圆内"&lt;&lt;endl;
+    }<span class="pl-k">else</span>{
+        cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>点在圆内<span class="pl-pds">"</span></span>&lt;&lt;endl;
 
     }
     
@@ -1393,153 +1393,153 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <blockquote>
 <h2>回到main函数</h2>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">int main(void)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    //创建一个圆
+    <span class="pl-c"><span class="pl-c">//</span>创建一个圆</span>
     yuan c;
-    c.shezhi_r(10);
+    c.<span class="pl-c1">shezhi_r</span>(<span class="pl-c1">10</span>);
     dian center;
-    center.shezhi_x(10);
-    center.shezhi_y(0);
-    c.shezhi_o(center);
-    //创建一个点
+    center.<span class="pl-c1">shezhi_x</span>(<span class="pl-c1">10</span>);
+    center.<span class="pl-c1">shezhi_y</span>(<span class="pl-c1">0</span>);
+    c.<span class="pl-c1">shezhi_o</span>(center);
+    <span class="pl-c"><span class="pl-c">//</span>创建一个点</span>
     dian p;
-    p.shezhi_x(10);
-    p.shezhi_y(10);
+    p.<span class="pl-c1">shezhi_x</span>(<span class="pl-c1">10</span>);
+    p.<span class="pl-c1">shezhi_y</span>(<span class="pl-c1">10</span>);
 
-    //判断关系
-    if_yuan(c,p);
+    <span class="pl-c"><span class="pl-c">//</span>判断关系</span>
+    <span class="pl-c1">if_yuan</span>(c,p);
 
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <h1>全源码</h1>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-#include &lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 点类
-<span class="pl-k">class</span> dian
+<span class="pl-c"><span class="pl-c">//</span> 点类</span>
+<span class="pl-k">class</span> <span class="pl-en">dian</span>
 {
-<span class="pl-k">private</span>:
-    int m_y;
-    int m_x;
+<span class="pl-k">private:</span>
+    <span class="pl-k">int</span> m_y;
+    <span class="pl-k">int</span> m_x;
 
-<span class="pl-k">public</span>:
-    // 设置x
-    void <span class="pl-en">shezhi_x</span>(int x)
+<span class="pl-k">public:</span>
+    <span class="pl-c"><span class="pl-c">//</span> 设置x</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_x</span>(<span class="pl-k">int</span> x)
     {
         m_x = x;
     }
 
-    // 获取x
-    int <span class="pl-en">huoqu_x</span>()
+    <span class="pl-c"><span class="pl-c">//</span> 获取x</span>
+    <span class="pl-k">int</span> <span class="pl-en">huoqu_x</span>()
     {
-        return m_x;
+        <span class="pl-k">return</span> m_x;
     }
 
-    // 设置y
-    void <span class="pl-en">shezhi_y</span>(int y)
+    <span class="pl-c"><span class="pl-c">//</span> 设置y</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_y</span>(<span class="pl-k">int</span> y)
     {
         m_y = y;
     }
 
-    // 获取y
-    int <span class="pl-en">huoqu_y</span>()
+    <span class="pl-c"><span class="pl-c">//</span> 获取y</span>
+    <span class="pl-k">int</span> <span class="pl-en">huoqu_y</span>()
     {
-        return m_y;
+        <span class="pl-k">return</span> m_y;
     }
 };
 
-// 点和圆关系案例
-// 圆类
-<span class="pl-k">class</span> yuan
+<span class="pl-c"><span class="pl-c">//</span> 点和圆关系案例</span>
+<span class="pl-c"><span class="pl-c">//</span> 圆类</span>
+<span class="pl-k">class</span> <span class="pl-en">yuan</span>
 {
-<span class="pl-k">private</span>:
-    int m_r;
+<span class="pl-k">private:</span>
+    <span class="pl-k">int</span> m_r;
 
-    dian m_dian; // 圆心
+    dian m_dian; <span class="pl-c"><span class="pl-c">//</span> 圆心</span>
 
-<span class="pl-k">public</span>:
-    // 设置半径
-    void <span class="pl-en">shezhi_r</span>(int r)
+<span class="pl-k">public:</span>
+    <span class="pl-c"><span class="pl-c">//</span> 设置半径</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_r</span>(<span class="pl-k">int</span> r)
     {
         m_r = r;
     }
 
-    // 获取半径
-    int <span class="pl-en">huoqu_r</span>()
+    <span class="pl-c"><span class="pl-c">//</span> 获取半径</span>
+    <span class="pl-k">int</span> <span class="pl-en">huoqu_r</span>()
     {
-        return m_r;
+        <span class="pl-k">return</span> m_r;
     }
 
-    // 设置圆心(o)
-    void <span class="pl-en">shezhi_o</span>(dian o)
+    <span class="pl-c"><span class="pl-c">//</span> 设置圆心(o)</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_o</span>(dian o)
     {
         m_dian = o;
     }
 
-    // 获取圆心
+    <span class="pl-c"><span class="pl-c">//</span> 获取圆心</span>
     dian <span class="pl-en">huoqu_o</span>()
     {
-        return m_dian;
+        <span class="pl-k">return</span> m_dian;
     }
 };
 
-// 判断点和圆的关系
-void if_yuan(yuan &amp;c, dian &amp;p)
+<span class="pl-c"><span class="pl-c">//</span> 判断点和圆的关系</span>
+<span class="pl-k">void</span> <span class="pl-en">if_yuan</span>(yuan &amp;c, dian &amp;p)
 {
-    // 计算两点之间距离的平分
-    int jieshou =
-    (c.huoqu_o().huoqu_x() - p.huoqu_x()) * (c.huoqu_o().huoqu_x() - p.huoqu_x()) +
-    (c.huoqu_o().huoqu_y() - p.huoqu_y()) * (c.huoqu_o().huoqu_y() - p.huoqu_y());
+    <span class="pl-c"><span class="pl-c">//</span> 计算两点之间距离的平分</span>
+    <span class="pl-k">int</span> jieshou =
+    (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_x</span>() - p.<span class="pl-c1">huoqu_x</span>()) * (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_x</span>() - p.<span class="pl-c1">huoqu_x</span>()) +
+    (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_y</span>() - p.<span class="pl-c1">huoqu_y</span>()) * (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_y</span>() - p.<span class="pl-c1">huoqu_y</span>());
 
-    // 计算半径的平方
-    int r_pingfang = c.huoqu_r() * c.huoqu_r();
+    <span class="pl-c"><span class="pl-c">//</span> 计算半径的平方</span>
+    <span class="pl-k">int</span> r_pingfang = c.<span class="pl-c1">huoqu_r</span>() * c.<span class="pl-c1">huoqu_r</span>();
 
-    // 判断关系
-    if (jieshou == r_pingfang){
-        cout&lt;&lt;"点在圆上"&lt;&lt;endl;
+    <span class="pl-c"><span class="pl-c">//</span> 判断关系</span>
+    <span class="pl-k">if</span> (jieshou == r_pingfang){
+        cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>点在圆上<span class="pl-pds">"</span></span>&lt;&lt;endl;
 
-    }else if(jieshou &gt; r_pingfang)
+    }<span class="pl-k">else</span> <span class="pl-k">if</span>(jieshou &gt; r_pingfang)
     {
-        cout&lt;&lt;"点在圆外"&lt;&lt;endl;
+        cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>点在圆外<span class="pl-pds">"</span></span>&lt;&lt;endl;
 
-    }else{
-        cout&lt;&lt;"点在圆内"&lt;&lt;endl;
+    }<span class="pl-k">else</span>{
+        cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>点在圆内<span class="pl-pds">"</span></span>&lt;&lt;endl;
 
     }
     
 }
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    //创建一个圆
+    <span class="pl-c"><span class="pl-c">//</span>创建一个圆</span>
     yuan c;
-    c.shezhi_r(10);
+    c.<span class="pl-c1">shezhi_r</span>(<span class="pl-c1">10</span>);
     dian center;
-    center.shezhi_x(10);
-    center.shezhi_y(0);
-    c.shezhi_o(center);
-    //创建一个点
+    center.<span class="pl-c1">shezhi_x</span>(<span class="pl-c1">10</span>);
+    center.<span class="pl-c1">shezhi_y</span>(<span class="pl-c1">0</span>);
+    c.<span class="pl-c1">shezhi_o</span>(center);
+    <span class="pl-c"><span class="pl-c">//</span>创建一个点</span>
     dian p;
-    p.shezhi_x(10);
-    p.shezhi_y(10);
+    p.<span class="pl-c1">shezhi_x</span>(<span class="pl-c1">10</span>);
+    p.<span class="pl-c1">shezhi_y</span>(<span class="pl-c1">10</span>);
 
-    //判断关系
-    if_yuan(c,p);
+    <span class="pl-c"><span class="pl-c">//</span>判断关系</span>
+    <span class="pl-c1">if_yuan</span>(c,p);
 
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <h2>输出结果</h2>
 <pre class="notranslate"><code class="notranslate">点在圆上
 </code></pre>
 <h1>核心内容</h1>
-<div class="highlight highlight-source-c++"><pre class="notranslate">   //在类中可以让另一个类 作为本来中的成员
-   dian m_dian; // 圆心</pre></div>
+<div class="highlight highlight-source-c++"><pre class="notranslate">   <span class="pl-c"><span class="pl-c">//</span>在类中可以让另一个类 作为本来中的成员</span>
+   dian m_dian; <span class="pl-c"><span class="pl-c">//</span> 圆心</span></pre></div>
 <h2>为什么要拆开</h2>
 <blockquote>
 <p>因为后续代码会越来越多，这时候就要分开写或者分文件编写</p>
@@ -1550,49 +1550,49 @@ int main(void)
 <blockquote>
 <p>dian.h</p>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#pragma once
-#include&lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">pragma</span> once
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 点类
-<span class="pl-k">class</span> dian
+<span class="pl-c"><span class="pl-c">//</span> 点类</span>
+<span class="pl-k">class</span> <span class="pl-en">dian</span>
 {
-<span class="pl-k">private</span>:
-    int m_y;
-    int m_x;
-<span class="pl-k">public</span>:
-    // 设置x
-    void <span class="pl-en">shezhi_x</span>(int x);
-    // 获取x
-    int <span class="pl-en">huoqu_x</span>();
-    // 设置y
-    void <span class="pl-en">shezhi_y</span>(int y);
-    // 获取y
-    int <span class="pl-en">huoqu_y</span>();
+<span class="pl-k">private:</span>
+    <span class="pl-k">int</span> m_y;
+    <span class="pl-k">int</span> m_x;
+<span class="pl-k">public:</span>
+    <span class="pl-c"><span class="pl-c">//</span> 设置x</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_x</span>(<span class="pl-k">int</span> x);
+    <span class="pl-c"><span class="pl-c">//</span> 获取x</span>
+    <span class="pl-k">int</span> <span class="pl-en">huoqu_x</span>();
+    <span class="pl-c"><span class="pl-c">//</span> 设置y</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_y</span>(<span class="pl-k">int</span> y);
+    <span class="pl-c"><span class="pl-c">//</span> 获取y</span>
+    <span class="pl-k">int</span> <span class="pl-en">huoqu_y</span>();
 };</pre></div>
 <blockquote>
 <p>dian.cpp</p>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include"dian.h"
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">"</span>dian.h<span class="pl-pds">"</span></span>
 
-void dian::<span class="pl-en">shezhi_x</span>(int x)
+<span class="pl-k">void</span> <span class="pl-en">dian::shezhi_x</span>(<span class="pl-k">int</span> x)
 {
     m_x = x;
 }
-// 获取x
-int dian::<span class="pl-en">huoqu_x</span>()
+<span class="pl-c"><span class="pl-c">//</span> 获取x</span>
+<span class="pl-k">int</span> <span class="pl-en">dian::huoqu_x</span>()
 {
-    return m_x;
+    <span class="pl-k">return</span> m_x;
 }
-// 设置y
-void dian::<span class="pl-en">shezhi_y</span>(int y)
+<span class="pl-c"><span class="pl-c">//</span> 设置y</span>
+<span class="pl-k">void</span> <span class="pl-en">dian::shezhi_y</span>(<span class="pl-k">int</span> y)
 {
     m_y = y;
 }
-// 获取y
-int dian::<span class="pl-en">huoqu_y</span>()
+<span class="pl-c"><span class="pl-c">//</span> 获取y</span>
+<span class="pl-k">int</span> <span class="pl-en">dian::huoqu_y</span>()
 {
-    return m_y;
+    <span class="pl-k">return</span> m_y;
 }</pre></div>
 <blockquote>
 <p>注意源文件中要有个dian的作用域</p>
@@ -1606,165 +1606,166 @@ int dian::<span class="pl-en">huoqu_y</span>()
 <blockquote>
 <p>main.cpp</p>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include &lt;iostream&gt;
-#include"dian.h"
-#include"yuan.h"
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">"</span>dian.h<span class="pl-pds">"</span></span>
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">"</span>yuan.h<span class="pl-pds">"</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
 
-void if_yuan(yuan &amp;c, dian &amp;p)
+<span class="pl-k">void</span> <span class="pl-en">if_yuan</span>(yuan &amp;c, dian &amp;p)
 {
-    // 计算两点之间距离的平分
-    int jieshou =
-    (c.huoqu_o().huoqu_x() - p.huoqu_x()) * (c.huoqu_o().huoqu_x() - p.huoqu_x()) +
-    (c.huoqu_o().huoqu_y() - p.huoqu_y()) * (c.huoqu_o().huoqu_y() - p.huoqu_y());
+    <span class="pl-c"><span class="pl-c">//</span> 计算两点之间距离的平分</span>
+    <span class="pl-k">int</span> jieshou =
+    (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_x</span>() - p.<span class="pl-c1">huoqu_x</span>()) * (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_x</span>() - p.<span class="pl-c1">huoqu_x</span>()) +
+    (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_y</span>() - p.<span class="pl-c1">huoqu_y</span>()) * (c.<span class="pl-c1">huoqu_o</span>().<span class="pl-c1">huoqu_y</span>() - p.<span class="pl-c1">huoqu_y</span>());
 
-    // 计算半径的平方
-    int r_pingfang = c.huoqu_r() * c.huoqu_r();
+    <span class="pl-c"><span class="pl-c">//</span> 计算半径的平方</span>
+    <span class="pl-k">int</span> r_pingfang = c.<span class="pl-c1">huoqu_r</span>() * c.<span class="pl-c1">huoqu_r</span>();
 
-    // 判断关系
-    if (jieshou == r_pingfang){
-        cout&lt;&lt;"点在圆上"&lt;&lt;endl;
+    <span class="pl-c"><span class="pl-c">//</span> 判断关系</span>
+    <span class="pl-k">if</span> (jieshou == r_pingfang){
+        cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>点在圆上<span class="pl-pds">"</span></span>&lt;&lt;endl;
 
-    }else if(jieshou &gt; r_pingfang)
+    }<span class="pl-k">else</span> <span class="pl-k">if</span>(jieshou &gt; r_pingfang)
     {
-        cout&lt;&lt;"点在圆外"&lt;&lt;endl;
+        cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>点在圆外<span class="pl-pds">"</span></span>&lt;&lt;endl;
 
-    }else{
-        cout&lt;&lt;"点在圆内"&lt;&lt;endl;
+    }<span class="pl-k">else</span>{
+        cout&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>点在圆内<span class="pl-pds">"</span></span>&lt;&lt;endl;
 
     }
     
 }
 
-int main(void)
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    //创建一个圆
+    <span class="pl-c"><span class="pl-c">//</span>创建一个圆</span>
     yuan c;
-    c.shezhi_r(10);
+    c.<span class="pl-c1">shezhi_r</span>(<span class="pl-c1">10</span>);
     dian center;
-    center.shezhi_x(10);
-    center.shezhi_y(0);
-    c.shezhi_o(center);
-    //创建一个点
+    center.<span class="pl-c1">shezhi_x</span>(<span class="pl-c1">10</span>);
+    center.<span class="pl-c1">shezhi_y</span>(<span class="pl-c1">0</span>);
+    c.<span class="pl-c1">shezhi_o</span>(center);
+    <span class="pl-c"><span class="pl-c">//</span>创建一个点</span>
     dian p;
-    p.shezhi_x(10);
-    p.shezhi_y(10);
+    p.<span class="pl-c1">shezhi_x</span>(<span class="pl-c1">10</span>);
+    p.<span class="pl-c1">shezhi_y</span>(<span class="pl-c1">10</span>);
 
-    //判断关系
-    if_yuan(c,p);
+    <span class="pl-c"><span class="pl-c">//</span>判断关系</span>
+    <span class="pl-c1">if_yuan</span>(c,p);
 
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <blockquote>
 <p>dian.h</p>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#pragma once
-#include&lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">pragma</span> once
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
 
-// 点类
-<span class="pl-k">class</span> dian
+<span class="pl-c"><span class="pl-c">//</span> 点类</span>
+<span class="pl-k">class</span> <span class="pl-en">dian</span>
 {
-<span class="pl-k">private</span>:
-    int m_y;
-    int m_x;
-<span class="pl-k">public</span>:
-    // 设置x
-    void <span class="pl-en">shezhi_x</span>(int x);
-    // 获取x
-    int <span class="pl-en">huoqu_x</span>();
-    // 设置y
-    void <span class="pl-en">shezhi_y</span>(int y);
-    // 获取y
-    int <span class="pl-en">huoqu_y</span>();
+<span class="pl-k">private:</span>
+    <span class="pl-k">int</span> m_y;
+    <span class="pl-k">int</span> m_x;
+<span class="pl-k">public:</span>
+    <span class="pl-c"><span class="pl-c">//</span> 设置x</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_x</span>(<span class="pl-k">int</span> x);
+    <span class="pl-c"><span class="pl-c">//</span> 获取x</span>
+    <span class="pl-k">int</span> <span class="pl-en">huoqu_x</span>();
+    <span class="pl-c"><span class="pl-c">//</span> 设置y</span>
+    <span class="pl-k">void</span> <span class="pl-en">shezhi_y</span>(<span class="pl-k">int</span> y);
+    <span class="pl-c"><span class="pl-c">//</span> 获取y</span>
+    <span class="pl-k">int</span> <span class="pl-en">huoqu_y</span>();
 };</pre></div>
 <blockquote>
 <p>dian.cpp</p>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include"dian.h"
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">"</span>dian.h<span class="pl-pds">"</span></span>
 
-void dian::<span class="pl-en">shezhi_x</span>(int x)
+<span class="pl-k">void</span> <span class="pl-en">dian::shezhi_x</span>(<span class="pl-k">int</span> x)
 {
     m_x = x;
 }
-// 获取x
-int dian::<span class="pl-en">huoqu_x</span>()
+<span class="pl-c"><span class="pl-c">//</span> 获取x</span>
+<span class="pl-k">int</span> <span class="pl-en">dian::huoqu_x</span>()
 {
-    return m_x;
+    <span class="pl-k">return</span> m_x;
 }
-// 设置y
-void dian::<span class="pl-en">shezhi_y</span>(int y)
+<span class="pl-c"><span class="pl-c">//</span> 设置y</span>
+<span class="pl-k">void</span> <span class="pl-en">dian::shezhi_y</span>(<span class="pl-k">int</span> y)
 {
     m_y = y;
 }
-// 获取y
-int dian::<span class="pl-en">huoqu_y</span>()
+<span class="pl-c"><span class="pl-c">//</span> 获取y</span>
+<span class="pl-k">int</span> <span class="pl-en">dian::huoqu_y</span>()
 {
-    return m_y;
+    <span class="pl-k">return</span> m_y;
 }</pre></div>
 <blockquote>
 <p>yuan.h</p>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#pragma once
-#include&lt;iostream&gt;
-<span class="pl-k">using</span> <span class="pl-k">namespace</span> std;
-#include"dian.h"
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">pragma</span> once
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">using</span> <span class="pl-k">namespace</span> <span class="pl-en">std</span><span class="pl-k">;</span>
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">"</span>dian.h<span class="pl-pds">"</span></span>
 
-<span class="pl-k">class</span> yuan
+<span class="pl-k">class</span> <span class="pl-en">yuan</span>
 {
-<span class="pl-k">private</span>:
-int m_r;
+<span class="pl-k">private:</span>
+<span class="pl-k">int</span> m_r;
 
-dian m_dian; // 圆心
+dian m_dian; <span class="pl-c"><span class="pl-c">//</span> 圆心</span>
 
-<span class="pl-k">public</span>:
-// 设置半径
-void <span class="pl-en">shezhi_r</span>(int r);
-
-
-// 获取半径
-    int <span class="pl-en">huoqu_r</span>();
+<span class="pl-k">public:</span>
+<span class="pl-c"><span class="pl-c">//</span> 设置半径</span>
+<span class="pl-k">void</span> <span class="pl-en">shezhi_r</span>(<span class="pl-k">int</span> r);
 
 
-// 设置圆心(o)
-void <span class="pl-en">shezhi_o</span>(dian o);
+<span class="pl-c"><span class="pl-c">//</span> 获取半径</span>
+    <span class="pl-k">int</span> <span class="pl-en">huoqu_r</span>();
 
 
-// 获取圆心
+<span class="pl-c"><span class="pl-c">//</span> 设置圆心(o)</span>
+<span class="pl-k">void</span> <span class="pl-en">shezhi_o</span>(dian o);
+
+
+<span class="pl-c"><span class="pl-c">//</span> 获取圆心</span>
 dian <span class="pl-en">huoqu_o</span>();
 
 };</pre></div>
 <blockquote>
 <p>yuan.cpp</p>
 </blockquote>
-<div class="highlight highlight-source-c++"><pre class="notranslate">#include"yuan.h"
-#include"dian.h"
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">"</span>yuan.h<span class="pl-pds">"</span></span>
+#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">"</span>dian.h<span class="pl-pds">"</span></span>
 
 
-void yuan::<span class="pl-en">shezhi_r</span>(int r)
+<span class="pl-k">void</span> <span class="pl-en">yuan::shezhi_r</span>(<span class="pl-k">int</span> r)
 {
     m_r = r;
 }
 
-// 获取半径
-int yuan::<span class="pl-en">huoqu_r</span>()
+<span class="pl-c"><span class="pl-c">//</span> 获取半径</span>
+<span class="pl-k">int</span> <span class="pl-en">yuan::huoqu_r</span>()
 {
-    return m_r;
+    <span class="pl-k">return</span> m_r;
 }
 
-// 设置圆心(o)
-void yuan::<span class="pl-en">shezhi_o</span>(dian o)
+<span class="pl-c"><span class="pl-c">//</span> 设置圆心(o)</span>
+<span class="pl-k">void</span> <span class="pl-en">yuan::shezhi_o</span>(dian o)
 {
     m_dian = o;
 }
 
-// 获取圆心
-dian yuan::<span class="pl-en">huoqu_o</span>()
+<span class="pl-c"><span class="pl-c">//</span> 获取圆心</span>
+dian <span class="pl-en">yuan::huoqu_o</span>()
 {
-    return m_dian;
-}</pre></div>
+    <span class="pl-k">return</span> m_dian;
+}
+</pre></div>
 <h1>总结</h1>
 <p>这次的案例学会了类的分文件编写</p>
 <p>好处是：</p>
