@@ -1,5 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>新鲜哥的技术博客</title><link>http://www.ababll5.cn</link><description>一个初中生的技术博客</description><copyright>新鲜哥的技术博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/08/26/OHxIvr4wC89FgtB.jpg</url><title>avatar</title><link>http://www.ababll5.cn</link></image><lastBuildDate>Mon, 21 Oct 2024 14:34:57 +0000</lastBuildDate><managingEditor>新鲜哥的技术博客</managingEditor><ttl>60</ttl><webMaster>新鲜哥的技术博客</webMaster><item><title>周末作业太少无聊写了一个chat</title><link>http://www.ababll5.cn/post/zhou-mo-zuo-ye-tai-shao-wu-liao-xie-le-yi-ge-chat.html</link><description># my-chat第一代的诞生&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>新鲜哥的技术博客</title><link>http://www.ababll5.cn</link><description>一个初中生的技术博客</description><copyright>新鲜哥的技术博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/08/26/OHxIvr4wC89FgtB.jpg</url><title>avatar</title><link>http://www.ababll5.cn</link></image><lastBuildDate>Sat, 09 Nov 2024 15:30:13 +0000</lastBuildDate><managingEditor>新鲜哥的技术博客</managingEditor><ttl>60</ttl><webMaster>新鲜哥的技术博客</webMaster><item><title>开启新的篇章——qt</title><link>http://www.ababll5.cn/post/kai-qi-xin-de-pian-zhang-%E2%80%94%E2%80%94qt.html</link><description># 初次尝试qt&#13;
+&#13;
+因为一些原因，使我了解到了c++的一个图形界面——qt&#13;
+&#13;
+所以我就想尝试尝试就跟着教程下了个开源版的&#13;
+&#13;
+![image](https://github.com/user-attachments/assets/42d46d65-9480-4c31-921c-79edcfb12d98)&#13;
+&#13;
+&#13;
+后续我会写我的第一个程序的，敬请期待。</description><guid isPermaLink="true">http://www.ababll5.cn/post/kai-qi-xin-de-pian-zhang-%E2%80%94%E2%80%94qt.html</guid><pubDate>Sat, 09 Nov 2024 15:29:48 +0000</pubDate></item><item><title>周末作业太少无聊写了一个chat</title><link>http://www.ababll5.cn/post/zhou-mo-zuo-ye-tai-shao-wu-liao-xie-le-yi-ge-chat.html</link><description># my-chat第一代的诞生&#13;
 &#13;
 周末作业周五就做完了，闲着没事，写了个通讯网页**my-chat**&#13;
 &#13;
