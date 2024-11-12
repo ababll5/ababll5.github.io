@@ -34,3 +34,6 @@ int main(int argc, char *argv[]) {
 ![image](https://github.com/user-attachments/assets/57cc6ed1-924d-4c87-9d9e-cba17b6635b2)   
 
 打开就会跳转到我的博客页面中，只要改一个代码中的url就能跳转到你想要跳转的网页。
+
+
+[release.zip](https://github.com/user-attachments/files/17717969/release.zip)
