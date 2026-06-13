@@ -1,0 +1,198 @@
+#!/usr/bin/env python3
+"""
+Blog CLI — 便捷的博客管理工具
+用法:
+  ./blog new <标题>      创建新文章
+  ./blog server [端口]   构建并启动本地服务器 (默认端口 8080)
+  ./blog build           构建静态站点
+  ./blog deploy          部署到 GitHub Pages
+  ./blog clean           清理构建输出
+"""
+
+import sys
+import os
+import subprocess
+from datetime import datetime
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+POSTS_DIR = BASE_DIR / "content" / "posts"
+OUTPUT_DIR = BASE_DIR / "output"
+BUILD_SCRIPT = BASE_DIR / "build.py"
+
+# GitHub 仓库地址（从 config.yaml 读取）
+import yaml
+with open(BASE_DIR / "config.yaml", "r", encoding="utf-8") as f:
+    CONFIG = yaml.safe_load(f)
+
+SITE_URL = CONFIG.get("site", {}).get("url", "")
+REPO_URL = ""  # 自动从 URL 推断或手动设置
+
+def slugify(title):
+    """把中文标题转成 URL slug"""
+    import re
+    slug = title.strip()
+    slug = re.sub(r'[^\w\s-]', '-', slug)
+    slug = re.sub(r'\s+', '-', slug)
+    slug = re.sub(r'-+', '-', slug)
+    slug = slug.strip('-')
+    return slug or 'untitled'
+
+
+def cmd_new(args):
+    """创建新文章"""
+    title = " ".join(args) if args else "未命名"
+    date = datetime.now().strftime("%Y-%m-%d")
+    slug = slugify(title)
+    filename = f"{date}-{slug}.md"
+    filepath = POSTS_DIR / filename
+
+    POSTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    template = f"""---
+title: "{title}"
+date: {date}
+tags: []
+---
+
+## {title}
+
+在这里开始写作...
+"""
+
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(template)
+
+    print(f"✅ 创建文章: content/posts/{filename}")
+    print(f"   标题: {title}")
+    print(f"   日期: {date}")
+
+
+def cmd_build(args):
+    """构建静态站点"""
+    print("🦋 正在构建...")
+    result = subprocess.run([sys.executable, str(BUILD_SCRIPT)], cwd=str(BASE_DIR))
+    if result.returncode != 0:
+        print("❌ 构建失败")
+        sys.exit(1)
+
+
+def cmd_server(args):
+    """构建并启动本地服务器"""
+    cmd_build(args)
+
+    port = int(args[0]) if args else 8080
+    import http.server
+    import socketserver
+
+    os.chdir(str(OUTPUT_DIR))
+
+    class Handler(http.server.SimpleHTTPRequestHandler):
+        def __init__(self, *a, **kw):
+            super().__init__(*a, directory=str(OUTPUT_DIR), **kw)
+
+    with socketserver.TCPServer(("", port), Handler) as httpd:
+        print(f"\n🚀 服务器已启动: http://localhost:{port}")
+        print(f"   按 Ctrl+C 停止\n")
+        try:
+            httpd.serve_forever()
+        except KeyboardInterrupt:
+            print("\n👋 服务器已停止")
+
+
+def cmd_deploy(args):
+    """部署到 GitHub Pages"""
+    import shutil
+
+    msg = " ".join(args) if args else "更新博客"
+
+    print("🦋 构建 + 部署...")
+    cmd_build([])
+
+    output_dir = OUTPUT_DIR
+    if not output_dir.exists():
+        print("❌ 没有构建输出，请先运行 build")
+        sys.exit(1)
+
+    # 检查 output 目录是否是 git 仓库
+    output_git = output_dir / ".git"
+    is_git_repo = output_git.exists()
+
+    if not is_git_repo:
+        # 初始化 output 为 git 仓库
+        print("📦 初始化 GitHub Pages 仓库...")
+        os.chdir(str(output_dir))
+        subprocess.run(["git", "init"], check=True)
+        subprocess.run(["git", "checkout", "-b", "gh-pages"], check=True)
+
+        # 设置远程仓库
+        if not REPO_URL:
+            # 自动推断
+            repo = "ababll5/ababll5.github.io"
+            REPO_URL_repo = f"https://github.com/{repo}.git"
+            print(f"   远程仓库: {REPO_URL_repo}")
+
+        subprocess.run(["git", "remote", "add", "origin", REPO_URL_repo], check=False, capture_output=True)
+    else:
+        os.chdir(str(output_dir))
+
+    # 确保在 gh-pages 分支
+    branch = subprocess.check_output(["git", "branch", "--show-current"], text=True).strip()
+    if branch != "gh-pages":
+        subprocess.run(["git", "checkout", "-b", "gh-pages"], check=False)
+
+    # 提交并推送
+    subprocess.run(["git", "add", "-A"], check=True)
+    subprocess.run(["git", "commit", "-m", msg], check=False)  # 可能没有变更
+    subprocess.run(["git", "push", "origin", "gh-pages", "--force"], check=True)
+
+    print("✅ 部署完成！")
+    print(f"   访问: {SITE_URL}")
+
+
+def cmd_clean(args):
+    """清理输出"""
+    import shutil
+    if OUTPUT_DIR.exists():
+        shutil.rmtree(OUTPUT_DIR)
+        print("✅ 已清理 output/")
+    else:
+        print("   没有需要清理的内容")
+
+
+def main():
+    if len(sys.argv) < 2:
+        print(__doc__)
+        print("命令:")
+        print("  new     <标题>   创建新文章")
+        print("  server  [端口]   构建并启动本地预览")
+        print("  build           构建静态站点")
+        print("  deploy  [说明]   部署到 GitHub Pages")
+        print("  clean           清理构建输出")
+        sys.exit(0)
+
+    cmd = sys.argv[1]
+    args = sys.argv[2:]
+
+    commands = {
+        "new": cmd_new,
+        "n": cmd_new,
+        "server": cmd_server,
+        "s": cmd_server,
+        "build": cmd_build,
+        "b": cmd_build,
+        "deploy": cmd_deploy,
+        "d": cmd_deploy,
+        "clean": cmd_clean,
+    }
+
+    if cmd in commands:
+        commands[cmd](args)
+    else:
+        print(f"❌ 未知命令: {cmd}")
+        print("   可用命令: new, server, build, deploy, clean")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
