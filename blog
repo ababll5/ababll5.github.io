@@ -17,8 +17,8 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
 POSTS_DIR = BASE_DIR / "content" / "posts"
-OUTPUT_DIR = BASE_DIR / "output"
 BUILD_SCRIPT = BASE_DIR / "build.py"
+OUTPUT_DIR = BASE_DIR / CONFIG.get("build", {}).get("output_dir", "output")
 
 # GitHub 仓库地址（从 config.yaml 读取）
 import yaml

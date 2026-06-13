@@ -1,100 +1,89 @@
-# === Site Metadata ===
+build:
+  output_dir: dist
+  clean_output: true
+  content_dir: content
+  output_dir: dist
+  theme_dir: themes/butterfly
 site:
-  title: "新鲜哥的技术博客"
-  subtitle: "记录编程、技术与生活的个人博客。"
-  description: "一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。"
-  author: "新鲜哥"
-  language: "zh-CN"
-  favicon: "/static/images/favicon.ico"
-  url: "https://ababll5.github.io"
-  timezone: "Asia/Shanghai"
+  author: 新鲜哥
+  description: 一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。
+  favicon: /static/images/favicon.ico
+  language: zh-CN
   since: 2024
-
-# === Theme Settings ===
+  subtitle: 记录编程、技术与生活的个人博客。
+  timezone: Asia/Shanghai
+  title: 新鲜哥的技术博客
+  url: https://ababll5.github.io
 theme:
   card_radius: 20
-  dark_mode: true
-  default_dark: false
-  sidebar_position: left
-
-  nav_menu:
-    - name: "首页"
-      url: "/"
-      icon: ""
-    - name: "归档"
-      url: "/archives/"
-      icon: ""
-    - name: "标签"
-      url: "/tags/"
-      icon: ""
-    - name: "关于"
-      url: "/pages/about/"
-      icon: ""
-    - name: "友链"
-      url: "/pages/link/"
-      icon: ""
-
-  social:
-    github: "https://github.com/ababll5"
-    twitter: ""
-    email: ""
-    rss: false
-
-  posts_per_page: 10
-
-  post:
-    show_cover: false
-    show_date: true
-    show_tags: true
-    show_categories: false
-    show_word_count: true
-    show_reading_time: true
-    show_toc: true
-    toc_open: true
-    code_highlight_theme: "default"
-    code_copy_button: true
-    code_lang_label: true
-
-  sidebar_widgets:
-    - type: author
-    - type: announcement
-      content: "欢迎来到我的博客！这里记录着我在编程路上的学习笔记和心得。"
-    - type: recent_posts
-      limit: 5
-    - type: tags
-      limit: 16
-    - type: categories
-      limit: 8
-
-  footer:
-    copyright: true
-    powered_by: false
-    custom_text: "由自制的静态站点生成器构建"
-
-  effects:
-    card_hover: true
-    smooth_scroll: true
-    back_to_top: true
-
   comments:
     system: waline
     waline:
-      server_url: "https://my-blog-waline-rho.vercel.app/"
-      lang: "zh-CN"
-      dark: "auto"
-      page_size: 10
+      dark: auto
       emoji:
-        - "https://unpkg.com/@waline/emojis@1.2.0/weibo"
-      required_meta: ["nick", "mail"]
-      placeholder: "写下你的想法..."
-
+      - https://unpkg.com/@waline/emojis@1.2.0/weibo
+      lang: zh-CN
+      page_size: 10
+      placeholder: 写下你的想法...
+      required_meta:
+      - nick
+      - mail
+      server_url: https://my-blog-waline-rho.vercel.app/
+  dark_mode: true
+  default_dark: false
+  effects:
+    back_to_top: true
+    card_hover: true
+    smooth_scroll: true
+  footer:
+    copyright: true
+    custom_text: 由自制的静态站点生成器构建
+    powered_by: false
+  nav_menu:
+  - icon: ''
+    name: 首页
+    url: /
+  - icon: ''
+    name: 归档
+    url: /archives/
+  - icon: ''
+    name: 标签
+    url: /tags/
+  - icon: ''
+    name: 关于
+    url: /pages/about/
+  - icon: ''
+    name: 友链
+    url: /pages/link/
+  post:
+    code_copy_button: true
+    code_highlight_theme: default
+    code_lang_label: true
+    show_categories: false
+    show_cover: false
+    show_date: true
+    show_reading_time: true
+    show_tags: true
+    show_toc: true
+    show_word_count: true
+    toc_open: true
+  posts_per_page: 10
   search:
+    placeholder: 搜索文章...
     type: local
-    placeholder: "搜索文章..."
-
-# === Build Settings ===
-build:
-  output_dir: "output"
-  content_dir: "content"
-  theme_dir: "themes/butterfly"
-  clean_output: true
+  sidebar_position: left
+  sidebar_widgets:
+  - type: author
+  - content: 欢迎来到我的博客！这里记录着我在编程路上的学习笔记和心得。
+    type: announcement
+  - limit: 5
+    type: recent_posts
+  - limit: 16
+    type: tags
+  - limit: 8
+    type: categories
+  social:
+    email: ''
+    github: https://github.com/ababll5
+    rss: false
+    twitter: ''
