@@ -79,7 +79,7 @@ theme:
   comments:
     system: waline
     waline:
-      server_url: "https://your-waline-server.vercel.app"
+      server_url: "https://my-blog-waline-rho.vercel.app/"
       lang: "zh-CN"
       dark: "auto"
       page_size: 10
