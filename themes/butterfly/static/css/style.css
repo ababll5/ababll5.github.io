@@ -281,14 +281,90 @@ img { max-width: 100%; height: auto; display: block; }
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
 }
 
-.author__avatar {
-    width: 80px; height: 80px;
+/* --- Avatar with rainbow ring & interactive hover --- */
+.avatar-wrapper {
+    position: relative;
+    width: 88px; height: 88px;
     margin: 0 auto 0.75rem;
+    cursor: pointer;
+}
+
+.avatar-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    padding: 3px;
+    background: conic-gradient(
+        from 0deg,
+        #ff6b6b, #feca57, #48dbfb, #ff9ff3,
+        #54a0ff, #5f27cd, #ff6b6b
+    );
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+    animation: avatarSpin 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.avatar-wrapper:hover::before { opacity: 1; }
+
+.avatar-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(5,150,105,0.15) 0%, transparent 70%);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.avatar-wrapper:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.author__avatar {
+    position: relative;
+    z-index: 1;
+    width: 80px; height: 80px;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid var(--border);
+    transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+                box-shadow 0.4s ease;
 }
-.author__avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.avatar-wrapper:hover .author__avatar {
+    transform: scale(1.08);
+    box-shadow: 0 0 24px rgba(5,150,105,0.25);
+}
+
+.author__avatar img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.avatar-wrapper:hover .author__avatar img {
+    transform: scale(1.1);
+}
+
+/* Rainbow ring spin */
+@keyframes avatarSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* Avatar click bounce */
+.avatar-wrapper:active .author__avatar {
+    animation: avatarBounce 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes avatarBounce {
+    0%, 100% { transform: scale(1.08); }
+    30% { transform: scale(0.95); }
+    60% { transform: scale(1.12); }
+}
 .author__name {
     font-family: var(--serif);
     font-size: 1.1rem;
@@ -403,6 +479,25 @@ img { max-width: 100%; height: auto; display: block; }
     letter-spacing: -0.025em;
     line-height: 1.15;
     margin-bottom: 0.75rem;
+    /* Shimmer gradient animation */
+    background: linear-gradient(
+        135deg,
+        var(--text-primary) 0%,
+        var(--text-primary) 40%,
+        var(--accent) 50%,
+        var(--text-primary) 60%,
+        var(--text-primary) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleShimmer 4s ease-in-out infinite;
+}
+
+@keyframes titleShimmer {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 200% center; }
 }
 .page-hero__subtitle {
     font-size: 1rem;
@@ -493,8 +588,18 @@ img { max-width: 100%; height: auto; display: block; }
     margin-bottom: 0.5rem; line-height: 1.3;
     letter-spacing: -0.015em;
 }
-.post-card__title a { color: var(--text-primary); }
-.post-card__title a:hover { color: var(--accent); }
+.post-card__title a {
+    color: var(--text-primary);
+    background: linear-gradient(to right, var(--accent), var(--accent)) no-repeat left bottom;
+    background-size: 0% 2px;
+    transition: background-size 0.35s cubic-bezier(0.32, 0.72, 0, 1),
+                color 0.3s ease;
+    padding-bottom: 2px;
+}
+.post-card__title a:hover {
+    color: var(--accent);
+    background-size: 100% 2px;
+}
 
 .post-card__excerpt {
     color: var(--text-secondary); font-size: 0.875rem;
@@ -1246,6 +1351,172 @@ img { max-width: 100%; height: auto; display: block; }
 
     /* --- Noise: reduce opacity on mobile for performance --- */
     .noise-overlay { opacity: 0.02; }
+}
+
+/* ============================================================
+   Reading Progress Bar
+   ============================================================ */
+
+.reading-progress {
+    position: fixed; top: 0; left: 0; width: 100%; height: 3px;
+    z-index: 10000; background: transparent; pointer-events: none;
+}
+
+.reading-progress__fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--accent), #feca57, #ff6b6b);
+    transition: width 0.15s linear;
+}
+
+.reading-progress__fill--done {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+/* ============================================================
+   Like Button & Heart Particles
+   ============================================================ */
+
+.like-section {
+    display: flex; align-items: center; margin-bottom: 1rem;
+}
+
+.like-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--bg-elevated); border: 1px solid var(--border);
+    color: var(--text-secondary); cursor: pointer;
+    padding: 0.5rem 1rem; border-radius: 100px;
+    font-size: 0.875rem; font-weight: 500; font-family: var(--sans);
+    transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.like-btn:hover { border-color: #e74c3c; color: #e74c3c; transform: scale(1.05); }
+.like-btn:active { transform: scale(0.92); }
+.like-btn--liked { color: #e74c3c; border-color: #e74c3c; background: #fef2f2; }
+[data-theme="dark"] .like-btn--liked { background: #2d1b1b; }
+
+.like-count { font-variant-numeric: tabular-nums; }
+
+/* Floating heart particles */
+.heart-particle {
+    position: fixed; z-index: 5000; pointer-events: none;
+    animation: heartFloat 1.5s ease-out forwards;
+    font-size: 18px;
+}
+
+@keyframes heartFloat {
+    0% { opacity: 1; transform: translate(0, 0) scale(1) rotate(0deg); }
+    100% { opacity: 0; transform: translate(
+        calc(var(--dx, 0) * 1),
+        calc(var(--dy, -120px) * 1)
+    ) scale(0.3) rotate(calc(var(--rot, 20deg) * 1)); }
+}
+
+/* ============================================================
+   Firework Particles (Avatar Click)
+   ============================================================ */
+
+.firework-particle {
+    position: fixed; z-index: 5000; pointer-events: none;
+    animation: fireworkBurst 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    font-size: 18px;
+}
+
+@keyframes fireworkBurst {
+    0% { opacity: 1; transform: translate(0, 0) scale(0.3) rotate(0deg); }
+    60% { opacity: 1; transform: translate(var(--dx), var(--dy)) scale(1.2) rotate(180deg); }
+    100% { opacity: 0; transform: translate(var(--dx), calc(var(--dy) + 40px)) scale(0.2) rotate(360deg); }
+}
+
+/* ============================================================
+   Code Run Button
+   ============================================================ */
+
+.code-run-btn {
+    position: absolute; top: 0.5rem; right: 4.5rem;
+    background: var(--bg-surface); border: 1px solid var(--border);
+    color: var(--text-muted); cursor: pointer;
+    padding: 0.25rem 0.5rem; border-radius: 4px;
+    font-size: 0.6875rem; font-weight: 600; font-family: var(--sans);
+    display: inline-flex; align-items: center; gap: 0.2rem;
+    opacity: 0; transition: opacity 0.25s ease;
+}
+
+.post-article__content pre:hover .code-run-btn { opacity: 1; }
+
+.code-run-btn:hover {
+    background: var(--accent); border-color: var(--accent); color: #fff;
+}
+
+/* Always visible on mobile */
+@media (max-width: 600px) {
+    .code-run-btn { opacity: 0.7; right: 4rem; }
+}
+
+/* ============================================================
+   Rocket Launch Animation
+   ============================================================ */
+
+.rocket-launch {
+    animation: rocketLaunch 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes rocketLaunch {
+    0% { transform: translateY(0) scale(1); }
+    30% { transform: translateY(-8px) scale(1.1); }
+    60% { transform: translateY(-60px) scale(0.6); opacity: 1; }
+    100% { transform: translateY(-120px) scale(0.2); opacity: 0; }
+}
+
+/* ============================================================
+   Cherry Blossom / Petal Fall (Pure CSS)
+   ============================================================ */
+
+.petal-fall {
+    position: fixed; inset: 0; z-index: 10; pointer-events: none; overflow: hidden;
+}
+
+.petal-fall span {
+    position: absolute; top: -10%;
+    animation: petalDrop linear infinite;
+    opacity: 0.7;
+    user-select: none;
+}
+
+@keyframes petalDrop {
+    0% { transform: translateY(-10vh) rotate(0deg) translateX(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(110vh) rotate(720deg) translateX(80px); opacity: 0; }
+}
+
+/* Generate petals at various positions and delays */
+.petal-fall span:nth-child(1) { left: 5%; animation-duration: 12s; animation-delay: 0s; }
+.petal-fall span:nth-child(2) { left: 15%; animation-duration: 14s; animation-delay: 2s; }
+.petal-fall span:nth-child(3) { left: 25%; animation-duration: 11s; animation-delay: 4s; }
+.petal-fall span:nth-child(4) { left: 35%; animation-duration: 15s; animation-delay: 1s; }
+.petal-fall span:nth-child(5) { left: 45%; animation-duration: 13s; animation-delay: 3s; }
+.petal-fall span:nth-child(6) { left: 55%; animation-duration: 10s; animation-delay: 5s; }
+.petal-fall span:nth-child(7) { left: 65%; animation-duration: 16s; animation-delay: 0.5s; }
+.petal-fall span:nth-child(8) { left: 75%; animation-duration: 12s; animation-delay: 2.5s; }
+.petal-fall span:nth-child(9) { left: 85%; animation-duration: 14s; animation-delay: 3.5s; }
+.petal-fall span:nth-child(10) { left: 95%; animation-duration: 11s; animation-delay: 1.5s; }
+.petal-fall span:nth-child(11) { left: 8%; animation-duration: 15s; animation-delay: 6s; }
+.petal-fall span:nth-child(12) { left: 18%; animation-duration: 13s; animation-delay: 7s; }
+.petal-fall span:nth-child(13) { left: 28%; animation-duration: 10s; animation-delay: 4.5s; }
+.petal-fall span:nth-child(14) { left: 38%; animation-duration: 17s; animation-delay: 0.8s; }
+.petal-fall span:nth-child(15) { left: 48%; animation-duration: 12s; animation-delay: 5.5s; }
+
+/* Reduce petals on mobile */
+@media (max-width: 600px) {
+    .petal-fall span:nth-child(n+9) { display: none; }
+    .petal-fall span { animation-duration: 18s !important; }
+}
+
+/* ============================================================
+   Auto Dark Mode Transition Hint
+   ============================================================ */
+
+.theme-transitioning * {
+    transition: background 0.6s ease, color 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease !important;
 }
 
 /* ============================================================
