@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Waline Comment CSS -->
+
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
+
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/pygments.css">
+
+<!-- RSS -->
+
+    <title>c++类和对象封装案例2 - 新鲜哥的技术博客</title>
+    <meta name="description" content="设计一个圆类(yuan)，还有一个点类(dian)，计算点和圆的关系 解释一下 点和圆关系判断： 点到圆心距离 == 半径 点在圆上 点到圆心距离 &amp;gt; 半径 点在圆外 点到圆心距离 &amp;lt; 半径 点在圆内 怎么获取距离呢，要用到坐标了 公式是 根号:(x1-x2)的平方 +（y1-y2）的平方 和半径(m_r)去作对比 但c++中开根号不方便 所以我们可以简化一下 (x1-x2)^2 + (y1-y2)^2 ,然后和 半径(m_r)^2 对比 开始写代码&amp;para; 先把类设计好 #include &amp;lt;iostream&amp;gt; using namespace std; // 点类...">
+    <meta property="og:title" content="c++类和对象封装案例2">
+    <meta property="og:description" content="设计一个圆类(yuan)，还有一个点类(dian)，计算点和圆的关系 解释一下 点和圆关系判断： 点到圆心距离 == 半径 点在圆上 点到圆心距离 &amp;gt; 半径 点在圆外 点到圆心距离 &amp;lt; 半径 点在圆内 怎么获取距离呢，要用到坐标了 公式是 根号:(x1-x2)的平方 +（y1-y2）的平方 和半径(m_r)去作对比 但c++中开根号不方便 所以我们可以简化一下 (x1-x2)^2 + (y1-y2)^2 ,然后和 半径(m_r)^2 对比 开始写代码&amp;para; 先把类设计好 #include &amp;lt;iostream&amp;gt; using namespace std; // 点类...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ababll5.github.io/posts/c-lei-he-dui-xiang-feng-zhuang-an-li-2/">
+    <meta property="og:site_name" content="新鲜哥的技术博客">
+</head>
+<body>
+    <!-- Noise texture overlay (fixed, pointer-events-none) -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Accessibility skip link -->
+    <a class="skip-link" href="#main-content">跳到内容</a>
+
+    <!-- Prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && false)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <header class="nav" id="nav">
+    <div class="nav__container">
+        <a class="nav__brand" href="/">
+            <span class="nav__title">新鲜哥的技术博客</span>
+        </a>
+
+        <nav class="nav__menu" id="nav-menu">
+            
+            <a class="nav__link" href="/">
+                首页
+            </a>
+            
+            <a class="nav__link" href="/archives/">
+                归档
+            </a>
+            
+            <a class="nav__link" href="/tags/">
+                标签
+            </a>
+            
+            <a class="nav__link" href="/pages/about/">
+                关于
+            </a>
+            
+            <a class="nav__link" href="/pages/link/">
+                友链
+            </a>
+            
+        </nav>
+
+        <div class="nav__actions">
+            
+            <button class="nav__btn" id="search-btn" aria-label="搜索" title="搜索">
+                <i class="fas fa-search"></i>
+            </button>
+            
+            
+            <button class="nav__btn" id="theme-btn" aria-label="切换主题" title="切换深色模式">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            
+            <button class="nav__btn nav__mobile-btn" id="mobile-btn" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+    <div class="search-modal" id="search-modal" hidden>
+    <div class="search-modal__overlay" id="search-overlay"></div>
+    <div class="search-modal__content">
+        <div class="search-modal__header">
+            <div class="search-modal__input-wrapper">
+                <i class="fas fa-search search-modal__icon"></i>
+                <input type="text" class="search-modal__input" id="search-input"
+                       placeholder="搜索文章..." autocomplete="off">
+            </div>
+            <button class="search-modal__close" id="search-close" aria-label="关闭搜索">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-modal__results" id="search-results">
+            <div class="search-modal__hint">输入关键词搜索文章...</div>
+        </div>
+    </div>
+</div>
+
+    <main class="layout" id="main-content">
+        
+            <aside class="sidebar" id="sidebar">
+    
+
+        
+        
+        <div class="sidebar__card card--author">
+            <div class="author__shell">
+                <div class="author__inner">
+                    <div class="avatar-wrapper">
+                        <div class="author__avatar">
+                            <img src="/content/images/avatar.png" alt="新鲜哥" onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                    <div class="author__name">新鲜哥</div>
+                    <div class="author__bio">一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。</div>
+                    <div class="author__social">
+                        
+                        <a href="https://github.com/ababll5" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--announce">
+            <div class="card__title">公告</div>
+            <div class="card__body">欢迎来到我的博客！这里记录着我在编程路上的学习笔记和心得。</div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--recent">
+            <div class="card__title">最近</div>
+            <ul class="recent-list">
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux下安装qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux下安装qt</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/c-文件io/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">c++文件io</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/qt-shi-xian-dian-ji-tiao-zhuan-wang-ye/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">qt实现点击跳转网页</span>
+                            <span class="recent-list__date">2024-11-12</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/kai-qi-xin-de-pian-zhang-qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">开启新的篇章——qt</span>
+                            <span class="recent-list__date">2024-11-09</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux-jie-ya-wen-jian-luan-ma-wen-ti-ru-he-jie-jue/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux解压文件乱码问题如何解决</span>
+                            <span class="recent-list__date">2024-10-16</span>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--tags">
+            <div class="card__title">标签</div>
+            <div class="tag-cloud">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <a class="tag-cloud__tag" href="/tags/cpp/">cpp<span class="tag-count">16</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/qt/">qt<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/分享/">分享<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/教程/">教程<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/日常/">日常<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/html/">html<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/hexo/">hexo<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/linux/">linux<span class="tag-count">1</span></a>
+                
+            </div>
+        </div>
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--categories">
+            <div class="card__title">分类</div>
+            <ul class="category-list">
+                
+                
+                
+                
+            </ul>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+    
+</aside>
+        
+
+        <div class="content-area">
+            
+<article class="post-article">
+    <header class="post-article__header">
+        <h1 class="post-article__title">c++类和对象封装案例2</h1>
+        <div class="post-article__meta">
+            
+            <span class="post-article__date">
+                <i class="far fa-calendar"></i>
+                发布于 <time datetime="2024-09-07">2024-09-07</time>
+            </span>
+            
+            
+            
+            <span class="post-article__words">
+                <i class="far fa-file-word"></i> 726 字
+            </span>
+            
+            
+            <span class="post-article__reading">
+                <i class="far fa-clock"></i> 阅读约 3 分钟
+            </span>
+            
+        </div>
+        
+    </header>
+
+    <div class="post-article__content">
+        <p>设计一个圆类(yuan)，还有一个点类(dian)，计算点和圆的关系</p>
+<p><img alt="" src="https://ababll5.cn/wp-content/uploads/2024/07/3d40813cedbbe7dd2ef7b4ebf3032a4.png" /></p>
+<blockquote>
+<p>解释一下</p>
+</blockquote>
+<p>点和圆关系判断：</p>
+<p>点到圆心距离 == 半径            点在圆上</p>
+<p>点到圆心距离    &gt; 半径          点在圆外</p>
+<p>点到圆心距离    &lt;  半径         点在圆内</p>
+<blockquote>
+<p>怎么获取距离呢，要用到坐标了</p>
+<p>公式是</p>
+</blockquote>
+<p>根号:(x1-x2)的平方 +（y1-y2）的平方     和半径(m_r)去作对比</p>
+<p><strong>但c++中开根号不方便</strong></p>
+<blockquote>
+<p>所以我们可以简化一下</p>
+</blockquote>
+<p>(x1-x2)^2  +  (y1-y2)^2 ,然后和   半径(m_r)^2    对比</p>
+<h1 id="_1">开始写代码<a class="toc-link" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>先把类设计好</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="c1">// 点类</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">dian</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_y</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_x</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// 设置x</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">shezhi_x</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 获取x</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">huoqu_x</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m_x</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 设置y</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">shezhi_y</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 获取y</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">huoqu_y</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m_y</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 点和圆关系案例</span>
+<span class="c1">// 圆类</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">yuan</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_r</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">dian</span><span class="w"> </span><span class="n">m_dian</span><span class="p">;</span><span class="w"> </span><span class="c1">// 圆心</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// 设置半径</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">shezhi_r</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 获取半径</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">huoqu_r</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m_r</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 设置圆心(o)</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">shezhi_o</span><span class="p">(</span><span class="n">dian</span><span class="w"> </span><span class="n">o</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_dian</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 获取圆心</span>
+<span class="w">    </span><span class="n">dian</span><span class="w"> </span><span class="n">huoqu_o</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m_dian</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<blockquote>
+<h2 id="_2">封装一个判断圆和点的关系的函数<a class="toc-link" href="#_2" title="Permanent link">&para;</a></h2>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">if_yuan</span><span class="p">(</span><span class="n">yuan</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">dian</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// 计算两点之间距离的平分</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">jieshou</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_x</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_x</span><span class="p">())</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_x</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_x</span><span class="p">())</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_y</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_y</span><span class="p">())</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_y</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_y</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// 计算半径的平方</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">r_pingfang</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_r</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_r</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// 判断关系</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">jieshou</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">r_pingfang</span><span class="p">){</span>
+<span class="w">        </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;点在圆上&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">jieshou</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">r_pingfang</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;点在圆外&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;点在圆内&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<blockquote>
+<h2 id="main">回到main函数<a class="toc-link" href="#main" title="Permanent link">&para;</a></h2>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//创建一个圆</span>
+<span class="w">    </span><span class="n">yuan</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="n">shezhi_r</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">dian</span><span class="w"> </span><span class="n">center</span><span class="p">;</span>
+<span class="w">    </span><span class="n">center</span><span class="p">.</span><span class="n">shezhi_x</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">center</span><span class="p">.</span><span class="n">shezhi_y</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="n">shezhi_o</span><span class="p">(</span><span class="n">center</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//创建一个点</span>
+<span class="w">    </span><span class="n">dian</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">shezhi_x</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">shezhi_y</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">//判断关系</span>
+<span class="w">    </span><span class="n">if_yuan</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
+
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h1 id="_3">全源码<a class="toc-link" href="#_3" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="c1">// 点类</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">dian</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_y</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_x</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// 设置x</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">shezhi_x</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 获取x</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">huoqu_x</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m_x</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 设置y</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">shezhi_y</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 获取y</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">huoqu_y</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m_y</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 点和圆关系案例</span>
+<span class="c1">// 圆类</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">yuan</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_r</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">dian</span><span class="w"> </span><span class="n">m_dian</span><span class="p">;</span><span class="w"> </span><span class="c1">// 圆心</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// 设置半径</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">shezhi_r</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 获取半径</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">huoqu_r</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m_r</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 设置圆心(o)</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">shezhi_o</span><span class="p">(</span><span class="n">dian</span><span class="w"> </span><span class="n">o</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_dian</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 获取圆心</span>
+<span class="w">    </span><span class="n">dian</span><span class="w"> </span><span class="n">huoqu_o</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m_dian</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 判断点和圆的关系</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">if_yuan</span><span class="p">(</span><span class="n">yuan</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">dian</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// 计算两点之间距离的平分</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">jieshou</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_x</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_x</span><span class="p">())</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_x</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_x</span><span class="p">())</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_y</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_y</span><span class="p">())</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_y</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_y</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// 计算半径的平方</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">r_pingfang</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_r</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_r</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// 判断关系</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">jieshou</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">r_pingfang</span><span class="p">){</span>
+<span class="w">        </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;点在圆上&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">jieshou</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">r_pingfang</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;点在圆外&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;点在圆内&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//创建一个圆</span>
+<span class="w">    </span><span class="n">yuan</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="n">shezhi_r</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">dian</span><span class="w"> </span><span class="n">center</span><span class="p">;</span>
+<span class="w">    </span><span class="n">center</span><span class="p">.</span><span class="n">shezhi_x</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">center</span><span class="p">.</span><span class="n">shezhi_y</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="n">shezhi_o</span><span class="p">(</span><span class="n">center</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//创建一个点</span>
+<span class="w">    </span><span class="n">dian</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">shezhi_x</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">shezhi_y</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">//判断关系</span>
+<span class="w">    </span><span class="n">if_yuan</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
+
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="_4">输出结果<a class="toc-link" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>点在圆上
+</code></pre></div>
+
+<h1 id="_5">核心内容<a class="toc-link" href="#_5" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="c1">//在类中可以让另一个类 作为本来中的成员</span>
+<span class="w">   </span><span class="n">dian</span><span class="w"> </span><span class="n">m_dian</span><span class="p">;</span><span class="w"> </span><span class="c1">// 圆心</span>
+</code></pre></div>
+
+<h2 id="_6">为什么要拆开<a class="toc-link" href="#_6" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>因为后续代码会越来越多，这时候就要分开写或者分文件编写</p>
+</blockquote>
+<h3 id="_7">如何分文件编写呢<a class="toc-link" href="#_7" title="Permanent link">&para;</a></h3>
+<p>首先把点类分开:</p>
+<p>创建一个头文件<code>dian.h</code>，还有一个源文件<code>dian.cpp</code></p>
+<blockquote>
+<p>dian.h</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="cp">#pragma once</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="c1">// 点类</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">dian</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_y</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_x</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// 设置x</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">shezhi_x</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 获取x</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">huoqu_x</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// 设置y</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">shezhi_y</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 获取y</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">huoqu_y</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<blockquote>
+<p>dian.cpp</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&quot;dian.h&quot;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">dian::shezhi_x</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 获取x</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">dian::huoqu_x</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_x</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 设置y</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">dian::shezhi_y</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 获取y</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">dian::huoqu_y</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<blockquote>
+<p>注意源文件中要有个dian的作用域</p>
+<p>#pragma <em>once</em> 是防止头文件重复包含用的</p>
+<p>源文件只用包含实现，头文件包含声明</p>
+</blockquote>
+<p>剩下的自己琢磨吧不会的评论区留言</p>
+<blockquote>
+<p>分文件编写后</p>
+<p>main.cpp</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="cpf">&quot;dian.h&quot;</span>
+<span class="cp">#include</span><span class="cpf">&quot;yuan.h&quot;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">if_yuan</span><span class="p">(</span><span class="n">yuan</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">dian</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// 计算两点之间距离的平分</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">jieshou</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_x</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_x</span><span class="p">())</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_x</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_x</span><span class="p">())</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_y</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_y</span><span class="p">())</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_o</span><span class="p">().</span><span class="n">huoqu_y</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">huoqu_y</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// 计算半径的平方</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">r_pingfang</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_r</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">huoqu_r</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// 判断关系</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">jieshou</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">r_pingfang</span><span class="p">){</span>
+<span class="w">        </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;点在圆上&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">jieshou</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">r_pingfang</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;点在圆外&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;点在圆内&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//创建一个圆</span>
+<span class="w">    </span><span class="n">yuan</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="n">shezhi_r</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">dian</span><span class="w"> </span><span class="n">center</span><span class="p">;</span>
+<span class="w">    </span><span class="n">center</span><span class="p">.</span><span class="n">shezhi_x</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">center</span><span class="p">.</span><span class="n">shezhi_y</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="n">shezhi_o</span><span class="p">(</span><span class="n">center</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//创建一个点</span>
+<span class="w">    </span><span class="n">dian</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">shezhi_x</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">shezhi_y</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">//判断关系</span>
+<span class="w">    </span><span class="n">if_yuan</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
+
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<blockquote>
+<p>dian.h</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="cp">#pragma once</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="c1">// 点类</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">dian</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_y</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_x</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// 设置x</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">shezhi_x</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 获取x</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">huoqu_x</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// 设置y</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">shezhi_y</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 获取y</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">huoqu_y</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<blockquote>
+<p>dian.cpp</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&quot;dian.h&quot;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">dian::shezhi_x</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 获取x</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">dian::huoqu_x</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_x</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 设置y</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">dian::shezhi_y</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 获取y</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">dian::huoqu_y</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<blockquote>
+<p>yuan.h</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="cp">#pragma once</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="cp">#include</span><span class="cpf">&quot;dian.h&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">yuan</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">m_r</span><span class="p">;</span>
+
+<span class="n">dian</span><span class="w"> </span><span class="n">m_dian</span><span class="p">;</span><span class="w"> </span><span class="c1">// 圆心</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="c1">// 设置半径</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">shezhi_r</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
+
+
+<span class="c1">// 获取半径</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">huoqu_r</span><span class="p">();</span>
+
+
+<span class="c1">// 设置圆心(o)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">shezhi_o</span><span class="p">(</span><span class="n">dian</span><span class="w"> </span><span class="n">o</span><span class="p">);</span>
+
+
+<span class="c1">// 获取圆心</span>
+<span class="n">dian</span><span class="w"> </span><span class="nf">huoqu_o</span><span class="p">();</span>
+
+<span class="p">};</span>
+</code></pre></div>
+
+<blockquote>
+<p>yuan.cpp</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&quot;yuan.h&quot;</span>
+<span class="cp">#include</span><span class="cpf">&quot;dian.h&quot;</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">yuan::shezhi_r</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 获取半径</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">yuan::huoqu_r</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_r</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 设置圆心(o)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">yuan::shezhi_o</span><span class="p">(</span><span class="n">dian</span><span class="w"> </span><span class="n">o</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_dian</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 获取圆心</span>
+<span class="n">dian</span><span class="w"> </span><span class="nf">yuan::huoqu_o</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_dian</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h1 id="_8">总结<a class="toc-link" href="#_8" title="Permanent link">&para;</a></h1>
+<p>这次的案例学会了类的分文件编写</p>
+<p>好处是：</p>
+<ul>
+<li>让结构清晰</li>
+<li>看的舒服</li>
+</ul>
+<p>反正在代码多的时候，分文件编写是最好的</p>
+<p>类和对象的封装你已经学会了，不会的评论区留言</p>
+    </div>
+
+    <footer class="post-article__footer">
+        
+        <div class="post-article__tags">
+            <i class="fas fa-tags"></i>
+            
+            <a class="tag-badge" href="/tags/cpp/">cpp</a>
+            
+        </div>
+        
+
+        <nav class="post-nav">
+            
+            <a class="post-nav__prev" href="/posts/c-lei-he-dui-xiang-feng-zhuang-an-li-1/">
+                <span class="post-nav__label"><i class="fas fa-chevron-left"></i> 上一篇</span>
+                <span class="post-nav__title">c++类和对象（封装案例1）</span>
+            </a>
+            
+            
+            <a class="post-nav__next" href="/posts/c-lei-he-dui-xiang-feng-zhuang/">
+                <span class="post-nav__label">下一篇 <i class="fas fa-chevron-right"></i></span>
+                <span class="post-nav__title">c++类和对象(封装）</span>
+            </a>
+            
+        </nav>
+    </footer>
+</article>
+
+
+<div id="waline-comments" class="comments-section"></div>
+
+
+        </div>
+
+        
+    </main>
+
+    <footer class="footer">
+    <div class="footer__container">
+        <div class="footer__info">
+            
+            <span>&copy; 2024 新鲜哥</span>
+            
+            
+            <span class="footer__custom">由自制的静态站点生成器构建</span>
+            
+        </div>
+        <div class="footer__links">
+            
+            <a href="/">首页</a>
+            
+            <a href="/archives/">归档</a>
+            
+            <a href="/tags/">标签</a>
+            
+            <a href="/pages/about/">关于</a>
+            
+        </div>
+    </div>
+</footer>
+
+    
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    
+
+    <script src="/static/js/main.js"></script>
+    
+
+<script>
+    (function() {
+        var toc = document.getElementById('toc-container');
+        var sidebar = document.getElementById('sidebar');
+        if (toc && sidebar && window.innerWidth >= 900) {
+            sidebar.insertBefore(toc, sidebar.firstChild);
+            toc.style.display = '';
+        }
+    })();
+</script>
+
+
+
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({
+        el: '#waline-comments',
+        serverURL: 'https://my-blog-waline-rho.vercel.app/',
+        lang: 'zh-CN',
+        dark: 'auto',
+        pageSize: 10,
+        emoji: ["https://unpkg.com/@waline/emojis@1.2.0/weibo"],
+        requiredMeta: ["nick", "mail"],
+        placeholder: '写下你的想法...',
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Waline Comment CSS -->
+
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
+
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/pygments.css">
+
+<!-- RSS -->
+
+    <title>标签: 教程 - 新鲜哥的技术博客</title>
+    <meta name="description" content="一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。">
+    <meta property="og:title" content="新鲜哥的技术博客">
+    <meta property="og:description" content="一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ababll5.github.io/">
+    <meta property="og:site_name" content="新鲜哥的技术博客">
+</head>
+<body>
+    <!-- Noise texture overlay (fixed, pointer-events-none) -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Accessibility skip link -->
+    <a class="skip-link" href="#main-content">跳到内容</a>
+
+    <!-- Prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && false)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <header class="nav" id="nav">
+    <div class="nav__container">
+        <a class="nav__brand" href="/">
+            <span class="nav__title">新鲜哥的技术博客</span>
+        </a>
+
+        <nav class="nav__menu" id="nav-menu">
+            
+            <a class="nav__link" href="/">
+                首页
+            </a>
+            
+            <a class="nav__link" href="/archives/">
+                归档
+            </a>
+            
+            <a class="nav__link" href="/tags/">
+                标签
+            </a>
+            
+            <a class="nav__link" href="/pages/about/">
+                关于
+            </a>
+            
+            <a class="nav__link" href="/pages/link/">
+                友链
+            </a>
+            
+        </nav>
+
+        <div class="nav__actions">
+            
+            <button class="nav__btn" id="search-btn" aria-label="搜索" title="搜索">
+                <i class="fas fa-search"></i>
+            </button>
+            
+            
+            <button class="nav__btn" id="theme-btn" aria-label="切换主题" title="切换深色模式">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            
+            <button class="nav__btn nav__mobile-btn" id="mobile-btn" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+    <div class="search-modal" id="search-modal" hidden>
+    <div class="search-modal__overlay" id="search-overlay"></div>
+    <div class="search-modal__content">
+        <div class="search-modal__header">
+            <div class="search-modal__input-wrapper">
+                <i class="fas fa-search search-modal__icon"></i>
+                <input type="text" class="search-modal__input" id="search-input"
+                       placeholder="搜索文章..." autocomplete="off">
+            </div>
+            <button class="search-modal__close" id="search-close" aria-label="关闭搜索">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-modal__results" id="search-results">
+            <div class="search-modal__hint">输入关键词搜索文章...</div>
+        </div>
+    </div>
+</div>
+
+    <main class="layout" id="main-content">
+        
+            <aside class="sidebar" id="sidebar">
+    
+
+        
+        
+        <div class="sidebar__card card--author">
+            <div class="author__shell">
+                <div class="author__inner">
+                    <div class="avatar-wrapper">
+                        <div class="author__avatar">
+                            <img src="/content/images/avatar.png" alt="新鲜哥" onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                    <div class="author__name">新鲜哥</div>
+                    <div class="author__bio">一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。</div>
+                    <div class="author__social">
+                        
+                        <a href="https://github.com/ababll5" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--announce">
+            <div class="card__title">公告</div>
+            <div class="card__body">欢迎来到我的博客！这里记录着我在编程路上的学习笔记和心得。</div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--recent">
+            <div class="card__title">最近</div>
+            <ul class="recent-list">
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux下安装qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux下安装qt</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/c-文件io/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">c++文件io</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/qt-shi-xian-dian-ji-tiao-zhuan-wang-ye/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">qt实现点击跳转网页</span>
+                            <span class="recent-list__date">2024-11-12</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/kai-qi-xin-de-pian-zhang-qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">开启新的篇章——qt</span>
+                            <span class="recent-list__date">2024-11-09</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux-jie-ya-wen-jian-luan-ma-wen-ti-ru-he-jie-jue/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux解压文件乱码问题如何解决</span>
+                            <span class="recent-list__date">2024-10-16</span>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--tags">
+            <div class="card__title">标签</div>
+            <div class="tag-cloud">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <a class="tag-cloud__tag" href="/tags/cpp/">cpp<span class="tag-count">16</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/qt/">qt<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/分享/">分享<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/教程/">教程<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/日常/">日常<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/html/">html<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/hexo/">hexo<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/linux/">linux<span class="tag-count">1</span></a>
+                
+            </div>
+        </div>
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--categories">
+            <div class="card__title">分类</div>
+            <ul class="category-list">
+                
+                
+                
+                
+            </ul>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+    
+</aside>
+        
+
+        <div class="content-area">
+            
+<div class="tag-page">
+    <h1 class="page-title">标签: 教程</h1>
+    <p class="page-subtitle">共 3 篇文章</p>
+
+    <div class="post-list">
+        
+        <article class="post-card">
+    <div class="post-card__shell">
+        <div class="post-card__inner">
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    
+                    <time class="post-card__date" datetime="2024-09-28">
+                        2024-09-28
+                    </time>
+                    
+                </div>
+                <h2 class="post-card__title">
+                    <a href="/posts/c-zhong-you-qu-de-freopen-han-shu/">c++中有趣的freopen()函数</a>
+                </h2>
+                <p class="post-card__excerpt">语法&amp;para; 头文件：#include&amp;lt;stdio.h&amp;gt; 语法：freopen(&#34;文件名.后缀&#34;,&#34;模式&#34;stdin / stdout) stdin输入 stdout输入 模式的表 简单的A+B problem&amp;para; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;iostream&amp;gt; using namespace std; int main() { int a, b; freopen(&amp;quot;in.txt&amp;quot;, &amp;quot;r&amp;quot;, stdin); freopen(&amp;quot;out.txt&amp;quot;,...</p>
+                <div class="post-card__footer">
+                    
+                    <div class="post-card__tags">
+                        
+                        <a class="tag-badge" href="/tags/cpp/">cpp</a>
+                        
+                        <a class="tag-badge" href="/tags/分享/">分享</a>
+                        
+                        <a class="tag-badge" href="/tags/教程/">教程</a>
+                        
+                    </div>
+                    
+                    <a class="post-card__more" href="/posts/c-zhong-you-qu-de-freopen-han-shu/">
+                        阅读
+                        <span class="arrow-nest">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+        
+        <article class="post-card">
+    <div class="post-card__shell">
+        <div class="post-card__inner">
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    
+                    <time class="post-card__date" datetime="2024-09-07">
+                        2024-09-07
+                    </time>
+                    
+                </div>
+                <h2 class="post-card__title">
+                    <a href="/posts/zhao-dao-yi-ge-VScode-shang-bang-zhu-ni-xie-dai-ma-de-ai/">找到一个VScode上帮助你写代码的ai</a>
+                </h2>
+                <p class="post-card__excerpt">今天刷视频的时候，看到一个视频，讲的是如何使用VScode上的AI来帮助你写代码，感觉很酷，于是就尝试了一下。 安装插件&amp;para; 首先，你需要安装一个名为&#34;CodeGeex&#34;的插件。你可以通过VScode的插件市场来搜索并安装该插件。 使用插件&amp;para; 安装完成后，你可以在VScode的左侧菜单栏里面找到一个新出现的图表。点击该图表，然后输入你想要编写的代码。 插件会自动生成一个代码片段，你可以根据需要进行修改。 或者在VScode的编辑器里面，编辑代码这款ai可以通过你的输入，生成一个代码片段，然后你只需要根据需要进行修改即可。...</p>
+                <div class="post-card__footer">
+                    
+                    <div class="post-card__tags">
+                        
+                        <a class="tag-badge" href="/tags/教程/">教程</a>
+                        
+                    </div>
+                    
+                    <a class="post-card__more" href="/posts/zhao-dao-yi-ge-VScode-shang-bang-zhu-ni-xie-dai-ma-de-ai/">
+                        阅读
+                        <span class="arrow-nest">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+        
+        <article class="post-card">
+    <div class="post-card__shell">
+        <div class="post-card__inner">
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    
+                    <time class="post-card__date" datetime="2024-09-07">
+                        2024-09-07
+                    </time>
+                    
+                </div>
+                <h2 class="post-card__title">
+                    <a href="/posts/shi-yong-chun-github-dang-bo-ke-fei-issues/">使用纯github当博客(非issues)</a>
+                </h2>
+                <p class="post-card__excerpt">本教程没有用到任何博客框架，只教你如何只用github的markdown功能搭建一个简约的博客 我只提供一个思路，不一定要按我的来 创建仓库&amp;para; 点击这个new创建一个仓库 信息这样写 然后点创建 配置仓库文件&amp;para; 可以叫参考一下我的然后改成你自己的 | |---posts # 存文章 | |---cpp # 分类 | |---html | |---hexo | |---教程 | |--- 。。。。。。 # 放自己喜欢的 友链，相册，盆友圈，说说 | |--- README.md。 # 重点，文章目录，下一章节说 | README.md的配置&amp;para;...</p>
+                <div class="post-card__footer">
+                    
+                    <div class="post-card__tags">
+                        
+                        <a class="tag-badge" href="/tags/教程/">教程</a>
+                        
+                    </div>
+                    
+                    <a class="post-card__more" href="/posts/shi-yong-chun-github-dang-bo-ke-fei-issues/">
+                        阅读
+                        <span class="arrow-nest">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+        
+    </div>
+</div>
+
+        </div>
+
+        
+    </main>
+
+    <footer class="footer">
+    <div class="footer__container">
+        <div class="footer__info">
+            
+            <span>&copy; 2024 新鲜哥</span>
+            
+            
+            <span class="footer__custom">由自制的静态站点生成器构建</span>
+            
+        </div>
+        <div class="footer__links">
+            
+            <a href="/">首页</a>
+            
+            <a href="/archives/">归档</a>
+            
+            <a href="/tags/">标签</a>
+            
+            <a href="/pages/about/">关于</a>
+            
+        </div>
+    </div>
+</footer>
+
+    
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    
+
+    <script src="/static/js/main.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Waline Comment CSS -->
+
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
+
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/pygments.css">
+
+<!-- RSS -->
+
+    <title>新鲜哥的技术博客</title>
+    <meta name="description" content="一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。">
+    <meta property="og:title" content="新鲜哥的技术博客">
+    <meta property="og:description" content="一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ababll5.github.io/">
+    <meta property="og:site_name" content="新鲜哥的技术博客">
+</head>
+<body>
+    <!-- Noise texture overlay (fixed, pointer-events-none) -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Accessibility skip link -->
+    <a class="skip-link" href="#main-content">跳到内容</a>
+
+    <!-- Prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && false)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <header class="nav" id="nav">
+    <div class="nav__container">
+        <a class="nav__brand" href="/">
+            <span class="nav__title">新鲜哥的技术博客</span>
+        </a>
+
+        <nav class="nav__menu" id="nav-menu">
+            
+            <a class="nav__link" href="/">
+                首页
+            </a>
+            
+            <a class="nav__link" href="/archives/">
+                归档
+            </a>
+            
+            <a class="nav__link" href="/tags/">
+                标签
+            </a>
+            
+            <a class="nav__link" href="/pages/about/">
+                关于
+            </a>
+            
+            <a class="nav__link" href="/pages/link/">
+                友链
+            </a>
+            
+        </nav>
+
+        <div class="nav__actions">
+            
+            <button class="nav__btn" id="search-btn" aria-label="搜索" title="搜索">
+                <i class="fas fa-search"></i>
+            </button>
+            
+            
+            <button class="nav__btn" id="theme-btn" aria-label="切换主题" title="切换深色模式">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            
+            <button class="nav__btn nav__mobile-btn" id="mobile-btn" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+    <div class="search-modal" id="search-modal" hidden>
+    <div class="search-modal__overlay" id="search-overlay"></div>
+    <div class="search-modal__content">
+        <div class="search-modal__header">
+            <div class="search-modal__input-wrapper">
+                <i class="fas fa-search search-modal__icon"></i>
+                <input type="text" class="search-modal__input" id="search-input"
+                       placeholder="搜索文章..." autocomplete="off">
+            </div>
+            <button class="search-modal__close" id="search-close" aria-label="关闭搜索">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-modal__results" id="search-results">
+            <div class="search-modal__hint">输入关键词搜索文章...</div>
+        </div>
+    </div>
+</div>
+
+    <main class="layout" id="main-content">
+        
+            <aside class="sidebar" id="sidebar">
+    
+
+        
+        
+        <div class="sidebar__card card--author">
+            <div class="author__shell">
+                <div class="author__inner">
+                    <div class="avatar-wrapper">
+                        <div class="author__avatar">
+                            <img src="/content/images/avatar.png" alt="新鲜哥" onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                    <div class="author__name">新鲜哥</div>
+                    <div class="author__bio">一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。</div>
+                    <div class="author__social">
+                        
+                        <a href="https://github.com/ababll5" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--announce">
+            <div class="card__title">公告</div>
+            <div class="card__body">欢迎来到我的博客！这里记录着我在编程路上的学习笔记和心得。</div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--recent">
+            <div class="card__title">最近</div>
+            <ul class="recent-list">
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux下安装qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux下安装qt</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/c-文件io/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">c++文件io</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/qt-shi-xian-dian-ji-tiao-zhuan-wang-ye/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">qt实现点击跳转网页</span>
+                            <span class="recent-list__date">2024-11-12</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/kai-qi-xin-de-pian-zhang-qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">开启新的篇章——qt</span>
+                            <span class="recent-list__date">2024-11-09</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux-jie-ya-wen-jian-luan-ma-wen-ti-ru-he-jie-jue/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux解压文件乱码问题如何解决</span>
+                            <span class="recent-list__date">2024-10-16</span>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--tags">
+            <div class="card__title">标签</div>
+            <div class="tag-cloud">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <a class="tag-cloud__tag" href="/tags/cpp/">cpp<span class="tag-count">16</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/qt/">qt<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/分享/">分享<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/教程/">教程<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/日常/">日常<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/html/">html<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/hexo/">hexo<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/linux/">linux<span class="tag-count">1</span></a>
+                
+            </div>
+        </div>
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--categories">
+            <div class="card__title">分类</div>
+            <ul class="category-list">
+                
+                
+                
+                
+            </ul>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+    
+</aside>
+        
+
+        <div class="content-area">
+            
+<section class="page-hero">
+    <h1 class="page-hero__title">新鲜哥的技术博客</h1>
+    <p class="page-hero__subtitle">记录编程、技术与生活的个人博客。</p>
+</section>
+
+<div class="post-list">
+    
+    <article class="post-card">
+    <div class="post-card__shell">
+        <div class="post-card__inner">
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    
+                    <time class="post-card__date" datetime="2024-09-07">
+                        2024-09-07
+                    </time>
+                    
+                </div>
+                <h2 class="post-card__title">
+                    <a href="/posts/c-lei-he-dui-xiang-feng-zhuang-an-li-2/">c++类和对象封装案例2</a>
+                </h2>
+                <p class="post-card__excerpt">设计一个圆类(yuan)，还有一个点类(dian)，计算点和圆的关系 解释一下 点和圆关系判断： 点到圆心距离 == 半径 点在圆上 点到圆心距离 &amp;gt; 半径 点在圆外 点到圆心距离 &amp;lt; 半径 点在圆内 怎么获取距离呢，要用到坐标了 公式是 根号:(x1-x2)的平方 +（y1-y2）的平方 和半径(m_r)去作对比 但c++中开根号不方便 所以我们可以简化一下 (x1-x2)^2 + (y1-y2)^2 ,然后和 半径(m_r)^2 对比 开始写代码&amp;para; 先把类设计好 #include &amp;lt;iostream&amp;gt; using namespace std; // 点类...</p>
+                <div class="post-card__footer">
+                    
+                    <div class="post-card__tags">
+                        
+                        <a class="tag-badge" href="/tags/cpp/">cpp</a>
+                        
+                    </div>
+                    
+                    <a class="post-card__more" href="/posts/c-lei-he-dui-xiang-feng-zhuang-an-li-2/">
+                        阅读
+                        <span class="arrow-nest">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+    
+    <article class="post-card">
+    <div class="post-card__shell">
+        <div class="post-card__inner">
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    
+                    <time class="post-card__date" datetime="2024-09-07">
+                        2024-09-07
+                    </time>
+                    
+                </div>
+                <h2 class="post-card__title">
+                    <a href="/posts/c-lei-he-dui-xiang-feng-zhuang/">c++类和对象(封装）</a>
+                </h2>
+                <p class="post-card__excerpt">类与对象&amp;para; c++面向对象的三大特征为：封装、继承、多态 c++认为万事万物都皆为对象，对象上有其属性和行为 例如： ​ 人可以作为对象，属性有姓名、年龄、身高、体重……，行为有 唱、跳…… ​ 车也可以作为对象、属性有轮胎、方向盘……行为有载人、空调、音乐 ​ 具有相同性质的对象，我们可以抽象称为类，人属于人类，车属于车类 封装&amp;para; 封装的意义&amp;para; 封装是c++面向对象三大特征之一 封装的意义： 将属性和行为作为一个整体，表现生活中的事物 将属性和行为加以权限控制 封装意义一: 在设计类的时候，属性和行为写在一起，表现十五 语法：class 类名...</p>
+                <div class="post-card__footer">
+                    
+                    <div class="post-card__tags">
+                        
+                        <a class="tag-badge" href="/tags/cpp/">cpp</a>
+                        
+                    </div>
+                    
+                    <a class="post-card__more" href="/posts/c-lei-he-dui-xiang-feng-zhuang/">
+                        阅读
+                        <span class="arrow-nest">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+    
+    <article class="post-card">
+    <div class="post-card__shell">
+        <div class="post-card__inner">
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    
+                    <time class="post-card__date" datetime="2024-09-07">
+                        2024-09-07
+                    </time>
+                    
+                </div>
+                <h2 class="post-card__title">
+                    <a href="/posts/c-jie-gou-ti-tuo-zhan/">c++结构体拓展</a>
+                </h2>
+                <p class="post-card__excerpt">结构体中const使用场景&amp;para; #include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; using namespace std; // 定义学生结构体 struct sd { string name; // 名字 int age; // 年龄 int test; // 分数 }; void nout(struct sd s) //输出结构体变量信息的函数 { cout&amp;lt;&amp;lt;&amp;quot;姓名 &amp;quot;&amp;lt;&amp;lt;s.name&amp;lt;&amp;lt;endl &amp;lt;&amp;lt;&amp;quot; 年龄...</p>
+                <div class="post-card__footer">
+                    
+                    <div class="post-card__tags">
+                        
+                        <a class="tag-badge" href="/tags/cpp/">cpp</a>
+                        
+                    </div>
+                    
+                    <a class="post-card__more" href="/posts/c-jie-gou-ti-tuo-zhan/">
+                        阅读
+                        <span class="arrow-nest">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+    
+    <article class="post-card">
+    <div class="post-card__shell">
+        <div class="post-card__inner">
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    
+                    <time class="post-card__date" datetime="2024-09-07">
+                        2024-09-07
+                    </time>
+                    
+                </div>
+                <h2 class="post-card__title">
+                    <a href="/posts/c-jie-gou-ti-an-li/">c++结构体案例</a>
+                </h2>
+                <p class="post-card__excerpt">结构体的两个案例&amp;para; 案例一&amp;para; 要求&amp;para; 三位老师每个老师嵌套三个学生的结构体 老师的结构体要求 姓名：Teacher+&#34;A、B、c&#34; 学生的结构体要求 姓名：student_+“A、B、C、D、E” 随机的考试成绩 头文件&amp;para; #include &amp;lt;iostream&amp;gt; #include &amp;lt;string.h&amp;gt; #include&amp;lt;ctime&amp;gt; //获取系统时间 using namespace std; 定义学生和老师的结构体&amp;para; // 学生结构体定义 struct student { // 姓名 string...</p>
+                <div class="post-card__footer">
+                    
+                    <div class="post-card__tags">
+                        
+                        <a class="tag-badge" href="/tags/cpp/">cpp</a>
+                        
+                    </div>
+                    
+                    <a class="post-card__more" href="/posts/c-jie-gou-ti-an-li/">
+                        阅读
+                        <span class="arrow-nest">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+    
+    <article class="post-card">
+    <div class="post-card__shell">
+        <div class="post-card__inner">
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    
+                    <time class="post-card__date" datetime="2024-09-07">
+                        2024-09-07
+                    </time>
+                    
+                </div>
+                <h2 class="post-card__title">
+                    <a href="/posts/c-he-xin-bian-cheng/">c++核心编程</a>
+                </h2>
+                <p class="post-card__excerpt">前言&amp;para; 从做完那个“通讯录管理系统”起我已经不再是一个初学c++的小白了，我现在的c++已经入门了,以后我会放进阶的教程到我的博客，源码也都会放在[我的github](https://github.com/ababll5/blog_cpp) 上欢迎大家学习 c++核心编程&amp;para; 本阶段主要正对c++面向对象的编程技术做详细讲解，探讨c++中核心和精髓 内存分区模型&amp;para; c++程序执行是，将内存大方向划分为4个区 代码区：存放函数体的二进制代码，由操作系统进行管理 全局区：存放全局变量和静态变量以及常量 栈区：由编译器自动分配释放，存放函数的参数值，局部变量等...</p>
+                <div class="post-card__footer">
+                    
+                    <div class="post-card__tags">
+                        
+                        <a class="tag-badge" href="/tags/cpp/">cpp</a>
+                        
+                    </div>
+                    
+                    <a class="post-card__more" href="/posts/c-he-xin-bian-cheng/">
+                        阅读
+                        <span class="arrow-nest">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+    
+    <article class="post-card">
+    <div class="post-card__shell">
+        <div class="post-card__inner">
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    
+                    <time class="post-card__date" datetime="2024-09-07">
+                        2024-09-07
+                    </time>
+                    
+                </div>
+                <h2 class="post-card__title">
+                    <a href="/posts/c-han-shu-zhong-zai/">c++函数重载</a>
+                </h2>
+                <p class="post-card__excerpt">函数重载&amp;para; 函数重载概述&amp;para; 作用：函数名可以相同，提高复用性 函数重载满足条件： 同一个作用域下 函数名相同 函数参数类型不同或者个数不同或者顺序不同 注意：函数的返回值不可以作为函数重载的条件 示例： #include&amp;lt;iostream&amp;gt; using namespace std; //函数重载 //可以让函数名相同，提高函数的复用性 //条件 //1 同一个作用域下 //2 函数名称相同 //3 函数的参数类型不同 || 个数不同 || 顺序不同 void func() {...</p>
+                <div class="post-card__footer">
+                    
+                    <div class="post-card__tags">
+                        
+                        <a class="tag-badge" href="/tags/cpp/">cpp</a>
+                        
+                    </div>
+                    
+                    <a class="post-card__more" href="/posts/c-han-shu-zhong-zai/">
+                        阅读
+                        <span class="arrow-nest">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+    
+    <article class="post-card">
+    <div class="post-card__shell">
+        <div class="post-card__inner">
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    
+                    <time class="post-card__date" datetime="2024-09-07">
+                        2024-09-07
+                    </time>
+                    
+                </div>
+                <h2 class="post-card__title">
+                    <a href="/posts/c-han-shu-ti-gao/">c++函数提高</a>
+                </h2>
+                <p class="post-card__excerpt">函数提高&amp;para; 函数默认参数&amp;para; 在c++中，函数的形参列表中的形参是可以有默认值的 语法返回值类型 函数名 (参数 = 默认值){} #include&amp;lt;iostream&amp;gt; using namespace std; //函数的默认参数 //如果自己传了就用自己的，没有就用默认的 int func(int a,int b = 20,int c = 30) { return a+b+c; } int main(void) { int a = func(10,30); cout&amp;lt;&amp;lt;a&amp;lt;&amp;lt;endl;...</p>
+                <div class="post-card__footer">
+                    
+                    <div class="post-card__tags">
+                        
+                        <a class="tag-badge" href="/tags/cpp/">cpp</a>
+                        
+                    </div>
+                    
+                    <a class="post-card__more" href="/posts/c-han-shu-ti-gao/">
+                        阅读
+                        <span class="arrow-nest">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+    
+</div>
+
+<nav class="pagination">
+    
+    <a class="pagination__btn" href="/page/2/"><i class="fas fa-chevron-left"></i> 上一页</a>
+    
+
+    <div class="pagination__numbers">
+        
+            
+            <a class="pagination__number" href="/">1</a>
+            
+        
+            
+            <a class="pagination__number" href="/page/2/">2</a>
+            
+        
+            
+            <span class="pagination__number pagination__number--active">3</span>
+            
+        
+    </div>
+
+    
+    <span class="pagination__btn pagination__btn--disabled">下一页 <i class="fas fa-chevron-right"></i></span>
+    
+</nav>
+
+
+        </div>
+
+        
+    </main>
+
+    <footer class="footer">
+    <div class="footer__container">
+        <div class="footer__info">
+            
+            <span>&copy; 2024 新鲜哥</span>
+            
+            
+            <span class="footer__custom">由自制的静态站点生成器构建</span>
+            
+        </div>
+        <div class="footer__links">
+            
+            <a href="/">首页</a>
+            
+            <a href="/archives/">归档</a>
+            
+            <a href="/tags/">标签</a>
+            
+            <a href="/pages/about/">关于</a>
+            
+        </div>
+    </div>
+</footer>
+
+    
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    
+
+    <script src="/static/js/main.js"></script>
+    
+</body>
+</html>
