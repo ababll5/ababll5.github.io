@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}分类 - {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="categories-page">
+    <h1 class="page-title">分类</h1>
+
+    {% for cat_name in sorted_categories %}
+    {% set posts_in_cat = all_categories[cat_name] %}
+    <section class="category-section">
+        <h2 class="category-section__heading">
+            <a href="/categories/{{ cat_name }}/">{{ cat_name }}</a>
+            <span class="category-section__count">{{ posts_in_cat|length }} 篇</span>
+        </h2>
+        <ul class="category-section__list">
+            {% for post in posts_in_cat %}
+            <li>
+                <time datetime="{{ post.date|format_date('%Y-%m-%d') }}">{{ post.date|format_date('%Y-%m-%d') }}</time>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% else %}
+    <div class="empty-state">
+        <h2>暂无分类</h2>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

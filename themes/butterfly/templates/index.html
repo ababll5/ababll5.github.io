@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}{{ site.title }}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <h1 class="page-hero__title">{{ site.title }}</h1>
+    <p class="page-hero__subtitle">{{ site.subtitle }}</p>
+</section>
+
+<div class="post-list">
+    {% for post in posts %}
+    {% include 'partials/post_card.html' %}
+    {% else %}
+    <div class="empty-state">
+        <h2>暂无文章</h2>
+        <p>在 <code>content/posts/</code> 中创建你的第一篇文章吧</p>
+    </div>
+    {% endfor %}
+</div>
+{% include 'partials/pagination.html' %}
+{% endblock %}

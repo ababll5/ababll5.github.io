@@ -1,0 +1,13 @@
+{% if theme.post.show_toc and post and post.toc_html %}
+<div class="sidebar__toc-sticky" id="toc-container">
+    <div class="sidebar__card card--toc">
+        <div class="card__title toc__toggle" id="toc-toggle">
+            目录
+            <i class="fas fa-chevron-{{ 'down' if theme.post.toc_open else 'right' }} toc__arrow"></i>
+        </div>
+        <div class="toc__content{% if not theme.post.toc_open %} toc__content--collapsed{% endif %}" id="toc-content">
+            {{ post.toc_html | safe }}
+        </div>
+    </div>
+</div>
+{% endif %}

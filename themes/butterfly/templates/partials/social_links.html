@@ -1,0 +1,22 @@
+<div class="social-links">
+    {% if theme.social.github %}
+    <a class="social-links__item" href="{{ theme.social.github }}" target="_blank" rel="noopener" title="GitHub">
+        <i class="fab fa-github"></i>
+    </a>
+    {% endif %}
+    {% if theme.social.twitter %}
+    <a class="social-links__item" href="{{ theme.social.twitter }}" target="_blank" rel="noopener" title="Twitter">
+        <i class="fab fa-twitter"></i>
+    </a>
+    {% endif %}
+    {% if theme.social.email %}
+    <a class="social-links__item" href="{{ theme.social.email }}" title="Email">
+        <i class="fas fa-envelope"></i>
+    </a>
+    {% endif %}
+    {% if theme.social.rss %}
+    <a class="social-links__item" href="/rss.xml" title="RSS Feed">
+        <i class="fas fa-rss"></i>
+    </a>
+    {% endif %}
+</div>

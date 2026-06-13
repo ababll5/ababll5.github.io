@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/pygments.css">
+
+<!-- RSS -->
+
+    <title>初学html(标签 - 新鲜哥的技术博客</title>
+    <meta name="description" content="重要的用右边的标签（起到提示作用，提示你这个很重要） &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&amp;gt; &amp;lt;title&amp;gt;03文本格式化&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt;...">
+    <meta property="og:title" content="初学html(标签">
+    <meta property="og:description" content="重要的用右边的标签（起到提示作用，提示你这个很重要） &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&amp;gt; &amp;lt;title&amp;gt;03文本格式化&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt;...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ababll5.github.io/posts/chu-xue-html-biao-qian/">
+    <meta property="og:site_name" content="新鲜哥的技术博客">
+</head>
+<body>
+    <!-- Noise texture overlay (fixed, pointer-events-none) -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Accessibility skip link -->
+    <a class="skip-link" href="#main-content">跳到内容</a>
+
+    <!-- Prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && false)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <header class="nav" id="nav">
+    <div class="nav__container">
+        <a class="nav__brand" href="/">
+            <span class="nav__title">新鲜哥的技术博客</span>
+        </a>
+
+        <nav class="nav__menu" id="nav-menu">
+            
+            <a class="nav__link" href="/">
+                首页
+            </a>
+            
+            <a class="nav__link" href="/archives/">
+                归档
+            </a>
+            
+            <a class="nav__link" href="/tags/">
+                标签
+            </a>
+            
+            <a class="nav__link" href="/pages/about/">
+                关于
+            </a>
+            
+            <a class="nav__link" href="/pages/link/">
+                友链
+            </a>
+            
+        </nav>
+
+        <div class="nav__actions">
+            
+            <button class="nav__btn" id="search-btn" aria-label="搜索" title="搜索">
+                <i class="fas fa-search"></i>
+            </button>
+            
+            
+            <button class="nav__btn" id="theme-btn" aria-label="切换主题" title="切换深色模式">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            
+            <button class="nav__btn nav__mobile-btn" id="mobile-btn" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+    <div class="search-modal" id="search-modal" hidden>
+    <div class="search-modal__overlay" id="search-overlay"></div>
+    <div class="search-modal__content">
+        <div class="search-modal__header">
+            <div class="search-modal__input-wrapper">
+                <i class="fas fa-search search-modal__icon"></i>
+                <input type="text" class="search-modal__input" id="search-input"
+                       placeholder="搜索文章..." autocomplete="off">
+            </div>
+            <button class="search-modal__close" id="search-close" aria-label="关闭搜索">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-modal__results" id="search-results">
+            <div class="search-modal__hint">输入关键词搜索文章...</div>
+        </div>
+    </div>
+</div>
+
+    <main class="layout" id="main-content">
+        
+            <aside class="sidebar" id="sidebar">
+    
+
+        
+        
+        <div class="sidebar__card card--author">
+            <div class="author__shell">
+                <div class="author__inner">
+                    <div class="author__avatar">
+                        <img src="/content/images/avatar.png" alt="新鲜哥" onerror="this.style.display='none'">
+                    </div>
+                    <div class="author__name">新鲜哥</div>
+                    <div class="author__bio">一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。</div>
+                    <div class="author__social">
+                        
+                        <a href="https://github.com/ababll5" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--announce">
+            <div class="card__title">公告</div>
+            <div class="card__body">欢迎来到我的博客！这里记录着我在编程路上的学习笔记和心得。</div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--recent">
+            <div class="card__title">最近</div>
+            <ul class="recent-list">
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux下安装qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux下安装qt</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/c-文件io/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">c++文件io</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/qt-shi-xian-dian-ji-tiao-zhuan-wang-ye/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">qt实现点击跳转网页</span>
+                            <span class="recent-list__date">2024-11-12</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/kai-qi-xin-de-pian-zhang-qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">开启新的篇章——qt</span>
+                            <span class="recent-list__date">2024-11-09</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux-jie-ya-wen-jian-luan-ma-wen-ti-ru-he-jie-jue/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux解压文件乱码问题如何解决</span>
+                            <span class="recent-list__date">2024-10-16</span>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--tags">
+            <div class="card__title">标签</div>
+            <div class="tag-cloud">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <a class="tag-cloud__tag" href="/tags/cpp/">cpp<span class="tag-count">16</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/qt/">qt<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/分享/">分享<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/教程/">教程<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/日常/">日常<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/html/">html<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/hexo/">hexo<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/linux/">linux<span class="tag-count">1</span></a>
+                
+            </div>
+        </div>
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--categories">
+            <div class="card__title">分类</div>
+            <ul class="category-list">
+                
+                
+                
+                
+            </ul>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+    
+</aside>
+        
+
+        <div class="content-area">
+            
+<article class="post-article">
+    <header class="post-article__header">
+        <h1 class="post-article__title">初学html(标签</h1>
+        <div class="post-article__meta">
+            
+            <span class="post-article__date">
+                <i class="far fa-calendar"></i>
+                发布于 <time datetime="2024-09-07">2024-09-07</time>
+            </span>
+            
+            
+            
+            <span class="post-article__words">
+                <i class="far fa-file-word"></i> 194 字
+            </span>
+            
+            
+            <span class="post-article__reading">
+                <i class="far fa-clock"></i> 阅读约 1 分钟
+            </span>
+            
+        </div>
+        
+    </header>
+
+    <div class="post-article__content">
+        <p><img src="https://cdn.jsdelivr.net/gh/ababll5/tuchuang@img/img/20240716170135.png"/></p>
+<p>重要的用右边的标签（起到提示作用，提示你这个很重要）</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>03文本格式化<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>加粗1<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>加粗2<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">u</span><span class="p">&gt;</span>下划线1<span class="p">&lt;/</span><span class="nt">u</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ins</span><span class="p">&gt;</span>下划线2<span class="p">&lt;/</span><span class="nt">ins</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>斜线1<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>斜线2<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">s</span><span class="p">&gt;</span>删除1<span class="p">&lt;/</span><span class="nt">s</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">del</span><span class="p">&gt;</span>删除2<span class="p">&lt;/</span><span class="nt">del</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<h1 id="_1">媒体标签<a class="toc-link" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">图片标签<a class="toc-link" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>在网页中现实图片</p>
+</li>
+<li>
+<p>书写格式<code>&lt;img src = "图片"</code></p>
+</li>
+<li>
+<p>双引号里面的属性写在标签内</p>
+</li>
+<li>
+<p>标签可以同时存在多个属性</p>
+</li>
+<li>
+<p>属性之间要用空格隔开</p>
+</li>
+<li>属性之间没有顺序之分</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>04-图片标签<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./640.gif&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<h3 id="alt">图片标签alt属性<a class="toc-link" href="#alt" title="Permanent link">&para;</a></h3>
+<p><code>&lt;img src="./没有图片" alt="加载失败"&gt;</code></p>
+<p>属性值: 替换文本</p>
+<ul>
+<li>当图片加载失败时，就会现实alt中的文本</li>
+<li>当图片加载成功时就不会现实alt中的文本</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>04-图片标签<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./没有图片&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;加载失败&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<h3 id="title">图片标签title属性<a class="toc-link" href="#title" title="Permanent link">&para;</a></h3>
+<p><code>&lt;img src="./图片" alt="替换文本" title="提示文本"&gt;</code></p>
+<p>属性值： 提示文本</p>
+<p>​    当鼠标悬停在图片时显示的文本</p>
+<p>title属性不止在图片标签，还可以用于其他标签</p>
+<h3 id="widthheight">图片标签width和height属性<a class="toc-link" href="#widthheight" title="Permanent link">&para;</a></h3>
+<p>属性名：width(图片宽度)、height(图片高度) </p>
+<p>注意</p>
+<ul>
+<li>只设置其中一个属性，另一个会自动等比例缩放（图片不会变形）</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>04-图片标签<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./图片&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;加载失败&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;提示文本&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;200&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<ul>
+<li>如果同时设置两个属性，图片可能会变形</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>04-图片标签<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./图片&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;加载失败&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;提示文本&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;200&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;114&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>所以正式的代码中只用写一个就好了,好处就是图片不会变形</p>
+<hr>
+
+<h3 id="_3">路径<a class="toc-link" href="#_3" title="Permanent link">&para;</a></h3>
+<p>同级<code>./图片</code></p>
+<p>下级<code>文件夹/图片</code></p>
+<p>上级<code>../图片</code></p>
+<h2 id="_4">音频标签<a class="toc-link" href="#_4" title="Permanent link">&para;</a></h2>
+<p>在页面插入音频</p>
+<p><code>&lt;audio src="音频" controls&gt;&lt;/audio&gt;</code></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/ababll5/tuchuang@img/img/20240717082139.png" /></p>
+<p>音频标签目前只支持三种格式 ： mp3、Wav、ogg</p>
+<h2 id="_5">视频标签<a class="toc-link" href="#_5" title="Permanent link">&para;</a></h2>
+<p>网页插入视频</p>
+<div class="codehilite"><pre><span></span><code> <span class="p">&lt;</span><span class="nt">video</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/ababll5/tuchuang@img/img/20240717090634.png" /></p>
+<p>同上</p>
+<p>视频标签支持格式: mp4 、webM、ogg</p>
+<h2 id="_6">超链接<a class="toc-link" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://blog.ababll5.cn/&quot;</span><span class="p">&gt;</span>点我去博客<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>项目开发初期不知大链接填什么时可以写"#"代表空连接</p>
+<p>还有一个好玩的就是在属性a之间再加其他标签 例如：</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;./06-音频.html&quot;</span><span class="p">&gt;&lt;</span><span class="nt">button</span><span class="p">&gt;</span>点我去音频<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>这样，原本的字就变成了按钮，按按钮跳转，也可以加其他标签特别灵活，自己琢磨吧</p>
+<h3 id="target">超链接中的target属性<a class="toc-link" href="#target" title="Permanent link">&para;</a></h3>
+<p>目标网页打开的形式</p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/ababll5/tuchuang@img/img/20240717092626.png" /></p>
+<p>示例：</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://blog.ababll5.cn/&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span><span class="p">&gt;</span>点我去博客<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+    </div>
+
+    <footer class="post-article__footer">
+        
+        <div class="post-article__tags">
+            <i class="fas fa-tags"></i>
+            
+            <a class="tag-badge" href="/tags/html/">html</a>
+            
+        </div>
+        
+
+        <nav class="post-nav">
+            
+            <a class="post-nav__prev" href="/posts/fen-wen-jian-bian-xie-28-chu-xue-29/">
+                <span class="post-nav__label"><i class="fas fa-chevron-left"></i> 上一篇</span>
+                <span class="post-nav__title">分文件编写(初学)</span>
+            </a>
+            
+            
+            <a class="post-nav__next" href="/posts/c-zhi-zhen/">
+                <span class="post-nav__label">下一篇 <i class="fas fa-chevron-right"></i></span>
+                <span class="post-nav__title">c++指针</span>
+            </a>
+            
+        </nav>
+    </footer>
+</article>
+
+
+
+        </div>
+
+        
+    </main>
+
+    <footer class="footer">
+    <div class="footer__container">
+        <div class="footer__info">
+            
+            <span>&copy; 2024 新鲜哥</span>
+            
+            
+            <span class="footer__custom">由自制的静态站点生成器构建</span>
+            
+        </div>
+        <div class="footer__links">
+            
+            <a href="/">首页</a>
+            
+            <a href="/archives/">归档</a>
+            
+            <a href="/tags/">标签</a>
+            
+            <a href="/pages/about/">关于</a>
+            
+        </div>
+    </div>
+</footer>
+
+    
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    
+
+    <script src="/static/js/main.js"></script>
+    
+
+<script>
+    (function() {
+        var toc = document.getElementById('toc-container');
+        var sidebar = document.getElementById('sidebar');
+        if (toc && sidebar && window.innerWidth >= 900) {
+            sidebar.insertBefore(toc, sidebar.firstChild);
+            toc.style.display = '';
+        }
+    })();
+</script>
+
+
+</body>
+</html>

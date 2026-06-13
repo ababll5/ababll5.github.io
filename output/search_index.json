@@ -1,0 +1,277 @@
+[
+  {
+    "title": "linux下安装qt",
+    "url": "/posts/linux下安装qt/",
+    "excerpt": "linux下安装qt&para; linux下安装qt简单多了，不需要注册账号只需要输入三条命令 # 查看可用软件包： apt list qt6-*dev* # 安装特定的开发包，例如qtbase 和qtdeclarative ： sudo apt install qt6-{base,declarative}-dev # 安装包含文档、构建工具和Qt Creator 的所有可用开发包： sudo apt install qt6-*{dev,doc}* qtcreator cmake clazy g++",
+    "tags": [
+      "qt"
+    ],
+    "categories": [],
+    "date": "2026-06-13"
+  },
+  {
+    "title": "c++文件io",
+    "url": "/posts/c-文件io/",
+    "excerpt": "c++中的文件IO操作&para; 步骤如下 必须包含的头文件 #include&lt;fstream&gt; 创建流对象 操作文件的三大对象 ofstream : 写操作 ifstream : 读操作 fstram : 读写操作 例如 ofstream ofs; 打开文件 ofs.open(\"文件路径\",打开方式); 写入内容 ofs &lt;&lt;\"写入内容\"; 关闭文件 ofs.close(); 打开方式如下： 打开方式 作用 ios::in 读 ios::out 写 ios::ate 从文件尾开始 ios::app 追加 ios::trunc 先删除同名再创建...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2026-06-13"
+  },
+  {
+    "title": "qt实现点击跳转网页",
+    "url": "/posts/qt-shi-xian-dian-ji-tiao-zhuan-wang-ye/",
+    "excerpt": "按钮点击信号与槽函数连接&para; 刚学的按钮点击信号与槽函数连接，我来实践一下吧 创建main.cpp 代码如下 #include &lt;QApplication&gt; #include &lt;QPushButton&gt; #include &lt;QDesktopServices&gt; #include &lt;QUrl&gt; int main(int argc, char *argv[]) { QApplication app(argc, argv); QPushButton button(&quot;打开有惊喜&quot;); button.resize(200,...",
+    "tags": [
+      "qt"
+    ],
+    "categories": [],
+    "date": "2024-11-12"
+  },
+  {
+    "title": "开启新的篇章——qt",
+    "url": "/posts/kai-qi-xin-de-pian-zhang-qt/",
+    "excerpt": "因为一些原因，使我了解到了c++的一个图形界面——qt 所以我就想尝试尝试就跟着教程下了个开源版的 后续我会写我的第一个程序的，敬请期待",
+    "tags": [
+      "日常",
+      "qt"
+    ],
+    "categories": [],
+    "date": "2024-11-09"
+  },
+  {
+    "title": "linux解压文件乱码问题如何解决",
+    "url": "/posts/linux-jie-ya-wen-jian-luan-ma-wen-ti-ru-he-jie-jue/",
+    "excerpt": "如何解决linux下用unzip解压乱码问题&para; 网上大部分的办法都是改编码，但是我发现，这还是太复杂了一点而且还会出现有些系统不支持的情况 更简单的解决方法&para; 使用unar工具解压缩 安装工具 yay -S unzip-iconv 使用方法 unar xxx.zip 这样就轻松解决了",
+    "tags": [
+      "分享",
+      "日常",
+      "Linux"
+    ],
+    "categories": [],
+    "date": "2024-10-16"
+  },
+  {
+    "title": "c++中有趣的freopen()函数",
+    "url": "/posts/c-zhong-you-qu-de-freopen-han-shu/",
+    "excerpt": "语法&para; 头文件：#include&lt;stdio.h&gt; 语法：freopen(\"文件名.后缀\",\"模式\"stdin / stdout) stdin输入 stdout输入 模式的表 简单的A+B problem&para; #include &lt;stdio.h&gt; #include &lt;iostream&gt; using namespace std; int main() { int a, b; freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin); freopen(&quot;out.txt&quot;,...",
+    "tags": [
+      "cpp",
+      "分享",
+      "教程"
+    ],
+    "categories": [],
+    "date": "2024-09-28"
+  },
+  {
+    "title": "找到一个VScode上帮助你写代码的ai",
+    "url": "/posts/zhao-dao-yi-ge-VScode-shang-bang-zhu-ni-xie-dai-ma-de-ai/",
+    "excerpt": "今天刷视频的时候，看到一个视频，讲的是如何使用VScode上的AI来帮助你写代码，感觉很酷，于是就尝试了一下。 安装插件&para; 首先，你需要安装一个名为\"CodeGeex\"的插件。你可以通过VScode的插件市场来搜索并安装该插件。 使用插件&para; 安装完成后，你可以在VScode的左侧菜单栏里面找到一个新出现的图表。点击该图表，然后输入你想要编写的代码。 插件会自动生成一个代码片段，你可以根据需要进行修改。 或者在VScode的编辑器里面，编辑代码这款ai可以通过你的输入，生成一个代码片段，然后你只需要根据需要进行修改即可。...",
+    "tags": [
+      "教程"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "一个好用的图床",
+    "url": "/posts/yi-ge-hao-yong-de-tu-chuang/",
+    "excerpt": "SM.MS图床&para; 图床是干什么的&para; 图床是一个把图片转换成一串链接用的，并且还有存储图片的一个功能。 举个栗子 下面是一张图片 而图床的作用就是把这张图片转换成一条链接https://s2.loli.net/2024/08/26/OHxIvr4wC89FgtB.jpg试试访问看看，打开的就是一张图片 图床对于博客之类的很有帮助 而今天分享的就是一个特别好用的图床&para; 这个图床他就是[SM.MS](https://github.com/ababll5/blog/issues/sm.ms)...",
+    "tags": [
+      "分享"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "使用纯github当博客(非issues)",
+    "url": "/posts/shi-yong-chun-github-dang-bo-ke-fei-issues/",
+    "excerpt": "本教程没有用到任何博客框架，只教你如何只用github的markdown功能搭建一个简约的博客 我只提供一个思路，不一定要按我的来 创建仓库&para; 点击这个new创建一个仓库 信息这样写 然后点创建 配置仓库文件&para; 可以叫参考一下我的然后改成你自己的 | |---posts # 存文章 | |---cpp # 分类 | |---html | |---hexo | |---教程 | |--- 。。。。。。 # 放自己喜欢的 友链，相册，盆友圈，说说 | |--- README.md。 # 重点，文章目录，下一章节说 | README.md的配置&para;...",
+    "tags": [
+      "教程"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "html列表",
+    "url": "/posts/html-lie-biao/",
+    "excerpt": "网页排版 特点：按照行的方式，整齐显示类容 种类：无需列表、有序列表、自定义列表 无序列表&para; 在网页中表示一组无顺序之分的列表，如新闻列表 组成 ul 表示无序列表的整体，用于包裹标签 li表示无序列表的每一项，用于包含每一行的内容 特点 列表每一项都有一个黑点如下 注意 ul标签只允许包含li标签 li标签可以包含任何内容 水果变量 &lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;meta...",
+    "tags": [
+      "html"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "hexo+github搭建教程",
+    "url": "/posts/hexo-github-da-jian-jiao-cheng/",
+    "excerpt": "参考于https://blog.csdn.net/qq_62928039/article/details/130248518 首先&para; 安装该安装的&para; nodejs git 安装下载部署hexo&para; 创建文件夹（命名随便） 右键文件夹选git bash打开 切换国内路线npm config set registry https://npmmirror.com npm install -g hexo-cli安装hexo hexo init初始化· 没这一步文件夹内的文件显示不出来 出现这些文件才算成功，否则有问题 要么自行百度要么问(我的微信15913105505)...",
+    "tags": [
+      "hexo"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "hexo 简单使用",
+    "url": "/posts/hexo-jian-dan-shi-yong/",
+    "excerpt": "上次我们搭建好了基于hexo框架的个人博客今天我就来教大家如何使用&para; 创建博文&para; hexo new &quot;新博文标题&quot; 然后在 hexo根目录下找到source 里面的_posts找到你刚创建的项目名.md用记事本或VScode编辑它（个人推荐VScode） 打开后&para; --- title: 搭建好后个人hexo框架的博客该如何使用 //标题 date: 2024-06-22 06:48:15 //日期 tags: //标签 --- 之后就是md语法写的博客了 (我的主题是Butterfly，我也推荐用这个主题想装的请看后文)...",
+    "tags": [
+      "hexo"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "分文件编写(初学)",
+    "url": "/posts/fen-wen-jian-bian-xie-chu-xue/",
+    "excerpt": "分文件编写(初学)&para; 前言&para; 分文件编写，在大项目中需要写很多个自定义函数，如果都放在同一个cpp文件中很不方便查看。我是初学只学了自定义函数的分文件编写后续会学到其他函数的分文件编写 正文&para; 要求&para; 分文件编写 用到自定义函数 实现两数交换 定义一个主文件main.cpp和分文件编写的文件sb.h还有一个sb.cpp(名字无所谓只是我喜欢) main函数写法&para; #include&lt;iostream&gt; #include&quot;sb.h&quot; //让c++知道你和sb.h文件是一伙的 using namespace std;...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "分文件编写(初学)",
+    "url": "/posts/fen-wen-jian-bian-xie-28-chu-xue-29/",
+    "excerpt": "分文件编写(初学)&para; 前言&para; 分文件编写，在大项目中需要写很多个自定义函数，如果都放在同一个cpp文件中很不方便查看。我是初学只学了自定义函数的分文件编写后续会学到其他函数的分文件编写 正文&para; 要求&para; 分文件编写 用到自定义函数 实现两数交换 定义一个主文件main.cpp和分文件编写的文件sb.h还有一个sb.cpp(名字无所谓只是我喜欢) main函数写法&para; #include&lt;iostream&gt; #include&quot;sb.h&quot; //让c++知道你和sb.h文件是一伙的 using namespace std;...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "初学html(标签",
+    "url": "/posts/chu-xue-html-biao-qian/",
+    "excerpt": "重要的用右边的标签（起到提示作用，提示你这个很重要） &lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; &lt;title&gt;03文本格式化&lt;/title&gt; &lt;/head&gt; &lt;body&gt;...",
+    "tags": [
+      "html"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++指针",
+    "url": "/posts/c-zhi-zhen/",
+    "excerpt": "认识指针&para; #include&lt;iostream&gt; using namespace std; int main(void) { // 1定义指针 int a=10; //指针定义语法:数据内型*指针变量名； int*p; //让指针记录变量a的地址 p = &amp;a; cout&lt;&lt;&quot;a的地址&quot;&lt;&lt;&amp;a&lt;&lt;endl&lt;&lt;endl; cout&lt;&lt;&quot;指针p：&quot;&lt;&lt;p&lt;&lt;endl&lt;&lt;endl; //2使用指针...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++引用",
+    "url": "/posts/c-yin-yong/",
+    "excerpt": "引用&para; 引用的基本使用&para; 作用：给变量起别名 语法： 数据类型 &amp;别名 = 原名 示例：自己复制到编译器琢磨吧 #include&lt;iostream&gt; using namespace std; int main(void) { //引用基本语法 //数据类型 &amp;别名 = 原名 int a = 10; //创建引用 int&amp; b = a; cout &lt;&lt; a &lt;&lt; endl &lt;&lt; b &lt;&lt; endl; b = 20; cout &lt;&lt; a &lt;&lt; endl;...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++通讯录管理系统",
+    "url": "/posts/c-tong-xun-lu-guan-li-xi-tong/",
+    "excerpt": "前言&para; 我只要做完这个“通讯录管理系统”我的c++就入门了，我的源码也会放在[我的github上](https://github.com/ababll5/blog_cpp) 点击即可跳转欢迎大家学习如果有错误欢迎到我的邮箱369491854@qq.com上反馈 正文&para; 系统要求&para; 通讯录系统是一个可以记录亲人、好友性息的工具。 本博客主要利用c++来实现一个通讯录管理系统 系统中需要实现的功能如下: 添加联系人: 向通讯录中添加新人，性息包括(姓名、性别、年龄、联系电话、家庭住址)最多记录1000人 显示联系人：显示通讯录中所有联系人信息...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++输出hello world",
+    "url": "/posts/c-shu-chu-hello-world/",
+    "excerpt": "首先得有头文件&para; #include&lt;iostream&gt; 然后主函数&para; int main(void) 全代码&para; #include&lt;iostream&gt; int main(void) { std::cout&lt;&lt;&quot;hello world&quot;&lt;&lt;std::endl; //endl是换行的意思(注意：写完记得加分号;) return 0; //程序结束 } 如果编译成exe发现打开后窗口一闪而过怎么办呢？ 如果是Windows用户那就在return 0;的上面加一个&para;...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++类和对象（封装案例1）",
+    "url": "/posts/c-lei-he-dui-xiang-feng-zhuang-an-li-1/",
+    "excerpt": "案例1&para; 设计立方体类&para; 设计立方体类（fang） 求出立方体的表面面积和体积 分别用全局函数和成员函数判断两个立方体是否相等 #include &lt;iostream&gt; using namespace std; // 创建一个立方体的类 // 设计属性和行为 // 获取立方体的面积和体积 // 分别利用全局函数和成员函数 判断两个立方体是否相等 class fang { public: // 行为 // 设置 长 宽 高 void setL(int l) { m_l = l; } void setW(int w) { m_w = w; } void...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++类和对象封装案例2",
+    "url": "/posts/c-lei-he-dui-xiang-feng-zhuang-an-li-2/",
+    "excerpt": "设计一个圆类(yuan)，还有一个点类(dian)，计算点和圆的关系 解释一下 点和圆关系判断： 点到圆心距离 == 半径 点在圆上 点到圆心距离 &gt; 半径 点在圆外 点到圆心距离 &lt; 半径 点在圆内 怎么获取距离呢，要用到坐标了 公式是 根号:(x1-x2)的平方 +（y1-y2）的平方 和半径(m_r)去作对比 但c++中开根号不方便 所以我们可以简化一下 (x1-x2)^2 + (y1-y2)^2 ,然后和 半径(m_r)^2 对比 开始写代码&para; 先把类设计好 #include &lt;iostream&gt; using namespace std; // 点类...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++类和对象(封装）",
+    "url": "/posts/c-lei-he-dui-xiang-feng-zhuang/",
+    "excerpt": "类与对象&para; c++面向对象的三大特征为：封装、继承、多态 c++认为万事万物都皆为对象，对象上有其属性和行为 例如： ​ 人可以作为对象，属性有姓名、年龄、身高、体重……，行为有 唱、跳…… ​ 车也可以作为对象、属性有轮胎、方向盘……行为有载人、空调、音乐 ​ 具有相同性质的对象，我们可以抽象称为类，人属于人类，车属于车类 封装&para; 封装的意义&para; 封装是c++面向对象三大特征之一 封装的意义： 将属性和行为作为一个整体，表现生活中的事物 将属性和行为加以权限控制 封装意义一: 在设计类的时候，属性和行为写在一起，表现十五 语法：class 类名...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++结构体拓展",
+    "url": "/posts/c-jie-gou-ti-tuo-zhan/",
+    "excerpt": "结构体中const使用场景&para; #include &lt;iostream&gt; #include &lt;string&gt; using namespace std; // 定义学生结构体 struct sd { string name; // 名字 int age; // 年龄 int test; // 分数 }; void nout(struct sd s) //输出结构体变量信息的函数 { cout&lt;&lt;&quot;姓名 &quot;&lt;&lt;s.name&lt;&lt;endl &lt;&lt;&quot; 年龄...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++结构体案例",
+    "url": "/posts/c-jie-gou-ti-an-li/",
+    "excerpt": "结构体的两个案例&para; 案例一&para; 要求&para; 三位老师每个老师嵌套三个学生的结构体 老师的结构体要求 姓名：Teacher+\"A、B、c\" 学生的结构体要求 姓名：student_+“A、B、C、D、E” 随机的考试成绩 头文件&para; #include &lt;iostream&gt; #include &lt;string.h&gt; #include&lt;ctime&gt; //获取系统时间 using namespace std; 定义学生和老师的结构体&para; // 学生结构体定义 struct student { // 姓名 string...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++核心编程",
+    "url": "/posts/c-he-xin-bian-cheng/",
+    "excerpt": "前言&para; 从做完那个“通讯录管理系统”起我已经不再是一个初学c++的小白了，我现在的c++已经入门了,以后我会放进阶的教程到我的博客，源码也都会放在[我的github](https://github.com/ababll5/blog_cpp) 上欢迎大家学习 c++核心编程&para; 本阶段主要正对c++面向对象的编程技术做详细讲解，探讨c++中核心和精髓 内存分区模型&para; c++程序执行是，将内存大方向划分为4个区 代码区：存放函数体的二进制代码，由操作系统进行管理 全局区：存放全局变量和静态变量以及常量 栈区：由编译器自动分配释放，存放函数的参数值，局部变量等...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++函数重载",
+    "url": "/posts/c-han-shu-zhong-zai/",
+    "excerpt": "函数重载&para; 函数重载概述&para; 作用：函数名可以相同，提高复用性 函数重载满足条件： 同一个作用域下 函数名相同 函数参数类型不同或者个数不同或者顺序不同 注意：函数的返回值不可以作为函数重载的条件 示例： #include&lt;iostream&gt; using namespace std; //函数重载 //可以让函数名相同，提高函数的复用性 //条件 //1 同一个作用域下 //2 函数名称相同 //3 函数的参数类型不同 || 个数不同 || 顺序不同 void func() {...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  },
+  {
+    "title": "c++函数提高",
+    "url": "/posts/c-han-shu-ti-gao/",
+    "excerpt": "函数提高&para; 函数默认参数&para; 在c++中，函数的形参列表中的形参是可以有默认值的 语法返回值类型 函数名 (参数 = 默认值){} #include&lt;iostream&gt; using namespace std; //函数的默认参数 //如果自己传了就用自己的，没有就用默认的 int func(int a,int b = 20,int c = 30) { return a+b+c; } int main(void) { int a = func(10,30); cout&lt;&lt;a&lt;&lt;endl;...",
+    "tags": [
+      "cpp"
+    ],
+    "categories": [],
+    "date": "2024-09-07"
+  }
+]

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/pygments.css">
+
+<!-- RSS -->
+
+    <title>c++核心编程 - 新鲜哥的技术博客</title>
+    <meta name="description" content="前言&amp;para; 从做完那个“通讯录管理系统”起我已经不再是一个初学c++的小白了，我现在的c++已经入门了,以后我会放进阶的教程到我的博客，源码也都会放在[我的github](https://github.com/ababll5/blog_cpp) 上欢迎大家学习 c++核心编程&amp;para; 本阶段主要正对c++面向对象的编程技术做详细讲解，探讨c++中核心和精髓 内存分区模型&amp;para; c++程序执行是，将内存大方向划分为4个区 代码区：存放函数体的二进制代码，由操作系统进行管理 全局区：存放全局变量和静态变量以及常量 栈区：由编译器自动分配释放，存放函数的参数值，局部变量等...">
+    <meta property="og:title" content="c++核心编程">
+    <meta property="og:description" content="前言&amp;para; 从做完那个“通讯录管理系统”起我已经不再是一个初学c++的小白了，我现在的c++已经入门了,以后我会放进阶的教程到我的博客，源码也都会放在[我的github](https://github.com/ababll5/blog_cpp) 上欢迎大家学习 c++核心编程&amp;para; 本阶段主要正对c++面向对象的编程技术做详细讲解，探讨c++中核心和精髓 内存分区模型&amp;para; c++程序执行是，将内存大方向划分为4个区 代码区：存放函数体的二进制代码，由操作系统进行管理 全局区：存放全局变量和静态变量以及常量 栈区：由编译器自动分配释放，存放函数的参数值，局部变量等...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ababll5.github.io/posts/c-he-xin-bian-cheng/">
+    <meta property="og:site_name" content="新鲜哥的技术博客">
+</head>
+<body>
+    <!-- Noise texture overlay (fixed, pointer-events-none) -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Accessibility skip link -->
+    <a class="skip-link" href="#main-content">跳到内容</a>
+
+    <!-- Prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && false)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <header class="nav" id="nav">
+    <div class="nav__container">
+        <a class="nav__brand" href="/">
+            <span class="nav__title">新鲜哥的技术博客</span>
+        </a>
+
+        <nav class="nav__menu" id="nav-menu">
+            
+            <a class="nav__link" href="/">
+                首页
+            </a>
+            
+            <a class="nav__link" href="/archives/">
+                归档
+            </a>
+            
+            <a class="nav__link" href="/tags/">
+                标签
+            </a>
+            
+            <a class="nav__link" href="/pages/about/">
+                关于
+            </a>
+            
+            <a class="nav__link" href="/pages/link/">
+                友链
+            </a>
+            
+        </nav>
+
+        <div class="nav__actions">
+            
+            <button class="nav__btn" id="search-btn" aria-label="搜索" title="搜索">
+                <i class="fas fa-search"></i>
+            </button>
+            
+            
+            <button class="nav__btn" id="theme-btn" aria-label="切换主题" title="切换深色模式">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            
+            <button class="nav__btn nav__mobile-btn" id="mobile-btn" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+    <div class="search-modal" id="search-modal" hidden>
+    <div class="search-modal__overlay" id="search-overlay"></div>
+    <div class="search-modal__content">
+        <div class="search-modal__header">
+            <div class="search-modal__input-wrapper">
+                <i class="fas fa-search search-modal__icon"></i>
+                <input type="text" class="search-modal__input" id="search-input"
+                       placeholder="搜索文章..." autocomplete="off">
+            </div>
+            <button class="search-modal__close" id="search-close" aria-label="关闭搜索">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-modal__results" id="search-results">
+            <div class="search-modal__hint">输入关键词搜索文章...</div>
+        </div>
+    </div>
+</div>
+
+    <main class="layout" id="main-content">
+        
+            <aside class="sidebar" id="sidebar">
+    
+
+        
+        
+        <div class="sidebar__card card--author">
+            <div class="author__shell">
+                <div class="author__inner">
+                    <div class="author__avatar">
+                        <img src="/content/images/avatar.png" alt="新鲜哥" onerror="this.style.display='none'">
+                    </div>
+                    <div class="author__name">新鲜哥</div>
+                    <div class="author__bio">一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。</div>
+                    <div class="author__social">
+                        
+                        <a href="https://github.com/ababll5" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--announce">
+            <div class="card__title">公告</div>
+            <div class="card__body">欢迎来到我的博客！这里记录着我在编程路上的学习笔记和心得。</div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--recent">
+            <div class="card__title">最近</div>
+            <ul class="recent-list">
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux下安装qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux下安装qt</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/c-文件io/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">c++文件io</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/qt-shi-xian-dian-ji-tiao-zhuan-wang-ye/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">qt实现点击跳转网页</span>
+                            <span class="recent-list__date">2024-11-12</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/kai-qi-xin-de-pian-zhang-qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">开启新的篇章——qt</span>
+                            <span class="recent-list__date">2024-11-09</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux-jie-ya-wen-jian-luan-ma-wen-ti-ru-he-jie-jue/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux解压文件乱码问题如何解决</span>
+                            <span class="recent-list__date">2024-10-16</span>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--tags">
+            <div class="card__title">标签</div>
+            <div class="tag-cloud">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <a class="tag-cloud__tag" href="/tags/cpp/">cpp<span class="tag-count">16</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/qt/">qt<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/分享/">分享<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/教程/">教程<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/日常/">日常<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/html/">html<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/hexo/">hexo<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/linux/">linux<span class="tag-count">1</span></a>
+                
+            </div>
+        </div>
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--categories">
+            <div class="card__title">分类</div>
+            <ul class="category-list">
+                
+                
+                
+                
+            </ul>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+    
+</aside>
+        
+
+        <div class="content-area">
+            
+<article class="post-article">
+    <header class="post-article__header">
+        <h1 class="post-article__title">c++核心编程</h1>
+        <div class="post-article__meta">
+            
+            <span class="post-article__date">
+                <i class="far fa-calendar"></i>
+                发布于 <time datetime="2024-09-07">2024-09-07</time>
+            </span>
+            
+            
+            
+            <span class="post-article__words">
+                <i class="far fa-file-word"></i> 579 字
+            </span>
+            
+            
+            <span class="post-article__reading">
+                <i class="far fa-clock"></i> 阅读约 3 分钟
+            </span>
+            
+        </div>
+        
+    </header>
+
+    <div class="post-article__content">
+        <h1 id="_1">前言<a class="toc-link" href="#_1" title="Permanent link">&para;</a></h1>
+<p>从做完那个“通讯录管理系统”起我已经不再是一个初学c++的小白了，我现在的c++已经入门了,以后我会放进阶的教程到我的博客，源码也都会放在<a href="https://github.com/ababll5/blog_cpp">[我的github](https://github.com/ababll5/blog_cpp)</a>  上欢迎大家学习</p>
+<h1 id="c">c++核心编程<a class="toc-link" href="#c" title="Permanent link">&para;</a></h1>
+<p>本阶段主要正对c++<strong>面向对象</strong>的编程技术做详细讲解，探讨c++中核心和精髓</p>
+<h2 id="_2">内存分区模型<a class="toc-link" href="#_2" title="Permanent link">&para;</a></h2>
+<p>c++程序执行是，将内存大方向划分为4个区</p>
+<ul>
+<li>代码区：存放函数体的二进制代码，由操作系统进行管理</li>
+<li>全局区：存放全局变量和静态变量以及常量</li>
+<li>栈区：由编译器自动分配释放，存放函数的参数值，局部变量等</li>
+<li>堆区：由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收</li>
+</ul>
+<p>内存四区意义：</p>
+<p>不同区域存放的数据赋予不同的生命周期，给我们更大的灵活编成</p>
+<h3 id="_3">程序运行前<a class="toc-link" href="#_3" title="Permanent link">&para;</a></h3>
+<p>在程序编译后，生成了exe可执行程序，未执行程序前分为两个区域</p>
+<p>代码区：</p>
+<p>存放cpu执行的机器指令 </p>
+<p>​    代码区是共享的，共享的目的是对于频繁执行的程序，只需要在内存中有一份大麻即可</p>
+<p>​    代码去是只读的，使其只读的原因是防止程序意外地修改了他的指令</p>
+<p>全局区：</p>
+<p>​    全局变量和静态变量存放在此</p>
+<p>​    全局区还包含了常量区，字符串常量</p>
+<p>该区域的数据在程序结束后由操作系统释放</p>
+<p>演示区：</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="c1">// 全局变量</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">g_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">g_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="c1">// const 修饰全局变量</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c_g_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c_g_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// 全局区</span>
+
+<span class="w">    </span><span class="c1">// 全局变量、静态变量、常量</span>
+
+<span class="w">    </span><span class="c1">// 创建普通的局部变量</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// 普通的局部变量</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;局部变量a的地址为: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="o">&amp;</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;局部变量b的地址为: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="o">&amp;</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span>
+<span class="w">         </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;全局变量g_a的地址为: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="o">&amp;</span><span class="n">g_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;全局变量g_b的地址为: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="o">&amp;</span><span class="n">g_b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span>
+<span class="w">         </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 静态变量</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;镜头变量s_a的地址为: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="o">&amp;</span><span class="n">s_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;静态变量s_b的地址为: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="o">&amp;</span><span class="n">s_b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span>
+<span class="w">         </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 常量</span>
+<span class="w">    </span><span class="c1">// 字符串常量</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;字符串常量的地址为： &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="o">&amp;</span><span class="s">&quot;hello world&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span>
+<span class="w">         </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// const修饰的变量</span>
+
+<span class="w">    </span><span class="c1">// const修饰全局变量  const 修饰局部变量</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;全局常量c_g_a的地址为: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="o">&amp;</span><span class="n">c_g_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;全局常量c_g_b的地址为: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="o">&amp;</span><span class="n">c_g_b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// const 修饰局部变量</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c_l_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c_l_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;局部常量c_l_a的地址为: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="o">&amp;</span><span class="n">c_l_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;局部常量c_l_b的地址为: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="o">&amp;</span><span class="n">c_l_b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>输出结果:</p>
+<p><img alt="" src="https://img.picui.cn/free/2024/07/02/66841d6729bab.png" /></p>
+<h4 id="_4">总结<a class="toc-link" href="#_4" title="Permanent link">&para;</a></h4>
+<p>记住红色区的就好了</p>
+<p><img alt="" src="https://img.picui.cn/free/2024/07/02/66841dfe87802.png" /></p>
+<p>总结：</p>
+<ul>
+<li>c++在程序运行前风味全局区和代码区</li>
+<li>代码区的特点就是共享和只读</li>
+<li>全局区中存放变量、静态变量‘常量</li>
+<li>常量区中存放const修饰的全局常量和字符常量</li>
+</ul>
+<h2 id="_5">程序运行后<a class="toc-link" href="#_5" title="Permanent link">&para;</a></h2>
+<p>栈区：</p>
+<p>​     由编译器自动分配内存，存放函数的参数值，局部变量等</p>
+<p>​     注意事项：不要返沪局部变量的地址，栈区开辟的数据由编译器自动释放</p>
+<p>示例：</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="c1">// 栈去注意事项  --- 不要返回局部变量的地址</span>
+<span class="c1">// 战区数据由编译器管理开辟和释放</span>
+
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="c1">//形参数据也会放在栈区</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// 局部变量 存放在栈区，栈区的数据在函数执行完后自动释放</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span><span class="w">  </span><span class="c1">// 返回局部变量地址</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">//在x86下第一次可以正常打印</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">//在x86下第二次就不可以</span>
+
+<span class="w">    </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;pause&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>自行体会吧</p>
+<p>堆区：</p>
+<p>​     由程序员分配释放若程序员不释放，程序结束时由操作系统回收</p>
+<p>​     在c++主要利用new在堆区开辟内存</p>
+<p>示例：</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//利用new关键字，可以将数据开辟到堆区</span>
+<span class="w">    </span><span class="c1">//指针本质也是局部变量，放在栈上，指针的保存在堆区</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//在堆区开辟数据</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;pause&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>总结：</p>
+<p>堆区数据又程序员管理开辟和释放</p>
+<p>堆区数据利用new关键字进行开辟内存</p>
+<h2 id="new">new操作符<a class="toc-link" href="#new" title="Permanent link">&para;</a></h2>
+<p>c++中利用new操作符再堆区开辟数据</p>
+<p>堆区开辟的数据，由程序员手动开辟手动释放，释放利用操作符delete</p>
+<p>语法: <code>new 数据类型</code></p>
+<p>利用new创建的数据，会返回该数据对应的类型指针</p>
+<p>不过在写代码前我们得先创建一个堆区</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">func</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// 在读取创建整型的数据</span>
+<span class="w">    </span><span class="c1">// new 返回时该数据的内型指针</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>示例1：基本语法</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">test01</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func</span><span class="p">();</span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//堆区的数据 由程序员管理开辟，程序员管理释放</span>
+<span class="w">  </span><span class="c1">//如果想释放堆区的数据，利用关键字delete</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//cout&lt;&lt;*p&lt;&lt;endl;  由于已经delete释放了再次访问会报错</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>示例2：开辟数组</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 2 在堆区利用new开辟数组</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">test02</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//创建10个整形数据的数组，在堆区</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="c1">//给10个元素复制 100 ~ 109</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">//释放</span>
+<span class="w">    </span><span class="c1">//释放数组要加[]</span>
+<span class="w">    </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>全部：</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="c1">// 1 new的基本语法</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">func</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// 在读取创建整型的数据</span>
+<span class="w">    </span><span class="c1">// new 返回时该数据的内型指针</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">test01</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func</span><span class="p">();</span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//堆区的数据 由程序员管理开辟，程序员管理释放</span>
+<span class="w">  </span><span class="c1">//如果想释放堆区的数据，利用关键字delete</span>
+<span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//cout&lt;&lt;*p&lt;&lt;endl;  由于已经delete释放了再次访问会报错</span>
+<span class="p">}</span>
+
+<span class="c1">// 2 在堆区利用new开辟数组</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">test02</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//创建10个整形数据的数组，在堆区</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="c1">//给10个元素复制 100 ~ 109</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">//释放</span>
+<span class="w">    </span><span class="c1">//释放数组要加[]</span>
+<span class="w">    </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="n">test01</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">test02</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;pause&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+    </div>
+
+    <footer class="post-article__footer">
+        
+        <div class="post-article__tags">
+            <i class="fas fa-tags"></i>
+            
+            <a class="tag-badge" href="/tags/cpp/">cpp</a>
+            
+        </div>
+        
+
+        <nav class="post-nav">
+            
+            <a class="post-nav__prev" href="/posts/c-jie-gou-ti-an-li/">
+                <span class="post-nav__label"><i class="fas fa-chevron-left"></i> 上一篇</span>
+                <span class="post-nav__title">c++结构体案例</span>
+            </a>
+            
+            
+            <a class="post-nav__next" href="/posts/c-han-shu-zhong-zai/">
+                <span class="post-nav__label">下一篇 <i class="fas fa-chevron-right"></i></span>
+                <span class="post-nav__title">c++函数重载</span>
+            </a>
+            
+        </nav>
+    </footer>
+</article>
+
+
+
+        </div>
+
+        
+    </main>
+
+    <footer class="footer">
+    <div class="footer__container">
+        <div class="footer__info">
+            
+            <span>&copy; 2024 新鲜哥</span>
+            
+            
+            <span class="footer__custom">由自制的静态站点生成器构建</span>
+            
+        </div>
+        <div class="footer__links">
+            
+            <a href="/">首页</a>
+            
+            <a href="/archives/">归档</a>
+            
+            <a href="/tags/">标签</a>
+            
+            <a href="/pages/about/">关于</a>
+            
+        </div>
+    </div>
+</footer>
+
+    
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    
+
+    <script src="/static/js/main.js"></script>
+    
+
+<script>
+    (function() {
+        var toc = document.getElementById('toc-container');
+        var sidebar = document.getElementById('sidebar');
+        if (toc && sidebar && window.innerWidth >= 900) {
+            sidebar.insertBefore(toc, sidebar.firstChild);
+            toc.style.display = '';
+        }
+    })();
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}标签: {{ tag_name }} - {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="tag-page">
+    <h1 class="page-title">标签: {{ tag_name }}</h1>
+    <p class="page-subtitle">共 {{ tag_posts|length }} 篇文章</p>
+
+    <div class="post-list">
+        {% for post in tag_posts %}
+        {% include 'partials/post_card.html' %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

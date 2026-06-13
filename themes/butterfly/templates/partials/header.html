@@ -1,0 +1,31 @@
+<header class="nav" id="nav">
+    <div class="nav__container">
+        <a class="nav__brand" href="/">
+            <span class="nav__title">{{ site.title }}</span>
+        </a>
+
+        <nav class="nav__menu" id="nav-menu">
+            {% for item in theme.nav_menu %}
+            <a class="nav__link" href="{{ item.url }}">
+                {{ item.name }}
+            </a>
+            {% endfor %}
+        </nav>
+
+        <div class="nav__actions">
+            {% if theme.search.type == 'local' %}
+            <button class="nav__btn" id="search-btn" aria-label="搜索" title="搜索">
+                <i class="fas fa-search"></i>
+            </button>
+            {% endif %}
+            {% if theme.dark_mode %}
+            <button class="nav__btn" id="theme-btn" aria-label="切换主题" title="切换深色模式">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            {% endif %}
+            <button class="nav__btn nav__mobile-btn" id="mobile-btn" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>

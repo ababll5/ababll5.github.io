@@ -1,0 +1,98 @@
+<aside class="sidebar" id="sidebar">
+    {% for widget in theme.sidebar_widgets %}
+
+        {# --- 作者卡片 --- #}
+        {% if widget.type == 'author' %}
+        <div class="sidebar__card card--author">
+            <div class="author__shell">
+                <div class="author__inner">
+                    <div class="author__avatar">
+                        <img src="/content/images/avatar.png" alt="{{ site.author }}" onerror="this.style.display='none'">
+                    </div>
+                    <div class="author__name">{{ site.author }}</div>
+                    <div class="author__bio">{{ site.description }}</div>
+                    <div class="author__social">
+                        {% if theme.social.github %}
+                        <a href="{{ theme.social.github }}" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                        {% endif %}
+                        {% if theme.social.twitter %}
+                        <a href="{{ theme.social.twitter }}" target="_blank" rel="noopener" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        {% endif %}
+                        {% if theme.social.email %}
+                        <a href="{{ theme.social.email }}" title="Email"><i class="fas fa-envelope"></i></a>
+                        {% endif %}
+                        {% if theme.social.rss %}
+                        <a href="/rss.xml" title="RSS"><i class="fas fa-rss"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {# --- 公告 --- #}
+        {% if widget.type == 'announcement' %}
+        <div class="sidebar__card card--announce">
+            <div class="card__title">公告</div>
+            <div class="card__body">{{ widget.content }}</div>
+        </div>
+        {% endif %}
+
+        {# --- 分类 --- #}
+        {% if widget.type == 'categories' %}
+        <div class="sidebar__card card--categories">
+            <div class="card__title">分类</div>
+            <ul class="category-list">
+                {% set sorted = all_categories.keys()|list %}
+                {% set sorted = sorted|sort %}
+                {% if widget.limit %}{% set sorted = sorted[:widget.limit] %}{% endif %}
+                {% for cat in sorted %}
+                {% set count = all_categories[cat]|length %}
+                <li class="category-list__item">
+                    <a href="/categories/{{ cat }}/">{{ cat }}</a>
+                    <span class="category-list__count">{{ count }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {# --- 标签 --- #}
+        {% if widget.type == 'tags' %}
+        <div class="sidebar__card card--tags">
+            <div class="card__title">标签</div>
+            <div class="tag-cloud">
+                {% set tag_items = [] %}
+                {% for tag_name, tag_posts in all_tags.items() %}
+                {% set _ = tag_items.append([tag_name, tag_posts|length]) %}
+                {% endfor %}
+                {% set tag_items = tag_items|sort(attribute=1, reverse=True) %}
+                {% if widget.limit %}{% set tag_items = tag_items[:widget.limit] %}{% endif %}
+                {% for tag_name, count in tag_items %}
+                <a class="tag-cloud__tag" href="/tags/{{ tag_name }}/">{{ tag_name }}<span class="tag-count">{{ count }}</span></a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {# --- 最近文章 --- #}
+        {% if widget.type == 'recent_posts' %}
+        <div class="sidebar__card card--recent">
+            <div class="card__title">最近</div>
+            <ul class="recent-list">
+                {% for rp in recent_posts[:widget.limit or 5] %}
+                <li class="recent-list__item">
+                    <a href="{{ rp.url }}">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">{{ rp.title }}</span>
+                            <span class="recent-list__date">{{ rp.date|format_date('%Y-%m-%d') }}</span>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+    {% endfor %}
+</aside>

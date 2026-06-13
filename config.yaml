@@ -1,0 +1,91 @@
+# === Site Metadata ===
+site:
+  title: "新鲜哥的技术博客"
+  subtitle: "记录编程、技术与生活的个人博客。"
+  description: "一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。"
+  author: "新鲜哥"
+  language: "zh-CN"
+  favicon: "/static/images/favicon.ico"
+  url: "https://ababll5.github.io"
+  timezone: "Asia/Shanghai"
+  since: 2024
+
+# === Theme Settings ===
+theme:
+  card_radius: 20
+  dark_mode: true
+  default_dark: false
+  sidebar_position: left
+
+  nav_menu:
+    - name: "首页"
+      url: "/"
+      icon: ""
+    - name: "归档"
+      url: "/archives/"
+      icon: ""
+    - name: "标签"
+      url: "/tags/"
+      icon: ""
+    - name: "关于"
+      url: "/pages/about/"
+      icon: ""
+    - name: "友链"
+      url: "/pages/link/"
+      icon: ""
+
+  social:
+    github: "https://github.com/ababll5"
+    twitter: ""
+    email: ""
+    rss: false
+
+  posts_per_page: 10
+
+  post:
+    show_cover: false
+    show_date: true
+    show_tags: true
+    show_categories: false
+    show_word_count: true
+    show_reading_time: true
+    show_toc: true
+    toc_open: true
+    code_highlight_theme: "default"
+    code_copy_button: true
+    code_lang_label: true
+
+  sidebar_widgets:
+    - type: author
+    - type: announcement
+      content: "欢迎来到我的博客！这里记录着我在编程路上的学习笔记和心得。"
+    - type: recent_posts
+      limit: 5
+    - type: tags
+      limit: 16
+    - type: categories
+      limit: 8
+
+  footer:
+    copyright: true
+    powered_by: false
+    custom_text: "由自制的静态站点生成器构建"
+
+  effects:
+    card_hover: true
+    smooth_scroll: true
+    back_to_top: true
+
+  comments:
+    system: none
+
+  search:
+    type: local
+    placeholder: "搜索文章..."
+
+# === Build Settings ===
+build:
+  output_dir: "output"
+  content_dir: "content"
+  theme_dir: "themes/butterfly"
+  clean_output: true

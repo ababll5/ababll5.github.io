@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/pygments.css">
+
+<!-- RSS -->
+
+    <title>使用纯github当博客(非issues) - 新鲜哥的技术博客</title>
+    <meta name="description" content="本教程没有用到任何博客框架，只教你如何只用github的markdown功能搭建一个简约的博客 我只提供一个思路，不一定要按我的来 创建仓库&amp;para; 点击这个new创建一个仓库 信息这样写 然后点创建 配置仓库文件&amp;para; 可以叫参考一下我的然后改成你自己的 | |---posts # 存文章 | |---cpp # 分类 | |---html | |---hexo | |---教程 | |--- 。。。。。。 # 放自己喜欢的 友链，相册，盆友圈，说说 | |--- README.md。 # 重点，文章目录，下一章节说 | README.md的配置&amp;para;...">
+    <meta property="og:title" content="使用纯github当博客(非issues)">
+    <meta property="og:description" content="本教程没有用到任何博客框架，只教你如何只用github的markdown功能搭建一个简约的博客 我只提供一个思路，不一定要按我的来 创建仓库&amp;para; 点击这个new创建一个仓库 信息这样写 然后点创建 配置仓库文件&amp;para; 可以叫参考一下我的然后改成你自己的 | |---posts # 存文章 | |---cpp # 分类 | |---html | |---hexo | |---教程 | |--- 。。。。。。 # 放自己喜欢的 友链，相册，盆友圈，说说 | |--- README.md。 # 重点，文章目录，下一章节说 | README.md的配置&amp;para;...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ababll5.github.io/posts/shi-yong-chun-github-dang-bo-ke-fei-issues/">
+    <meta property="og:site_name" content="新鲜哥的技术博客">
+</head>
+<body>
+    <!-- Noise texture overlay (fixed, pointer-events-none) -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Accessibility skip link -->
+    <a class="skip-link" href="#main-content">跳到内容</a>
+
+    <!-- Prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && false)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <header class="nav" id="nav">
+    <div class="nav__container">
+        <a class="nav__brand" href="/">
+            <span class="nav__title">新鲜哥的技术博客</span>
+        </a>
+
+        <nav class="nav__menu" id="nav-menu">
+            
+            <a class="nav__link" href="/">
+                首页
+            </a>
+            
+            <a class="nav__link" href="/archives/">
+                归档
+            </a>
+            
+            <a class="nav__link" href="/tags/">
+                标签
+            </a>
+            
+            <a class="nav__link" href="/pages/about/">
+                关于
+            </a>
+            
+            <a class="nav__link" href="/pages/link/">
+                友链
+            </a>
+            
+        </nav>
+
+        <div class="nav__actions">
+            
+            <button class="nav__btn" id="search-btn" aria-label="搜索" title="搜索">
+                <i class="fas fa-search"></i>
+            </button>
+            
+            
+            <button class="nav__btn" id="theme-btn" aria-label="切换主题" title="切换深色模式">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            
+            <button class="nav__btn nav__mobile-btn" id="mobile-btn" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+    <div class="search-modal" id="search-modal" hidden>
+    <div class="search-modal__overlay" id="search-overlay"></div>
+    <div class="search-modal__content">
+        <div class="search-modal__header">
+            <div class="search-modal__input-wrapper">
+                <i class="fas fa-search search-modal__icon"></i>
+                <input type="text" class="search-modal__input" id="search-input"
+                       placeholder="搜索文章..." autocomplete="off">
+            </div>
+            <button class="search-modal__close" id="search-close" aria-label="关闭搜索">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-modal__results" id="search-results">
+            <div class="search-modal__hint">输入关键词搜索文章...</div>
+        </div>
+    </div>
+</div>
+
+    <main class="layout" id="main-content">
+        
+            <aside class="sidebar" id="sidebar">
+    
+
+        
+        
+        <div class="sidebar__card card--author">
+            <div class="author__shell">
+                <div class="author__inner">
+                    <div class="author__avatar">
+                        <img src="/content/images/avatar.png" alt="新鲜哥" onerror="this.style.display='none'">
+                    </div>
+                    <div class="author__name">新鲜哥</div>
+                    <div class="author__bio">一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。</div>
+                    <div class="author__social">
+                        
+                        <a href="https://github.com/ababll5" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--announce">
+            <div class="card__title">公告</div>
+            <div class="card__body">欢迎来到我的博客！这里记录着我在编程路上的学习笔记和心得。</div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--recent">
+            <div class="card__title">最近</div>
+            <ul class="recent-list">
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux下安装qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux下安装qt</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/c-文件io/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">c++文件io</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/qt-shi-xian-dian-ji-tiao-zhuan-wang-ye/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">qt实现点击跳转网页</span>
+                            <span class="recent-list__date">2024-11-12</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/kai-qi-xin-de-pian-zhang-qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">开启新的篇章——qt</span>
+                            <span class="recent-list__date">2024-11-09</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux-jie-ya-wen-jian-luan-ma-wen-ti-ru-he-jie-jue/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux解压文件乱码问题如何解决</span>
+                            <span class="recent-list__date">2024-10-16</span>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--tags">
+            <div class="card__title">标签</div>
+            <div class="tag-cloud">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <a class="tag-cloud__tag" href="/tags/cpp/">cpp<span class="tag-count">16</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/qt/">qt<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/分享/">分享<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/教程/">教程<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/日常/">日常<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/html/">html<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/hexo/">hexo<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/linux/">linux<span class="tag-count">1</span></a>
+                
+            </div>
+        </div>
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--categories">
+            <div class="card__title">分类</div>
+            <ul class="category-list">
+                
+                
+                
+                
+            </ul>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+    
+</aside>
+        
+
+        <div class="content-area">
+            
+<article class="post-article">
+    <header class="post-article__header">
+        <h1 class="post-article__title">使用纯github当博客(非issues)</h1>
+        <div class="post-article__meta">
+            
+            <span class="post-article__date">
+                <i class="far fa-calendar"></i>
+                发布于 <time datetime="2024-09-07">2024-09-07</time>
+            </span>
+            
+            
+            
+            <span class="post-article__words">
+                <i class="far fa-file-word"></i> 115 字
+            </span>
+            
+            
+            <span class="post-article__reading">
+                <i class="far fa-clock"></i> 阅读约 1 分钟
+            </span>
+            
+        </div>
+        
+    </header>
+
+    <div class="post-article__content">
+        <p>本教程没有用到任何博客框架，只教你如何只用github的markdown功能搭建一个简约的博客<br />
+我只提供一个思路，不一定要按我的来</p>
+<h1 id="_1">创建仓库<a class="toc-link" href="#_1" title="Permanent link">&para;</a></h1>
+<p>点击这个new创建一个仓库<br />
+<img width="372" alt="image" src="https://github.com/user-attachments/assets/e686bdcd-cdcb-4394-852a-31b976beb205">  </p>
+<p>信息这样写<br />
+<img width="781" alt="image" src="https://github.com/user-attachments/assets/5ce25d20-4db8-4380-87a1-51e7fc26ad96">  </p>
+<p>然后点创建<br />
+<img width="757" alt="image" src="https://github.com/user-attachments/assets/14e90885-d3a8-418d-9f20-828b5d750d20"></p>
+<h1 id="_2">配置仓库文件<a class="toc-link" href="#_2" title="Permanent link">&para;</a></h1>
+<p>可以叫参考一下我的然后改成你自己的   </p>
+<div class="codehilite"><pre><span></span><code>|
+|---posts            # 存文章
+|    |---cpp       # 分类
+|    |---html
+|    |---hexo
+|    |---教程
+|
+|--- 。。。。。。       # 放自己喜欢的  友链，相册，盆友圈，说说
+|
+|--- README.md。     # 重点，文章目录，下一章节说
+|    
+</code></pre></div>
+
+<h1 id="readmemd">README.md的配置<a class="toc-link" href="#readmemd" title="Permanent link">&para;</a></h1>
+<p>可以参考我的，全都是github的markdown语法中引用文章地址达到的文章跳转目录<br />
+不一定要用我的模板的，可以自定义喜欢咋样就咋样。  </p>
+<h2 id="_3">我的⬇️<a class="toc-link" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="gh"># 这是我的个人博客</span>
+
+<span class="gh">#  这是我的个人博客</span>
+<span class="k">&gt; </span><span class="ge">作者: LLH  </span>
+<span class="k">&gt; </span><span class="ge">白日放歌须纵酒，青春作伴好还乡  </span>
+
+
+<span class="gu">## 目录</span>
+
+| [<span class="nt">cpp</span>](<span class="na">https://github.com/ababll5/my_blog/tree/main#cpp</span>)|[html](https://github.com/ababll5/my_blog/tree/main?tab=readme-ov-file#html)|[hexo](https://github.com/ababll5/my_blog/tree/main?tab=readme-ov-file#hexo)|[教程](https://github.com/ababll5/my_blog/tree/main?tab=readme-ov-file#%E6%95%99%E7%A8%8B)|
+|--------------------|--------------------|--------------------|------------------|
+
+
+<span class="gu">## cpp</span>
+<span class="w"> </span><span class="k">1.</span> [<span class="nt">c++输出hello world</span>](<span class="na">posts/cpp/c-输出hello-world.md</span>)  
+<span class="w"> </span><span class="k">2.</span> [<span class="nt">小白学·指针</span>](<span class="na">posts/cpp/小白初学指针.md</span>)  
+<span class="w"> </span><span class="k">3.</span> [<span class="nt">小白学结构体</span>](<span class="na">posts/cpp/小白学结构体.md</span>) 
+<span class="w"> </span><span class="k">4.</span> [<span class="nt">小白学结构体(拓展)</span>](<span class="na">posts/cpp/小白学结构体-扩展.md</span>)  
+<span class="w"> </span><span class="k">5.</span> [<span class="nt">小白学结构体(案例)</span>](<span class="na">posts/cpp/小白学结构体-案例.md</span>)
+<span class="w"> </span><span class="k">6.</span> [<span class="nt">入门-通讯录管理系统</span>](<span class="na">posts/cpp/入门-通讯录管理系统1.md</span>)
+<span class="w"> </span><span class="k">7.</span> [<span class="nt">c++核心编程</span>](<span class="na">posts/cpp/c-核心编成.md</span>)
+<span class="w"> </span><span class="k">8.</span> [<span class="nt">函数提高</span>](<span class="na">posts/cpp/函数提高.md</span>)
+<span class="w"> </span><span class="k">9.</span> [<span class="nt">函数重载</span>](<span class="na">posts/cpp/函数重载.md</span>)
+<span class="w"> </span><span class="k">10.</span> [<span class="nt">引用</span>](<span class="na">posts/cpp/引用.md</span>)
+<span class="w"> </span><span class="k">11.</span> [<span class="nt">类和对象(封装)</span>](<span class="na">posts/cpp/类与对象.md</span>)
+<span class="w"> </span><span class="k">12.</span> [<span class="nt">类和对象(封装)(案例一)</span>](<span class="na">posts/cpp/类和对象2.md</span>)
+<span class="w"> </span><span class="k">13.</span> [<span class="nt">类和对象(封装)(案例二)</span>](<span class="na">posts/cpp/类和对象(封装</span>)(案例二).markdown)
+
+<span class="gu">## html</span>
+<span class="k">1.</span> [<span class="nt">初试html</span>](<span class="na">posts/html/初试html.md</span>)
+<span class="k">2.</span> [<span class="nt">html标签学习</span>](<span class="na">posts/html/html标签学习.md</span>)
+<span class="k">3.</span> [<span class="nt">html列表</span>](<span class="na">posts/html/html列表.md</span>)
+<span class="k">4.</span> []()
+
+<span class="gu">## hexo</span>
+<span class="k">1.</span> [<span class="nt">hexo+GitHub搭建教程(图片失效)</span>](<span class="na">posts/hexo/hexo-github搭建教程.md</span>)
+<span class="k">2.</span> [<span class="nt">hexo博客简单使用</span>](<span class="na">posts/hexo/搭建好后个人hexo框架的博客该如何使用.md</span>)
+<span class="k">3.</span> []()
+
+<span class="gu">## 教程</span>
+<span class="k">1.</span> [<span class="nt">vscode上的一个ai</span>](<span class="na">posts/教程/找到一个VScode上帮助你写代码ai.md</span>)
+<span class="k">2.</span> [<span class="nt">搭建一个属于自己的网站</span>](<span class="na">posts/教程/搭建一个属于自己的网站.md</span>)
+<span class="k">3.</span> [如何纯使用github当博客]()
+</code></pre></div>
+
+<p>效果就是<a href="https://github.com/ababll5/my_blog/tree/main">[点击查看我的博客](https://github.com/ababll5/my_blog/tree/main)</a> <strong>不一定相同</strong></p>
+<h1 id="_4">后话<a class="toc-link" href="#_4" title="Permanent link">&para;</a></h1>
+<p>如果有任何问题就去评论区或者<a href="https://github.com/ababll5/my_blog/issues">[我博客仓库](https://github.com/ababll5/my_blog/issues)</a>的issues去问我，我会尽可能第一时间回答你 <br />
+有好看的自定义方案也能去评论区或者<a href="https://github.com/ababll5/my_blog/issues">[我博客仓库](https://github.com/ababll5/my_blog/issues)</a>的issues告诉我   </p>
+<h1 id="_5">要留友情链接的这样写<a class="toc-link" href="#_5" title="Permanent link">&para;</a></h1>
+<p>博客名：<br />
+博客链接：</p>
+    </div>
+
+    <footer class="post-article__footer">
+        
+        <div class="post-article__tags">
+            <i class="fas fa-tags"></i>
+            
+            <a class="tag-badge" href="/tags/教程/">教程</a>
+            
+        </div>
+        
+
+        <nav class="post-nav">
+            
+            <a class="post-nav__prev" href="/posts/yi-ge-hao-yong-de-tu-chuang/">
+                <span class="post-nav__label"><i class="fas fa-chevron-left"></i> 上一篇</span>
+                <span class="post-nav__title">一个好用的图床</span>
+            </a>
+            
+            
+            <a class="post-nav__next" href="/posts/html-lie-biao/">
+                <span class="post-nav__label">下一篇 <i class="fas fa-chevron-right"></i></span>
+                <span class="post-nav__title">html列表</span>
+            </a>
+            
+        </nav>
+    </footer>
+</article>
+
+
+
+        </div>
+
+        
+    </main>
+
+    <footer class="footer">
+    <div class="footer__container">
+        <div class="footer__info">
+            
+            <span>&copy; 2024 新鲜哥</span>
+            
+            
+            <span class="footer__custom">由自制的静态站点生成器构建</span>
+            
+        </div>
+        <div class="footer__links">
+            
+            <a href="/">首页</a>
+            
+            <a href="/archives/">归档</a>
+            
+            <a href="/tags/">标签</a>
+            
+            <a href="/pages/about/">关于</a>
+            
+        </div>
+    </div>
+</footer>
+
+    
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    
+
+    <script src="/static/js/main.js"></script>
+    
+
+<script>
+    (function() {
+        var toc = document.getElementById('toc-container');
+        var sidebar = document.getElementById('sidebar');
+        if (toc && sidebar && window.innerWidth >= 900) {
+            sidebar.insertBefore(toc, sidebar.firstChild);
+            toc.style.display = '';
+        }
+    })();
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {% include 'partials/head.html' %}
+    <title>{% block title %}{{ site.title }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ site.description }}{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{{ site.title }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ site.description }}{% endblock %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:url" content="{{ site.url }}{% block og_url %}/{% endblock %}">
+    <meta property="og:site_name" content="{{ site.title }}">
+</head>
+<body>
+    <!-- Noise texture overlay (fixed, pointer-events-none) -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Accessibility skip link -->
+    <a class="skip-link" href="#main-content">跳到内容</a>
+
+    <!-- Prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && {{ 'true' if theme.default_dark else 'false' }})) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    {% include 'partials/header.html' %}
+    {% include 'partials/search_modal.html' %}
+
+    <main class="layout" id="main-content">
+        {% if theme.sidebar_position == 'left' %}
+            {% include 'partials/sidebar.html' %}
+        {% endif %}
+
+        <div class="content-area">
+            {% block content %}{% endblock %}
+        </div>
+
+        {% if theme.sidebar_position == 'right' %}
+            {% include 'partials/sidebar.html' %}
+        {% endif %}
+    </main>
+
+    {% include 'partials/footer.html' %}
+
+    {% if theme.effects.back_to_top %}
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    {% endif %}
+
+    <script src="/static/js/main.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

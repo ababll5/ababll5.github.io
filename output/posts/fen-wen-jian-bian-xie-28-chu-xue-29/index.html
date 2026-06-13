@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/pygments.css">
+
+<!-- RSS -->
+
+    <title>分文件编写(初学) - 新鲜哥的技术博客</title>
+    <meta name="description" content="分文件编写(初学)&amp;para; 前言&amp;para; 分文件编写，在大项目中需要写很多个自定义函数，如果都放在同一个cpp文件中很不方便查看。我是初学只学了自定义函数的分文件编写后续会学到其他函数的分文件编写 正文&amp;para; 要求&amp;para; 分文件编写 用到自定义函数 实现两数交换 定义一个主文件main.cpp和分文件编写的文件sb.h还有一个sb.cpp(名字无所谓只是我喜欢) main函数写法&amp;para; #include&amp;lt;iostream&amp;gt; #include&amp;quot;sb.h&amp;quot; //让c++知道你和sb.h文件是一伙的 using namespace std;...">
+    <meta property="og:title" content="分文件编写(初学)">
+    <meta property="og:description" content="分文件编写(初学)&amp;para; 前言&amp;para; 分文件编写，在大项目中需要写很多个自定义函数，如果都放在同一个cpp文件中很不方便查看。我是初学只学了自定义函数的分文件编写后续会学到其他函数的分文件编写 正文&amp;para; 要求&amp;para; 分文件编写 用到自定义函数 实现两数交换 定义一个主文件main.cpp和分文件编写的文件sb.h还有一个sb.cpp(名字无所谓只是我喜欢) main函数写法&amp;para; #include&amp;lt;iostream&amp;gt; #include&amp;quot;sb.h&amp;quot; //让c++知道你和sb.h文件是一伙的 using namespace std;...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ababll5.github.io/posts/fen-wen-jian-bian-xie-28-chu-xue-29/">
+    <meta property="og:site_name" content="新鲜哥的技术博客">
+</head>
+<body>
+    <!-- Noise texture overlay (fixed, pointer-events-none) -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Accessibility skip link -->
+    <a class="skip-link" href="#main-content">跳到内容</a>
+
+    <!-- Prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && false)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <header class="nav" id="nav">
+    <div class="nav__container">
+        <a class="nav__brand" href="/">
+            <span class="nav__title">新鲜哥的技术博客</span>
+        </a>
+
+        <nav class="nav__menu" id="nav-menu">
+            
+            <a class="nav__link" href="/">
+                首页
+            </a>
+            
+            <a class="nav__link" href="/archives/">
+                归档
+            </a>
+            
+            <a class="nav__link" href="/tags/">
+                标签
+            </a>
+            
+            <a class="nav__link" href="/pages/about/">
+                关于
+            </a>
+            
+            <a class="nav__link" href="/pages/link/">
+                友链
+            </a>
+            
+        </nav>
+
+        <div class="nav__actions">
+            
+            <button class="nav__btn" id="search-btn" aria-label="搜索" title="搜索">
+                <i class="fas fa-search"></i>
+            </button>
+            
+            
+            <button class="nav__btn" id="theme-btn" aria-label="切换主题" title="切换深色模式">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            
+            <button class="nav__btn nav__mobile-btn" id="mobile-btn" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+    <div class="search-modal" id="search-modal" hidden>
+    <div class="search-modal__overlay" id="search-overlay"></div>
+    <div class="search-modal__content">
+        <div class="search-modal__header">
+            <div class="search-modal__input-wrapper">
+                <i class="fas fa-search search-modal__icon"></i>
+                <input type="text" class="search-modal__input" id="search-input"
+                       placeholder="搜索文章..." autocomplete="off">
+            </div>
+            <button class="search-modal__close" id="search-close" aria-label="关闭搜索">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-modal__results" id="search-results">
+            <div class="search-modal__hint">输入关键词搜索文章...</div>
+        </div>
+    </div>
+</div>
+
+    <main class="layout" id="main-content">
+        
+            <aside class="sidebar" id="sidebar">
+    
+
+        
+        
+        <div class="sidebar__card card--author">
+            <div class="author__shell">
+                <div class="author__inner">
+                    <div class="author__avatar">
+                        <img src="/content/images/avatar.png" alt="新鲜哥" onerror="this.style.display='none'">
+                    </div>
+                    <div class="author__name">新鲜哥</div>
+                    <div class="author__bio">一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。</div>
+                    <div class="author__social">
+                        
+                        <a href="https://github.com/ababll5" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--announce">
+            <div class="card__title">公告</div>
+            <div class="card__body">欢迎来到我的博客！这里记录着我在编程路上的学习笔记和心得。</div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--recent">
+            <div class="card__title">最近</div>
+            <ul class="recent-list">
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux下安装qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux下安装qt</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/c-文件io/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">c++文件io</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/qt-shi-xian-dian-ji-tiao-zhuan-wang-ye/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">qt实现点击跳转网页</span>
+                            <span class="recent-list__date">2024-11-12</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/kai-qi-xin-de-pian-zhang-qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">开启新的篇章——qt</span>
+                            <span class="recent-list__date">2024-11-09</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux-jie-ya-wen-jian-luan-ma-wen-ti-ru-he-jie-jue/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux解压文件乱码问题如何解决</span>
+                            <span class="recent-list__date">2024-10-16</span>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--tags">
+            <div class="card__title">标签</div>
+            <div class="tag-cloud">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <a class="tag-cloud__tag" href="/tags/cpp/">cpp<span class="tag-count">16</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/qt/">qt<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/分享/">分享<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/教程/">教程<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/日常/">日常<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/html/">html<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/hexo/">hexo<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/linux/">linux<span class="tag-count">1</span></a>
+                
+            </div>
+        </div>
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--categories">
+            <div class="card__title">分类</div>
+            <ul class="category-list">
+                
+                
+                
+                
+            </ul>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+    
+</aside>
+        
+
+        <div class="content-area">
+            
+<article class="post-article">
+    <header class="post-article__header">
+        <h1 class="post-article__title">分文件编写(初学)</h1>
+        <div class="post-article__meta">
+            
+            <span class="post-article__date">
+                <i class="far fa-calendar"></i>
+                发布于 <time datetime="2024-09-07">2024-09-07</time>
+            </span>
+            
+            
+            
+            <span class="post-article__words">
+                <i class="far fa-file-word"></i> 83 字
+            </span>
+            
+            
+            <span class="post-article__reading">
+                <i class="far fa-clock"></i> 阅读约 1 分钟
+            </span>
+            
+        </div>
+        
+    </header>
+
+    <div class="post-article__content">
+        <h1 id="_1">分文件编写(初学)<a class="toc-link" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">前言<a class="toc-link" href="#_2" title="Permanent link">&para;</a></h2>
+<p>分文件编写，在大项目中需要写很多个自定义函数，如果都放在同一个cpp文件中很不方便查看。我是初学只学了自定义函数的分文件编写后续会学到其他函数的分文件编写  </p>
+<h2 id="_3">正文<a class="toc-link" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">要求<a class="toc-link" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>分文件编写</li>
+<li>用到自定义函数</li>
+<li>实现两数交换</li>
+</ul>
+<p>定义一个主文件<code>main.cpp</code>和分文件编写的文件<code>sb.h</code>还有一个<code>sb.cpp</code>(名字无所谓只是我喜欢)</p>
+<h3 id="main">main函数写法<a class="toc-link" href="#main" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="cpf">&quot;sb.h&quot;</span><span class="c1">        //让c++知道你和sb.h文件是一伙的</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;交换前&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;a = &quot;</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;b = &quot;</span><span class="o">&lt;&lt;</span><span class="n">b</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;交换后&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">sb</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="sbh">sb.h的写法<a class="toc-link" href="#sbh" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">sb</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w">  </span><span class="c1">//声明</span>
+</code></pre></div>
+
+<h3 id="sbcpp">sb.cpp的写法<a class="toc-link" href="#sbcpp" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&quot;sb.h&quot;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">sb</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;交换后&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;a = &quot;</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;b = &quot;</span><span class="o">&lt;&lt;</span><span class="n">b</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>如有错误请到我的邮箱<a href="mailto:369491854@qq.com">369491854@qq.com</a>上反馈</p>
+    </div>
+
+    <footer class="post-article__footer">
+        
+        <div class="post-article__tags">
+            <i class="fas fa-tags"></i>
+            
+            <a class="tag-badge" href="/tags/cpp/">cpp</a>
+            
+        </div>
+        
+
+        <nav class="post-nav">
+            
+            <a class="post-nav__prev" href="/posts/fen-wen-jian-bian-xie-chu-xue/">
+                <span class="post-nav__label"><i class="fas fa-chevron-left"></i> 上一篇</span>
+                <span class="post-nav__title">分文件编写(初学)</span>
+            </a>
+            
+            
+            <a class="post-nav__next" href="/posts/chu-xue-html-biao-qian/">
+                <span class="post-nav__label">下一篇 <i class="fas fa-chevron-right"></i></span>
+                <span class="post-nav__title">初学html(标签</span>
+            </a>
+            
+        </nav>
+    </footer>
+</article>
+
+
+
+        </div>
+
+        
+    </main>
+
+    <footer class="footer">
+    <div class="footer__container">
+        <div class="footer__info">
+            
+            <span>&copy; 2024 新鲜哥</span>
+            
+            
+            <span class="footer__custom">由自制的静态站点生成器构建</span>
+            
+        </div>
+        <div class="footer__links">
+            
+            <a href="/">首页</a>
+            
+            <a href="/archives/">归档</a>
+            
+            <a href="/tags/">标签</a>
+            
+            <a href="/pages/about/">关于</a>
+            
+        </div>
+    </div>
+</footer>
+
+    
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    
+
+    <script src="/static/js/main.js"></script>
+    
+
+<script>
+    (function() {
+        var toc = document.getElementById('toc-container');
+        var sidebar = document.getElementById('sidebar');
+        if (toc && sidebar && window.innerWidth >= 900) {
+            sidebar.insertBefore(toc, sidebar.firstChild);
+            toc.style.display = '';
+        }
+    })();
+</script>
+
+
+</body>
+</html>

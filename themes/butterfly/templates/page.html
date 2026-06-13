@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{ page.title }} - {{ site.title }}{% endblock %}
+{% block og_title %}{{ page.title }}{% endblock %}
+{% block og_url %}{{ page.url }}{% endblock %}
+
+{% block content %}
+<article class="post-article">
+    <header class="post-article__header">
+        <h1 class="post-article__title">{{ page.title }}</h1>
+    </header>
+    <div class="post-article__content">
+        {{ page.content_html | safe }}
+    </div>
+</article>
+{% endblock %}

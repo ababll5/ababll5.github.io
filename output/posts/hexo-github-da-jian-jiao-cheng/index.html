@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/pygments.css">
+
+<!-- RSS -->
+
+    <title>hexo+github搭建教程 - 新鲜哥的技术博客</title>
+    <meta name="description" content="参考于https://blog.csdn.net/qq_62928039/article/details/130248518 首先&amp;para; 安装该安装的&amp;para; nodejs git 安装下载部署hexo&amp;para; 创建文件夹（命名随便） 右键文件夹选git bash打开 切换国内路线npm config set registry https://npmmirror.com npm install -g hexo-cli安装hexo hexo init初始化· 没这一步文件夹内的文件显示不出来 出现这些文件才算成功，否则有问题 要么自行百度要么问(我的微信15913105505)...">
+    <meta property="og:title" content="hexo+github搭建教程">
+    <meta property="og:description" content="参考于https://blog.csdn.net/qq_62928039/article/details/130248518 首先&amp;para; 安装该安装的&amp;para; nodejs git 安装下载部署hexo&amp;para; 创建文件夹（命名随便） 右键文件夹选git bash打开 切换国内路线npm config set registry https://npmmirror.com npm install -g hexo-cli安装hexo hexo init初始化· 没这一步文件夹内的文件显示不出来 出现这些文件才算成功，否则有问题 要么自行百度要么问(我的微信15913105505)...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ababll5.github.io/posts/hexo-github-da-jian-jiao-cheng/">
+    <meta property="og:site_name" content="新鲜哥的技术博客">
+</head>
+<body>
+    <!-- Noise texture overlay (fixed, pointer-events-none) -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Accessibility skip link -->
+    <a class="skip-link" href="#main-content">跳到内容</a>
+
+    <!-- Prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && false)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <header class="nav" id="nav">
+    <div class="nav__container">
+        <a class="nav__brand" href="/">
+            <span class="nav__title">新鲜哥的技术博客</span>
+        </a>
+
+        <nav class="nav__menu" id="nav-menu">
+            
+            <a class="nav__link" href="/">
+                首页
+            </a>
+            
+            <a class="nav__link" href="/archives/">
+                归档
+            </a>
+            
+            <a class="nav__link" href="/tags/">
+                标签
+            </a>
+            
+            <a class="nav__link" href="/pages/about/">
+                关于
+            </a>
+            
+            <a class="nav__link" href="/pages/link/">
+                友链
+            </a>
+            
+        </nav>
+
+        <div class="nav__actions">
+            
+            <button class="nav__btn" id="search-btn" aria-label="搜索" title="搜索">
+                <i class="fas fa-search"></i>
+            </button>
+            
+            
+            <button class="nav__btn" id="theme-btn" aria-label="切换主题" title="切换深色模式">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            
+            <button class="nav__btn nav__mobile-btn" id="mobile-btn" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+    <div class="search-modal" id="search-modal" hidden>
+    <div class="search-modal__overlay" id="search-overlay"></div>
+    <div class="search-modal__content">
+        <div class="search-modal__header">
+            <div class="search-modal__input-wrapper">
+                <i class="fas fa-search search-modal__icon"></i>
+                <input type="text" class="search-modal__input" id="search-input"
+                       placeholder="搜索文章..." autocomplete="off">
+            </div>
+            <button class="search-modal__close" id="search-close" aria-label="关闭搜索">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-modal__results" id="search-results">
+            <div class="search-modal__hint">输入关键词搜索文章...</div>
+        </div>
+    </div>
+</div>
+
+    <main class="layout" id="main-content">
+        
+            <aside class="sidebar" id="sidebar">
+    
+
+        
+        
+        <div class="sidebar__card card--author">
+            <div class="author__shell">
+                <div class="author__inner">
+                    <div class="author__avatar">
+                        <img src="/content/images/avatar.png" alt="新鲜哥" onerror="this.style.display='none'">
+                    </div>
+                    <div class="author__name">新鲜哥</div>
+                    <div class="author__bio">一名初中生开发者的学习笔记——学习 C++、Qt、Linux 以及各种有趣的计算机知识。</div>
+                    <div class="author__social">
+                        
+                        <a href="https://github.com/ababll5" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--announce">
+            <div class="card__title">公告</div>
+            <div class="card__body">欢迎来到我的博客！这里记录着我在编程路上的学习笔记和心得。</div>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--recent">
+            <div class="card__title">最近</div>
+            <ul class="recent-list">
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux下安装qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux下安装qt</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/c-文件io/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">c++文件io</span>
+                            <span class="recent-list__date">2026-06-13</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/qt-shi-xian-dian-ji-tiao-zhuan-wang-ye/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">qt实现点击跳转网页</span>
+                            <span class="recent-list__date">2024-11-12</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/kai-qi-xin-de-pian-zhang-qt/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">开启新的篇章——qt</span>
+                            <span class="recent-list__date">2024-11-09</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="recent-list__item">
+                    <a href="/posts/linux-jie-ya-wen-jian-luan-ma-wen-ti-ru-he-jie-jue/">
+                        <div class="recent-list__info">
+                            <span class="recent-list__title">linux解压文件乱码问题如何解决</span>
+                            <span class="recent-list__date">2024-10-16</span>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--tags">
+            <div class="card__title">标签</div>
+            <div class="tag-cloud">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <a class="tag-cloud__tag" href="/tags/cpp/">cpp<span class="tag-count">16</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/qt/">qt<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/分享/">分享<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/教程/">教程<span class="tag-count">3</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/日常/">日常<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/html/">html<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/hexo/">hexo<span class="tag-count">2</span></a>
+                
+                <a class="tag-cloud__tag" href="/tags/linux/">linux<span class="tag-count">1</span></a>
+                
+            </div>
+        </div>
+        
+
+        
+        
+
+    
+
+        
+        
+
+        
+        
+
+        
+        
+        <div class="sidebar__card card--categories">
+            <div class="card__title">分类</div>
+            <ul class="category-list">
+                
+                
+                
+                
+            </ul>
+        </div>
+        
+
+        
+        
+
+        
+        
+
+    
+</aside>
+        
+
+        <div class="content-area">
+            
+<article class="post-article">
+    <header class="post-article__header">
+        <h1 class="post-article__title">hexo+github搭建教程</h1>
+        <div class="post-article__meta">
+            
+            <span class="post-article__date">
+                <i class="far fa-calendar"></i>
+                发布于 <time datetime="2024-09-07">2024-09-07</time>
+            </span>
+            
+            
+            
+            <span class="post-article__words">
+                <i class="far fa-file-word"></i> 83 字
+            </span>
+            
+            
+            <span class="post-article__reading">
+                <i class="far fa-clock"></i> 阅读约 1 分钟
+            </span>
+            
+        </div>
+        
+    </header>
+
+    <div class="post-article__content">
+        <p>参考于https://blog.csdn.net/qq_62928039/article/details/130248518</p>
+<h1 id="_1">首先<a class="toc-link" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">安装该安装的<a class="toc-link" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>nodejs  </li>
+<li>git</li>
+</ul>
+<h2 id="hexo">安装下载部署hexo<a class="toc-link" href="#hexo" title="Permanent link">&para;</a></h2>
+<ul>
+<li>创建文件夹（命名随便）<br />
+  右键文件夹选<code>git bash</code>打开  <br />
+  切换国内路线<code>npm config set registry https://npmmirror.com</code>  </li>
+</ul>
+<p><code>npm install -g hexo-cli</code>安装hexo<br />
+<code>hexo init</code>初始化· 没这一步文件夹内的文件显示不出来  </p>
+<p><img alt="展示" src="https://img.picui.cn/free/2024/06/21/667560465c8ce.bmp" /><br />
+出现这些文件才算成功，否则有问题<br />
+要么自行百度要么问(我的微信15913105505)  </p>
+<h2 id="_3">然后<a class="toc-link" href="#_3" title="Permanent link">&para;</a></h2>
+<p>输入<code>hexo g</code>和<code>hexo s</code><br />
+就会出现以下界面(恭喜你本地部署成功)<br />
+<img alt="界面" src="https://img.picui.cn/free/2024/06/21/667567982b689.png" /> </p>
+<h2 id="_4">随后<a class="toc-link" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>输入命令：ssh-keygen -t rsa -C &quot;注册GitHub的邮箱&quot;
+进入c盘的/用户/你的用户名/.ssh/id_rsa.pub
+</code></pre></div>
+
+<p>用记事本打开<code>id_rsa.pub</code>然后复制里面的id  </p>
+<h2 id="_5">之后<a class="toc-link" href="#_5" title="Permanent link">&para;</a></h2>
+<p><img alt="4" src="https://img.picui.cn/free/2024/06/21/6675681ecbdee.png" /><br />
+粘贴进去👇<br />
+<img alt="5" src="https://img.picui.cn/free/2024/06/21/66756820a06de.png" /></p>
+<h2 id="_6">验证<a class="toc-link" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">输入命令</span><span class="err">（</span><span class="n">git</span><span class="err">）：</span><span class="n">ssh</span><span class="w"> </span><span class="o">-</span><span class="n">T</span><span class="w"> </span><span class="n">git</span><span class="nv">@github</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="n">并且输入yes之后</span><span class="err">，</span><span class="n">行末尾会显示你的用户名</span>
+<span class="err">（</span><span class="n">绑定成功邮箱会收到邮件提醒</span><span class="err">）</span>
+<span class="n">接着在本地绑定与Github的用户名和邮箱</span><span class="err">（</span><span class="n">git</span><span class="err">）</span>
+<span class="n">输入命令</span><span class="err">：</span><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="err">“</span><span class="n">注册时用户名</span><span class="err">”</span>
+<span class="n">输入命令</span><span class="err">：</span><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global user.email “注册时邮箱”</span>
+</code></pre></div>
+
+<h2 id="_7">上传<a class="toc-link" href="#_7" title="Permanent link">&para;</a></h2>
+<p><img alt="9" src="https://img.picui.cn/free/2024/06/21/667560465c8ce.bmp" /><br />
+自行配置自己的名字<br />
+然后将文章末尾改为以下格式：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">deploy</span><span class="o">:</span>
+<span class="w">        </span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">git</span>
+<span class="w">        </span><span class="n">repo</span><span class="o">:</span><span class="w"> </span><span class="n">git</span><span class="err">@</span><span class="n">github</span><span class="o">.</span><span class="na">com</span><span class="o">:</span><span class="err">用户名</span><span class="o">/</span><span class="err">用户名</span><span class="o">.</span><span class="na">github</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">git</span>
+<span class="w">        </span><span class="n">branch</span><span class="o">:</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+
+<p>下载上传工具<code>npm install hexo-deployer-git</code></p>
+<h3 id="_8">以后都是下面的步骤上传文章<a class="toc-link" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="err">先本地预览</span><span class="o">:</span><span class="w"> </span><span class="n">hexo</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">hexo</span><span class="w"> </span><span class="n">s</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">保险起见再生成一次</span><span class="o">:</span><span class="w"> </span><span class="n">hexo</span><span class="w"> </span><span class="n">g</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">上传</span><span class="n">GitHub</span><span class="o">:</span><span class="w"> </span><span class="n">hexo</span><span class="w"> </span><span class="n">d</span>
+</code></pre></div>
+
+<p>使用的话看官方文档<br />
+有主题的看主题的官方文档</p>
+    </div>
+
+    <footer class="post-article__footer">
+        
+        <div class="post-article__tags">
+            <i class="fas fa-tags"></i>
+            
+            <a class="tag-badge" href="/tags/hexo/">hexo</a>
+            
+        </div>
+        
+
+        <nav class="post-nav">
+            
+            <a class="post-nav__prev" href="/posts/html-lie-biao/">
+                <span class="post-nav__label"><i class="fas fa-chevron-left"></i> 上一篇</span>
+                <span class="post-nav__title">html列表</span>
+            </a>
+            
+            
+            <a class="post-nav__next" href="/posts/hexo-jian-dan-shi-yong/">
+                <span class="post-nav__label">下一篇 <i class="fas fa-chevron-right"></i></span>
+                <span class="post-nav__title">hexo 简单使用</span>
+            </a>
+            
+        </nav>
+    </footer>
+</article>
+
+
+
+        </div>
+
+        
+    </main>
+
+    <footer class="footer">
+    <div class="footer__container">
+        <div class="footer__info">
+            
+            <span>&copy; 2024 新鲜哥</span>
+            
+            
+            <span class="footer__custom">由自制的静态站点生成器构建</span>
+            
+        </div>
+        <div class="footer__links">
+            
+            <a href="/">首页</a>
+            
+            <a href="/archives/">归档</a>
+            
+            <a href="/tags/">标签</a>
+            
+            <a href="/pages/about/">关于</a>
+            
+        </div>
+    </div>
+</footer>
+
+    
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    
+
+    <script src="/static/js/main.js"></script>
+    
+
+<script>
+    (function() {
+        var toc = document.getElementById('toc-container');
+        var sidebar = document.getElementById('sidebar');
+        if (toc && sidebar && window.innerWidth >= 900) {
+            sidebar.insertBefore(toc, sidebar.firstChild);
+            toc.style.display = '';
+        }
+    })();
+</script>
+
+
+</body>
+</html>

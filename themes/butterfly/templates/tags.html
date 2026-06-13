@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}标签 - {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="tags-page">
+    <h1 class="page-title">标签</h1>
+    <div class="tag-cloud tag-cloud--large">
+        {% for tag_name in sorted_tags %}
+        {% set count = all_tags[tag_name]|length %}
+        <a class="tag-cloud__tag" href="/tags/{{ tag_name }}/" style="font-size: {{ [0.85, 0.95, 1.05, 1.2, 1.35, 1.5, 1.7, 2.0][count if count < 8 else 7] }}rem;">
+            {{ tag_name }}<span class="tag-count">{{ count }}</span>
+        </a>
+        {% else %}
+        <div class="empty-state">
+            <h2>暂无标签</h2>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

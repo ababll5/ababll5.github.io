@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}404 - 页面未找到 - {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="not-found">
+    <div class="not-found__icon">🦋</div>
+    <h1 class="not-found__title">404</h1>
+    <p class="not-found__text">页面飞走了...</p>
+    <a class="not-found__btn" href="/"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+{% endblock %}

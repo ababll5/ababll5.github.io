@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}搜索 - {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="search-page">
+    <h1 class="page-title">搜索</h1>
+    <div class="search-page__input-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" class="search-page__input" id="search-page-input"
+               placeholder="{{ theme.search.placeholder or '搜索文章...' }}" autocomplete="off" autofocus>
+    </div>
+    <div class="search-page__results" id="search-page-results">
+        <div class="search-modal__hint">输入关键词搜索文章...</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/search.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        initSearchPage();
+    });
+</script>
+{% endblock %}
