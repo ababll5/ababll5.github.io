@@ -88,4 +88,20 @@
     })();
 </script>
 {% endif %}
+
+{% if theme.comments.system == 'waline' %}
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({
+        el: '#waline-comments',
+        serverURL: '{{ theme.comments.waline.server_url }}',
+        lang: '{{ theme.comments.waline.lang }}',
+        dark: '{{ theme.comments.waline.dark }}',
+        pageSize: {{ theme.comments.waline.page_size }},
+        emoji: {{ theme.comments.waline.emoji | tojson }},
+        requiredMeta: {{ theme.comments.waline.required_meta | tojson }},
+        placeholder: '{{ theme.comments.waline.placeholder }}',
+    });
+</script>
+{% endif %}
 {% endblock %}

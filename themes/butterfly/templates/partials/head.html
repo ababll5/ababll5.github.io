@@ -5,6 +5,11 @@
 <!-- Font Awesome (for icons) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+<!-- Waline Comment CSS -->
+{% if theme.comments.system == 'waline' %}
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
+{% endif %}
+
 <!-- Stylesheets -->
 <link rel="stylesheet" href="/static/css/style.css">
 <link rel="stylesheet" href="/static/css/pygments.css">

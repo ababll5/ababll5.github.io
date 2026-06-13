@@ -77,7 +77,16 @@ theme:
     back_to_top: true
 
   comments:
-    system: none
+    system: waline
+    waline:
+      server_url: "https://your-waline-server.vercel.app"
+      lang: "zh-CN"
+      dark: "auto"
+      page_size: 10
+      emoji:
+        - "https://unpkg.com/@waline/emojis@1.2.0/weibo"
+      required_meta: ["nick", "mail"]
+      placeholder: "写下你的想法..."
 
   search:
     type: local

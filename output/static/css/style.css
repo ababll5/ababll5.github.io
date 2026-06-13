@@ -1520,6 +1520,74 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ============================================================
+   Comments Section (Waline)
+   ============================================================ */
+
+.comments-section {
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--divider);
+}
+
+/* Waline theme overrides */
+#waline-comments {
+    --waline-font-size: 0.9375rem;
+    --waline-theme-color: var(--accent);
+    --waline-active-color: var(--accent-hover);
+    --waline-bgcolor: var(--bg-surface);
+    --waline-bgcolor-hover: var(--bg-elevated);
+    --waline-border-color: var(--border);
+    --waline-disable-bgcolor: var(--bg-elevated);
+    --waline-disable-color: var(--text-muted);
+    --waline-bq-color: var(--border);
+    --waline-info-bgcolor: var(--bg-elevated);
+    --waline-info-color: var(--text-muted);
+    --waline-info-border-color: var(--border);
+    --waline-color: var(--text-primary);
+    --waline-border: 1px solid var(--border);
+    --waline-border-radius: var(--card-radius-sm);
+    --waline-box-shadow: none;
+    --waline-white: var(--bg-surface);
+    --waline-dark-grey: var(--text-secondary);
+    --waline-light-grey: var(--text-muted);
+    --waline-avatar-radius: 50%;
+    --waline-meta-color: var(--text-muted);
+}
+
+/* Dark mode Waline fixes */
+[data-theme="dark"] #waline-comments {
+    --waline-bgcolor: var(--bg-surface);
+    --waline-color: var(--text-primary);
+}
+
+#waline-comments .wl-btn {
+    border-radius: var(--btn-radius);
+    transition: all 0.25s ease;
+}
+
+#waline-comments .wl-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+#waline-comments textarea,
+#waline-comments input {
+    font-family: var(--sans);
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius-sm);
+    transition: border-color 0.25s ease;
+}
+
+#waline-comments textarea:focus,
+#waline-comments input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-light);
+    outline: none;
+}
+
+/* ============================================================
    Print Styles
    ============================================================ */
 

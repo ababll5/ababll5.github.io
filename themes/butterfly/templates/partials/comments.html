@@ -1,26 +1,25 @@
-{% if theme.comments.system != 'none' %}
-<div class="comments" id="comments">
-    {% if theme.comments.system == 'giscus' %}
-    <script src="https://giscus.app/client.js"
-            data-repo="{{ theme.comments.giscus.repo }}"
-            data-repo-id="{{ theme.comments.giscus.repo_id }}"
-            data-category="{{ theme.comments.giscus.category }}"
-            data-category-id="{{ theme.comments.giscus.category_id }}"
-            data-mapping="pathname"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-theme="{{ 'dark' if theme.default_dark else 'light' }}"
-            crossorigin="anonymous"
-            async>
-    </script>
-    {% elif theme.comments.system == 'utterances' %}
-    <script src="https://utteranc.es/client.js"
-            repo="{{ theme.comments.utterances.repo }}"
-            issue-term="pathname"
-            theme="{{ 'github-dark' if theme.default_dark else 'github-light' }}"
-            crossorigin="anonymous"
-            async>
-    </script>
-    {% endif %}
-</div>
+{% if theme.comments.system == 'waline' %}
+<div id="waline-comments" class="comments-section"></div>
+{% elif theme.comments.system == 'giscus' %}
+<script src="https://giscus.app/client.js"
+        data-repo="{{ theme.comments.giscus.repo }}"
+        data-repo-id="{{ theme.comments.giscus.repo_id }}"
+        data-category="{{ theme.comments.giscus.category }}"
+        data-category-id="{{ theme.comments.giscus.category_id }}"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+{% elif theme.comments.system == 'utterances' %}
+<script src="https://utteranc.es/client.js"
+        repo="{{ theme.comments.utterances.repo }}"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
 {% endif %}
